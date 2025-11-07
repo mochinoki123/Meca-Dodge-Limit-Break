@@ -1,0 +1,9 @@
+mekagame/Library/
+mekagame/Temp/
+mekagame/Logs/
+mekagame/.vs/
+mekagame/obj/
+mekagame/UserSettings/
+*.sln
+*.vsconfig
+*.csproj
