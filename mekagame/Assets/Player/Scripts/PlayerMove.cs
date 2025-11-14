@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
     Vector3 movVec;
 
     bool goJump = false;
-    bool isRun = false;        
+    public static bool isRun = false;        
     bool isRunCoolTime = false; 
     bool isRunKey = false;    
 
@@ -30,7 +30,7 @@ public class PlayerMove : MonoBehaviour
 
         if (isRunKey)
         {
-            TryStartRun();
+            Run();
         }
     }
 
@@ -58,7 +58,7 @@ public class PlayerMove : MonoBehaviour
         );
     }
 
-    private void TryStartRun()
+    private void Run()
     {
         if (isRun) return;         
         if (isRunCoolTime) return;  
@@ -105,6 +105,14 @@ public class PlayerMove : MonoBehaviour
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             }
             goJump = false;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Missile") && CompareTag("Player"))
+        {
+            PlayerResource.Instance.Damage();
+            PlayerResource.Instance.UpdateText();
         }
     }
 }

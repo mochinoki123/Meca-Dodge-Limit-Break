@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AttackPoint
   - Missile
+  - PlayerGraze
   layers:
   - Default
   - TransparentFX

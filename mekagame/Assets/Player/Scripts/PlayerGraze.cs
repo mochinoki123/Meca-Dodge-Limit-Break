@@ -1,16 +1,25 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerGraze : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private HashSet<GameObject> grazedMissiles = new HashSet<GameObject>();
+
+    private void OnTriggerStay(Collider other)
     {
-        
+        if (other.CompareTag("Missile") && PlayerMove.isRun && CompareTag("PlayerGraze"))
+        {
+            if (!grazedMissiles.Contains(other.gameObject))
+            {
+                AddGraze(other.gameObject);
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void AddGraze(GameObject missile)
     {
-        
+        grazedMissiles.Add(missile); 
+        PlayerResource.Instance.AddGage();
+        PlayerResource.Instance.UpdateText();
     }
 }
