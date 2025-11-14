@@ -20,10 +20,8 @@ public class PlayerMove : MonoBehaviour
     bool isRunKey = false;    
 
     void Awake() => rb = GetComponent<Rigidbody>();
-
     private void OnMove(InputValue value) => inputVec = value.Get<Vector2>();
     private void OnJump(InputValue value) => goJump = true;
-
     private void OnSprint(InputValue value)
     {
         isRunKey = value.isPressed;
@@ -33,20 +31,17 @@ public class PlayerMove : MonoBehaviour
             Run();
         }
     }
-
     void Update()
     {
         Move();
         Rotate();
         CheckGround();
     }
-
     private void FixedUpdate()
     {
         Jump();
         rb.linearVelocity = movVec;
     }
-
     private void Move()
     {
         float speed = (isRun ? runSpeed : walkSpeed) * inputVec.magnitude;
@@ -57,14 +52,12 @@ public class PlayerMove : MonoBehaviour
             inputVec.y * speed
         );
     }
-
     private void Run()
     {
         if (isRun) return;         
         if (isRunCoolTime) return;  
         StartCoroutine(RunRoutine());
     }
-
     private IEnumerator RunRoutine()
     {
         isRun = true;
@@ -77,7 +70,6 @@ public class PlayerMove : MonoBehaviour
         yield return new WaitForSeconds(runCoolTime);
         isRunCoolTime = false;
     }
-
     private void Rotate()
     {
         Vector3 lookDir = new Vector3(movVec.x, 0, movVec.z);
@@ -87,7 +79,6 @@ public class PlayerMove : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * 10f);
         }
     }
-
     private bool CheckGround()
     {
         return Physics.Linecast(
@@ -95,7 +86,6 @@ public class PlayerMove : MonoBehaviour
             transform.position - (Vector3.up * 0.2f)
         );
     }
-
     private void Jump()
     {
         if (goJump)
