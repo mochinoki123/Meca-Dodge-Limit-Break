@@ -9,6 +9,20 @@ public class enemyattack : MonoBehaviour
     [SerializeField] int attackpointy;//UŒ‚”­¶‚Ì‚‚³
     [SerializeField] int attackpointz;//UŒ‚”­¶‚Ì‰œs
 
+
+    /*
+    class EnemyAttack
+    {
+        public GameObject ball;
+        public GameObject attackpoint;
+        public EnemyAttack(GameObject ball, GameObject attackpoint)
+        {
+            this.ball = ball;
+            this.attackpoint = attackpoint;
+        }
+    }
+    */
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,13 +31,17 @@ public class enemyattack : MonoBehaviour
         {
             Instantiate(ball, new Vector3(x, attackpointy, attackpointz - i * attackf), Quaternion.identity);//”­Ë
             Instantiate(attackpoint, new Vector3(x, 0, attackpointz - i * attackf), Quaternion.identity);//UŒ‚”ÍˆÍ
+
         }
+
+        
     }
 
+    
     // Update is called once per frame
     void Update()
     {
         Rigidbody ballRigidbody = ball.GetComponent<Rigidbody>();
-        
+
     }
 }
