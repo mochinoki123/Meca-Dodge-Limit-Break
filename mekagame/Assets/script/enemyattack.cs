@@ -10,6 +10,8 @@ public class enemyattack : MonoBehaviour
     [SerializeField] float rndp;//ƒtƒB[ƒ‹ƒh‚²‚Æ‚Ì”ÍˆÍw’èƒvƒ‰ƒX
 
     [SerializeField] int attackf;//UŒ‚‚ÌŠÔŠu
+
+    [SerializeField] int attackpointx;//UŒ‚”­¶¶‰E
     [SerializeField] int attackpointy;//UŒ‚”­¶‚Ì‚‚³
     [SerializeField] int attackpointz;//UŒ‚”­¶‚Ì‰œs
 
@@ -19,11 +21,21 @@ public class enemyattack : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         float x = Random.Range(rndm, rndp);//’n–Ê‚ÌL‚³‚É‚æ‚Á‚Ä•ÏX
+        float z = Random.Range(rndm, rndp);//’n–Ê‚ÌL‚³‚É‚æ‚Á‚Ä•ÏX
         for (int i = 0; i < 6; i++)
         {
+            float numx = Random.Range(rndm, rndp);
+            float numz = Random.Range(rndm, rndp);
+
+            /*
             Instantiate(missile, new Vector3(x, attackpointy, attackpointz - i * attackf), Quaternion.identity);//”­Ë
             Instantiate(attackpoint, new Vector3(x, 0, attackpointz - i * attackf), Quaternion.identity);//UŒ‚”ÍˆÍ
+            */
+
+            Instantiate(missile, new Vector3((attackf * numx) - numx, attackpointy, (attackf * numz) - numz), Quaternion.identity);//”­Ë
+            Instantiate(attackpoint, new Vector3((attackf * numx) - numx, 0, (attackf * numz) - numz), Quaternion.identity);//UŒ‚”ÍˆÍ
 
         }
 
