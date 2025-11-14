@@ -651,8 +651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf0c0b7d06ec7c45969475ff0939424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 2122294721}
-  attackpoint: {fileID: 700552364}
+  ball: {fileID: 7983971667803128047, guid: 8c71dd582097a0e49a96efe44a4d49fd, type: 3}
+  attackpoint: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
   attackf: 5
   attackpointy: 15
   attackpointz: 20
