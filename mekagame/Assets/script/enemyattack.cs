@@ -18,11 +18,8 @@ public class enemyattack : MonoBehaviour
 
     [SerializeField] int lazerpointy;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Attack1()
     {
-        float x = Random.Range(rndm, rndp);//’n–Ê‚ÌL‚³‚É‚æ‚Á‚Ä•ÏX
-        float z = Random.Range(rndm, rndp);//’n–Ê‚ÌL‚³‚É‚æ‚Á‚Ä•ÏX
         for (int i = 0; i < 6; i++)
         {
             float numx = Random.Range(rndm, rndp);
@@ -36,8 +33,21 @@ public class enemyattack : MonoBehaviour
             Instantiate(missile, new Vector3((attackf * numx) - numx, attackpointy, (attackf * numz) - numz), Quaternion.identity);//”­Ë
             Instantiate(attackpoint, new Vector3((attackf * numx) - numx, 0, (attackf * numz) - numz), Quaternion.identity);//UŒ‚”ÍˆÍ
         }
+    }
+    void Attack2()
+    {
+        float x = Random.Range(rndm, rndp);//’n–Ê‚ÌL‚³‚É‚æ‚Á‚Ä•ÏX
+        float z = Random.Range(rndm, rndp);//’n–Ê‚ÌL‚³‚É‚æ‚Á‚Ä•ÏX
+
         Instantiate(lazerattackpoint, new Vector3(x, 0, 0), Quaternion.identity);
         Instantiate(lazer, new Vector3(x, lazerpointy, 0), Quaternion.identity);//”­Ë
+    }
+
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        Invoke("Attack1",3f);
+        Invoke("Attack2", 5f);
 
         /*UŒ‚3kari
         for (int i = 0; i < ”ÍˆÍŸ‘æ; i++)
