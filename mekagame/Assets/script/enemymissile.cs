@@ -14,12 +14,12 @@ public class enemymissile : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("AttackPoint")) // 敵かどうかのタグをチェック
+        if (other.CompareTag("AttackPoint")) //タグをチェック
         {
-            Destroy(collision.gameObject); // 着弾ポイントを破壊
-            Destroy(gameObject); // 弾も消す
+            Destroy(other.gameObject); // 着弾ポイントを破壊
+            Destroy(gameObject); // 攻撃も消す
         }
     }
 }
