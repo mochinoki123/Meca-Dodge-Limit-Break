@@ -7,7 +7,7 @@ public class PlayerGraze : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Missile") && PlayerMove.isRun && CompareTag("PlayerGraze"))
+        if (other.CompareTag("Missile") && PlayerMove.isRun)
         {
             if (!grazedMissiles.Contains(other.gameObject))
             {
@@ -19,7 +19,6 @@ public class PlayerGraze : MonoBehaviour
     private void AddGraze(GameObject missile)
     {
         grazedMissiles.Add(missile); 
-        PlayerResource.Instance.AddGage();
-        PlayerResource.Instance.UpdateText();
+        PlayerResource.Instance.AddGage(10);
     }
 }

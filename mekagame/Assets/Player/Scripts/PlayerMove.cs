@@ -9,27 +9,40 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float runTime;
     [SerializeField] private float runCoolTime;
     [SerializeField] private float jumpForce;
+    [SerializeField] private GameObject playerParry;
+    [SerializeField] private float parryTime;
+    [SerializeField] private float parryCoolTime;
 
     Rigidbody rb;
     Vector2 inputVec;
     Vector3 movVec;
+    private float notSpeed = 0;
 
     bool goJump = false;
-    public static bool isRun = false;        
-    bool isRunCoolTime = false; 
-    bool isRunKey = false;    
+    public static bool isRun = false;
+    bool isRunCoolTime = false;
+    bool isParry = false;
+    bool isParryCoolTime = false;
+    bool notMove = false;
 
-    void Awake() => rb = GetComponent<Rigidbody>();
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     private void OnMove(InputValue value) => inputVec = value.Get<Vector2>();
     private void OnJump(InputValue value) => goJump = true;
+    private void OnParry(InputValue value)
+    {
+        if (isParry) return;
+        if (isParryCoolTime) return;
+        playerParry.SetActive(true);
+        StartCoroutine(Parry());
+    }
     private void OnSprint(InputValue value)
     {
-        isRunKey = value.isPressed;
-
-        if (isRunKey)
-        {
-            Run();
-        }
+        if (isRun) return;
+        if (isRunCoolTime) return;
+        StartCoroutine(Run());
     }
     void Update()
     {
@@ -44,21 +57,16 @@ public class PlayerMove : MonoBehaviour
     }
     private void Move()
     {
-        float speed = (isRun ? runSpeed : walkSpeed) * inputVec.magnitude;
+        float baseSpeed = notMove ? notSpeed : (isRun ? runSpeed : walkSpeed);
 
+        float speed = baseSpeed * inputVec.magnitude;
         movVec = new Vector3(
             inputVec.x * speed,
             rb.linearVelocity.y,
             inputVec.y * speed
         );
     }
-    private void Run()
-    {
-        if (isRun) return;         
-        if (isRunCoolTime) return;  
-        StartCoroutine(RunRoutine());
-    }
-    private IEnumerator RunRoutine()
+    private IEnumerator Run()
     {
         isRun = true;
 
@@ -96,5 +104,19 @@ public class PlayerMove : MonoBehaviour
             }
             goJump = false;
         }
+    }
+    private IEnumerator Parry()
+    {
+        yield return new WaitForSeconds(parryTime);
+
+        isParry = false;
+
+        if(!PlayerParry.parrySuccess) notMove = true;
+        PlayerParry.parrySuccess = false;
+        playerParry.SetActive(false);
+        isParryCoolTime = true;
+        yield return new WaitForSeconds(parryCoolTime);
+        isParryCoolTime = false;
+        notMove = false;
     }
 }

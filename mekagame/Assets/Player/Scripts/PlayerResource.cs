@@ -11,7 +11,6 @@ public class PlayerResource : MonoBehaviour
     [SerializeField] private Text gageText;
     [SerializeField] private int nowHP;
     [SerializeField] private int nowGage;
-    [SerializeField] private int addGage;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -36,9 +35,13 @@ public class PlayerResource : MonoBehaviour
     {
         nowHP = maxHP;
     }
-    public void AddGage()
+    public void AddGage(int n)
     {
-        if (nowGage < maxGage) nowGage += addGage;
+        if (nowGage < maxGage)
+        {
+            nowGage += n;
+            UpdateText();
+        }
     }
     public void ResetGage()
     {
