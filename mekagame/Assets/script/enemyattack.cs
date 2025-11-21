@@ -10,54 +10,92 @@ public class enemyattack : MonoBehaviour
 
     [SerializeField] float rndm;//フィールドごとの範囲指定マイナス
     [SerializeField] float rndp;//フィールドごとの範囲指定プラス
+    public float x;
+    public float z;
 
     [SerializeField] int attackf;//攻撃の間隔
 
+    [SerializeField] int attack1missile;
+
+    [SerializeField] int attack3missilex;
+    [SerializeField] int attack3missilety;
+    [SerializeField] int attackpointx3ty;
+    [SerializeField] int attackpointz3ty;
+
+    [SerializeField] int attackpointx;
     [SerializeField] int attackpointy;//攻撃発生の高さ
     [SerializeField] int attackpointz;//攻撃発生の奥行
 
+    
+
     [SerializeField] int lazerpointy;
+
+    
 
     void Attack1()
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < attack1missile; i++)
         {
-            float numx = Random.Range(rndm, rndp);
-            float numz = Random.Range(rndm, rndp);
+            x = Random.Range(rndm, rndp);//地面の広さによって変更
+            z = Random.Range(rndm, rndp);//地面の広さによって変更
 
             /*
             Instantiate(missile, new Vector3(x, attackpointy, attackpointz - i * attackf), Quaternion.identity);//発射
             Instantiate(attackpoint, new Vector3(x, 0, attackpointz - i * attackf), Quaternion.identity);//攻撃範囲
             */
 
-            Instantiate(missile, new Vector3((attackf * numx) - numx, attackpointy, (attackf * numz) - numz), Quaternion.identity);//発射
-            Instantiate(attackpoint, new Vector3((attackf * numx) - numx, 0, (attackf * numz) - numz), Quaternion.identity);//攻撃範囲
+            Instantiate(missile, new Vector3((attackf * x) - x, attackpointy, (attackf * z) - z), Quaternion.identity);//発射
+            Instantiate(attackpoint, new Vector3((attackf * x) - x, 0, (attackf * z) - z), Quaternion.identity);//攻撃範囲
         }
     }
-    void Attack2()
-    {
-        float x = Random.Range(rndm, rndp);//地面の広さによって変更
-        float z = Random.Range(rndm, rndp);//地面の広さによって変更
+    void Attack2lp()
+    { 
+      //float z = Random.Range(rndm, rndp);//地面の広さによって変更
 
         Instantiate(lazerattackpoint, new Vector3(x, 0, 0), Quaternion.identity);
-        Instantiate(lazer, new Vector3(x, lazerpointy, 0), Quaternion.identity);//発射
+        Destroy(lazerattackpoint, 3f);
+        Invoke("Attack2l",2f);
+        
     }
-
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Attack2l() 
     {
-        Invoke("Attack1",3f);
-        Invoke("Attack2", 5f);
-
-        /*攻撃3kari
-        for (int i = 0; i < 範囲次第; i++)
+        Instantiate(lazer, new Vector3(x, lazerpointy, 0), Quaternion.identity);//発射
+        Destroy(lazer,1f);
+    }
+    void Attack3()
+    {
+        //攻撃3kari
+        for (int i = 1; i <= attack3missilex; i++)
         {
             Instantiate(missile, new Vector3(attackpointx - i * attackf, attackpointy, attackpointz - i * attackf), Quaternion.identity);
-            Instantiate(attackpoint, new Vector3(attackpointx + i * attackf, 0, attackpointz + i * attackf), Quaternion.identity);
-            Instantiate(missile, new Vector3(attackpointx - i * attackf, attackpointy, attackpointz - i * attackf), Quaternion.identity);
+            Instantiate(attackpoint, new Vector3(attackpointx - i * attackf, 0, attackpointz - i * attackf), Quaternion.identity);
+            Instantiate(missile, new Vector3(attackpointx - i * attackf, attackpointy, attackpointz + i * attackf), Quaternion.identity);
+            Instantiate(attackpoint, new Vector3(attackpointx - i * attackf, 0, attackpointz + i * attackf), Quaternion.identity);
+            Instantiate(missile, new Vector3(attackpointx + i * attackf, attackpointy, attackpointz - i * attackf), Quaternion.identity);
+            Instantiate(attackpoint, new Vector3(attackpointx + i * attackf, 0, attackpointz - i * attackf), Quaternion.identity);
+            Instantiate(missile, new Vector3(attackpointx + i * attackf, attackpointy, attackpointz + i * attackf), Quaternion.identity);
             Instantiate(attackpoint, new Vector3(attackpointx + i * attackf, 0, attackpointz + i * attackf), Quaternion.identity);
         }
-        */
+
+        for (int i = 1; i <= attack3missilety; i++)
+        {
+            Instantiate(missile, new Vector3(0, attackpointy, attackpointz3ty - i * attackf), Quaternion.identity);
+            Instantiate(attackpoint, new Vector3(0, 0, attackpointz3ty - i * attackf), Quaternion.identity);
+            Instantiate(missile, new Vector3(attackpointx3ty - i * attackf, attackpointy, 0), Quaternion.identity);
+            Instantiate(attackpoint, new Vector3(attackpointx3ty - i * attackf, 0, 0), Quaternion.identity);
+        }
+
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        x = Random.Range(rndm, rndp);//地面の広さによって変更
+        z = Random.Range(rndm, rndp);//地面の広さによって変更
+
+        Invoke("Attack1", 3f);
+      //Invoke("Attack2lp", 7f);
+        Invoke("Attack3", 12.5f);
     }
 
     // Update is called once per frame

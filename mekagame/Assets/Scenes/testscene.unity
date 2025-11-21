@@ -521,9 +521,17 @@ MonoBehaviour:
   lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
   rndm: -5
   rndp: 5
+  x: 0
+  z: 0
   attackf: 5
+  attack1missile: 6
+  attack3missilex: 6
+  attack3missilety: 11
+  attackpointx3ty: 26
+  attackpointz3ty: 26
+  attackpointx: 0
   attackpointy: 15
-  attackpointz: 20
+  attackpointz: 0
   lazerpointy: 5
 --- !u!4 &1263183855
 Transform:
