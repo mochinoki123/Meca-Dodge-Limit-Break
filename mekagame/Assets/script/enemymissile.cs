@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class enemymissile : MonoBehaviour
 {
+    public GameObject point;
+    private GameObject p;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Vector3 mPos = new Vector3(transform.position.x, 0, transform.position.z);
+        p = Instantiate(point, mPos, Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -13,13 +16,17 @@ public class enemymissile : MonoBehaviour
     {
         
     }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("AttackPoint")) //タグをチェック
+        if(other.CompareTag("AttackPoint"))
         {
-            Destroy(other.gameObject); // 着弾ポイントを破壊
-            Destroy(gameObject); // 攻撃も消す
+            Kill();
         }
+    }
+
+    public void Kill()
+    {
+        Destroy(p);
+        Destroy(gameObject);
     }
 }

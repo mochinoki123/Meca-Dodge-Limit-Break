@@ -4,7 +4,7 @@ using static UnityEngine.GraphicsBuffer;
 public class enemyattack : MonoBehaviour
 {
     [SerializeField] GameObject missile;//ƒ~ƒTƒCƒ‹UŒ‚‚ÌƒIƒuƒWƒFƒNƒg
-    [SerializeField] GameObject attackpoint;//UŒ‚”­¶’n“_
+    //[SerializeField] GameObject attackpoint;//UŒ‚”­¶’n“_
     [SerializeField] GameObject lazer;
     [SerializeField] GameObject lazerattackpoint;
 
@@ -88,7 +88,7 @@ public class enemyattack : MonoBehaviour
             */
 
             Instantiate(missile, new Vector3((attackf * x) - x, attackpointy, (attackf * z) - z), Quaternion.identity);//”­Ë
-            Instantiate(attackpoint, new Vector3((attackf * x) - x, 0, (attackf * z) - z), Quaternion.identity);//UŒ‚”ÍˆÍ
+            //Instantiate(attackpoint, new Vector3((attackf * x) - x, 0, (attackf * z) - z), Quaternion.identity);//UŒ‚”ÍˆÍ
         }
         Debug.Log("UŒ‚‡T");
     }
@@ -116,13 +116,13 @@ public class enemyattack : MonoBehaviour
             for (int i = 1; i <= attack3missilex; i++)
             {
                 Instantiate(missile, new Vector3(attackpointx - i * attackf, attackpointy, attackpointz - i * attackf), Quaternion.identity);
-                Instantiate(attackpoint, new Vector3(attackpointx - i * attackf, 0, attackpointz - i * attackf), Quaternion.identity);
+                //Instantiate(attackpoint, new Vector3(attackpointx - i * attackf, 0, attackpointz - i * attackf), Quaternion.identity);
                 Instantiate(missile, new Vector3(attackpointx - i * attackf, attackpointy, attackpointz + i * attackf), Quaternion.identity);
-                Instantiate(attackpoint, new Vector3(attackpointx - i * attackf, 0, attackpointz + i * attackf), Quaternion.identity);
+                //Instantiate(attackpoint, new Vector3(attackpointx - i * attackf, 0, attackpointz + i * attackf), Quaternion.identity);
                 Instantiate(missile, new Vector3(attackpointx + i * attackf, attackpointy, attackpointz - i * attackf), Quaternion.identity);
-                Instantiate(attackpoint, new Vector3(attackpointx + i * attackf, 0, attackpointz - i * attackf), Quaternion.identity);
+                //Instantiate(attackpoint, new Vector3(attackpointx + i * attackf, 0, attackpointz - i * attackf), Quaternion.identity);
                 Instantiate(missile, new Vector3(attackpointx + i * attackf, attackpointy, attackpointz + i * attackf), Quaternion.identity);
-                Instantiate(attackpoint, new Vector3(attackpointx + i * attackf, 0, attackpointz + i * attackf), Quaternion.identity);
+                //Instantiate(attackpoint, new Vector3(attackpointx + i * attackf, 0, attackpointz + i * attackf), Quaternion.identity);
             }
         }
         else
@@ -130,9 +130,9 @@ public class enemyattack : MonoBehaviour
             for (int i = 1; i <= attack3missilety; i++)
             {
                 Instantiate(missile, new Vector3(0, attackpointy, attackpointz3ty - i * attackf), Quaternion.identity);
-                Instantiate(attackpoint, new Vector3(0, 0, attackpointz3ty - i * attackf), Quaternion.identity);
+                //Instantiate(attackpoint, new Vector3(0, 0, attackpointz3ty - i * attackf), Quaternion.identity);
                 Instantiate(missile, new Vector3(attackpointx3ty - i * attackf, attackpointy, 0), Quaternion.identity);
-                Instantiate(attackpoint, new Vector3(attackpointx3ty - i * attackf, 0, 0), Quaternion.identity);
+                //Instantiate(attackpoint, new Vector3(attackpointx3ty - i * attackf, 0, 0), Quaternion.identity);
             }
         }
         Debug.Log("UŒ‚‡V");
