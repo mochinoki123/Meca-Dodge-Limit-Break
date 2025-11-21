@@ -97,12 +97,4 @@ public class PlayerMove : MonoBehaviour
             goJump = false;
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Missile") && CompareTag("Player"))
-        {
-            PlayerResource.Instance.Damage();
-            PlayerResource.Instance.UpdateText();
-        }
-    }
 }

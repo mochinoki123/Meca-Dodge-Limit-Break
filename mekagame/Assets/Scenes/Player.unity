@@ -385,7 +385,9 @@ GameObject:
   - component: {fileID: 561850216}
   - component: {fileID: 561850214}
   - component: {fileID: 561850218}
+  - component: {fileID: 561850220}
   - component: {fileID: 561850219}
+  - component: {fileID: 561850221}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -497,14 +499,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 561850213}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f76e19e6db320147a429bf29914821e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &561850220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561850213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f131194bd67446343b089ebba0190ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 2
+  walkSpeed: 5
   runSpeed: 10
   runTime: 0.5
-  runCoolTime: 1
+  runCoolTime: 0.5
   jumpForce: 5
+--- !u!114 &561850221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561850213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5d74e5bbe1cbe44b91cedb3b47b113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincibleTime: 3
 --- !u!1 &866524152
 GameObject:
   m_ObjectHideFlags: 0
