@@ -525,7 +525,7 @@ MonoBehaviour:
   z: 0
   attackf: 5
   attack1missile: 6
-  attack3missilex: 6
+  attack3missilex: 5
   attack3missilety: 11
   attackpointx3ty: 26
   attackpointz3ty: 26
