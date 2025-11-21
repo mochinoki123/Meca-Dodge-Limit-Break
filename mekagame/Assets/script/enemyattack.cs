@@ -46,6 +46,11 @@ public class enemyattack : MonoBehaviour
 
         Invoke("Attackrnd",15f);
 
+        
+        
+        Invoke("Attack5lp", 19f);
+        
+
     }
 
     // Update is called once per frame
@@ -92,16 +97,15 @@ public class enemyattack : MonoBehaviour
     {
         //float z = Random.Range(rndm, rndp);//ínñ ÇÃçLÇ≥Ç…ÇÊÇ¡ÇƒïœçX
 
-        GameObject a2p = Instantiate(lazerattackpoint, new Vector3(x, 0, 0), Quaternion.identity);
-        
-        Destroy(a2p, 3f);
+        GameObject Attack2lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(x, 0, 0), Quaternion.identity);
+        Destroy(Attack2lazerattackpoint, 3f);
         Invoke("Attack2l", 2f);
 
     }
     void Attack2l()
     {
-        GameObject hamaki=Instantiate(lazer, new Vector3(x, lazerpointy, 0), Quaternion.identity);//î≠éÀ
-        Destroy(hamaki, 1f);
+        GameObject Attack2lazer = Instantiate(lazer, new Vector3(x, lazerpointy, 0), Quaternion.identity);//î≠éÀ
+        Destroy(Attack2lazer, 1f);
         Debug.Log("çUåÇáU");
     }
 
@@ -134,5 +138,23 @@ public class enemyattack : MonoBehaviour
         Debug.Log("çUåÇáV");
     }
 
+    void Attack4()
+    {
+
+    }
     
+    void Attack5lp()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            GameObject Attack5lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(x, 0, 0), Quaternion.identity);
+            Destroy(Attack5lazerattackpoint, 3f);
+            Invoke("Attack5l", 2f);
+        }
+    }
+    void Attack5l()
+    {
+        GameObject Attack5lazer = Instantiate(lazer, new Vector3(x, lazerpointy, 0), Quaternion.identity);//î≠éÀ
+        Destroy(Attack5lazer, 1f);
+    }
 }
