@@ -12,6 +12,7 @@ public class PlayerDamage : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Missile") && CompareTag("Player") && !PlayerInvincible.isInvincible)
         {
+            other.gameObject.GetComponent<enemymissile>().Kill();
             PlayerResource.Instance.Damage();
             PlayerResource.Instance.UpdateText();
             invincible.OnInvincible();

@@ -1,9 +1,12 @@
+using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerParry : MonoBehaviour
 {
     public static bool parrySuccess;
+    private HashSet<GameObject> parriedMissiles = new HashSet<GameObject>();
 
     private void Start()
     {
@@ -12,9 +15,14 @@ public class PlayerParry : MonoBehaviour
     {
         if (other.CompareTag("Missile"))
         {
-            other.gameObject.GetComponent<enemymissile>().Kill();
-            parrySuccess = true;
-            PlayerResource.Instance.AddGage(50);
+            if (!parriedMissiles.Contains(other.gameObject))
+            {
+                parriedMissiles.Add(other.gameObject);
+                other.gameObject.GetComponent<enemymissile>().Kill();
+                parrySuccess = true;
+                PlayerResource.Instance.AddGage(50);
+            }
+            
         }
     }
 }
