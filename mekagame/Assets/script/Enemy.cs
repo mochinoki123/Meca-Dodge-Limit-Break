@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI EnemyHp;
-    [SerializeField] int EnemyMAXHP;
+    [SerializeField] public int EnemyMAXHP;
+    [SerializeField] public int EnemyHP = 1000;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

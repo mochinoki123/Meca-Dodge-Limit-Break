@@ -4,7 +4,7 @@ using static UnityEngine.GraphicsBuffer;
 public class enemyattack : MonoBehaviour
 {
     [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
-    //[SerializeField] GameObject attackpoint;//攻撃発生地点
+  //[SerializeField] GameObject attackpoint;//攻撃発生地点
     [SerializeField] GameObject lazer;
     [SerializeField] GameObject lazerattackpoint;
 
@@ -29,7 +29,7 @@ public class enemyattack : MonoBehaviour
     public float x;
     public float z;
 
-    public int attack3bunki;//random値確認用基本使わない
+    public int attackbunki;//random値確認用基本使わない
     public int attack123;//random値確認用基本使わない
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -37,7 +37,7 @@ public class enemyattack : MonoBehaviour
     {
         x = Random.Range(rndm, rndp);//地面の広さによって変更
         z = Random.Range(rndm, rndp);//地面の広さによって変更
-        attack3bunki = Random.Range(0, 100);
+        attackbunki = Random.Range(0, 100);
         attack123 = Random.Range(0, 2);
 
         Invoke("Attack1", 3f);
@@ -45,6 +45,12 @@ public class enemyattack : MonoBehaviour
         Invoke("Attack3", 12.5f);
 
         Invoke("Attackrnd",15f);
+
+      /*while(EnemyMAXHP==750)
+        {
+            
+        }
+      */
 
         Invoke("Attack5lp", 18f);
         
@@ -99,8 +105,8 @@ public class enemyattack : MonoBehaviour
         GameObject Attack2lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(x, 0, 0), Quaternion.identity);
         Destroy(Attack2lazerattackpoint, 3f);
         Invoke("Attack2l", 2f);
-
     }
+
     void Attack2l()
     {
         GameObject Attack2lazer = Instantiate(lazer, new Vector3(x, lazerpointy, 0), Quaternion.identity);//発射
@@ -110,7 +116,7 @@ public class enemyattack : MonoBehaviour
 
     void Attack3()
     {
-        if (attack3bunki < 50)
+        if (attackbunki < 50)
         {
             for (int i = 1; i <= attack3missilex; i++)
             {
@@ -150,10 +156,19 @@ public class enemyattack : MonoBehaviour
             Destroy(Attack5lazerattackpoint, 3f);
             Invoke("Attack5l", 2f);
         }
+        for (int i = 0; i < 6; i++)
+        {
+            GameObject Attack5lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(0, 0, z), Quaternion.identity);
+            Destroy(Attack5lazerattackpoint, 3f);
+            Invoke("Attack5l", 2f);
+        }
+            
     }
+
     void Attack5l()
     {
         GameObject Attack5lazer = Instantiate(lazer, new Vector3(x, lazerpointy, 0), Quaternion.identity);//発射
         Destroy(Attack5lazer, 1f);
+      //GameObject Attack5lazer = Instantiate(lazer, new Vector3(0, lazerpointy, z), Quaternion.identity);//発射
     }
 }
