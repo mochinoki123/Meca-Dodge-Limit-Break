@@ -39,14 +39,14 @@ public class enemyattack : MonoBehaviour
         z = Random.Range(rndm, rndp);//’n–Ê‚ÌL‚³‚É‚æ‚Á‚Ä•ÏX
         attack3bunki = Random.Range(0, 100);
         attack123 = Random.Range(0, 2);
-/*
+
         Invoke("Attack1", 3f);
       @Invoke("Attack2lp", 7f);
         Invoke("Attack3", 12.5f);
 
         Invoke("Attackrnd",15f);
-*/
-        Invoke("Attack5lp", 2f);
+
+        Invoke("Attack5lp", 18f);
         
     }
 
@@ -58,12 +58,12 @@ public class enemyattack : MonoBehaviour
 
     void Attackrnd()
     {
-        attack123 = Random.Range(0, 2);
-        if (attack123 == 0)
+        attack123 = Random.Range(0, 99);
+        if (attack123 <=33)
         {
             Invoke("Attack1", 2f);
         }
-        else if (attack123 == 1)
+        else if (attack123 <=66)
         {
             Invoke("Attack2lp", 2f);
         }
