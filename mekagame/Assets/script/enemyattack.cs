@@ -39,18 +39,15 @@ public class enemyattack : MonoBehaviour
         z = Random.Range(rndm, rndp);//地面の広さによって変更
         attack3bunki = Random.Range(0, 100);
         attack123 = Random.Range(0, 2);
-
+/*
         Invoke("Attack1", 3f);
       　Invoke("Attack2lp", 7f);
         Invoke("Attack3", 12.5f);
 
         Invoke("Attackrnd",15f);
-
+*/
+        Invoke("Attack5lp", 2f);
         
-        
-        Invoke("Attack5lp", 19f);
-        
-
     }
 
     // Update is called once per frame
@@ -61,6 +58,7 @@ public class enemyattack : MonoBehaviour
 
     void Attackrnd()
     {
+        attack123 = Random.Range(0, 2);
         if (attack123 == 0)
         {
             Invoke("Attack1", 2f);
@@ -96,6 +94,7 @@ public class enemyattack : MonoBehaviour
     void Attack2lp()
     {
         //float z = Random.Range(rndm, rndp);//地面の広さによって変更
+        x = Random.Range(rndm, rndp);
 
         GameObject Attack2lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(x, 0, 0), Quaternion.identity);
         Destroy(Attack2lazerattackpoint, 3f);
