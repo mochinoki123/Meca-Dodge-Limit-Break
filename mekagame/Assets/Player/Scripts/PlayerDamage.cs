@@ -14,7 +14,6 @@ public class PlayerDamage : MonoBehaviour
         {
             other.gameObject.GetComponent<enemymissile>().Kill();
             PlayerResource.Instance.Damage();
-            PlayerResource.Instance.UpdateText();
             invincible.OnInvincible();
         }
     }

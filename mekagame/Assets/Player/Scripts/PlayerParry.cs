@@ -21,8 +21,7 @@ public class PlayerParry : MonoBehaviour
                 other.gameObject.GetComponent<enemymissile>().Kill();
                 parrySuccess = true;
                 PlayerResource.Instance.AddGage(50);
-            }
-            
+            } 
         }
     }
 }

@@ -12,6 +12,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private GameObject playerParry;
     [SerializeField] private float parryTime;
     [SerializeField] private float parryCoolTime;
+    [SerializeField] private int pulseDiffuserUseGage;
+    [SerializeField] private GameObject pulseDiffuser;
+    [SerializeField] private float pulseTime;
 
     Rigidbody rb;
     Vector2 inputVec;
@@ -24,6 +27,9 @@ public class PlayerMove : MonoBehaviour
     bool isParry = false;
     bool isParryCoolTime = false;
     bool notMove = false;
+    public static bool isLimitBreak = false;
+    public static bool isOverClock = false;
+    public static bool isPulseDiffuser = false;
 
     void Awake()
     {
@@ -31,18 +37,33 @@ public class PlayerMove : MonoBehaviour
     }
     private void OnMove(InputValue value) => inputVec = value.Get<Vector2>();
     private void OnJump(InputValue value) => goJump = true;
-    private void OnParry(InputValue value)
-    {
-        if (isParry) return;
-        if (isParryCoolTime) return;
-        playerParry.SetActive(true);
-        StartCoroutine(Parry());
-    }
     private void OnSprint(InputValue value)
     {
         if (isRun) return;
         if (isRunCoolTime) return;
         StartCoroutine(Run());
+    }
+    private void OnParry(InputValue value)
+    {
+        if (isParry) return;
+        if (isParryCoolTime) return;
+        if (Input.GetKeyDown(KeyCode.LeftControl))return;
+        playerParry.SetActive(true);
+        StartCoroutine(Parry());
+    }
+    private void OnLimitBreak(InputValue value)
+    {
+        if(isLimitBreak) return;
+    }
+    private void OnOverClock(InputValue value)
+    {
+        if(isOverClock) return;
+    }
+    private void OnPulseDiffuser(InputValue value)
+    {
+        if(isPulseDiffuser) return;
+        pulseDiffuser.SetActive(true);
+        StartCoroutine(PulseDiffuser());
     }
     void Update()
     {
@@ -109,14 +130,26 @@ public class PlayerMove : MonoBehaviour
     {
         yield return new WaitForSeconds(parryTime);
 
-        isParry = false;
+        isParry = true;
 
         if(!PlayerParry.parrySuccess) notMove = true;
         PlayerParry.parrySuccess = false;
         playerParry.SetActive(false);
         isParryCoolTime = true;
         yield return new WaitForSeconds(parryCoolTime);
+        isParry = false;
         isParryCoolTime = false;
         notMove = false;
+    }
+    private IEnumerator PulseDiffuser()
+    {
+        if(PlayerResource.Instance.GetterGage() >= pulseDiffuserUseGage)
+        {
+            PlayerResource.Instance.UseGage(pulseDiffuserUseGage);
+            isPulseDiffuser = true;
+            yield return new WaitForSeconds(pulseTime);
+            pulseDiffuser.SetActive(false);
+            isPulseDiffuser = false;
+        }
     }
 }

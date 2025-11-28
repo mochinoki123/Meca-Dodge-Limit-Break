@@ -30,10 +30,12 @@ public class PlayerResource : MonoBehaviour
     public void Damage()
     {
         if(nowHP > 0) nowHP --;
+        UpdateText();
     }
     public void ResetHP()
     {
         nowHP = maxHP;
+        UpdateText();
     }
     public void AddGage(int n)
     {
@@ -46,6 +48,15 @@ public class PlayerResource : MonoBehaviour
     public void ResetGage()
     {
         nowGage = 0;
+        UpdateText();
     }
-
+    public void UseGage(int n)
+    {
+        nowGage -= n;
+        UpdateText();
+    }
+    public int GetterGage()
+    {
+        return nowGage;
+    }
 }
