@@ -833,7 +833,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 7983971667803128047, guid: 8c71dd582097a0e49a96efe44a4d49fd, type: 3}
-  attackpoint: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
   lazer: {fileID: 8872523559970547427, guid: 076bcfa02b811214b95f34a5732d53b1, type: 3}
   lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
   rndm: -5
