@@ -11,12 +11,14 @@ public class PlayerPulseDiffuser : MonoBehaviour
     private bool isPulseDiffuser = false;
     public bool isGageAction = false;
 
+    //“ñ‚Â‚ÌƒL[‚Å”­“®
     private void OnPulseDiffuser(InputValue value)
     {
         if (!isGageAction) return;
         if (isPulseDiffuser) return;
         StartCoroutine(PulseDiffuser());
     }
+    //‰Ÿ‚µ‚½‚Æ‚«true—£‚µ‚½‚Æ‚«false
     private void OnGageAction(InputValue value)
     {
         isGageAction = value.isPressed;
