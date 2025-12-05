@@ -27,6 +27,9 @@ public class enemyattack : MonoBehaviour
     public float attackbunki;//random’lŠm”F—pŠî–{g‚í‚È‚¢
     //UŒ‚‚S
     [SerializeField] GameObject bpoint;//”š”­ƒ|ƒCƒ“ƒg
+    //UŒ‚‚T
+    [SerializeField] public float j = 25;
+    [SerializeField] public float k;
     //UŒ‚À•WŠÖŒW
     [SerializeField] int attackf;//UŒ‚‚ÌŠÔŠu
     [SerializeField] int attackpointx;
@@ -38,6 +41,7 @@ public class enemyattack : MonoBehaviour
     //ƒŒ[ƒU[yÀ•W
     [SerializeField] int lazerpointy;
     public int attack123;//random’lŠm”F—pŠî–{g‚í‚È‚¢
+    public int attack12345;//random’lŠm”F—pŠî–{g‚í‚È‚¢
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -50,20 +54,25 @@ public class enemyattack : MonoBehaviour
     void Update()
     {
         Rigidbody ballRigidbody = missile.GetComponent<Rigidbody>();
-        Rigidbody cubeRigidbody = lazer.GetComponent<Rigidbody>();
+        
     }
 
     void EnemyAttackController1()
     {
         Invoke("Attack1", 3f);
-        Invoke("Attack2lp", 7f);
+        Invoke("Attack2", 7f);
         Invoke("Attack3", 12f);
         Invoke("AttackLoop", 15f);
     }
     void EnemyAttackController2()
     {
-      Invoke("Attack4", 3f);
-      Invoke("Attack5lp", 7f);
+        Invoke("Attack4", 3f);
+        Invoke("Attack5", 7f);
+        Invoke("AttackLoop2", 20f);
+    }
+    void EnemyAttackController3()
+    {
+
     }
 
     void AttackLoop()
@@ -94,11 +103,51 @@ public class enemyattack : MonoBehaviour
         }
         else if (attack123 <=66)
         {
-            Attack2lp();
+            Attack2();
         }
         else
         {
             Attack3();
+        }
+    }
+    void AttackLoop2()
+    {
+        StartCoroutine(AttackLoop2Coroutine());
+    }
+    IEnumerator AttackLoop2Coroutine()
+    {
+        while (enemyhpscripts.EnemyHP > 500)
+        {
+            attack12345 = Random.Range(0, 99);
+            Attackrndv2();
+
+            yield return new WaitForSeconds(3f);
+        }
+
+        Debug.Log("UŒ‚’Ç‰Á‡U");
+        EnemyAttackController3();
+    }
+    void Attackrndv2()
+    {
+        if (attack12345 <= 20)
+        {
+            Attack1();
+        }
+        else if (attack12345 <= 40)
+        {
+            Attack2();
+        }
+        else if (attack12345 <= 60)
+        {
+            Attack3();
+        }
+        else if (attack12345 <= 80)
+        {
+            Attack4();
+        }
+        else
+        {
+            Attack5();
         }
     }
 
@@ -120,10 +169,8 @@ public class enemyattack : MonoBehaviour
         Debug.Log("UŒ‚‡T");
     }
 
-    void Attack2lp()
+    void Attack2()
     {
-      //float z = Random.Range(rndm, rndp);//’n–Ê‚ÌL‚³‚É‚æ‚Á‚Ä•ÏX
-        x = Random.Range(rndm, rndp);
 
         GameObject Attack2lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(x, 0, 0), Quaternion.identity);
         Destroy(Attack2lazerattackpoint, 3f);
@@ -191,36 +238,68 @@ public class enemyattack : MonoBehaviour
         Debug.Log("UŒ‚‡W");
     }
 
-    void Attack5lp()
+    void Attack5() 
     {
-        attackbunki = Random.Range(0, 1);
         if (attackbunki < 0.5f)
         {
-            
-            GameObject Attack5lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(x, 0, 0), Quaternion.identity);
-            Destroy(Attack5lazerattackpoint, 3f);
-            Invoke("Attack5lx", 2f);
+            StartCoroutine(Attack5lxCoroutine());
         }
-        else 
+        else
         {
-
-            GameObject Attack5lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(0, 0, z), Quaternion.identity);
-            Destroy(Attack5lazerattackpoint, 3f);
-            Invoke("Attack5lz", 2f);
+            StartCoroutine(Attack5lzCoroutine());
         }
     }
-
+    IEnumerator Attack5lxCoroutine()
+    {
+        int i = 0;
+        while (i < 9)
+        {
+            Attack5lpx();
+            ++i;
+            yield return new WaitForSeconds(2f);
+        }
+    }
+    IEnumerator Attack5lzCoroutine()
+    {
+        int i = 0;
+        while (i < 10)
+        {
+            Attack5lpz();
+            ++i;
+            yield return new WaitForSeconds(2f);
+        }
+        int j = 25;
+    }
+    void Attack5lpx()
+    {
+        GameObject Attack5lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(j, 0, 0), Quaternion.identity);
+        Destroy(Attack5lazerattackpoint, 3f);
+        Invoke("Attack5lx", 2f);
+    }
     void Attack5lx()
     {
-        GameObject Attack5lazer = Instantiate(lazer, new Vector3(x, lazerpointy, 0), Quaternion.identity);//”­Ë
+        GameObject Attack5lazer = Instantiate(lazer, new Vector3(j, lazerpointy, 0), Quaternion.identity);//”­Ë
+        Rigidbody cubeRigidbody = Attack5lazer.GetComponent<Rigidbody>();
+        cubeRigidbody.AddForce(new Vector3(0, 0, 1) * 10, ForceMode.Impulse);
         Destroy(Attack5lazer, 1f);
+        j = j - k;
         Debug.Log("UŒ‚‡Xx");
+    }
+
+    void Attack5lpz()
+    {
+        GameObject Attack5lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(0, 0, j), Quaternion.identity);
+        Destroy(Attack5lazerattackpoint, 3f);
+        Invoke("Attack5lz", 2f);
     }
 
     void Attack5lz()
     {
-        GameObject Attack5lazer = Instantiate(lazer, new Vector3(0, lazerpointy, z), Quaternion.identity);//”­Ë
+        GameObject Attack5lazer = Instantiate(lazer, new Vector3(0, lazerpointy, j), Quaternion.identity);//”­Ë
+        Rigidbody cubeRigidbody = Attack5lazer.GetComponent<Rigidbody>();
+        cubeRigidbody.AddForce(new Vector3(1, 0, 0) * 10, ForceMode.Impulse);
         Destroy(Attack5lazer, 1f);
+        j = j - k;
         Debug.Log("UŒ‚‡Xz");
     }
 }

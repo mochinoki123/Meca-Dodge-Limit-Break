@@ -836,7 +836,6 @@ MonoBehaviour:
   missile: {fileID: 7983971667803128047, guid: 8c71dd582097a0e49a96efe44a4d49fd, type: 3}
   rndm: -5
   rndp: 5
-  attackf: 5
   attack1missile: 6
   lazer: {fileID: 7643205967857016016, guid: 076bcfa02b811214b95f34a5732d53b1, type: 3}
   lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
@@ -844,14 +843,18 @@ MonoBehaviour:
   attack3missiley: 0
   attackpointx3: 0
   attackpointz3: 0
+  attackbunki: 0
   bpoint: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
+  j: 24
+  k: 6
+  attackf: 5
   attackpointx: 0
   attackpointy: 15
   attackpointz: 0
-  lazerpointy: 3
+  ap: 0
   x: 0
   z: 0
-  attackbunki: 0
+  lazerpointy: 3
   attack123: 0
 --- !u!4 &1263183855
 Transform:
