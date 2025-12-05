@@ -96,18 +96,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "LimitBreak",
+                    "name": "GageAction",
                     "type": "Button",
-                    "id": "14e63351-fb25-4fe7-9dac-0bc83033f42f",
+                    "id": "8a066c2b-a088-443a-a119-ea6a43cf6ecf",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OverClock",
+                    "type": "Button",
+                    "id": "33e5db68-07e4-4fee-a406-e9b4e2527176",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "OverClock",
+                    "name": "LimitBreak",
                     "type": "Button",
-                    "id": "bedaf66e-4179-4cc0-afea-82714b5c5ef6",
+                    "id": "49dfa086-f917-4e32-90a2-40a069329385",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -116,7 +125,7 @@
                 {
                     "name": "PulseDiffuser",
                     "type": "Button",
-                    "id": "ed8ac61f-c59b-4717-bff7-e87a0911ae1f",
+                    "id": "d600caed-ffc2-4a33-b7a6-8ae7b19b2ef8",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -521,103 +530,48 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "One Modifier",
-                    "id": "fb433f60-c0c4-4b2c-a232-a924bd2b5dd2",
-                    "path": "OneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LimitBreak",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "modifier",
-                    "id": "cb8d201d-212a-446d-8b32-9a86c5d31241",
+                    "name": "",
+                    "id": "1022adbc-fa21-4968-9abf-e1e00a6ec095",
                     "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LimitBreak",
+                    "action": "GageAction",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "binding",
-                    "id": "a5cc32ce-4418-4913-a659-ecac7da51652",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LimitBreak",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "One Modifier",
-                    "id": "1c387ff8-2633-46f2-8bfd-d0b8bd77d9c4",
-                    "path": "OneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OverClock",
-                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "modifier",
-                    "id": "b1c4d73a-5872-42e6-aeb0-d46dd8203a2f",
-                    "path": "<Keyboard>/leftCtrl",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OverClock",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "binding",
-                    "id": "fe203fe0-e855-42ac-8a25-b7b085d9a8d7",
+                    "name": "",
+                    "id": "e8ebf950-7fe6-487c-ae26-84fe4e421254",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "OverClock",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "One Modifier",
-                    "id": "94243678-1c1e-4308-ac01-bb6f800ba087",
-                    "path": "OneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PulseDiffuser",
-                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "modifier",
-                    "id": "17758194-4792-4a19-8292-8c56ea1904dc",
-                    "path": "<Keyboard>/leftCtrl",
+                    "name": "",
+                    "id": "48770909-3184-457e-b1f5-3ed320f5444a",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PulseDiffuser",
+                    "action": "LimitBreak",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "binding",
-                    "id": "7fd09c71-9609-4a14-bdd1-ccb187e1571b",
+                    "name": "",
+                    "id": "fe44af3a-6fb8-415a-af28-e9bc5054623c",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "PulseDiffuser",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         },
