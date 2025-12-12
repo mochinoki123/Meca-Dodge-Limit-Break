@@ -9,11 +9,9 @@ public class enemyattack : MonoBehaviour
     //プレハブ
     [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
   //[SerializeField] GameObject attackpoint;//攻撃発生地点
-    
     //フィールド範囲
     [SerializeField] float rndm;//フィールドごとの範囲指定マイナス
     [SerializeField] float rndp;//フィールドごとの範囲指定プラス
-
     Vector3 play;
     //攻撃１
     [SerializeField] int attack1missile;
@@ -364,7 +362,6 @@ public class enemyattack : MonoBehaviour
             i++;
             yield return new WaitForSeconds(2f);
         }
-        Attack6lazerm2point();
     }
     IEnumerator Attack6lazer2Coroutine()
     {
