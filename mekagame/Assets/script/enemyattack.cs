@@ -247,10 +247,10 @@ public class enemyattack : MonoBehaviour
     {
         for (int i = 1; i < attack4missile; i++)
         {
-            GameObject Attack4bpoint1 = Instantiate(bpoint, new Vector3(ap, 0, ap + 5 * i), Quaternion.identity);
-            GameObject Attack4bpoint2 = Instantiate(bpoint, new Vector3(ap + 5 * i, 0, ap), Quaternion.identity);
-            GameObject Attack4bpoint3 = Instantiate(bpoint, new Vector3(ap, 0, ap - 5 * i), Quaternion.identity);
-            GameObject Attack4bpoint4 = Instantiate(bpoint, new Vector3(ap - 5 * i, 0, ap), Quaternion.identity);
+            GameObject Attack4bpoint1 = Instantiate(bpoint, new Vector3(ap, 0, ap + 10 * i), Quaternion.identity);
+            GameObject Attack4bpoint2 = Instantiate(bpoint, new Vector3(ap + 10 * i, 0, ap), Quaternion.identity);
+            GameObject Attack4bpoint3 = Instantiate(bpoint, new Vector3(ap, 0, ap - 10 * i), Quaternion.identity);
+            GameObject Attack4bpoint4 = Instantiate(bpoint, new Vector3(ap - 10 * i, 0, ap), Quaternion.identity);
             Destroy(Attack4bpoint1, 2f);
             Destroy(Attack4bpoint2, 2f);
             Destroy(Attack4bpoint3, 2f);
@@ -280,6 +280,7 @@ public class enemyattack : MonoBehaviour
             i++;
             yield return new WaitForSeconds(2f);
         }
+        jx = 60;
     }
     IEnumerator Attack5lzCoroutine()
     {
@@ -290,6 +291,8 @@ public class enemyattack : MonoBehaviour
             i++;
             yield return new WaitForSeconds(2f);
         }
+        Debug.Log("UŒ‚‡X");
+        jz = 50;
     }
     void Attack5lpx()
     {
@@ -328,7 +331,17 @@ public class enemyattack : MonoBehaviour
     void Attack6()
     {
         StartCoroutine(Attack6missileCoroutine());
-        StartCoroutine(Attack6lazerCoroutine());
+        attackbunki = Random.Range(0, 1);
+        if (attackbunki < 0.5f)
+        {
+            StartCoroutine(Attack6lazer1Coroutine());
+        }
+        else
+        {
+            StartCoroutine(Attack6lazer2Coroutine());
+        }
+
+        Debug.Log("UŒ‚‡Y");
     }
 
     IEnumerator Attack6missileCoroutine()
@@ -340,44 +353,82 @@ public class enemyattack : MonoBehaviour
             i++;
             yield return new WaitForSeconds(1f);
         }
+        Debug.Log("UŒ‚‡Y missile");
     }
-    IEnumerator Attack6lazerCoroutine()
+    IEnumerator Attack6lazer1Coroutine()
     {
-        attackbunki = Random.Range(0, 1);
-        int i = 1;
-        while (i < 2)
+        int i = 0;
+        while (i < 1)
         {
-            if (attackbunki < 0.5f)
-            {
-                GameObject Attack6lazerattackpointp = Instantiate(lazerattackpoint, new Vector3(6, 0, 0), Quaternion.identity);
-                Destroy(Attack6lazerattackpointp, 3f);
-                Invoke("Attack6lazerp", 2f);
-            }
-            else
-            {
-                GameObject Attack6lazerattackpointm = Instantiate(lazerattackpoint, new Vector3(-6, 0, 0), Quaternion.identity);
-                Destroy(Attack6lazerattackpointm, 3f);
-                Invoke("Attack6lazerm", 2f);
-            }
+            Attack6lazerppoint();
+            i++;
+            yield return new WaitForSeconds(2f);
+        }
+        Attack6lazerm2point();
+    }
+    IEnumerator Attack6lazer2Coroutine()
+    {
+        int i = 0;
+        while (i < 1)
+        {
+            Attack6lazermpoint();
             i++;
             yield return new WaitForSeconds(2f);
         }
     }
-
     void Attack6missile()
     {
         Vector3 play = GameObject.Find("player").transform.position;
         Instantiate(missile, play, Quaternion.identity);
     }
 
+    void Attack6lazerppoint()
+    {
+        GameObject Attack6lazerattackpointp = Instantiate(lazerattackpoint, new Vector3(30, 0, 0), Quaternion.identity);
+        Destroy(Attack6lazerattackpointp, 3f);
+        Invoke("Attack6lazerp", 2f);
+    }
+
+    void Attack6lazerp2point()
+    {
+        GameObject Attack6lazerattackpointp2 = Instantiate(lazerattackpoint, new Vector3(30, 0, 0), Quaternion.identity);
+        Destroy(Attack6lazerattackpointp2, 3f);
+        Invoke("Attack6lazerp2", 2f);
+    }
+    void Attack6lazermpoint()
+    {
+        GameObject Attack6lazerattackpointm = Instantiate(lazerattackpoint, new Vector3(-30, 0, 0), Quaternion.identity);
+        Destroy(Attack6lazerattackpointm, 3f);
+        Invoke("Attack6lazerm", 2f);
+    }
+    void Attack6lazerm2point()
+    {
+        GameObject Attack6lazerattackpointm2 = Instantiate(lazerattackpoint, new Vector3(-30, 0, 0), Quaternion.identity);
+        Destroy(Attack6lazerattackpointm2, 3f);
+        Invoke("Attack6lazerm2", 2f);
+    }
     void Attack6lazerp()
     {
-        GameObject Attack6lazerp = Instantiate(lazer, new Vector3(6, lazerpointy, 0), Quaternion.identity);//”­ŽË
+        GameObject Attack6lazerp = Instantiate(lazer, new Vector3(30, lazerpointy, 0), Quaternion.identity);//”­ŽË
         Destroy(Attack6lazerp, 1f);
+        Invoke("Attack6lazerm2point", 2f);
     }
     void Attack6lazerm()
     {
-        GameObject Attack6lazerm = Instantiate(lazer, new Vector3(-6, lazerpointy, 0), Quaternion.identity);//”­ŽË
+        GameObject Attack6lazerm = Instantiate(lazer, new Vector3(-30, lazerpointy, 0), Quaternion.identity);//”­ŽË
         Destroy(Attack6lazerm, 1f);
+        Invoke("Attack6lazerp2point", 2f);
+    }
+    void Attack6lazerp2()
+    {
+        GameObject Attack6lazerp2 = Instantiate(lazer, new Vector3(30, lazerpointy, 0), Quaternion.identity);//”­ŽË
+        Destroy(Attack6lazerp2, 1f);
+        Debug.Log("UŒ‚‡Y ƒpƒ^[ƒ“2");
+    }
+    void Attack6lazerm2()
+    {
+        GameObject Attack6lazerm2 = Instantiate(lazer, new Vector3(-30, lazerpointy, 0), Quaternion.identity);//”­ŽË
+        Destroy(Attack6lazerm2, 1f);
+        Debug.Log("UŒ‚‡Y ƒpƒ^[ƒ“1");
     }
 }

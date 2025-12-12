@@ -839,18 +839,20 @@ MonoBehaviour:
   attack1missile: 6
   lazer: {fileID: 7643205967857016016, guid: 076bcfa02b811214b95f34a5732d53b1, type: 3}
   lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
-  attack3missilex: 5
-  attack3missiley: 5
+  attack3missilex: 10
+  attack3missiley: 10
   attackpointx3: 0
   attackpointz3: 0
   attackbunki: 0
-  attack4missile: 5
+  attack4missile: 10
   bpoint: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
   lazerx: {fileID: 739733242737967307, guid: 5332758c2f308684cadf150685506234, type: 3}
   Attack5ls: 9
   lazerattackpointx: {fileID: 8819450423478130821, guid: 7b9408938b2e5e64cbe6fdcad059d5c3, type: 3}
-  j: 50
-  k: 6
+  jx: 60
+  jz: 50
+  k: 11
+  Attack6ms: 0
   attackf: 5
   attackpointx: 5
   attackpointy: 15
@@ -870,7 +872,7 @@ Transform:
   m_GameObject: {fileID: 1263183853}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 28.72, z: 0}
+  m_LocalPosition: {x: 29.6, y: 28.72, z: 10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
