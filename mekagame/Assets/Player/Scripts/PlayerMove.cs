@@ -16,7 +16,7 @@ public class PlayerMove : MonoBehaviour
     Vector3 movVec;
     private float notSpeed = 0;
     PlayerParry parry;
-    PulseDiffuser pulseDiffuser;
+    OverClock oc;
 
     bool goJump = false;
     public static bool isRun = false;
@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         parry = GetComponent<PlayerParry>();
-        pulseDiffuser = GetComponent<PulseDiffuser>();
+        oc = GetComponent<OverClock>();
     }
     private void OnMove(InputValue value) => inputVec = value.Get<Vector2>();
     private void OnJump(InputValue value) => goJump = true;
@@ -49,7 +49,13 @@ public class PlayerMove : MonoBehaviour
     }
     private void Move()
     {
-        float baseSpeed = parry.notMove ? notSpeed : (isRun ? runSpeed : walkSpeed);
+        float baseSpeed = (parry.notMove, isRun, oc.isOC) switch
+        {
+            (true, _, _) => notSpeed,    // 1. ìÆÇØÇ»Ç¢ (ç≈óDêÊ)
+            (_, true, true) => oc.oCSpeed,  // 3. ëñÇ¡ÇƒÇ¢ÇƒÅAÇ©Ç¬OCíÜ 
+            (_, true, _) => runSpeed,    // 2. (OCÇ≈ÇÕÇ»Ç≠) ÇΩÇæëñÇ¡ÇƒÇ¢ÇÈ
+            _ => walkSpeed    // ÇªÇÃëº (ï‡Ç´ÅAÇ‹ÇΩÇÕóßÇøé~Ç‹Ç¡ÇƒOCíÜÇ»Ç«)
+        };
 
         float speed = baseSpeed * inputVec.magnitude;
         movVec = new Vector3(
@@ -67,7 +73,9 @@ public class PlayerMove : MonoBehaviour
         isRun = false;
 
         isRunCoolTime = true;
-        yield return new WaitForSeconds(runCoolTime);
+
+        float coolTime = oc.isOC ? oc.oCCoolTime : runCoolTime;
+        yield return new WaitForSeconds(coolTime);
         isRunCoolTime = false;
     }
     private void Rotate()

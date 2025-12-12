@@ -1,22 +1,39 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class OverClock : MonoBehaviour
 {
-    [SerializeField] private int overClockUseGage;
-    private bool isOverClock = false;
+    [SerializeField] private int oCUseGage;
+    [SerializeField] private float oCTime;
+    [SerializeField] public float oCSpeed;
+    [SerializeField] public float oCCoolTime;
+    [SerializeField] public float oCGrazeRange;
+    public bool isOC = false;
+    SOCDkey key;
+    PlayerGraze pg;
 
+    private void Awake()
+    {
+        key = GetComponent<SOCDkey>();
+        pg = GetComponentInChildren<PlayerGraze>();
+    }
     private void OnOverClock(InputValue value)
     {
-        if (isOverClock) return;
+        if (!key.isGageAction) return;
+        if (isOC) return;
+        StartCoroutine(PlayOverClock());
     }
-    void Start()
+    private IEnumerator PlayOverClock()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        if(PlayerResource.Instance.GetterGage() >= oCUseGage)
+        {
+            PlayerResource.Instance.UseGage(oCUseGage);
+            isOC = true;
+            pg.OCRange(oCGrazeRange);
+            yield return new WaitForSeconds(oCTime);
+            isOC = false;
+            pg.Range();
+        }
     }
 }

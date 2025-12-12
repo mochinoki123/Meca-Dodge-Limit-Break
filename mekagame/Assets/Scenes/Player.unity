@@ -237,6 +237,11 @@ GameObject:
   - component: {fileID: 561850220}
   - component: {fileID: 561850221}
   - component: {fileID: 561850219}
+  - component: {fileID: 561850225}
+  - component: {fileID: 561850224}
+  - component: {fileID: 561850223}
+  - component: {fileID: 561850222}
+  - component: {fileID: 561850226}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -370,12 +375,6 @@ MonoBehaviour:
   runTime: 0.5
   runCoolTime: 0.5
   jumpForce: 5
-  playerParry: {fileID: 1119740387}
-  parryTime: 0.5
-  parryCoolTime: 1
-  pulseDiffuserUseGage: 100
-  pulseDiffuser: {fileID: 1582857373}
-  pulseTime: 1
 --- !u!114 &561850221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,6 +388,82 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincibleTime: 3
+--- !u!114 &561850222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561850213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aabb834cd81fd04c97f95b65ff988e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lBUseGage: 0
+  lBDamage: 0
+--- !u!114 &561850223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561850213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523da60904470774ca413d0aff9f7567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oCUseGage: 0
+  oCTime: 20
+  oCSpeed: 20
+  oCGrazeRange: 5
+  isOC: 0
+--- !u!114 &561850224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561850213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd63cb9d3281424fbcc24775853d146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pDUseGage: 0
+  pD: {fileID: 1582857373}
+  pDTime: 2
+--- !u!114 &561850225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561850213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dcbac7d8bea76f478334cc25a975152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerParry: {fileID: 1119740387}
+  parryTime: 0.5
+  parryCoolTime: 1
+  notMove: 0
+  isParryCommand: 0
+--- !u!114 &561850226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561850213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695146c792eb1f94cb39b1889361eed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGageAction: 0
 --- !u!1 &861234943
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +728,7 @@ GameObject:
   - component: {fileID: 1119740392}
   - component: {fileID: 1119740391}
   - component: {fileID: 1119740390}
-  - component: {fileID: 1119740389}
+  - component: {fileID: 1119740394}
   m_Layer: 0
   m_Name: PlayerParry
   m_TagString: PlayerParry
@@ -676,18 +751,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 561850217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1119740389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119740387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dcbac7d8bea76f478334cc25a975152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1119740390
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -789,6 +852,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119740387}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1119740394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119740387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8957af034c0ba347b381a2e78d68304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1129906849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1384,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 561850217}
@@ -1333,7 +1408,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1471587299
 MonoBehaviour:
@@ -1347,6 +1422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc689bbd52a3e5849b6d98e0020a5478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCollider: {fileID: 1471587298}
+  grazeRange: 3
 --- !u!54 &1471587300
 Rigidbody:
   m_ObjectHideFlags: 0

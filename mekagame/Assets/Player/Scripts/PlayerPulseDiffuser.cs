@@ -5,34 +5,33 @@ using System.Threading.Tasks;
 
 public class PlayerPulseDiffuser : MonoBehaviour
 {
-    [SerializeField] private int pulseDiffuserUseGage;
-    [SerializeField] private GameObject pulseDiffuser;
-    [SerializeField] private float pulseTime;
-    private bool isPulseDiffuser = false;
-    public bool isGageAction = false;
+    [SerializeField] private int pDUseGage;
+    [SerializeField] private GameObject pD;
+    [SerializeField] private float pDTime;
+    private bool isPD = false;
+    SOCDkey key;
 
+    private void Awake()
+    {
+        key = GetComponent<SOCDkey>();
+    }
     //“ñ‚Â‚ÌƒL[‚Å”­“®
     private void OnPulseDiffuser(InputValue value)
     {
-        if (!isGageAction) return;
-        if (isPulseDiffuser) return;
+        if (!key.isGageAction) return;
+        if (isPD) return;
         StartCoroutine(PulseDiffuser());
-    }
-    //‰Ÿ‚µ‚½‚Æ‚«true—£‚µ‚½‚Æ‚«false
-    private void OnGageAction(InputValue value)
-    {
-        isGageAction = value.isPressed;
     }
     private IEnumerator PulseDiffuser()
     {
-        if (PlayerResource.Instance.GetterGage() >= pulseDiffuserUseGage)
+        if (PlayerResource.Instance.GetterGage() >= pDUseGage)
         {
-            PlayerResource.Instance.UseGage(pulseDiffuserUseGage);
-            isPulseDiffuser = true;
-            pulseDiffuser.SetActive(true);
-            yield return new WaitForSeconds(pulseTime);
-            pulseDiffuser.SetActive(false);
-            isPulseDiffuser = false;
+            PlayerResource.Instance.UseGage(pDUseGage);
+            isPD = true;
+            pD.SetActive(true);
+            yield return new WaitForSeconds(pDTime);
+            pD.SetActive(false);
+            isPD = false;
         }
     }
 }

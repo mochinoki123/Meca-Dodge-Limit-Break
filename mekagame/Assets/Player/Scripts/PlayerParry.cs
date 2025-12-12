@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEditor.UIElements;
 
 
 public class PlayerParry : MonoBehaviour
@@ -15,14 +16,14 @@ public class PlayerParry : MonoBehaviour
     bool isParryCoolTime = false;
     public bool notMove = false;
     public bool isParryCommand = false;
-    PlayerPulseDiffuser pulseDiffuser;
+    SOCDkey key;
     private void Awake()
     {
-        pulseDiffuser = GetComponent<PlayerPulseDiffuser>();
+        key = GetComponent<SOCDkey>();
     }
     private void OnParry(InputValue value)
     {
-        if (pulseDiffuser.isGageAction) return;
+        if (key.isGageAction) return;
         if (isParry) return;
         if (isParryCoolTime) return;
         if (Input.GetKeyDown(KeyCode.LeftControl)) return;
