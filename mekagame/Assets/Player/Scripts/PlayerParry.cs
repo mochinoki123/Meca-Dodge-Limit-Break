@@ -10,6 +10,7 @@ using UnityEditor.UIElements;
 public class PlayerParry : MonoBehaviour
 {
     [SerializeField] private GameObject playerParry;
+    [SerializeField] private Enemy enemy;
     [SerializeField] private float parryTime;
     [SerializeField] private float parryCoolTime;
     bool isParry = false;
@@ -17,29 +18,46 @@ public class PlayerParry : MonoBehaviour
     public bool notMove = false;
     public bool isParryCommand = false;
     SOCDkey key;
+    LimitBreak lb;
+    PlayerPulseDiffuser pd;
     private void Awake()
     {
         key = GetComponent<SOCDkey>();
+        lb = GetComponent<LimitBreak>();
+        pd = GetComponent<PlayerPulseDiffuser>();
     }
     private void OnParry(InputValue value)
     {
+        if (pd.isPD) return;
         if (key.isGageAction) return;
         if (isParry) return;
         if (isParryCoolTime) return;
-        if (Input.GetKeyDown(KeyCode.LeftControl)) return;
         StartCoroutine(Parry());
     }
-    private IEnumerator Parry()
+    public IEnumerator Parry()
     {
-        playerParry.SetActive(true);
-        yield return new WaitForSeconds(parryTime);
+        bool isLBMode = lb.isLB;
         isParry = true;
-        if (!ObjectParry.parrySuccess) notMove = true;
-        ObjectParry.parrySuccess = false;
+        playerParry.SetActive(true);
+        float currentDuration = (isLBMode) ? lb.lBTime : parryTime;
+        yield return new WaitForSeconds(currentDuration);
         playerParry.SetActive(false);
+        if (ObjectParry.parrySuccess)
+        {
+            if (lb != null && lb.isLB)
+            {
+                //enemy.Damage(lb.lBDamage);
+            }
+        }
+        else
+        {
+            notMove = true;
+        }
+        ObjectParry.parrySuccess = false;
         isParryCoolTime = true;
-        yield return new WaitForSeconds(parryCoolTime);
         isParry = false;
+        float currentCoolTime = (isLBMode) ? lb.lBCoolTime : parryCoolTime;
+        yield return new WaitForSeconds(currentCoolTime);
         isParryCoolTime = false;
         notMove = false;
     }

@@ -1,24 +1,37 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+
 
 public class LimitBreak : MonoBehaviour
 {
-    [SerializeField]private int lBUseGage;
-    [SerializeField] private float lBDamage;
-    private bool isLimitBreak = false;
+    [SerializeField] private int lBUseGage;
+    [SerializeField] public int lBDamage;
+    [SerializeField] public float lBTime;
+    [SerializeField] public float lBCoolTime;
+    public bool isLB = false;
     SOCDkey key;
+    PlayerParry parry;
 
     private void Awake()
     {
         key = GetComponent<SOCDkey>();
+        parry = GetComponent<PlayerParry>();
     }
     private void OnLimitBreak(InputValue value)
     {
         if (!key.isGageAction) return;
-        if (isLimitBreak) return;
+        if (isLB) return;
+        AttackLimitBreak();
     }
-    void OnLimitBreak()
+    void AttackLimitBreak()
     {
-
+        if (PlayerResource.Instance.GetterGage() >= lBUseGage)
+        {
+            isLB = true;
+            PlayerResource.Instance.UseGage(lBUseGage);
+            StartCoroutine(parry.Parry());
+            isLB = false;
+        }
     }
 }

@@ -8,7 +8,7 @@ public class PlayerPulseDiffuser : MonoBehaviour
     [SerializeField] private int pDUseGage;
     [SerializeField] private GameObject pD;
     [SerializeField] private float pDTime;
-    private bool isPD = false;
+    public bool isPD = false;
     SOCDkey key;
 
     private void Awake()

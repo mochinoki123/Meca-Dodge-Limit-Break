@@ -11,6 +11,7 @@ public class PlayerResource : MonoBehaviour
     [SerializeField] private Text gageText;
     [SerializeField] private int nowHP;
     [SerializeField] private int nowGage;
+    [SerializeField] private GameObject player;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -29,7 +30,15 @@ public class PlayerResource : MonoBehaviour
     }
     public void Damage()
     {
-        if(nowHP > 0) nowHP --;
+        if(nowHP > 1)
+        {
+            nowHP--;
+        }
+        else if(nowHP == 1)
+        {
+            nowHP = 0;
+            Die(player);
+        }
         UpdateText();
     }
     public void ResetHP()
@@ -58,5 +67,9 @@ public class PlayerResource : MonoBehaviour
     public int GetterGage()
     {
         return nowGage;
+    }
+    public void Die(GameObject obj)
+    {
+        Destroy(obj);
     }
 }
