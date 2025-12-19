@@ -9,10 +9,32 @@ public class PlayerDamage : MonoBehaviour
         invincible = GetComponent<PlayerInvincible>();
     }
     private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Missile") && CompareTag("Player") && !PlayerInvincible.isInvincible)
+    { 
+        if (PlayerInvincible.isInvincible) return;
+
+        bool isHit = false; 
+
+        if (other.CompareTag("Missile"))
         {
-            other.gameObject.GetComponent<enemymissile>().Kill();
+            var missile = other.GetComponentInParent<enemymissile>();
+            if (missile != null)
+            {
+                missile.Kill();
+                isHit = true;
+            }
+        }
+        else if (other.CompareTag("Lazer"))
+        {
+            var lazer = other.GetComponentInParent<enemylazer>();
+            if (lazer != null)
+            {
+                lazer.Kill();
+                isHit = true;
+            }
+        }
+
+        if (isHit)
+        {
             GameManager.Instance.Damage();
             invincible.OnInvincible();
         }

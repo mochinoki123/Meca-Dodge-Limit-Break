@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float comboMultiple2;
     [SerializeField] private float comboMultiple3;
 
-    private float comboMultiple;
+    private float comboMultiple = 1;
     private int combo;
     private  int maxCombo;
     private void Awake()

@@ -22,15 +22,15 @@ public class LimitBreak : MonoBehaviour
     {
         if (!key.isGageAction) return;
         if (isLB) return;
-        AttackLimitBreak();
+        StartCoroutine(AttackLimitBreak());
     }
-    void AttackLimitBreak()
+    private IEnumerator AttackLimitBreak()
     {
         if (GameManager.Instance.GetterGage() >= lBUseGage)
         {
             isLB = true;
             GameManager.Instance.UseGage(lBUseGage);
-            StartCoroutine(parry.Parry());
+            yield return StartCoroutine(parry.Parry());
             isLB = false;
         }
     }

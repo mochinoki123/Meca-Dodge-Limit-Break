@@ -10,7 +10,6 @@ using UnityEditor.UIElements;
 public class PlayerParry : MonoBehaviour
 {
     [SerializeField] private GameObject playerParry;
-    [SerializeField] private Enemy enemy;
     [SerializeField] private float parryTime;
     [SerializeField] private float parryCoolTime;
     bool isParry = false;
