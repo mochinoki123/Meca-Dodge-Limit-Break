@@ -24,9 +24,9 @@ public class PlayerPulseDiffuser : MonoBehaviour
     }
     private IEnumerator PulseDiffuser()
     {
-        if (PlayerResource.Instance.GetterGage() >= pDUseGage)
-        {
-            PlayerResource.Instance.UseGage(pDUseGage);
+        if (GameManager.Instance.GetterGage() >= pDUseGage)
+        {   
+            GameManager.Instance.UseGage(pDUseGage);
             isPD = true;
             pD.SetActive(true);
             yield return new WaitForSeconds(pDTime);

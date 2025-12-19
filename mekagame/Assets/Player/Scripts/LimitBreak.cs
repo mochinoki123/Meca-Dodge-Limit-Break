@@ -26,10 +26,10 @@ public class LimitBreak : MonoBehaviour
     }
     void AttackLimitBreak()
     {
-        if (PlayerResource.Instance.GetterGage() >= lBUseGage)
+        if (GameManager.Instance.GetterGage() >= lBUseGage)
         {
             isLB = true;
-            PlayerResource.Instance.UseGage(lBUseGage);
+            GameManager.Instance.UseGage(lBUseGage);
             StartCoroutine(parry.Parry());
             isLB = false;
         }

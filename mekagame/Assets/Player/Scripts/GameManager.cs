@@ -2,16 +2,25 @@ using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerResource : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static PlayerResource Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
     [SerializeField] private int maxHP;
     [SerializeField] private int maxGage;
     [SerializeField] private Text hpText;
     [SerializeField] private Text gageText;
+    [SerializeField] private Text comboText;
     [SerializeField] private int nowHP;
-    [SerializeField] private int nowGage;
+    [SerializeField] private float nowGage;
     [SerializeField] private GameObject player;
+    [SerializeField] private float comboTime;
+    [SerializeField] private float comboMultiple1;
+    [SerializeField] private float comboMultiple2;
+    [SerializeField] private float comboMultiple3;
+
+    private float comboMultiple;
+    private int combo;
+    private  int maxCombo;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -23,10 +32,18 @@ public class PlayerResource : MonoBehaviour
         ResetGage();
         UpdateText();
     }
+    private void Update()
+    {
+        //if(combo > 0)
+        //{
+            
+        //}
+    }
     public void UpdateText()
     {
         hpText.text = "HP : " + nowHP;
-        gageText.text = "Gage : " + nowGage; 
+        gageText.text = "Gage : " + nowGage;
+        comboText.text = "Combo : " + combo;
     }
     public void Damage()
     {
@@ -50,7 +67,7 @@ public class PlayerResource : MonoBehaviour
     {
         if (nowGage < maxGage)
         {
-            nowGage += n;
+            nowGage += comboMultiple * n;
             UpdateText();
         }
     }
@@ -64,7 +81,7 @@ public class PlayerResource : MonoBehaviour
         nowGage -= n;
         UpdateText();
     }
-    public int GetterGage()
+    public float GetterGage()
     {
         return nowGage;
     }

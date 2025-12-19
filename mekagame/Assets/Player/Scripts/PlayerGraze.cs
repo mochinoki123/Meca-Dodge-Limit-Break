@@ -5,12 +5,16 @@ public class PlayerGraze : MonoBehaviour
 {
     private HashSet<GameObject> grazedMissiles = new HashSet<GameObject>();
     [SerializeField] private float grazeRange;
+    [SerializeField] private int ocAddGage;
+    [SerializeField] private int addGage;
     private float range;
     OverClock oc;
     SphereCollider myCollider;
+
     private void Awake()
     {
         myCollider = GetComponent<SphereCollider>();
+        oc = GetComponentInParent<OverClock>();
         Range();
     }
     private void OnTriggerStay(Collider other)
@@ -23,6 +27,13 @@ public class PlayerGraze : MonoBehaviour
             }
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (grazedMissiles.Contains(other.gameObject))
+        {
+            grazedMissiles.Remove(other.gameObject);
+        }
+    }
     public void OCRange(float range)
     {
         myCollider.radius = range;
@@ -31,9 +42,10 @@ public class PlayerGraze : MonoBehaviour
     {
         myCollider.radius = grazeRange;
     }
-    private void AddGraze(GameObject missile)
+    private void AddGraze(GameObject obj)
     {
-        grazedMissiles.Add(missile);
-        PlayerResource.Instance.AddGage(10);
+        grazedMissiles.Add(obj);
+        if (oc.isOC) GameManager.Instance.AddGage(ocAddGage);
+        else GameManager.Instance.AddGage(addGage);
     }
 }

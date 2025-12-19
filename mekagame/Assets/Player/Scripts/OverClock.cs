@@ -26,9 +26,9 @@ public class OverClock : MonoBehaviour
     }
     private IEnumerator PlayOverClock()
     {
-        if(PlayerResource.Instance.GetterGage() >= oCUseGage)
+        if(GameManager.Instance.GetterGage() >= oCUseGage)
         {
-            PlayerResource.Instance.UseGage(oCUseGage);
+            GameManager.Instance.UseGage(oCUseGage);
             isOC = true;
             pg.OCRange(oCGrazeRange);
             yield return new WaitForSeconds(oCTime);
