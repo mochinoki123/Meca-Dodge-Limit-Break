@@ -4,6 +4,6 @@ public class enemylazer : MonoBehaviour
 {
     public void Kill()
     {
-        Destroy(gameObject);
+        Debug.Log("“–‚½‚Á‚½");
     }
 }
