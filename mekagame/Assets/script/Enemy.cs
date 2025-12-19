@@ -36,7 +36,6 @@ public class Enemy : MonoBehaviour
 
     //シーン移動使う場合
     /*
-    AudioManager.instance.BGM();
     SceneManager.LoadScene("Scene");//シーン名を入れる
     */
 }

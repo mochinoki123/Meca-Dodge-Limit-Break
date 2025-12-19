@@ -77,12 +77,14 @@ public class enemyattack : MonoBehaviour
     }
     void EnemyAttackController2()
     {
+        CancelInvoke("AttackLoop");
         Invoke("Attack4", 3f);
         Invoke("Attack5", 7f);
         Invoke("AttackLoop2", 25f);
     }
     void EnemyAttackController3()
     {
+        CancelInvoke("AttackLoop2");
         Invoke("Attack6", 3f);
         Invoke("AttackLoop3", 10f);
     }
