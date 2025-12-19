@@ -9,35 +9,27 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float runTime;
     [SerializeField] private float runCoolTime;
     [SerializeField] private float jumpForce;
-    [SerializeField] private GameObject playerParry;
-    [SerializeField] private float parryTime;
-    [SerializeField] private float parryCoolTime;
+
 
     Rigidbody rb;
     Vector2 inputVec;
     Vector3 movVec;
     private float notSpeed = 0;
+    PlayerParry parry;
+    OverClock oc;
 
     bool goJump = false;
     public static bool isRun = false;
     bool isRunCoolTime = false;
-    bool isParry = false;
-    bool isParryCoolTime = false;
-    bool notMove = false;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        parry = GetComponent<PlayerParry>();
+        oc = GetComponent<OverClock>();
     }
     private void OnMove(InputValue value) => inputVec = value.Get<Vector2>();
     private void OnJump(InputValue value) => goJump = true;
-    private void OnParry(InputValue value)
-    {
-        if (isParry) return;
-        if (isParryCoolTime) return;
-        playerParry.SetActive(true);
-        StartCoroutine(Parry());
-    }
     private void OnSprint(InputValue value)
     {
         if (isRun) return;
@@ -57,7 +49,13 @@ public class PlayerMove : MonoBehaviour
     }
     private void Move()
     {
-        float baseSpeed = notMove ? notSpeed : (isRun ? runSpeed : walkSpeed);
+        float baseSpeed = (parry.notMove, isRun, oc.isOC) switch
+        {
+            (true, _, _) => notSpeed,    // 1. ìÆÇØÇ»Ç¢ (ç≈óDêÊ)
+            (_, true, true) => oc.oCSpeed,  // 3. ëñÇ¡ÇƒÇ¢ÇƒÅAÇ©Ç¬OCíÜ 
+            (_, true, _) => runSpeed,    // 2. (OCÇ≈ÇÕÇ»Ç≠) ÇΩÇæëñÇ¡ÇƒÇ¢ÇÈ
+            _ => walkSpeed    // ÇªÇÃëº (ï‡Ç´ÅAÇ‹ÇΩÇÕóßÇøé~Ç‹Ç¡ÇƒOCíÜÇ»Ç«)
+        };
 
         float speed = baseSpeed * inputVec.magnitude;
         movVec = new Vector3(
@@ -75,7 +73,9 @@ public class PlayerMove : MonoBehaviour
         isRun = false;
 
         isRunCoolTime = true;
-        yield return new WaitForSeconds(runCoolTime);
+
+        float coolTime = oc.isOC ? oc.oCCoolTime : runCoolTime;
+        yield return new WaitForSeconds(coolTime);
         isRunCoolTime = false;
     }
     private void Rotate()
@@ -104,19 +104,5 @@ public class PlayerMove : MonoBehaviour
             }
             goJump = false;
         }
-    }
-    private IEnumerator Parry()
-    {
-        yield return new WaitForSeconds(parryTime);
-
-        isParry = false;
-
-        if(!PlayerParry.parrySuccess) notMove = true;
-        PlayerParry.parrySuccess = false;
-        playerParry.SetActive(false);
-        isParryCoolTime = true;
-        yield return new WaitForSeconds(parryCoolTime);
-        isParryCoolTime = false;
-        notMove = false;
     }
 }
