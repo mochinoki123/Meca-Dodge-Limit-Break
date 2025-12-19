@@ -10,6 +10,7 @@ using UnityEditor.UIElements;
 public class PlayerParry : MonoBehaviour
 {
     [SerializeField] private GameObject playerParry;
+    [SerializeField] private  Enemy enemy;
     [SerializeField] private float parryTime;
     [SerializeField] private float parryCoolTime;
     bool isParry = false;
@@ -45,7 +46,7 @@ public class PlayerParry : MonoBehaviour
         {
             if (lb != null && lb.isLB)
             {
-                //enemy.Damage(lb.lBDamage);
+                enemy.Damage(lb.lBDamage);
             }
         }
         else

@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         hpText.text = "HP : " + nowHP;
         gageText.text = "Gage : " + nowGage;
-        //comboText.text = "Combo : " + combo;
+        comboText.text = "Combo : " + combo;
     }
     public void Damage()
     {
