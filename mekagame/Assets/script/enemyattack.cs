@@ -42,12 +42,17 @@ public class enemyattack : MonoBehaviour
     [SerializeField] int attackpointy;//攻撃発生の高さ
     [SerializeField] int attackpointz;//攻撃発生の奥行
     public float ap;//random値確認用基本使わない
-    public float x;//random値確認用基本使わない
-    public float z;//random値確認用基本使わない
+    public float groundx;//random値確認用基本使わない
+    public float groundz;//random値確認用基本使わない
     //レーザーy座標
     [SerializeField] int lazerpointy;
     public int attack123;//random値確認用基本使わない
     public int attack12345;//random値確認用基本使わない
+    public int attack123456;
+
+    public float x;
+    public float y;
+    public float z;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,7 +65,14 @@ public class enemyattack : MonoBehaviour
     void Update()
     {
         Rigidbody ballRigidbody = missile.GetComponent<Rigidbody>();
-        
+     // transform.position で現在のワールド座標を取得
+        Vector3 currentPosition = transform.position;
+        Debug.Log("プレイヤーの座標: " + currentPosition);
+
+        // x, y, z 座標を個別に取得
+        float x = currentPosition.x;
+        float z = currentPosition.z;
+        Debug.Log("X座標: " + x + ", Z座標: " + z);
     }
 
     void EnemyAttackController1()
@@ -79,6 +91,7 @@ public class enemyattack : MonoBehaviour
     void EnemyAttackController3()
     {
         Invoke("Attack6", 3f);
+        Invoke("AttackLoop3", 10f);
     }
 
     void AttackLoop()
@@ -156,20 +169,64 @@ public class enemyattack : MonoBehaviour
             Attack5();
         }
     }
+    void AttackLoop3()
+    {
+        StartCoroutine(AttackLoop3Coroutine());
+    }
+    IEnumerator AttackLoop3Coroutine()
+    {
+        while (enemyhpscripts.EnemyHP > 250)
+        {
+            attack123456 = Random.Range(0, 99);
+            Attackrndv3();
+
+            yield return new WaitForSeconds(3f);
+        }
+
+        Debug.Log("攻撃追加");
+        EnemyAttackController3();
+    }
+    void Attackrndv3()
+    {
+        if (attack123456 <= 16)
+        {
+            Attack1();
+        }
+        else if (attack123456 <= 32)
+        {
+            Attack2();
+        }
+        else if (attack123456 <= 48)
+        {
+            Attack3();
+        }
+        else if (attack123456 <= 64)
+        {
+            Attack4();
+        }
+        else if (attack123456 <= 80)
+        {
+            Attack5();
+        }
+        else
+        {
+            Attack6();
+        }
+    }
 
     void Attack1()
     {
         for (int i = 0; i < attack1missile; i++)
         {
-            x = Random.Range(rndm, rndp);//地面の広さによって変更
-            z = Random.Range(rndm, rndp);//地面の広さによって変更
+            groundx = Random.Range(rndm, rndp);//地面の広さによって変更
+            groundz = Random.Range(rndm, rndp);//地面の広さによって変更
 
             /*
             Instantiate(missile, new Vector3(x, attackpointy, attackpointz - i * attackf), Quaternion.identity);//発射
             Instantiate(attackpoint, new Vector3(x, 0, attackpointz - i * attackf), Quaternion.identity);//攻撃範囲
             */
 
-            Instantiate(missile, new Vector3((attackf * x) - x, attackpointy, (attackf * z) - z), Quaternion.identity);//発射
+            Instantiate(missile, new Vector3((attackf * groundx) - groundx, attackpointy, (attackf * groundz) - groundz), Quaternion.identity);//発射
           //Instantiate(attackpoint, new Vector3((attackf * x) - x, 0, (attackf * z) - z), Quaternion.identity);//攻撃範囲
         }
         Debug.Log("攻撃Ⅰ");
@@ -178,14 +235,14 @@ public class enemyattack : MonoBehaviour
     void Attack2()
     {
 
-        GameObject Attack2lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(x, 0, 0), Quaternion.identity);
+        GameObject Attack2lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(groundx, 0, 0), Quaternion.identity);
         Destroy(Attack2lazerattackpoint, 3f);
         Invoke("Attack2l", 2f);
     }
 
     void Attack2l()
     {
-        GameObject Attack2lazer = Instantiate(lazer, new Vector3(x, lazerpointy, 0), Quaternion.identity);//発射
+        GameObject Attack2lazer = Instantiate(lazer, new Vector3(groundx, lazerpointy, 0), Quaternion.identity);//発射
         Destroy(Attack2lazer, 1f);
         Debug.Log("攻撃Ⅱ");
     }
@@ -375,8 +432,13 @@ public class enemyattack : MonoBehaviour
     }
     void Attack6missile()
     {
-        Vector3 play = GameObject.Find("player").transform.position;
+        /*
+        Vector3 play = GameObject.Find("Player").transform.position;
         Instantiate(missile, play, Quaternion.identity);
+        */
+
+
+        Instantiate(missile, new Vector3(x,y,z), Quaternion.identity);
     }
 
     void Attack6lazerppoint()

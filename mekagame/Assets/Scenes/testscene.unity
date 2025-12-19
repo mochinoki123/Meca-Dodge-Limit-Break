@@ -852,17 +852,21 @@ MonoBehaviour:
   jx: 60
   jz: 50
   k: 11
-  Attack6ms: 0
+  Attack6ms: 5
   attackf: 5
   attackpointx: 10
   attackpointy: 15
   attackpointz: 10
   ap: 0
-  x: 0
-  z: 0
+  groundx: 0
+  groundz: 0
   lazerpointy: 3
   attack123: 0
   attack12345: 0
+  attack123456: 0
+  x: 0
+  y: 10
+  z: 0
 --- !u!4 &1263183855
 Transform:
   m_ObjectHideFlags: 0
@@ -906,8 +910,8 @@ GameObject:
   - component: {fileID: 1835666955}
   - component: {fileID: 1835666954}
   m_Layer: 0
-  m_Name: Capsule
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
