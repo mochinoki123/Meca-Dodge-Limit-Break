@@ -10,8 +10,8 @@ public class enemyattack : MonoBehaviour
     [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
   //[SerializeField] GameObject attackpoint;//攻撃発生地点
     //フィールド範囲
-    [SerializeField] float rndm;//フィールドごとの範囲指定マイナス
-    [SerializeField] float rndp;//フィールドごとの範囲指定プラス
+    [SerializeField] float rndm = -11;//フィールドごとの範囲指定マイナス
+    [SerializeField] float rndp =  11;//フィールドごとの範囲指定プラス
     Vector3 play;
     //攻撃１
     [SerializeField] int attack1missile;
@@ -48,7 +48,7 @@ public class enemyattack : MonoBehaviour
     [SerializeField] int lazerpointy;
     public int attack123;//random値確認用基本使わない
     public int attack12345;//random値確認用基本使わない
-    public int attack123456;
+    public int attack123456;//random値確認用基本使わない
 
     public float x;
     public float y;
@@ -248,7 +248,8 @@ public class enemyattack : MonoBehaviour
 
         if (attackbunki < 0.5f)
         {
-            for (int i = 0; i < attack3missilex; i++)
+            Instantiate(missile, new Vector3(0, attackpointy, 0), Quaternion.identity);
+            for (int i = 1; i <= attack3missilex; i++)
             {
                 /*
                 Instantiate(missile, new Vector3(attackpointx - i * attackf, attackpointy, attackpointz - i * attackf), Quaternion.identity);
@@ -269,6 +270,7 @@ public class enemyattack : MonoBehaviour
         }
         else
         {
+            Instantiate(missile, new Vector3(0, attackpointy, 0), Quaternion.identity);
             for (int i = 0; i < attack3missiley; i++)
             {
                 /*
