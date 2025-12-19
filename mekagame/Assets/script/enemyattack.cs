@@ -65,14 +65,7 @@ public class enemyattack : MonoBehaviour
     void Update()
     {
         Rigidbody ballRigidbody = missile.GetComponent<Rigidbody>();
-     // transform.position で現在のワールド座標を取得
-        Vector3 currentPosition = transform.position;
-        Debug.Log("プレイヤーの座標: " + currentPosition);
-
-        // x, y, z 座標を個別に取得
-        float x = currentPosition.x;
-        float z = currentPosition.z;
-        Debug.Log("X座標: " + x + ", Z座標: " + z);
+     
     }
 
     void EnemyAttackController1()
@@ -432,6 +425,14 @@ public class enemyattack : MonoBehaviour
     }
     void Attack6missile()
     {
+        // transform.position で現在のワールド座標を取得
+        Vector3 currentPosition = transform.position;
+        Debug.Log("プレイヤーの座標: " + currentPosition);
+
+        // x, y, z 座標を個別に取得
+        float x = currentPosition.x;
+        float z = currentPosition.z;
+        Debug.Log("X座標: " + x + ", Z座標: " + z);
 
         Vector3 play = GameObject.Find("Player").transform.position;
         Instantiate(missile, new Vector3(play.x, y, play.z), Quaternion.identity);
