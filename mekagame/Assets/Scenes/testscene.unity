@@ -865,7 +865,7 @@ MonoBehaviour:
   attack12345: 0
   attack123456: 0
   x: 0
-  y: 10
+  y: 15
   z: 0
 --- !u!4 &1263183855
 Transform:

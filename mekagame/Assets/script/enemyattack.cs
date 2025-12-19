@@ -432,13 +432,13 @@ public class enemyattack : MonoBehaviour
     }
     void Attack6missile()
     {
-        /*
+
         Vector3 play = GameObject.Find("Player").transform.position;
-        Instantiate(missile, play, Quaternion.identity);
-        */
+        Instantiate(missile, new Vector3(play.x, y, play.z), Quaternion.identity);
+        
 
 
-        Instantiate(missile, new Vector3(x,y,z), Quaternion.identity);
+        //Instantiate(missile, new Vector3(x,y,z), Quaternion.identity);
     }
 
     void Attack6lazerppoint()
