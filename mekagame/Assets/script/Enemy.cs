@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
 
     public void Enemydown()
     {
-        if (EnemyHP==0)
+        if (EnemyHP<=0)
         {
             SceneManager.LoadScene("Scene");//ƒV[ƒ“–¼‚ð“ü‚ê‚é
         }
