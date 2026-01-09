@@ -20,11 +20,14 @@ public class PlayerParry : MonoBehaviour
     SOCDkey key;
     LimitBreak lb;
     PlayerPulseDiffuser pd;
+    Animator animator;
+
     private void Awake()
     {
         key = GetComponent<SOCDkey>();
         lb = GetComponent<LimitBreak>();
         pd = GetComponent<PlayerPulseDiffuser>();
+        animator = GetComponent<Animator>();
     }
     private void OnParry(InputValue value)
     {
@@ -60,5 +63,9 @@ public class PlayerParry : MonoBehaviour
         yield return new WaitForSeconds(currentCoolTime);
         isParryCoolTime = false;
         notMove = false;
+    }
+    private void Update()
+    {
+        animator.SetBool("LimitBreakSuccess", ObjectParry.parrySuccess);
     }
 }
