@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
@@ -34,6 +35,13 @@ public class Enemy : MonoBehaviour
         
     }
 
+    public void Enemydown()
+    {
+        if (EnemyHP==0)
+        {
+            SceneManager.LoadScene("Scene");//シーン名を入れる
+        }
+    }
     //シーン移動使う場合
     /*
     SceneManager.LoadScene("Scene");//シーン名を入れる
