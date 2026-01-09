@@ -14,31 +14,31 @@ public class enemyattack : MonoBehaviour
     [SerializeField] float rndp =  11;//フィールドごとの範囲指定プラス
     Vector3 play;
     //攻撃１
-    [SerializeField] int attack1missile;
+    [SerializeField] int attack1missile;//攻撃１のミサイル数　6
     //攻撃２
     [SerializeField] GameObject lazer;//レーザーオブジェクト
     [SerializeField] GameObject lazerattackpoint;//レーザー発生ポイントオブジェクト
     //攻撃３
-    [SerializeField] int attack3missilex;
-    [SerializeField] int attack3missiley;
-    [SerializeField] int attackpointx3;
-    [SerializeField] int attackpointz3;
+    [SerializeField] int attack3missilex;//攻撃Ⅲxの範囲設定　10
+    [SerializeField] int attack3missiley;//攻撃Ⅲ+の範囲設定　10
+    [SerializeField] int attackpointx3;//もしも用　使ってない
+    [SerializeField] int attackpointz3;//もしも用　使ってない
     public float attackbunki;//random値確認用基本使わない
     //攻撃４
-    [SerializeField] int attack4missile;
+    [SerializeField] int attack4missile;//攻撃４のミサイル範囲指定　10
     [SerializeField] GameObject bpoint;//爆発ポイント
     //攻撃５
     [SerializeField] GameObject lazerx;//レーザーオブジェクト
-    [SerializeField] int Attack5ls;
+    [SerializeField] int Attack5ls;//攻撃５のレーザー数 10
     [SerializeField] GameObject lazerattackpointx;//レーザー発生ポイントオブジェクト
-    [SerializeField] public float jx = 60;
-    [SerializeField] public float jz = 50;
-    [SerializeField] public float k;
+    [SerializeField] public float jx = 60;//ｘ攻撃開始地点・範囲
+    [SerializeField] public float jz = 50;//ｚ攻撃開始地点・範囲
+    [SerializeField] public float k;//13//攻撃数
     //攻撃６
-    [SerializeField] int Attack6ms;
+    [SerializeField] int Attack6ms;//攻撃６のミサイル数
     //攻撃座標関係
     [SerializeField] int attackf;//攻撃の間隔
-    [SerializeField] int attackpointx;
+    [SerializeField] int attackpointx;//攻撃発生の横
     [SerializeField] int attackpointy;//攻撃発生の高さ
     [SerializeField] int attackpointz;//攻撃発生の奥行
     public float ap;//random値確認用基本使わない
@@ -49,9 +49,9 @@ public class enemyattack : MonoBehaviour
     public int attack123;//random値確認用基本使わない
     public int attack12345;//random値確認用基本使わない
     public int attack123456;//random値確認用基本使わない
-
+    //プレイヤー座標取得
     public float x;
-    public float y;
+    public float y;//攻撃発生高 15
     public float z;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -230,7 +230,7 @@ public class enemyattack : MonoBehaviour
     void Attack2()
     {
         GameObject Attack2lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(groundx, 0, 0), Quaternion.identity);
-        Destroy(Attack2lazerattackpoint, 3f);
+        Destroy(Attack2lazerattackpoint, 2f);
         Invoke("Attack2l", 2f);
     }
 
@@ -348,7 +348,7 @@ public class enemyattack : MonoBehaviour
     void Attack5lpx()
     {
         GameObject Attack5lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(jx, 0, 0), Quaternion.identity);
-        Destroy(Attack5lazerattackpoint, 3f);
+        Destroy(Attack5lazerattackpoint, 2f);
         Invoke("Attack5lx", 2f);
     }
 
@@ -365,7 +365,7 @@ public class enemyattack : MonoBehaviour
     void Attack5lpz()
     {
         GameObject Attack5lazerattackpointx = Instantiate(lazerattackpointx, new Vector3(0, 0, jz), Quaternion.identity);
-        Destroy(Attack5lazerattackpointx, 3f);
+        Destroy(Attack5lazerattackpointx, 2f);
         Invoke("Attack5lz", 2f);
     }
 
@@ -448,26 +448,26 @@ public class enemyattack : MonoBehaviour
     void Attack6lazerppoint()
     {
         GameObject Attack6lazerattackpointp = Instantiate(lazerattackpoint, new Vector3(30, 0, 0), Quaternion.identity);
-        Destroy(Attack6lazerattackpointp, 3f);
+        Destroy(Attack6lazerattackpointp, 2f);
         Invoke("Attack6lazerp", 2f);
     }
 
     void Attack6lazerp2point()
     {
         GameObject Attack6lazerattackpointp2 = Instantiate(lazerattackpoint, new Vector3(30, 0, 0), Quaternion.identity);
-        Destroy(Attack6lazerattackpointp2, 3f);
+        Destroy(Attack6lazerattackpointp2, 2f);
         Invoke("Attack6lazerp2", 2f);
     }
     void Attack6lazermpoint()
     {
         GameObject Attack6lazerattackpointm = Instantiate(lazerattackpoint, new Vector3(-30, 0, 0), Quaternion.identity);
-        Destroy(Attack6lazerattackpointm, 3f);
+        Destroy(Attack6lazerattackpointm, 2f);
         Invoke("Attack6lazerm", 2f);
     }
     void Attack6lazerm2point()
     {
         GameObject Attack6lazerattackpointm2 = Instantiate(lazerattackpoint, new Vector3(-30, 0, 0), Quaternion.identity);
-        Destroy(Attack6lazerattackpointm2, 3f);
+        Destroy(Attack6lazerattackpointm2, 2f);
         Invoke("Attack6lazerm2", 2f);
     }
     void Attack6lazerp()
