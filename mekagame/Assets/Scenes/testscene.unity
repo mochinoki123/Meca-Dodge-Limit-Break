@@ -893,6 +893,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6428112509849530446, guid: 5332758c2f308684cadf150685506234, type: 3}
     - target: {fileID: 4483051726075514578, guid: 80dfcdcf53558294f829c98a91753563, type: 3}
+      propertyPath: missile
+      value: 
+      objectReference: {fileID: 4324720777855780103, guid: b040ceedd39cb3144b575af3f8f5d77f, type: 3}
+    - target: {fileID: 4483051726075514578, guid: 80dfcdcf53558294f829c98a91753563, type: 3}
       propertyPath: Attack5ls
       value: 10
       objectReference: {fileID: 0}
@@ -903,6 +907,10 @@ PrefabInstance:
     - target: {fileID: 4483051726075514578, guid: 80dfcdcf53558294f829c98a91753563, type: 3}
       propertyPath: lazerpointy
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483051726075514578, guid: 80dfcdcf53558294f829c98a91753563, type: 3}
+      propertyPath: attackpointy
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4483051726075514578, guid: 80dfcdcf53558294f829c98a91753563, type: 3}
       propertyPath: attack4missile
