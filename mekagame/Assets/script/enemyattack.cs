@@ -229,7 +229,6 @@ public class enemyattack : MonoBehaviour
 
     void Attack2()
     {
-
         GameObject Attack2lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(groundx, 0, 0), Quaternion.identity);
         Destroy(Attack2lazerattackpoint, 3f);
         Invoke("Attack2l", 2f);
@@ -237,7 +236,7 @@ public class enemyattack : MonoBehaviour
 
     void Attack2l()
     {
-        GameObject Attack2lazer = Instantiate(lazer, new Vector3(groundx, lazerpointy, 0), Quaternion.identity);//î≠éÀ
+        GameObject Attack2lazer = Instantiate(lazer, new Vector3(groundx, lazerpointy, 0), Quaternion.Euler(90, 0, 0));//î≠éÀ
         Destroy(Attack2lazer, 1f);
         Debug.Log("çUåÇáU");
     }
@@ -355,7 +354,7 @@ public class enemyattack : MonoBehaviour
 
     void Attack5lx()
     {
-        GameObject Attack5lazer = Instantiate(lazer, new Vector3(jx, lazerpointy, 0), Quaternion.identity);//î≠éÀ
+        GameObject Attack5lazer = Instantiate(lazer, new Vector3(jx, lazerpointy, 0), Quaternion.Euler(90, 0, 0));//î≠éÀ
       //Rigidbody cubeRigidbody = Attack5lazer.GetComponent<Rigidbody>();
       //cubeRigidbody.AddForce(new Vector3(0, 0, 1) * 10, ForceMode.Impulse);
         Destroy(Attack5lazer, 1f);
@@ -372,7 +371,7 @@ public class enemyattack : MonoBehaviour
 
     void Attack5lz()
     {
-        GameObject Attack5lazerx = Instantiate(lazerx, new Vector3(0, lazerpointy, jz), Quaternion.identity);//î≠éÀ
+        GameObject Attack5lazerx = Instantiate(lazerx, new Vector3(0, lazerpointy, jz), Quaternion.Euler(90, 0, -90)); ;//î≠éÀ
       //Rigidbody cubeRigidbody = Attack5lazerx.GetComponent<Rigidbody>();
       //cubeRigidbody.AddForce(new Vector3(1, 0, 0) * 10, ForceMode.Impulse);
         Destroy(Attack5lazerx, 1f);
@@ -473,25 +472,25 @@ public class enemyattack : MonoBehaviour
     }
     void Attack6lazerp()
     {
-        GameObject Attack6lazerp = Instantiate(lazer, new Vector3(30, lazerpointy, 0), Quaternion.identity);//î≠éÀ
+        GameObject Attack6lazerp = Instantiate(lazer, new Vector3(30, lazerpointy, 0), Quaternion.Euler(90, 0, 0));//î≠éÀ
         Destroy(Attack6lazerp, 1f);
         Invoke("Attack6lazerm2point", 2f);
     }
     void Attack6lazerm()
     {
-        GameObject Attack6lazerm = Instantiate(lazer, new Vector3(-30, lazerpointy, 0), Quaternion.identity);//î≠éÀ
+        GameObject Attack6lazerm = Instantiate(lazer, new Vector3(-30, lazerpointy, 0), Quaternion.Euler(90, 0, 0));//î≠éÀ
         Destroy(Attack6lazerm, 1f);
         Invoke("Attack6lazerp2point", 2f);
     }
     void Attack6lazerp2()
     {
-        GameObject Attack6lazerp2 = Instantiate(lazer, new Vector3(30, lazerpointy, 0), Quaternion.identity);//î≠éÀ
+        GameObject Attack6lazerp2 = Instantiate(lazer, new Vector3(30, lazerpointy, 0), Quaternion.Euler(90, 0, 0));//î≠éÀ
         Destroy(Attack6lazerp2, 1f);
         Debug.Log("çUåÇáY ÉpÉ^Å[Éì2");
     }
     void Attack6lazerm2()
     {
-        GameObject Attack6lazerm2 = Instantiate(lazer, new Vector3(-30, lazerpointy, 0), Quaternion.identity);//î≠éÀ
+        GameObject Attack6lazerm2 = Instantiate(lazer, new Vector3(-30, lazerpointy, 0), Quaternion.Euler(90, 0, 0));//î≠éÀ
         Destroy(Attack6lazerm2, 1f);
         Debug.Log("çUåÇáY ÉpÉ^Å[Éì1");
     }
