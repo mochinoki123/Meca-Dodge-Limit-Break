@@ -1,15 +1,16 @@
 using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     [SerializeField] private int maxHP;
     [SerializeField] private int maxGage;
-    [SerializeField] private Text hpText;
-    [SerializeField] private Text gageText;
-    [SerializeField] private Text comboText;
+    [SerializeField] private TextMeshProUGUI hpText;
+    [SerializeField] private TextMeshProUGUI gageText;
+    [SerializeField] private TextMeshProUGUI comboText;
     [SerializeField] private int nowHP;
     [SerializeField] private float nowGage;
     [SerializeField] private GameObject player;
@@ -34,16 +35,13 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        //if(combo > 0)
-        //{
-            
-        //}
+
     }
     public void UpdateText()
     {
         hpText.text = "HP : " + nowHP;
         gageText.text = "Gage : " + nowGage;
-        //comboText.text = "Combo : " + combo;
+        comboText.text = "Combo : " + combo;
     }
     public void Damage()
     {

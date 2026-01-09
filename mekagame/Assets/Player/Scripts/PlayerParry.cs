@@ -10,6 +10,7 @@ using UnityEditor.UIElements;
 public class PlayerParry : MonoBehaviour
 {
     [SerializeField] private GameObject playerParry;
+    [SerializeField] private  Enemy enemy;
     [SerializeField] private float parryTime;
     [SerializeField] private float parryCoolTime;
     bool isParry = false;
@@ -19,11 +20,14 @@ public class PlayerParry : MonoBehaviour
     SOCDkey key;
     LimitBreak lb;
     PlayerPulseDiffuser pd;
+    Animator animator;
+
     private void Awake()
     {
         key = GetComponent<SOCDkey>();
         lb = GetComponent<LimitBreak>();
         pd = GetComponent<PlayerPulseDiffuser>();
+        animator = GetComponent<Animator>();
     }
     private void OnParry(InputValue value)
     {
@@ -45,7 +49,7 @@ public class PlayerParry : MonoBehaviour
         {
             if (lb != null && lb.isLB)
             {
-                //enemy.Damage(lb.lBDamage);
+                enemy.Damage(lb.lBDamage);
             }
         }
         else
@@ -59,5 +63,9 @@ public class PlayerParry : MonoBehaviour
         yield return new WaitForSeconds(currentCoolTime);
         isParryCoolTime = false;
         notMove = false;
+    }
+    private void Update()
+    {
+        animator.SetBool("LimitBreakSuccess", ObjectParry.parrySuccess);
     }
 }
