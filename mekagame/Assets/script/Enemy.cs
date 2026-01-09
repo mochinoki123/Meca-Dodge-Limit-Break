@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
     {
         if (EnemyHP<=0)
         {
-            SceneManager.LoadScene("Scene");//シーン名を入れる
+            SceneManager.LoadScene("Result");//シーン名を入れる
         }
     }
     //シーン移動使う場合
