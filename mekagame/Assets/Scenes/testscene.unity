@@ -910,7 +910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4483051726075514578, guid: 80dfcdcf53558294f829c98a91753563, type: 3}
       propertyPath: attackpointy
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4483051726075514578, guid: 80dfcdcf53558294f829c98a91753563, type: 3}
       propertyPath: attack4missile
