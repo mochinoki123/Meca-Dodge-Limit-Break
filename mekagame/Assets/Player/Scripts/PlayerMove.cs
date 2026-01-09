@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     private float notSpeed = 0;
     PlayerParry parry;
     OverClock oc;
+    Animator animator;
 
     bool goJump = false;
     public static bool isRun = false;
@@ -27,6 +28,7 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         parry = GetComponent<PlayerParry>();
         oc = GetComponent<OverClock>();
+        animator = GetComponent<Animator>();
     }
     private void OnMove(InputValue value) => inputVec = value.Get<Vector2>();
     private void OnJump(InputValue value) => goJump = true;
@@ -41,6 +43,7 @@ public class PlayerMove : MonoBehaviour
         Move();
         Rotate();
         CheckGround();
+
     }
     private void FixedUpdate()
     {
@@ -63,6 +66,8 @@ public class PlayerMove : MonoBehaviour
             rb.linearVelocity.y,
             inputVec.y * speed
         );
+        float animSpeed = Mathf.Abs( speed );
+        animator.SetFloat("AnimSpeed", animSpeed);
     }
     private IEnumerator Run()
     {
