@@ -1,10 +1,7 @@
-using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor.UIElements;
+
 
 
 public class PlayerParry : MonoBehaviour
@@ -50,6 +47,7 @@ public class PlayerParry : MonoBehaviour
             if (lb != null && lb.isLB)
             {
                 enemy.Damage(lb.lBDamage);
+                animator.SetTrigger("LimitBreak");
             }
         }
         else
@@ -63,9 +61,5 @@ public class PlayerParry : MonoBehaviour
         yield return new WaitForSeconds(currentCoolTime);
         isParryCoolTime = false;
         notMove = false;
-    }
-    private void Update()
-    {
-        animator.SetBool("LimitBreakSuccess", ObjectParry.parrySuccess);
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerDamage : MonoBehaviour
 {
     private PlayerInvincible invincible;
+    public bool isHit;
 
     private void Start()
     {
@@ -10,9 +11,10 @@ public class PlayerDamage : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     { 
+
         if (PlayerInvincible.isInvincible) return;
 
-        bool isHit = false; 
+        isHit = false; 
 
         if (other.CompareTag("Missile"))
         {
@@ -23,14 +25,14 @@ public class PlayerDamage : MonoBehaviour
                 isHit = true;
             }
         }
-        else if (other.CompareTag("Lazer"))
+        if (other.CompareTag("Lazer"))
         {
-            var lazer = other.GetComponentInParent<enemylazer>();
-            if (lazer != null)
-            {
-                lazer.Kill();
-                isHit = true;
-            }
+            //var lazer = other.GetComponentInParent<enemylazer>();
+            //if (lazer != null)
+            //{
+            //    lazer.Kill();
+            //}
+            isHit = true;
         }
 
         if (isHit)

@@ -70,7 +70,7 @@ MonoBehaviour:
   ap: 0
   groundx: 0
   groundz: 0
-  lazerpointy: 7
+  lazerpointy: 0
   attack123: 0
   attack12345: 0
   attack123456: 0
@@ -172,8 +172,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.909729, y: 2.6882348, z: 1}
-  m_Center: {x: 0.0104522705, y: -0.11912781, z: 0}
+  m_Size: {x: 4.909729, y: 2.6882348, z: 5.234562}
+  m_Center: {x: 0.0104522705, y: -0.11912775, z: -0.29482543}
 --- !u!1001 &361908765457706794
 PrefabInstance:
   m_ObjectHideFlags: 0
