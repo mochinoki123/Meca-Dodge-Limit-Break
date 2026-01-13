@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 0fd89d4b2ea8c454caa5c04509e1ba4c
+timeCreated: 1525976687
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119167
+  packageName: Combat Drone A002
+  packageVersion: 2.0
+  assetPath: Assets/DKP/CombatDrone002/Demo/Prefabs/DemoCamera.prefab
+  uploadId: 391184

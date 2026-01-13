@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: dd5b121662d45e5408e3c2fe06a4c5f9
+timeCreated: 1525976774
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119167
+  packageName: Combat Drone A002
+  packageVersion: 2.0
+  assetPath: Assets/DKP/CombatDrone002/Demo/Scripts/CD_DemoCamera.cs
+  uploadId: 391184

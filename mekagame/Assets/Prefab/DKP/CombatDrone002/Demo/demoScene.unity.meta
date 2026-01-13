@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4f6c6be1f0b793f42b6ff19eeca917eb
+timeCreated: 1525961404
+licenseType: Store
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119167
+  packageName: Combat Drone A002
+  packageVersion: 2.0
+  assetPath: Assets/DKP/CombatDrone002/Demo/demoScene.unity
+  uploadId: 391184

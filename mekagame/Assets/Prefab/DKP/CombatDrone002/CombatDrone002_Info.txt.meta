@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 421269eb735513a41bb80434b5ab3cb1
+timeCreated: 1526927935
+licenseType: Store
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119167
+  packageName: Combat Drone A002
+  packageVersion: 2.0
+  assetPath: Assets/DKP/CombatDrone002/CombatDrone002_Info.txt
+  uploadId: 391184

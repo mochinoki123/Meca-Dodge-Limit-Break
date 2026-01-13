@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 133cc7bca46860c40bf2875fc0cae220
+timeCreated: 1525961301
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119167
+  packageName: Combat Drone A002
+  packageVersion: 2.0
+  assetPath: Assets/DKP/CombatDrone002/3DModels/Materials/DroneA002_OuterTexture01.mat
+  uploadId: 391184

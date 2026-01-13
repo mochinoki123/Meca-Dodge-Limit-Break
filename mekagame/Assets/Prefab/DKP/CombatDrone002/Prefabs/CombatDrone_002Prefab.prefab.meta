@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 522e33b522a29734ca28d884054cd462
+timeCreated: 1526927813
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119167
+  packageName: Combat Drone A002
+  packageVersion: 2.0
+  assetPath: Assets/DKP/CombatDrone002/Prefabs/CombatDrone_002Prefab.prefab
+  uploadId: 391184

@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: dbcaac7a5b204394e980f608cc30c8da
+timeCreated: 1525976512
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119167
+  packageName: Combat Drone A002
+  packageVersion: 2.0
+  assetPath: Assets/DKP/CombatDrone002/Demo/Scripts/CD_LookAtTarget.cs
+  uploadId: 391184
