@@ -1370,6 +1370,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2239482457582927747, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: pDUseGage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2504547019695923566, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1418,9 +1422,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6555405555771608055, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: lBUseGage
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555405555771608055, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: lBCoolTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7261820190855510206, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7366772813212430370, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: oCUseGage
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8288794723561334125, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: enemy

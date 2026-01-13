@@ -10,7 +10,6 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float runCoolTime;
     [SerializeField] private float jumpForce;
 
-
     Rigidbody rb;
     Vector2 inputVec;
     Vector3 movVec;
