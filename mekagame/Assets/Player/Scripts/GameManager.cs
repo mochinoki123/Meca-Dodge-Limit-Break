@@ -15,13 +15,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float nowGage;
     [SerializeField] private GameObject player;
     [SerializeField] private float comboTime;
-    [SerializeField] private float comboMultiple1;
-    [SerializeField] private float comboMultiple2;
-    [SerializeField] private float comboMultiple3;
+    [SerializeField] private float[] comboMultiple;
 
-    private float comboMultiple = 1;
     private int combo;
     private  int maxCombo;
+    private float lastComboTime = 0;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -35,7 +33,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-
+        CheckCombo();
     }
     public void UpdateText()
     {
@@ -63,11 +61,12 @@ public class GameManager : MonoBehaviour
     }
     public void AddGage(int n)
     {
-        if (nowGage < maxGage)
-        {
-            nowGage += comboMultiple * n;
-            UpdateText();
-        }
+        UpdateCombo();
+        float multiple = GetComboMultiple();
+        nowGage += n * multiple;
+        nowGage = Mathf.Clamp(nowGage, 0, maxGage);
+
+        UpdateText();
     }
     public void ResetGage()
     {
@@ -88,4 +87,32 @@ public class GameManager : MonoBehaviour
         Destroy(obj);
         SceneManager.LoadScene("Result");
     }
+    private void CheckCombo()
+    {
+        if (combo == 0) return;
+        if (Time.time - lastComboTime > comboTime)
+        {
+            combo = 0;
+            UpdateText();
+        }
+    }
+    private void UpdateCombo()
+    {
+        combo++;
+        lastComboTime = Time.time;
+
+        if (combo > maxCombo)
+        {
+            maxCombo = combo;
+        }
+    }
+    private float GetComboMultiple()
+    {
+        if (combo >= 40) return comboMultiple[3];
+        if (combo >= 30) return comboMultiple[2];
+        if (combo >= 10) return comboMultiple[1];
+
+        return comboMultiple[0];
+    }
 }
+

@@ -440,7 +440,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f383cdb75c9027344bc5c1e743e55417, type: 2}
+  - {fileID: 2100000, guid: b619f5cf74898c449829f29026054aaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1205,10 +1205,12 @@ MonoBehaviour:
   nowHP: 0
   nowGage: 0
   player: {fileID: 417390907}
-  comboTime: 0
-  comboMultiple1: 0
-  comboMultiple2: 0
-  comboMultiple3: 0
+  comboTime: 4
+  comboMultiple:
+  - 1
+  - 1.2
+  - 1.5
+  - 2
 --- !u!4 &1744651155
 Transform:
   m_ObjectHideFlags: 0
