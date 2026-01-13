@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     {
         EnemyHP -= damage;
         EnemyHp.text = "HP: " + EnemyHP.ToString();
+        Enemydown();
     }
     // Update is called once per frame
     void Update()
