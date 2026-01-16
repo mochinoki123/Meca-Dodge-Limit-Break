@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float runTime;
     [SerializeField] private float runCoolTime;
     [SerializeField] private float jumpForce;
+    [SerializeField] private AudioClip dash;
 
     Rigidbody rb;
     Vector2 inputVec;
@@ -17,6 +18,7 @@ public class PlayerMove : MonoBehaviour
     PlayerParry parry;
     OverClock oc;
     Animator animator;
+    AudioSource audioSource;
 
     bool goJump = false;
     public static bool isRun = false;
@@ -29,6 +31,7 @@ public class PlayerMove : MonoBehaviour
         parry = GetComponent<PlayerParry>();
         oc = GetComponent<OverClock>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     private void OnMove(InputValue value) => inputVec = value.Get<Vector2>();
     private void OnJump(InputValue value) => goJump = true;
@@ -71,6 +74,8 @@ public class PlayerMove : MonoBehaviour
     }
     private IEnumerator Run()
     {
+        audioSource.PlayOneShot(dash);
+
         isRun = true;
 
         yield return new WaitForSeconds(runTime);

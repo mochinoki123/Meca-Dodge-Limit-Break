@@ -7,14 +7,18 @@ public class PlayerGraze : MonoBehaviour
     [SerializeField] private float grazeRange;
     [SerializeField] private int ocAddGage;
     [SerializeField] private int addGage;
+    [SerializeField] private AudioClip graze;
+
     private float range;
     OverClock oc;
     SphereCollider myCollider;
+    AudioSource audioSource;
 
     private void Awake()
     {
         myCollider = GetComponent<SphereCollider>();
         oc = GetComponentInParent<OverClock>();
+        audioSource = GetComponentInParent<AudioSource>();
         Range();
     }
     private void OnTriggerStay(Collider other)
@@ -23,6 +27,7 @@ public class PlayerGraze : MonoBehaviour
         {
             if (!grazedMissiles.Contains(other.gameObject))
             {
+                audioSource.PlayOneShot(graze);
                 AddGraze(other.gameObject);
             }
         }
