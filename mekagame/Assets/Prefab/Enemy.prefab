@@ -77,7 +77,7 @@ MonoBehaviour:
   groundz: 0
   lazerpointy: 7
   maxLength: -70
-  extendSpeed: 100
+  extendSpeed: 80
   attack123: 0
   attack12345: 0
   attack123456: 0

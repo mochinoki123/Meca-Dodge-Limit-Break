@@ -27,11 +27,11 @@ public class PlayerDamage : MonoBehaviour
         }
         if (other.CompareTag("Lazer"))
         {
-            //var lazer = other.GetComponentInParent<enemylazer>();
-            //if (lazer != null)
-            //{
-            //    lazer.Kill();
-            //}
+            var lazer = other.GetComponentInParent<enemylazer>();
+            if (lazer != null)
+            {
+                lazer.Kill();
+            }
             isHit = true;
         }
 
