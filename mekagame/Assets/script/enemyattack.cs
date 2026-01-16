@@ -1,11 +1,15 @@
 using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEngine.Audio;
 
 public class enemyattack : MonoBehaviour
 {
     //Enemyスクリプト
     private Enemy enemyhpscripts;
+    [SerializeField] private AudioClip lazerclip;
+    [SerializeField] private AudioClip lazercharge;
+    private AudioSource audioSource;
     //プレハブ
     [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
   //[SerializeField] GameObject attackpoint;//攻撃発生地点
@@ -64,6 +68,7 @@ public class enemyattack : MonoBehaviour
     void Start()
     {
         enemyhpscripts = GetComponent<Enemy>();//敵データ呼び出し
+        audioSource = GetComponent<AudioSource>();
         EnemyAttackController1();//攻撃パターンⅠ
     }
 
@@ -257,6 +262,7 @@ public class enemyattack : MonoBehaviour
     //-----攻撃Ⅱ-----
     void Attack2()
     {
+        audioSource.PlayOneShot(lazercharge);
         GameObject Attack2lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(groundx, 0, 0), Quaternion.identity);//レーザー発射地点
         Destroy(Attack2lazerattackpoint, 2f);//2秒後に破壊
         Invoke("Attack2l", 2f);
@@ -265,6 +271,7 @@ public class enemyattack : MonoBehaviour
     //攻撃Ⅱレーザー
     void Attack2l()
     {
+        audioSource.PlayOneShot(lazerclip);
         GameObject Attack2lazer = Instantiate(lazer, new Vector3(groundx, lazerpointy, attack2lazerz), Quaternion.identity);//発射
         StartCoroutine(ExtendLazer2(Attack2lazer));
     }
@@ -409,6 +416,7 @@ public class enemyattack : MonoBehaviour
     //攻撃Ⅴ縦レーザーポイント
     void Attack5lpx()
     {
+        audioSource.PlayOneShot(lazercharge);
         GameObject Attack5lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(l5x, 0, 0), Quaternion.identity);//縦レーザー発射地点
         Destroy(Attack5lazerattackpoint, 2f);
         Invoke("Attack5lx", 2f);
@@ -417,6 +425,7 @@ public class enemyattack : MonoBehaviour
     //攻撃Ⅴ縦レーザー
     void Attack5lx()
     {
+        audioSource.PlayOneShot(lazerclip);
         GameObject Attack5lazer = Instantiate(lazer, new Vector3(l5x, lazerpointy, attack2lazerz), Quaternion.identity);//発射
       //Rigidbody cubeRigidbody = Attack5lazer.GetComponent<Rigidbody>();
       //cubeRigidbody.AddForce(new Vector3(0, 0, 1) * 10, ForceMode.Impulse);
@@ -446,6 +455,7 @@ public class enemyattack : MonoBehaviour
     //攻撃Ⅴ横レーザーポイント
     void Attack5lpz()
     {
+        audioSource.PlayOneShot(lazercharge);
         GameObject Attack5lazerattackpointx = Instantiate(lazerattackpointx, new Vector3(0, 0, l5z), Quaternion.identity);//横レーザー発射地点
         Destroy(Attack5lazerattackpointx, 2f);
         Invoke("Attack5lz", 2f);
@@ -454,6 +464,7 @@ public class enemyattack : MonoBehaviour
     //攻撃Ⅴ横レーザー
     void Attack5lz()
     {
+        audioSource.PlayOneShot(lazerclip);
         GameObject Attack5lazerx = Instantiate(lazerx, new Vector3(attack5lx, lazerpointy, l5z), Quaternion.identity);//発射
       //Rigidbody cubeRigidbody = Attack5lazerx.GetComponent<Rigidbody>();
       //cubeRigidbody.AddForce(new Vector3(1, 0, 0) * 10, ForceMode.Impulse);
@@ -562,6 +573,7 @@ public class enemyattack : MonoBehaviour
     //攻撃ⅥレーザーポイントパターンⅠ右
     void Attack6lazerppoint()
     {
+        audioSource.PlayOneShot(lazercharge);
         GameObject Attack6lazerattackpointp = Instantiate(lazerattackpoint, new Vector3(30, 0, 0), Quaternion.identity);
         Destroy(Attack6lazerattackpointp, 2f);
         Invoke("Attack6lazerp", 2f);
@@ -570,6 +582,7 @@ public class enemyattack : MonoBehaviour
     //攻撃ⅥレーザーパターンⅠ右
     void Attack6lazerp()
     {
+        audioSource.PlayOneShot(lazerclip);
         GameObject Attack6lazerp = Instantiate(lazer, new Vector3(30, lazerpointy, attack2lazerz), Quaternion.identity);//発射
         StartCoroutine(ExtendLazer6p1(Attack6lazerp));
     }
@@ -596,6 +609,7 @@ public class enemyattack : MonoBehaviour
     //攻撃ⅥレーザーポイントパターンⅠ左
     void Attack6lazerm2point()
     {
+        audioSource.PlayOneShot(lazercharge);
         GameObject Attack6lazerattackpointm2 = Instantiate(lazerattackpoint, new Vector3(-30, 0, 0), Quaternion.identity);
         Destroy(Attack6lazerattackpointm2, 2f);
         Invoke("Attack6lazerm2", 2f);
@@ -604,6 +618,7 @@ public class enemyattack : MonoBehaviour
     //攻撃ⅥレーザーパターンⅠ左
     void Attack6lazerm2()
     {
+        audioSource.PlayOneShot(lazerclip);
         GameObject Attack6lazerm2 = Instantiate(lazer, new Vector3(-30, lazerpointy, attack2lazerz), Quaternion.identity);//発射
         StartCoroutine(ExtendLazer6m2(Attack6lazerm2));
         Destroy(Attack6lazerm2, 1f);
@@ -635,6 +650,7 @@ public class enemyattack : MonoBehaviour
     //攻撃ⅥレーザーポイントパターンⅡ左
     void Attack6lazermpoint()
     {
+        audioSource.PlayOneShot(lazercharge);
         GameObject Attack6lazerattackpointm = Instantiate(lazerattackpoint, new Vector3(-30, 0, 0), Quaternion.identity);
         Destroy(Attack6lazerattackpointm, 2f);
         Invoke("Attack6lazerm", 2f);
@@ -643,6 +659,7 @@ public class enemyattack : MonoBehaviour
     //攻撃ⅥレーザーパターンⅡ左
     void Attack6lazerm()
     {
+        audioSource.PlayOneShot(lazerclip);
         GameObject Attack6lazerm = Instantiate(lazer, new Vector3(-30, lazerpointy, attack2lazerz), Quaternion.identity);//発射
         StartCoroutine(ExtendLazer6m1(Attack6lazerm));
     }
@@ -671,6 +688,7 @@ public class enemyattack : MonoBehaviour
     //攻撃ⅥレーザーポイントパターンⅡ右
     void Attack6lazerp2point()
     {
+        audioSource.PlayOneShot(lazercharge);
         GameObject Attack6lazerattackpointp2 = Instantiate(lazerattackpoint, new Vector3(30, 0, 0), Quaternion.identity);
         Destroy(Attack6lazerattackpointp2, 2f);
         Invoke("Attack6lazerp2", 2f);
@@ -679,6 +697,7 @@ public class enemyattack : MonoBehaviour
     //攻撃ⅥレーザーパターンⅡ右
     void Attack6lazerp2()
     {
+        audioSource.PlayOneShot(lazerclip);
         GameObject Attack6lazerp2 = Instantiate(lazer, new Vector3(30, lazerpointy, attack2lazerz), Quaternion.identity);//発射
         StartCoroutine(ExtendLazer6p2(Attack6lazerp2));
         Debug.Log("攻撃Ⅵ パターン2");
@@ -702,6 +721,5 @@ public class enemyattack : MonoBehaviour
         // 最終値を保証
         scale.z = maxLength;
         Attack6lazerp2.transform.localScale = scale;
-        Invoke("Attack6lazerp2point", 2f);
     }
 }
