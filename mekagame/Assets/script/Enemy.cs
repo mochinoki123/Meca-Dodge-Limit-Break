@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] TextMeshProUGUI EnemyHp;
   //[SerializeField] public int EnemyMAXHP = 1000;
     [SerializeField] public int EnemyHP = 1000;
+    
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +18,7 @@ public class Enemy : MonoBehaviour
         //Invoke("EnemyHPtime",30f);
         //Invoke("EnemyHPtime",60f);
         //Invoke("EnemyHPtime",90f);
+        
     }
 
     void EnemyHPtime()
