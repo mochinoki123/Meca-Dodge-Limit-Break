@@ -10,8 +10,8 @@ public class PlayerDamage : MonoBehaviour
         invincible = GetComponent<PlayerInvincible>();
     }
     private void OnTriggerEnter(Collider other)
-    { 
-
+    {
+        Debug.Log("“–‚½‚Á‚½");
         if (PlayerInvincible.isInvincible) return;
 
         isHit = false; 

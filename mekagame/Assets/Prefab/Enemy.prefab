@@ -51,7 +51,7 @@ MonoBehaviour:
   missile: {fileID: 4324720777855780103, guid: b040ceedd39cb3144b575af3f8f5d77f, type: 3}
   rndm: -11
   rndp: 11
-  attack1missile: 1
+  attack1missile: 10
   lazer: {fileID: 8187081989845006493, guid: d2202b903d7a73747a2f2ff8f57c51b3, type: 3}
   lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
   attack2lazerz: 50

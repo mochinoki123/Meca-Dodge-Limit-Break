@@ -792,7 +792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd63cb9d3281424fbcc24775853d146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pDUseGage: 0
+  pDUseGage: 100
   pD: {fileID: 2504547019695923566}
   pDTime: 2
   isPD: 0
@@ -808,7 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523da60904470774ca413d0aff9f7567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oCUseGage: 0
+  oCUseGage: 200
   oCTime: 20
   oCSpeed: 60
   oCCoolTime: 0.5
@@ -827,7 +827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aabb834cd81fd04c97f95b65ff988e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lBUseGage: 0
+  lBUseGage: 300
   lBDamage: 200
   lBTime: 2
   lBCoolTime: 3
