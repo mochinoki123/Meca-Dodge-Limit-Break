@@ -70,7 +70,7 @@ MonoBehaviour:
   Attack6ms: 5
   attackf: 5
   attackpointx: 10
-  attackpointy: 25
+  attackpointy: 60
   attackpointz: 10
   ap: 0
   groundx: 0
