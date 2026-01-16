@@ -24,6 +24,7 @@ public class PlayerMove : MonoBehaviour
 
     void Awake()
     {
+        isRun = false;
         rb = GetComponent<Rigidbody>();
         parry = GetComponent<PlayerParry>();
         oc = GetComponent<OverClock>();
