@@ -903,6 +903,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5303099277553830569, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: lazerchargeeffect
+      value: 
+      objectReference: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
+    - target: {fileID: 5303099277553830569, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: ClustereffectPrefab
+      value: 
+      objectReference: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
     - target: {fileID: 7484231396979750424, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
