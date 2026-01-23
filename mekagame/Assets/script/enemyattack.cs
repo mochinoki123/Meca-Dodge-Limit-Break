@@ -12,7 +12,7 @@ public class enemyattack : MonoBehaviour
     private AudioSource audioSource;
     //プレハブ
     [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
-  //[SerializeField] GameObject attackpoint;//攻撃発生地点
+    //[SerializeField] GameObject attackpoint;//攻撃発生地点
     //フィールド範囲
     [SerializeField] float rndm = -11;//フィールドごとの範囲指定マイナス
     [SerializeField] float rndp =  11;//フィールドごとの範囲指定プラス
@@ -32,6 +32,7 @@ public class enemyattack : MonoBehaviour
     //攻撃４
     [SerializeField] int attack4missile;//攻撃４のミサイル範囲指定　10
     [SerializeField] GameObject bpoint;//爆発ポイント
+    [SerializeField] GameObject ClustereffectPrefab;//爆発のエフェクト
     //攻撃５
     [SerializeField] GameObject lazerx;//レーザーオブジェクト
     [SerializeField] int Attack5ls;//攻撃５のレーザー数 10
@@ -264,8 +265,8 @@ public class enemyattack : MonoBehaviour
     {
         audioSource.PlayOneShot(lazercharge);
         GameObject Attack2lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(groundx, 0, 0), Quaternion.identity);//レーザー発射地点
-        Destroy(Attack2lazerattackpoint, 2f);//2秒後に破壊
-        Invoke("Attack2l", 2f);
+        Destroy(Attack2lazerattackpoint, 1.3f);//1.5秒後に破壊
+        Invoke("Attack2l", 1.3f);
     }
 
     //攻撃Ⅱレーザー
