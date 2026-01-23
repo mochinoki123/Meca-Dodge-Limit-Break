@@ -12,19 +12,16 @@ public class OverClock : MonoBehaviour
     [SerializeField] private AudioClip overClock;
 
     public bool isOC = false;
-    SOCDkey key;
     PlayerGraze pg;
     AudioSource audioSource;
 
     private void Awake()
     {
-        key = GetComponent<SOCDkey>();
         pg = GetComponentInChildren<PlayerGraze>();
         audioSource = GetComponent<AudioSource>();
     }
     private void OnOverClock(InputValue value)
     {
-        if (!key.isGageAction) return;
         if (isOC) return;
         StartCoroutine(PlayOverClock());
     }

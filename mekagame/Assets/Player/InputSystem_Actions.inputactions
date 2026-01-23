@@ -114,15 +114,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "GageAction",
-                    "type": "Value",
-                    "id": "4a0a97f7-1dd0-4976-9ffd-8d3db9670993",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "PulseDiffuser",
                     "type": "Button",
                     "id": "8a767016-d083-4e44-b1f7-e01b1e2cded2",
@@ -400,10 +391,10 @@
                 {
                     "name": "",
                     "id": "8cbb2f4b-a784-49cc-8d5e-c010b8c7f4e6",
-                    "path": "<Gamepad>/leftStickPress",
+                    "path": "<HID::QIXIONG Wire PS4 Controller>/trigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "",
                     "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -433,10 +424,10 @@
                 {
                     "name": "",
                     "id": "daba33a1-ad0c-4742-a909-43ad1cdfbeb6",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<HID::QIXIONG Wire PS4 Controller>/button2",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -521,7 +512,7 @@
                 {
                     "name": "",
                     "id": "669988f5-a206-4fc6-8971-23ec3cf8b8db",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -531,8 +522,19 @@
                 },
                 {
                     "name": "",
+                    "id": "534bc672-7f83-4a59-a343-201af1d4fb64",
+                    "path": "<HID::QIXIONG Wire PS4 Controller>/button6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Parry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "252e28fa-fe9d-4256-997d-b17d3e580bb4",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -542,8 +544,19 @@
                 },
                 {
                     "name": "",
+                    "id": "2ca23414-a49a-4d92-a15f-db0a0194429a",
+                    "path": "<HID::QIXIONG Wire PS4 Controller>/button7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OverClock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "0f3b9275-d016-49e7-a5eb-ae65377a1b0d",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -553,22 +566,33 @@
                 },
                 {
                     "name": "",
-                    "id": "a67905f1-5875-4beb-84b6-1346f0d1c659",
-                    "path": "<Keyboard>/ctrl",
+                    "id": "2e448123-451f-4330-8e1f-6c2bfb0787d1",
+                    "path": "<HID::QIXIONG Wire PS4 Controller>/button8",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "GageAction",
+                    "groups": "",
+                    "action": "LimitBreak",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "03b42980-de20-4ee7-8e69-be622c727c3b",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "PulseDiffuser",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87fb3d6e-1618-4abf-9c75-91a702536eff",
+                    "path": "<HID::QIXIONG Wire PS4 Controller>/button5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "PulseDiffuser",
                     "isComposite": false,
                     "isPartOfComposite": false

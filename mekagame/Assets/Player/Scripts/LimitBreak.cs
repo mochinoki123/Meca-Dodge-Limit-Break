@@ -10,17 +10,14 @@ public class LimitBreak : MonoBehaviour
     [SerializeField] public float lBTime;
     [SerializeField] public float lBCoolTime;
     public bool isLB = false;
-    SOCDkey key;
     PlayerParry parry;
 
     private void Awake()
     {
-        key = GetComponent<SOCDkey>();
         parry = GetComponent<PlayerParry>();
     }
     private void OnLimitBreak(InputValue value)
     {
-        if (!key.isGageAction) return;
         if (isLB) return;
         StartCoroutine(AttackLimitBreak());
     }

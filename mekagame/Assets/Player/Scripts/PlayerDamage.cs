@@ -1,28 +1,37 @@
 using UnityEngine;
+using System.Collections;
+using UnityEngine.UIElements;
 
 public class PlayerDamage : MonoBehaviour
 {
-    private PlayerInvincible invincible;
-    public bool isHit;
-
-    private void Start()
+    [SerializeField] private float mutekiTime;
+    private PlayerMove playerMove;
+    private PlayerParry playerParry;
+    private PlayerPulseDiffuser playerPulseDiffuser;
+    private bool isMuteki = false;
+    private void Awake()
     {
-        invincible = GetComponent<PlayerInvincible>();
+        playerMove = GetComponent<PlayerMove>();
+        playerParry = GetComponent<PlayerParry>();
+        playerPulseDiffuser = GetComponent<PlayerPulseDiffuser>();
+
+        GetComponent<Renderer>().material.color = Color.red;
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("“–‚½‚Á‚½");
-        if (PlayerInvincible.isInvincible) return;
-
-        isHit = false; 
-
+        if (playerMove.isRun) return;
+        if (playerParry.isParry) return;
+        if (playerPulseDiffuser.isPD) return;
+        if (isMuteki) return;
+        bool isDamage = false;
         if (other.CompareTag("Missile"))
         {
             var missile = other.GetComponentInParent<enemymissile>();
             if (missile != null)
             {
                 missile.Kill();
-                isHit = true;
+                GameManager.Instance.Damage();
+                isDamage = true;
             }
         }
         if (other.CompareTag("Lazer"))
@@ -31,14 +40,19 @@ public class PlayerDamage : MonoBehaviour
             if (lazer != null)
             {
                 lazer.Kill();
+                GameManager.Instance.Damage();
+                isDamage = true;
             }
-            isHit = true;
         }
-
-        if (isHit)
+        if(isDamage)
         {
-            GameManager.Instance.Damage();
-            invincible.OnInvincible();
+            StartCoroutine(MutekiTime());
         }
+    }
+    private IEnumerator MutekiTime()
+    {
+        isMuteki = true;
+        yield return new WaitForSeconds(mutekiTime);
+        isMuteki = false;
     }
 }

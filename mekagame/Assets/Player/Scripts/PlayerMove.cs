@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
     AudioSource audioSource;
 
     bool goJump = false;
-    public static bool isRun = false;
+    public bool isRun = false;
     bool isRunCoolTime = false;
 
     void Awake()
@@ -46,7 +46,6 @@ public class PlayerMove : MonoBehaviour
         Move();
         Rotate();
         CheckGround();
-
     }
     private void FixedUpdate()
     {

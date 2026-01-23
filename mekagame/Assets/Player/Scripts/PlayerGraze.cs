@@ -10,6 +10,7 @@ public class PlayerGraze : MonoBehaviour
     [SerializeField] private AudioClip graze;
 
     private float range;
+    private PlayerMove playerMove;
     OverClock oc;
     SphereCollider myCollider;
     AudioSource audioSource;
@@ -19,11 +20,12 @@ public class PlayerGraze : MonoBehaviour
         myCollider = GetComponent<SphereCollider>();
         oc = GetComponentInParent<OverClock>();
         audioSource = GetComponentInParent<AudioSource>();
+        playerMove = GetComponentInParent<PlayerMove>();
         Range();
     }
     private void OnTriggerStay(Collider other)
     {
-        if ((other.CompareTag("Missile") || other.CompareTag("Lazer")) && PlayerMove.isRun)
+        if ((other.CompareTag("Missile") || other.CompareTag("Lazer")) && playerMove.isRun)
         {
             if (!grazedMissiles.Contains(other.gameObject))
             {

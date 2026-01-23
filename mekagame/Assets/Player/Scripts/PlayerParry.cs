@@ -11,11 +11,10 @@ public class PlayerParry : MonoBehaviour
     [SerializeField] private float parryTime;
     [SerializeField] private float parryCoolTime;
     [SerializeField] private AudioClip parry;
-    bool isParry = false;
+    public bool isParry = false;
     bool isParryCoolTime = false;
     public bool notMove = false;
     public bool isParryCommand = false;
-    SOCDkey key;
     LimitBreak lb;
     PlayerPulseDiffuser pd;
     Animator animator;
@@ -23,7 +22,6 @@ public class PlayerParry : MonoBehaviour
 
     private void Awake()
     {
-        key = GetComponent<SOCDkey>();
         lb = GetComponent<LimitBreak>();
         pd = GetComponent<PlayerPulseDiffuser>();
         animator = GetComponent<Animator>();
@@ -32,7 +30,6 @@ public class PlayerParry : MonoBehaviour
     private void OnParry(InputValue value)
     {
         if (pd.isPD) return;
-        if (key.isGageAction) return;
         if (isParry) return;
         if (isParryCoolTime) return;
         StartCoroutine(Parry());
