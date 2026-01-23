@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3870337214010161696}
+  - component: {fileID: -8855077123545217776}
   m_Layer: 0
   m_Name: lazerz
   m_TagString: Lazer
@@ -155,3 +156,15 @@ Transform:
   - {fileID: 2658535851342771971}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8855077123545217776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9078672028450228241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03151c727164d445a2922a06f243858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
