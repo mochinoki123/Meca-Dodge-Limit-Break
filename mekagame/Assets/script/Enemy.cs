@@ -15,9 +15,9 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         EnemyHp.text = "HP: " + EnemyHP.ToString();
-        //Invoke("EnemyHPtime",30f);
-        //Invoke("EnemyHPtime",60f);
-        //Invoke("EnemyHPtime",90f);
+        Invoke("EnemyHPtime",30f);
+        Invoke("EnemyHPtime",60f);
+        Invoke("EnemyHPtime",90f);
         
     }
 

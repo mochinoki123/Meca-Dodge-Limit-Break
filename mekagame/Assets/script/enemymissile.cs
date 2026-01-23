@@ -32,6 +32,6 @@ public class enemymissile : MonoBehaviour
     {
         Destroy(p);
         Destroy(gameObject);
-        Destroy(b,1f);
+        Destroy(b,1.2f);
     }
 }
