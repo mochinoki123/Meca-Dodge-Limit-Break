@@ -597,8 +597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mutekiTime: 3
-  isDamageMaterial: {fileID: 0}
-  targetRenderer: {fileID: 0}
 --- !u!114 &8288794723561334125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -971,8 +969,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grazeRange: 3
-  ocAddGage: 15
-  addGage: 10
+  ocAddGage: 30
+  addGage: 20
   graze: {fileID: 8300000, guid: b9b31dfd31374064585b7368b6728474, type: 3}
 --- !u!1 &4707444097477679339
 GameObject:

@@ -6,16 +6,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    [SerializeField] private int maxHP;
     [SerializeField] private int maxGage;
-    [SerializeField] private TextMeshProUGUI hpText;
     [SerializeField] private TextMeshProUGUI gageText;
     [SerializeField] private TextMeshProUGUI comboText;
-    [SerializeField] private int nowHP;
     [SerializeField] private float nowGage;
     [SerializeField] private GameObject player;
     [SerializeField] private float comboTime;
     [SerializeField] private float[] comboMultiple;
+    [SerializeField] private LifeGage lifeGage;
 
     private int combo;
     private  int maxCombo;
@@ -27,7 +25,6 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        ResetHP();
         ResetGage();
         UpdateText();
     }
@@ -37,27 +34,12 @@ public class GameManager : MonoBehaviour
     }
     public void UpdateText()
     {
-        hpText.text = "HP : " + nowHP;
         gageText.text = "Gage : " + nowGage;
         comboText.text = "Combo : " + combo;
     }
     public void Damage()
     {
-        if(nowHP > 1)
-        {
-            nowHP--;
-        }
-        else if(nowHP == 1)
-        {
-            nowHP = 0;
-            Die(player);
-        }
-        UpdateText();
-    }
-    public void ResetHP()
-    {
-        nowHP = maxHP;
-        UpdateText();
+        lifeGage.Damage();
     }
     public void AddGage(int n)
     {
@@ -82,9 +64,9 @@ public class GameManager : MonoBehaviour
     {
         return nowGage;
     }
-    public void Die(GameObject obj)
+    public void Die()
     {
-        Destroy(obj);
+        Destroy(player);
         SceneManager.LoadScene("Result");
     }
     private void CheckCombo()
