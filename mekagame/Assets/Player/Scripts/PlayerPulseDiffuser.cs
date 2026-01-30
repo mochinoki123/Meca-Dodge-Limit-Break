@@ -7,8 +7,15 @@ public class PlayerPulseDiffuser : MonoBehaviour
 {
     [SerializeField] private int pDUseGage;
     [SerializeField] private float pDTime;
+    [SerializeField] private Material pulseColor;
+    [SerializeField] private Material originalColor;
     public bool isPD = false;
+    private Renderer rend;
 
+    private void Awake()
+    {
+        rend = GetComponentInChildren<Renderer>();
+    }
     private void OnPulseDiffuser(InputValue value)
     {
         if (isPD) return;
@@ -20,8 +27,10 @@ public class PlayerPulseDiffuser : MonoBehaviour
         {   
             GameManager.Instance.UseGage(pDUseGage);
             isPD = true;
+            rend.material.color = pulseColor.color;
             yield return new WaitForSeconds(pDTime);
             isPD = false;
+            rend.material.color = originalColor.color;
         }
     }
 }

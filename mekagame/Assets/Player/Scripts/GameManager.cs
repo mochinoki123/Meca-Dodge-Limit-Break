@@ -7,13 +7,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     [SerializeField] private int maxGage;
-    [SerializeField] private TextMeshProUGUI gageText;
     [SerializeField] private TextMeshProUGUI comboText;
     [SerializeField] private float nowGage;
     [SerializeField] private GameObject player;
     [SerializeField] private float comboTime;
     [SerializeField] private float[] comboMultiple;
     [SerializeField] private LifeGage lifeGage;
+    [SerializeField] private GrazeGage grazeGage;
 
     private int combo;
     private  int maxCombo;
@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
     }
     public void UpdateText()
     {
-        gageText.text = "Gage : " + nowGage;
         comboText.text = "Combo : " + combo;
     }
     public void Damage()
@@ -46,7 +45,7 @@ public class GameManager : MonoBehaviour
         UpdateCombo();
         float multiple = GetComboMultiple();
         nowGage += n * multiple;
-        nowGage = Mathf.Clamp(nowGage, 0, maxGage);
+        grazeGage.SetValue(nowGage);
 
         UpdateText();
     }
@@ -58,7 +57,7 @@ public class GameManager : MonoBehaviour
     public void UseGage(int n)
     {
         nowGage -= n;
-        UpdateText();
+        grazeGage.SetValue(nowGage);
     }
     public float GetterGage()
     {
