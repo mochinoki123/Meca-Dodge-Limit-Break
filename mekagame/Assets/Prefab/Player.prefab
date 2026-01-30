@@ -214,7 +214,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a5dd462654711cd4b93dcabe497c293e, type: 2}
+  - {fileID: 2100000, guid: 4e7181958b0a7d6429d89feddd2829fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -633,6 +633,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pDUseGage: 100
   pDTime: 2
+  pulseColor: {fileID: 2100000, guid: 65569ff648fcb3d4e8ca9c7b713fbe5e, type: 2}
+  originalColor: {fileID: 2100000, guid: 4e7181958b0a7d6429d89feddd2829fe, type: 2}
   isPD: 0
 --- !u!114 &7366772813212430370
 MonoBehaviour:
@@ -652,6 +654,8 @@ MonoBehaviour:
   oCCoolTime: 0.5
   oCGrazeRange: 5
   overClock: {fileID: 8300000, guid: 8c571b21ae4d8ca4d993898e75628077, type: 3}
+  ocColor: {fileID: 2100000, guid: 55a8c599106947a4da4a68c1e36cffd6, type: 2}
+  originalColor: {fileID: 2100000, guid: 4e7181958b0a7d6429d89feddd2829fe, type: 2}
   isOC: 0
 --- !u!114 &6555405555771608055
 MonoBehaviour:

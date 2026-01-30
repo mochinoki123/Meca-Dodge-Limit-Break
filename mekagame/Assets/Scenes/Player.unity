@@ -2905,7 +2905,7 @@ PrefabInstance:
     - target: {fileID: 2730415525954972933, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: a5dd462654711cd4b93dcabe497c293e, type: 2}
+      objectReference: {fileID: 2100000, guid: 4e7181958b0a7d6429d89feddd2829fe, type: 2}
     - target: {fileID: 3498904214386823409, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2949,6 +2949,10 @@ PrefabInstance:
     - target: {fileID: 3759398697348694051, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464880286298759614, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6555405555771608055, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: lBUseGage

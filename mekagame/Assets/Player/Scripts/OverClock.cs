@@ -10,15 +10,19 @@ public class OverClock : MonoBehaviour
     [SerializeField] public float oCCoolTime;
     [SerializeField] public float oCGrazeRange;
     [SerializeField] private AudioClip overClock;
+    [SerializeField] private Material ocColor;
+    [SerializeField] private Material originalColor;
 
     public bool isOC = false;
     PlayerGraze pg;
     AudioSource audioSource;
+    Renderer rend;
 
     private void Awake()
     {
         pg = GetComponentInChildren<PlayerGraze>();
         audioSource = GetComponent<AudioSource>();
+        rend = GetComponentInChildren<Renderer>();
     }
     private void OnOverClock(InputValue value)
     {
@@ -32,9 +36,11 @@ public class OverClock : MonoBehaviour
             audioSource.PlayOneShot(overClock);
             GameManager.Instance.UseGage(oCUseGage);
             isOC = true;
+            rend.material.color = ocColor.color;
             pg.OCRange(oCGrazeRange);
             yield return new WaitForSeconds(oCTime);
             isOC = false;
+            rend.material.color = originalColor.color;
             pg.Range();
         }
     }
