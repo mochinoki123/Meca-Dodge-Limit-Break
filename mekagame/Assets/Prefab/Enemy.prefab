@@ -51,6 +51,7 @@ MonoBehaviour:
   missile: {fileID: 4324720777855780103, guid: b040ceedd39cb3144b575af3f8f5d77f, type: 3}
   rndm: -11
   rndp: 11
+  missilespeed: 2
   attack1missile: 10
   lazer: {fileID: 8187081989845006493, guid: d2202b903d7a73747a2f2ff8f57c51b3, type: 3}
   lazerchargeeffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
@@ -208,6 +209,7 @@ GameObject:
   - component: {fileID: 7484231396979750424}
   - component: {fileID: 7681058202149558725}
   - component: {fileID: 3156982603969905892}
+  - component: {fileID: -8461596928464388786}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -280,6 +282,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.909729, y: 2.6882348, z: 5.234562}
   m_Center: {x: 0.0104522705, y: -0.11912775, z: -0.29482543}
+--- !u!114 &-8461596928464388786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788469581091682507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de9387eedad5c04e8c9f8bcbba8a5ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPosi: 0
 --- !u!1001 &5189581951748132829
 PrefabInstance:
   m_ObjectHideFlags: 0

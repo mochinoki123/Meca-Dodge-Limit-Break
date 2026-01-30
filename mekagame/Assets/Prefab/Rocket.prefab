@@ -98,46 +98,19 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 576ac2305eb760f4385b5e93c2dc4bba, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -7733190013593385367}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 576ac2305eb760f4385b5e93c2dc4bba, type: 3}
-      insertIndex: -1
       addedObject: {fileID: -2780027451922905884}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 576ac2305eb760f4385b5e93c2dc4bba, type: 3}
       insertIndex: -1
       addedObject: {fileID: -8351618327452741696}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 576ac2305eb760f4385b5e93c2dc4bba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6625627173170433003}
   m_SourcePrefab: {fileID: 100100000, guid: 576ac2305eb760f4385b5e93c2dc4bba, type: 3}
 --- !u!1 &4324720777855780103 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 576ac2305eb760f4385b5e93c2dc4bba, type: 3}
   m_PrefabInstance: {fileID: 3514240869887998038}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &-7733190013593385367
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4324720777855780103}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!136 &-2780027451922905884
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -175,3 +148,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   point: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
   attack1missileeffectPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+--- !u!54 &6625627173170433003
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4324720777855780103}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0

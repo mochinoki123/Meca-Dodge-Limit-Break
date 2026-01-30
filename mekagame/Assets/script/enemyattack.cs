@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
+using System.Data;
 
 public class enemyattack : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class enemyattack : MonoBehaviour
     [SerializeField] float rndm = -11;//フィールドごとの範囲指定マイナス
     [SerializeField] float rndp =  11;//フィールドごとの範囲指定プラス
     Vector3 play;
+
+    public float missilespeed = 10;
     //攻撃１
     [SerializeField] int attack1missile;//攻撃１のミサイル数　6
     //攻撃２
@@ -77,7 +81,7 @@ public class enemyattack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rigidbody ballRigidbody = missile.GetComponent<Rigidbody>();//一応リジッドボディ
+        
      
     }
 
@@ -255,8 +259,12 @@ public class enemyattack : MonoBehaviour
             Instantiate(attackpoint, new Vector3(x, 0, attackpointz - i * attackf), Quaternion.identity);//攻撃範囲
             */
 
-            Instantiate(missile, new Vector3((attackf * groundx) - groundx, attackpointy, (attackf * groundz) - groundz), Quaternion.Euler(180, 0, 0));//発射
-          //Instantiate(attackpoint, new Vector3((attackf * x) - x, 0, (attackf * z) - z), Quaternion.identity);//攻撃範囲
+            Instantiate(missile, new Vector3((attackf * groundx) - groundx, attackpointy, (attackf * groundz) - groundz),  Quaternion.Euler(180, 0, 0));//発射
+            /*
+            Rigidbody missileRigidbody = missile.GetComponent<Rigidbody>();//リジッドボディ
+            missileRigidbody.useGravity = false;
+            missileRigidbody.linearVelocity = Vector3.down * missilespeed;*/
+            //Instantiate(attackpoint, new Vector3((attackf * x) - x, 0, (attackf * z) - z), Quaternion.identity);//攻撃範囲
         }
         Debug.Log("攻撃Ⅰ");
     }
@@ -448,8 +456,7 @@ public class enemyattack : MonoBehaviour
     {
         audioSource.PlayOneShot(lazerclip);
         GameObject Attack5lazer = Instantiate(lazer, new Vector3(l5x, lazerpointy, attack2lazerz), Quaternion.identity);//発射
-      //Rigidbody cubeRigidbody = Attack5lazer.GetComponent<Rigidbody>();
-      //cubeRigidbody.AddForce(new Vector3(0, 0, 1) * 10, ForceMode.Impulse);
+      
         StartCoroutine(ExtendLazer5x(Attack5lazer));
     }
     IEnumerator ExtendLazer5x(GameObject Attack5lazer)
