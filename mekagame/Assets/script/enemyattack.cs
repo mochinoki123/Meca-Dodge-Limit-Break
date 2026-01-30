@@ -16,11 +16,12 @@ public class enemyattack : MonoBehaviour
     [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
     //[SerializeField] GameObject attackpoint;//攻撃発生地点
     //フィールド範囲
-    [SerializeField] float rndm = -11;//フィールドごとの範囲指定マイナス
-    [SerializeField] float rndp =  11;//フィールドごとの範囲指定プラス
+    [SerializeField] float rndm = -9;//フィールドごとの範囲指定マイナス
+    [SerializeField] float rndp =  9;//フィールドごとの範囲指定プラス
     Vector3 play;
 
-    public float missilespeed = 10;
+    //public float missilespeed = 10;
+
     //攻撃１
     [SerializeField] int attack1missile;//攻撃１のミサイル数　6
     //攻撃２
@@ -312,7 +313,7 @@ public class enemyattack : MonoBehaviour
     //-----攻撃Ⅲ-----
     void Attack3()
     {
-        attackbunki = Random.Range(0, 1);//攻撃分岐
+        attackbunki = Random.Range(0f, 1f);//攻撃分岐
 
         if (attackbunki < 0.5f)//クロス型
         {
@@ -339,7 +340,7 @@ public class enemyattack : MonoBehaviour
         else//十字型
         {
             Instantiate(missile, new Vector3(0, attackpointy, 0), Quaternion.Euler(180, 0, 0));//中心地点発射
-            for (int i = 0; i < attack3missiley; i++)//十字になるように繰り返す
+            for (int i = 1; i < attack3missiley; i++)//十字になるように繰り返す
             {
                 /*
                 Instantiate(missile, new Vector3(0, attackpointy, attackpointz3 - i * attackf), Quaternion.identity);
@@ -362,7 +363,7 @@ public class enemyattack : MonoBehaviour
     {
         ap = Random.Range(rndm, rndp);//地面の広さによって変更
         Instantiate(missile, new Vector3(ap, attackpointy, ap), Quaternion.Euler(180, 0, 0));//初弾
-        Invoke("Attack4b", 1.2f);
+        Invoke("Attack4b", 1.3f);
     }
 
     //攻撃Ⅳクラスター
@@ -401,7 +402,7 @@ public class enemyattack : MonoBehaviour
     void Attack5() 
     {
         
-        attackbunki = Random.Range(0, 1);//攻撃分岐
+        attackbunki = Random.Range(0f, 1f);//攻撃分岐
         if (attackbunki < 0.5f)
         {
             StartCoroutine(Attack5lxCoroutine());//奥から攻撃
@@ -475,7 +476,7 @@ public class enemyattack : MonoBehaviour
         }
         
         // 最終値を保証
-        scale.z = maxLength;
+        //scale.z = maxLength;
         Attack5lazer.transform.localScale = scale;
     }
 
@@ -519,7 +520,7 @@ public class enemyattack : MonoBehaviour
             yield return null; // 次のフレームへ
         }
         // 最終値を保証
-        scale.x = maxLength;
+        //scale.x = maxLength;
         Attack5lazerx.transform.localScale = scale;
     }
 
