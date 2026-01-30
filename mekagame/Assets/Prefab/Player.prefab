@@ -597,6 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mutekiTime: 3
+  loopCount: 10
 --- !u!114 &8288794723561334125
 MonoBehaviour:
   m_ObjectHideFlags: 0
