@@ -14,8 +14,6 @@ public class PlayerDamage : MonoBehaviour
         playerMove = GetComponent<PlayerMove>();
         playerParry = GetComponent<PlayerParry>();
         playerPulseDiffuser = GetComponent<PlayerPulseDiffuser>();
-
-        GetComponent<Renderer>().material.color = Color.red;
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using Unity.VisualScripting;
 
 
 
@@ -11,6 +12,8 @@ public class PlayerParry : MonoBehaviour
     [SerializeField] private float parryTime;
     [SerializeField] private float parryCoolTime;
     [SerializeField] private AudioClip parry;
+    [SerializeField] private GameObject lBEffect;
+    [SerializeField] private Transform enemyPos;
     public bool isParry = false;
     bool isParryCoolTime = false;
     public bool notMove = false;
@@ -77,8 +80,7 @@ public class PlayerParry : MonoBehaviour
             // LBÉÇÅ[ÉhÇ»ÇÁí«â¡çUåÇ
             if (lb != null && lb.isLB)
             {
-                if (enemy != null) enemy.Damage(lb.lBDamage);
-                if (animator != null) animator.SetTrigger("LimitBreak");
+                StartCoroutine(LBAttack());
             }
         }
         else
@@ -100,5 +102,15 @@ public class PlayerParry : MonoBehaviour
         // 7. ëSèàóùäÆóπ
         isParryCoolTime = false;
         notMove = false;
+    }
+    private IEnumerator LBAttack()
+    {
+        if (animator != null) animator.SetTrigger("LimitBreak");
+        yield return new WaitForSeconds(2.0f);
+        GameObject effect = Instantiate(lBEffect, enemyPos.position, Quaternion.identity);
+        yield return new WaitForSeconds(2.0f);
+        Destroy(effect);
+        if (enemy != null) enemy.Damage(lb.lBDamage);
+
     }
 }

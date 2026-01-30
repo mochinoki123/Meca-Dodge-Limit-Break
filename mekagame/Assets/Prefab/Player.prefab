@@ -580,7 +580,7 @@ MonoBehaviour:
   walkSpeed: 20
   runSpeed: 40
   runTime: 0.5
-  runCoolTime: 2
+  runCoolTime: 1.5
   jumpForce: 800
   dash: {fileID: 8300000, guid: f3d563a11239279428e4637e4d93c387, type: 3}
   isRun: 0
@@ -614,6 +614,8 @@ MonoBehaviour:
   parryTime: 0.5
   parryCoolTime: 1
   parry: {fileID: 8300000, guid: cc8dd4d866faf2a4198c8398cec66be1, type: 3}
+  lBEffect: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  enemyPos: {fileID: 7484231396979750424, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
   isParry: 0
   notMove: 0
   isParryCommand: 0

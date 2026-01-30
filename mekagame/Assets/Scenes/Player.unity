@@ -942,6 +942,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &1432635852 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7484231396979750424, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+  m_PrefabInstance: {fileID: 1755174194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1493283276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,6 +1746,10 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 1111768109}
+    - target: {fileID: 8288794723561334125, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: enemyPos
+      value: 
+      objectReference: {fileID: 1432635852}
     m_RemovedComponents:
     - {fileID: 2811005598475274188, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
     - {fileID: 6066278133410602759, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
