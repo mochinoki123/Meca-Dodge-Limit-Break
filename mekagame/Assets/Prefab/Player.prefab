@@ -614,12 +614,13 @@ MonoBehaviour:
   enemy: {fileID: 0}
   parryTime: 0.5
   parryCoolTime: 1
-  parry: {fileID: 8300000, guid: cc8dd4d866faf2a4198c8398cec66be1, type: 3}
+  parrySound: {fileID: 8300000, guid: cc8dd4d866faf2a4198c8398cec66be1, type: 3}
   lBEffect: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
   enemyPos: {fileID: 7484231396979750424, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+  rockColor: {fileID: 2100000, guid: e937bef1f64df0143a935a66bf7c39c7, type: 2}
+  originalColor: {fileID: 2100000, guid: 4e7181958b0a7d6429d89feddd2829fe, type: 2}
   isParry: 0
   notMove: 0
-  isParryCommand: 0
 --- !u!114 &2239482457582927747
 MonoBehaviour:
   m_ObjectHideFlags: 0
