@@ -391,7 +391,7 @@
                 {
                     "name": "",
                     "id": "8cbb2f4b-a784-49cc-8d5e-c010b8c7f4e6",
-                    "path": "<HID::QIXIONG Wire PS4 Controller>/trigger",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -424,7 +424,7 @@
                 {
                     "name": "",
                     "id": "daba33a1-ad0c-4742-a909-43ad1cdfbeb6",
-                    "path": "<HID::QIXIONG Wire PS4 Controller>/button2",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -523,7 +523,7 @@
                 {
                     "name": "",
                     "id": "534bc672-7f83-4a59-a343-201af1d4fb64",
-                    "path": "<HID::QIXIONG Wire PS4 Controller>/button6",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -545,7 +545,7 @@
                 {
                     "name": "",
                     "id": "2ca23414-a49a-4d92-a15f-db0a0194429a",
-                    "path": "<HID::QIXIONG Wire PS4 Controller>/button7",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -567,7 +567,7 @@
                 {
                     "name": "",
                     "id": "2e448123-451f-4330-8e1f-6c2bfb0787d1",
-                    "path": "<HID::QIXIONG Wire PS4 Controller>/button8",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -589,7 +589,7 @@
                 {
                     "name": "",
                     "id": "87fb3d6e-1618-4abf-9c75-91a702536eff",
-                    "path": "<HID::QIXIONG Wire PS4 Controller>/button5",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

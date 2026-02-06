@@ -9,6 +9,7 @@ public class PlayerGraze : MonoBehaviour
     [SerializeField] private int ocAddGage;
     [SerializeField] private int addGage;
     [SerializeField] private AudioClip graze;
+    [SerializeField] private GameObject grazeEffect;
 
     private float range;
     private PlayerMove playerMove;
@@ -67,6 +68,7 @@ public class PlayerGraze : MonoBehaviour
 
     IEnumerator AddGraze(GameObject obj)
     {
+        GameObject effect = Instantiate(grazeEffect, transform);
         textScript.Set(TextScript.EffectType.Graze);
         // グレイズ確定処理とゲージ加算
         grazedMissiles.Add(obj);
