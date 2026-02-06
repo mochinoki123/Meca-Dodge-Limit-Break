@@ -875,7 +875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pDUseGage: 100
-  pDTime: 2
+  pDTime: 5
   isPD: 0
 --- !u!114 &7366772813212430370
 MonoBehaviour:
@@ -1248,6 +1248,7 @@ MonoBehaviour:
   ocAddGage: 30
   addGage: 20
   graze: {fileID: 8300000, guid: b9b31dfd31374064585b7368b6728474, type: 3}
+  grazeEffect: {fileID: 8443315704496310910, guid: 6ef35fa36e3a65043b2d800600204bdd, type: 3}
 --- !u!1 &4707444097477679339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,6 +1879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8957af034c0ba347b381a2e78d68304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parryEffect: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
 --- !u!1 &7458311584288813880
 GameObject:
   m_ObjectHideFlags: 0

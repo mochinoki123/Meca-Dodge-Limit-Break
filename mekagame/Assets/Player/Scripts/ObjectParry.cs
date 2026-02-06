@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ObjectParry : MonoBehaviour
 {
+    [SerializeField] private GameObject parryEffect;
     public static bool parrySuccess;
     private HashSet<GameObject> parriedMissiles = new HashSet<GameObject>();
     private void OnTriggerEnter(Collider other)
@@ -45,6 +46,8 @@ public class ObjectParry : MonoBehaviour
         {
             parriedMissiles.Add(targetObj);
 
+            GameObject effect = Instantiate(parryEffect, new Vector3(transform.position.x, 1.0f, transform.position.z), Quaternion.identity);
+            Destroy(effect, 1.0f);
             parrySuccess = true;
             GameManager.Instance.AddGage(50);
         }
