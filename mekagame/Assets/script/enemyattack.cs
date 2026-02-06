@@ -20,8 +20,6 @@ public class enemyattack : MonoBehaviour
     [SerializeField] float rndp =  9;//ƒtƒB[ƒ‹ƒh‚²‚Æ‚Ì”ÍˆÍw’èƒvƒ‰ƒX
     Vector3 play;
 
-    //public float missilespeed = 10;
-
     //UŒ‚‚P
     [SerializeField] int attack1missile;//UŒ‚‚P‚Ìƒ~ƒTƒCƒ‹”@6
     //UŒ‚‚Q
@@ -89,19 +87,30 @@ public class enemyattack : MonoBehaviour
     //-----UŒ‚ƒpƒ^[ƒ“‡T-----
     void EnemyAttackController1()
     {
+        /*
         Invoke("Attack1", 3f);
         Invoke("Attack2", 5f);
         Invoke("Attack3", 8f);
         Invoke("AttackLoop", 10f);
+        */
+        Invoke("Attack1", 3f);
+        Invoke("Attack2", 5f);
+        Invoke("Attack3", 8f);
+        Invoke("Attack4", 11f);
+        Invoke("Attack5", 18f);
+        Invoke("AttackLoop", 33f);
     }
 
     //-----UŒ‚ƒpƒ^[ƒ“‡U-----
     void EnemyAttackController2()
     {
         CancelInvoke("AttackLoop");
+        /*
         Invoke("Attack4", 3f);
         Invoke("Attack5", 7f);
-        Invoke("AttackLoop2", 22f);
+        Invoke("AttackLoop2", 22f);*/
+        Invoke("Attack6", 3f);
+        Invoke("AttackLoop2", 8f);
     }
 
     //-----UŒ‚ƒpƒ^[ƒ“‡V-----
@@ -137,6 +146,7 @@ public class enemyattack : MonoBehaviour
     //-----UŒ‚ƒpƒ^[ƒ“‡T•ªŠò-----
     void Attackrnd()
     {
+        /*
         if (attack123 <=33)
         {
             Attack1();//UŒ‚‡T
@@ -148,6 +158,27 @@ public class enemyattack : MonoBehaviour
         else
         {
             Attack3();//UŒ‚‡V
+        }
+        */
+        if (attack12345 <= 20)
+        {
+            Attack1();//UŒ‚‡T
+        }
+        else if (attack12345 <= 40)
+        {
+            Attack2();//UŒ‚‡U
+        }
+        else if (attack12345 <= 60)
+        {
+            Attack3();//UŒ‚‡V
+        }
+        else if (attack12345 <= 80)
+        {
+            Attack4();//UŒ‚‡W
+        }
+        else
+        {
+            Attack5();//UŒ‚‡X
         }
     }
 
@@ -174,7 +205,7 @@ public class enemyattack : MonoBehaviour
 
     //-----UŒ‚ƒpƒ^[ƒ“‡U•ªŠò-----
     void Attackrndv2()
-    {
+    {/*
         if (attack12345 <= 20)
         {
             Attack1();//UŒ‚‡T
@@ -194,6 +225,31 @@ public class enemyattack : MonoBehaviour
         else
         {
             Attack5();//UŒ‚‡X
+        }
+        */
+        if (attack123456 <= 16)
+        {
+            Attack1();//UŒ‚‡T
+        }
+        else if (attack123456 <= 32)
+        {
+            Attack2();//UŒ‚‡U
+        }
+        else if (attack123456 <= 48)
+        {
+            Attack3();//UŒ‚‡V
+        }
+        else if (attack123456 <= 64)
+        {
+            Attack4();//UŒ‚‡W
+        }
+        else if (attack123456 <= 80)
+        {
+            Attack5();//UŒ‚‡X
+        }
+        else
+        {
+            Attack6();//UŒ‚‡Y
         }
     }
 

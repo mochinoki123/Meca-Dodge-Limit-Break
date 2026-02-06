@@ -6,6 +6,7 @@ public class enemymissile : MonoBehaviour
     public GameObject attack1missileeffectPrefab;//ミサイル攻撃のエフェクト
     private GameObject p;
     private GameObject b;
+    public float missilespeed = 10f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,7 +18,7 @@ public class enemymissile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector3.up * missilespeed * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider other)
     {
