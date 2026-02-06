@@ -1,79 +1,124 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
 public class PlayerGraze : MonoBehaviour
 {
-    private HashSet<GameObject> grazedMissiles = new HashSet<GameObject>();
+    private Dictionary<GameObject, float> grazeCooldowns = new Dictionary<GameObject, float>();
+    private List<GameObject> removeCache = new List<GameObject>();
+
+    [Header("Settings")]
     [SerializeField] private float grazeRange;
     [SerializeField] private int ocAddGage;
     [SerializeField] private int addGage;
-    [SerializeField] private AudioClip graze;
-    [SerializeField] private GameObject grazeEffect;
+    [SerializeField] private float reGrazeTime = 0.2f;
 
-    private float range;
+    [Header("Audio & Visuals")]
+    [SerializeField] private AudioClip grazeSound;
+    [SerializeField] private GameObject grazeEffectPrefab;
+
     private PlayerMove playerMove;
-    OverClock oc;
-    TextScript textScript;
-    SphereCollider myCollider;
-    AudioSource audioSource;
+    private OverClock oc;
+    private TextScript textScript;
+    private SphereCollider myCollider;
+    private AudioSource audioSource;
 
     private void Awake()
     {
-        // コンポーネント取得
         myCollider = GetComponent<SphereCollider>();
         oc = GetComponentInParent<OverClock>();
         audioSource = GetComponentInParent<AudioSource>();
         playerMove = GetComponentInParent<PlayerMove>();
         textScript = GetComponentInParent<TextScript>();
+        ResetRange();
+    }
 
-        // 初期範囲設定
-        Range();
+    private void Update()
+    {
+        if (Time.frameCount % 60 == 0)
+        {
+            CleanUpCooldowns();
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        // 敵攻撃かつダッシュ中のみ判定
-        if ((other.CompareTag("Missile") || other.CompareTag("Lazer")) && playerMove.isRun)
+        if (!playerMove.isRun) return;
+
+        if (other.CompareTag("Missile") || other.CompareTag("Lazer") /*|| other.CompareTag("FirePoint")*/)
         {
-            // 重複グレイズ防止
-            if (!grazedMissiles.Contains(other.gameObject))
+            TryGraze(other.gameObject);
+        }
+    }
+
+    private void TryGraze(GameObject target)
+    {
+        if (target == null) return;
+
+        float nextTime;
+        if (!grazeCooldowns.TryGetValue(target, out nextTime) || Time.time >= nextTime)
+        {
+            grazeCooldowns[target] = Time.time + reGrazeTime;
+            ExecuteGraze();
+        }
+    }
+
+    private void ExecuteGraze()
+    {
+        if (audioSource != null && grazeSound != null)
+        {
+            audioSource.PlayOneShot(grazeSound);
+        }
+
+        if (grazeEffectPrefab != null)
+        {
+            GameObject effect = Instantiate(grazeEffectPrefab, transform.position, Quaternion.identity);
+            effect.transform.SetParent(transform);
+            Destroy(effect, 1.0f);
+        }
+
+        int gageAmount = (oc != null && oc.isOC) ? ocAddGage : addGage;
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.AddGage(gageAmount);
+        }
+
+        if (textScript != null)
+        {
+            StartCoroutine(ShowGrazeText());
+        }
+    }
+
+    private void CleanUpCooldowns()
+    {
+        removeCache.Clear();
+        foreach (var key in grazeCooldowns.Keys)
+        {
+            if (key == null)
             {
-                audioSource.PlayOneShot(graze);
-                StartCoroutine(AddGraze(other.gameObject));
+                removeCache.Add(key);
             }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        // 範囲外に出たら再グレイズ可能にするため削除
-        if (grazedMissiles.Contains(other.gameObject))
+        for (int i = 0; i < removeCache.Count; i++)
         {
-            grazedMissiles.Remove(other.gameObject);
+            grazeCooldowns.Remove(removeCache[i]);
         }
     }
 
-    public void OCRange(float range)
+    public void SetOCRange(float range)
     {
-        // OC用範囲適用
         myCollider.radius = range;
     }
 
-    public void Range()
+    public void ResetRange()
     {
-        // 通常範囲適用
         myCollider.radius = grazeRange;
     }
 
-    IEnumerator AddGraze(GameObject obj)
+    private IEnumerator ShowGrazeText()
     {
-        GameObject effect = Instantiate(grazeEffect, transform);
         textScript.Set(TextScript.EffectType.Graze);
-        // グレイズ確定処理とゲージ加算
-        grazedMissiles.Add(obj);
-        if (oc.isOC) GameManager.Instance.AddGage(ocAddGage);
-        else GameManager.Instance.AddGage(addGage);
         yield return new WaitForSeconds(1.0f);
         textScript.Removed(TextScript.EffectType.Graze);
     }
