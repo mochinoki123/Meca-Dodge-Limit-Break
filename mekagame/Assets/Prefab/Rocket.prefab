@@ -148,7 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   point: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
   attack1missileeffectPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
-  missilespeed: 50
 --- !u!54 &6625627173170433003
 Rigidbody:
   m_ObjectHideFlags: 0
