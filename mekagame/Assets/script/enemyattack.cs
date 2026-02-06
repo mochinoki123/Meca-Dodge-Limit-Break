@@ -83,7 +83,6 @@ public class enemyattack : MonoBehaviour
     void Update()
     {
         
-     
     }
 
     //-----UŒ‚ƒpƒ^[ƒ“‡T-----
@@ -92,16 +91,23 @@ public class enemyattack : MonoBehaviour
         Invoke("Attack1", 3f);
         Invoke("Attack2", 5f);
         Invoke("Attack3", 8f);
-        Invoke("AttackLoop", 10f);
+        //Invoke("AttackLoop", 10f);
+        Invoke("Attack4", 11f);
+        Invoke("Attack5", 16f);
+        Invoke("AttackLoop", 33f);
     }
 
     //-----UŒ‚ƒpƒ^[ƒ“‡U-----
     void EnemyAttackController2()
     {
         CancelInvoke("AttackLoop");
+        /*
         Invoke("Attack4", 3f);
         Invoke("Attack5", 7f);
         Invoke("AttackLoop2", 22f);
+        */
+        Invoke("Attack6", 3f);
+        Invoke("AttackLoop2", 8f);
     }
 
     //-----UŒ‚ƒpƒ^[ƒ“‡V-----
@@ -124,19 +130,21 @@ public class enemyattack : MonoBehaviour
         //ƒ‹[ƒv’EoğŒ
         while (enemyhpscripts.EnemyHP > 750)//“G‚ÌHPğŒ
         {
-            attack123 = Random.Range(0, 99);//ƒ‰ƒ“ƒ_ƒ€‚ÅUŒ‚•ªŠò
+            //attack123 = Random.Range(0, 99);//ƒ‰ƒ“ƒ_ƒ€‚ÅUŒ‚•ªŠò
+            attack12345 = Random.Range(0, 99);//ƒ‰ƒ“ƒ_ƒ€‚ÅUŒ‚•ªŠò
             Attackrnd();//UŒ‚ƒpƒ^[ƒ“‡T
 
             yield return new WaitForSeconds(2f);//2•b‚²‚Æ‚Éƒ‹[ƒv‚·‚é
         }
 
-        Debug.Log("UŒ‚’Ç‰Á");
+        //Debug.Log("UŒ‚’Ç‰Á");
         EnemyAttackController2();//UŒ‚ƒpƒ^[ƒ“‡U“Ë“ü
     }
 
     //-----UŒ‚ƒpƒ^[ƒ“‡T•ªŠò-----
     void Attackrnd()
     {
+        /*
         if (attack123 <=33)
         {
             Attack1();//UŒ‚‡T
@@ -149,32 +157,7 @@ public class enemyattack : MonoBehaviour
         {
             Attack3();//UŒ‚‡V
         }
-    }
-
-    //-----UŒ‚ƒpƒ^[ƒ“‡Uƒ‹[ƒv-----
-    void AttackLoop2()
-    {
-        StartCoroutine(AttackLoop2Coroutine());//ƒ‹[ƒv“Ë“ü
-    }
-
-    //-----UŒ‚ƒpƒ^[ƒ“‡Uƒ‹[ƒv’EoğŒ-----
-    IEnumerator AttackLoop2Coroutine()
-    {
-        while (enemyhpscripts.EnemyHP > 500)//“G‚ÌHPğŒ
-        {
-            attack12345 = Random.Range(0, 99);//ƒ‰ƒ“ƒ_ƒ€‚ÅUŒ‚•ªŠò
-            Attackrndv2();//UŒ‚ƒpƒ^[ƒ“‡U
-
-            yield return new WaitForSeconds(2f);//2•b‚²‚Æ‚Éƒ‹[ƒv‚·‚é
-        }
-
-        Debug.Log("UŒ‚’Ç‰Á‡U");
-        EnemyAttackController3();//UŒ‚ƒpƒ^[ƒ“‡V“Ë“ü
-    }
-
-    //-----UŒ‚ƒpƒ^[ƒ“‡U•ªŠò-----
-    void Attackrndv2()
-    {
+        */
         if (attack12345 <= 20)
         {
             Attack1();//UŒ‚‡T
@@ -197,6 +180,78 @@ public class enemyattack : MonoBehaviour
         }
     }
 
+    //-----UŒ‚ƒpƒ^[ƒ“‡Uƒ‹[ƒv-----
+    void AttackLoop2()
+    {
+        StartCoroutine(AttackLoop2Coroutine());//ƒ‹[ƒv“Ë“ü
+    }
+
+    //-----UŒ‚ƒpƒ^[ƒ“‡Uƒ‹[ƒv’EoğŒ-----
+    IEnumerator AttackLoop2Coroutine()
+    {
+        while (enemyhpscripts.EnemyHP > 500)//“G‚ÌHPğŒ
+        {
+            attack12345 = Random.Range(0, 99);//ƒ‰ƒ“ƒ_ƒ€‚ÅUŒ‚•ªŠò
+            Attackrndv2();//UŒ‚ƒpƒ^[ƒ“‡U
+
+            yield return new WaitForSeconds(2f);//2•b‚²‚Æ‚Éƒ‹[ƒv‚·‚é
+        }
+
+        //Debug.Log("UŒ‚’Ç‰Á‡U");
+        EnemyAttackController3();//UŒ‚ƒpƒ^[ƒ“‡V“Ë“ü
+    }
+
+    //-----UŒ‚ƒpƒ^[ƒ“‡U•ªŠò-----
+    void Attackrndv2()
+    {
+        /*
+        if (attack12345 <= 20)
+        {
+            Attack1();//UŒ‚‡T
+        }
+        else if (attack12345 <= 40)
+        {
+            Attack2();//UŒ‚‡U
+        }
+        else if (attack12345 <= 60)
+        {
+            Attack3();//UŒ‚‡V
+        }
+        else if (attack12345 <= 80)
+        {
+            Attack4();//UŒ‚‡W
+        }
+        else
+        {
+            Attack5();//UŒ‚‡X
+        }
+        */
+        if (attack123456 <= 16)
+        {
+            Attack1();//UŒ‚‡T
+        }
+        else if (attack123456 <= 32)
+        {
+            Attack2();//UŒ‚‡U
+        }
+        else if (attack123456 <= 48)
+        {
+            Attack3();//UŒ‚‡V
+        }
+        else if (attack123456 <= 64)
+        {
+            Attack4();//UŒ‚‡W
+        }
+        else if (attack123456 <= 80)
+        {
+            Attack5();//UŒ‚‡X
+        }
+        else
+        {
+            Attack6();//UŒ‚‡Y
+        }
+    }
+
     //-----UŒ‚ƒpƒ^[ƒ“‡Vƒ‹[ƒv-----
     void AttackLoop3()
     {
@@ -214,7 +269,7 @@ public class enemyattack : MonoBehaviour
             yield return new WaitForSeconds(2f);//2•b‚²‚Æ‚Éƒ‹[ƒv‚·‚é
         }
 
-        Debug.Log("UŒ‚’Ç‰Á");
+        //Debug.Log("UŒ‚’Ç‰Á");
         EnemyAttackController3();//UŒ‚ƒpƒ^[ƒ“@“Ë“ü
     }
 
@@ -267,7 +322,7 @@ public class enemyattack : MonoBehaviour
             missileRigidbody.linearVelocity = Vector3.down * missilespeed;*/
             //Instantiate(attackpoint, new Vector3((attackf * x) - x, 0, (attackf * z) - z), Quaternion.identity);//UŒ‚”ÍˆÍ
         }
-        Debug.Log("UŒ‚‡T");
+        //Debug.Log("UŒ‚‡T");
     }
 
     //-----UŒ‚‡U-----
@@ -301,7 +356,7 @@ public class enemyattack : MonoBehaviour
             Attack2lazer.transform.localScale = scale;
 
             Destroy(Attack2lazer, 1f);
-            Debug.Log("UŒ‚‡U");
+            //Debug.Log("UŒ‚‡U");
             yield return null; // Ÿ‚ÌƒtƒŒ[ƒ€‚Ö
         }
 
@@ -335,7 +390,7 @@ public class enemyattack : MonoBehaviour
                 Instantiate(missile, new Vector3(attackpointx * i, attackpointy, attackpointz * i), Quaternion.Euler(180, 0, 0));//@¶ã
                 Instantiate(missile, new Vector3(-attackpointx * i, attackpointy, -attackpointz * i), Quaternion.Euler(180, 0, 0));//@‰E‰º
             }
-            Debug.Log("UŒ‚‡Vx");
+            //Debug.Log("UŒ‚‡Vx");
         }
         else//\šŒ^
         {
@@ -353,9 +408,9 @@ public class enemyattack : MonoBehaviour
                 Instantiate(missile, new Vector3(0, attackpointy, attackpointz * i), Quaternion.Euler(180, 0, 0));//–k
                 Instantiate(missile, new Vector3(attackpointx * i, attackpointy, 0), Quaternion.Euler(180, 0, 0));//“Œ
             }
-            Debug.Log("UŒ‚‡V+");
+            //Debug.Log("UŒ‚‡V+");
         }
-        Debug.Log("UŒ‚‡V");
+        //Debug.Log("UŒ‚‡V");
     }
 
     //-----UŒ‚‡W-----
@@ -363,7 +418,7 @@ public class enemyattack : MonoBehaviour
     {
         ap = Random.Range(rndm, rndp);//’n–Ê‚ÌL‚³‚É‚æ‚Á‚Ä•ÏX
         Instantiate(missile, new Vector3(ap, attackpointy, ap), Quaternion.Euler(180, 0, 0));//‰’e
-        Invoke("Attack4b", 1.3f);
+        Invoke("Attack4b", 1f);
     }
 
     //UŒ‚‡WƒNƒ‰ƒXƒ^[
@@ -375,11 +430,11 @@ public class enemyattack : MonoBehaviour
             GameObject Attack4bpoint2 = Instantiate(bpoint, new Vector3(ap + 10 * i, 0, ap), Quaternion.Euler(180, 0, 0));//“Œ
             GameObject Attack4bpoint3 = Instantiate(bpoint, new Vector3(ap, 0, ap - 10 * i), Quaternion.Euler(180, 0, 0));//“ì
             GameObject Attack4bpoint4 = Instantiate(bpoint, new Vector3(ap - 10 * i, 0, ap), Quaternion.Euler(180, 0, 0));//¼
-            Destroy(Attack4bpoint1, 1.3f);
-            Destroy(Attack4bpoint2, 1.3f);
-            Destroy(Attack4bpoint3, 1.3f);
-            Destroy(Attack4bpoint4, 1.3f);
-            Invoke("Attack4Cluster", 1.4f);
+            Destroy(Attack4bpoint1, 1f);
+            Destroy(Attack4bpoint2, 1f);
+            Destroy(Attack4bpoint3, 1f);
+            Destroy(Attack4bpoint4, 1f);
+            Invoke("Attack4Cluster", 1f);
         }
         
     }
@@ -396,7 +451,7 @@ public class enemyattack : MonoBehaviour
             Destroy(Attack4effectbpoint3, 2f);
             Destroy(Attack4effectbpoint4, 2f);
         }
-        Debug.Log("UŒ‚‡W");
+        //Debug.Log("UŒ‚‡W");
     }
     //-----UŒ‚‡X-----
     void Attack5() 
@@ -437,7 +492,7 @@ public class enemyattack : MonoBehaviour
             i++;
             yield return new WaitForSeconds(2f);//2•b‚²‚Æ‚Éƒ‹[ƒv‚·‚é
         }
-        Debug.Log("UŒ‚‡X");
+        //Debug.Log("UŒ‚‡X");
         l5z = 50;
     }
 
@@ -471,7 +526,7 @@ public class enemyattack : MonoBehaviour
             scale.z -= extendSpeed * Time.deltaTime;
             Attack5lazer.transform.localScale = scale;
             Destroy(Attack5lazer, 1f);
-            Debug.Log("UŒ‚‡Xx");
+            //Debug.Log("UŒ‚‡Xx");
             yield return null; // Ÿ‚ÌƒtƒŒ[ƒ€‚Ö
         }
         
@@ -500,7 +555,7 @@ public class enemyattack : MonoBehaviour
       //cubeRigidbody.AddForce(new Vector3(1, 0, 0) * 10, ForceMode.Impulse);
         StartCoroutine(ExtendLazer5z(Attack5lazerx));
         
-        Debug.Log("UŒ‚‡Xz");
+        //Debug.Log("UŒ‚‡Xz");
     }
 
     IEnumerator ExtendLazer5z(GameObject Attack5lazerx)
@@ -516,7 +571,7 @@ public class enemyattack : MonoBehaviour
 
             Destroy(Attack5lazerx, 1f);
 
-            Debug.Log("UŒ‚‡Xx");
+            //Debug.Log("UŒ‚‡Xx");
             yield return null; // Ÿ‚ÌƒtƒŒ[ƒ€‚Ö
         }
         // ÅI’l‚ğ•ÛØ
@@ -538,7 +593,7 @@ public class enemyattack : MonoBehaviour
             StartCoroutine(Attack6lazer2Coroutine());//ƒŒ[ƒU[UŒ‚ƒpƒ^[ƒ“‡U
         }
 
-        Debug.Log("UŒ‚‡Y");
+        //Debug.Log("UŒ‚‡Y");
     }
 
     //UŒ‚‡Y˜A‘±’Ç”öƒ~ƒTƒCƒ‹
@@ -551,7 +606,7 @@ public class enemyattack : MonoBehaviour
             i++;
             yield return new WaitForSeconds(1.2f);
         }
-        Debug.Log("UŒ‚‡Y missile");
+        //Debug.Log("UŒ‚‡Y missile");
     }
 
     //UŒ‚‡YƒŒ[ƒU[ƒpƒ^[ƒ“‡T
@@ -583,18 +638,16 @@ public class enemyattack : MonoBehaviour
     {
         // transform.position ‚ÅŒ»İ‚Ìƒ[ƒ‹ƒhÀ•W‚ğæ“¾
         Vector3 currentPosition = transform.position;
-        Debug.Log("ƒvƒŒƒCƒ„[‚ÌÀ•W: " + currentPosition);
+        //Debug.Log("ƒvƒŒƒCƒ„[‚ÌÀ•W: " + currentPosition);
 
         // x, y, z À•W‚ğŒÂ•Ê‚Éæ“¾
         float x = currentPosition.x;
         float z = currentPosition.z;
-        Debug.Log("XÀ•W: " + x + ", ZÀ•W: " + z);
+        //Debug.Log("XÀ•W: " + x + ", ZÀ•W: " + z);
 
         Vector3 play = GameObject.Find("Player").transform.position;//ƒvƒŒƒCƒ„[‚ÌÀ•Wæ“¾
         Instantiate(missile, new Vector3(play.x, y, play.z), Quaternion.Euler(180, 0, 0));//ƒvƒŒƒCƒ„[‚Ì‚¢‚éÀ•W‚ÉŒü‚©‚Á‚Ä”­Ë
         
-
-
         //Instantiate(missile, new Vector3(x,y,z), Quaternion.identity);
     }
 
@@ -630,7 +683,6 @@ public class enemyattack : MonoBehaviour
 
             Destroy(Attack6lazerp, 1f);
 
-           
             yield return null; // Ÿ‚ÌƒtƒŒ[ƒ€‚Ö
         }
         // ÅI’l‚ğ•ÛØ
@@ -656,7 +708,6 @@ public class enemyattack : MonoBehaviour
         GameObject Attack6lazerm2 = Instantiate(lazer, new Vector3(-30, lazerpointy, attack2lazerz), Quaternion.identity);//”­Ë
         StartCoroutine(ExtendLazer6m2(Attack6lazerm2));
         Destroy(Attack6lazerm2, 1f);
-        
     }
     IEnumerator ExtendLazer6m2(GameObject Attack6lazerm2)
     {
@@ -669,14 +720,12 @@ public class enemyattack : MonoBehaviour
             Attack6lazerm2.transform.localScale = scale;
 
             Destroy(Attack6lazerm2, 1f);
-
             
             yield return null; // Ÿ‚ÌƒtƒŒ[ƒ€‚Ö
         }
         // ÅI’l‚ğ•ÛØ
         scale.z = maxLength;
         Attack6lazerm2.transform.localScale = scale;
-
     }
 
     //-----UŒ‚‡Yƒpƒ^[ƒ“‡U-----
@@ -712,7 +761,6 @@ public class enemyattack : MonoBehaviour
 
             Destroy(Attack6lazerm, 1f);
 
-
             yield return null; // Ÿ‚ÌƒtƒŒ[ƒ€‚Ö
         }
         // ÅI’l‚ğ•ÛØ
@@ -738,7 +786,7 @@ public class enemyattack : MonoBehaviour
         audioSource.PlayOneShot(lazerclip);
         GameObject Attack6lazerp2 = Instantiate(lazer, new Vector3(30, lazerpointy, attack2lazerz), Quaternion.identity);//”­Ë
         StartCoroutine(ExtendLazer6p2(Attack6lazerp2));
-        Debug.Log("UŒ‚‡Y ƒpƒ^[ƒ“2");
+        //Debug.Log("UŒ‚‡Y ƒpƒ^[ƒ“2");
     }
     IEnumerator ExtendLazer6p2(GameObject Attack6lazerp2)
     {
@@ -752,7 +800,6 @@ public class enemyattack : MonoBehaviour
             Attack6lazerp2.transform.localScale = scale;
 
             Destroy(Attack6lazerp2, 1f);
-
 
             yield return null; // Ÿ‚ÌƒtƒŒ[ƒ€‚Ö
         }
