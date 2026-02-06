@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: -2735234657768348656}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Missile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1247,6 +1247,7 @@ MonoBehaviour:
   grazeRange: 3
   ocAddGage: 30
   addGage: 20
+  reGrazeTime: 0.2
   grazeSound: {fileID: 8300000, guid: b9b31dfd31374064585b7368b6728474, type: 3}
   grazeEffectPrefab: {fileID: 8443315704496310910, guid: 6ef35fa36e3a65043b2d800600204bdd, type: 3}
 --- !u!1 &4707444097477679339

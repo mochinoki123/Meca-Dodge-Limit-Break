@@ -45,7 +45,7 @@ public class PlayerGraze : MonoBehaviour
     {
         if (!playerMove.isRun) return;
 
-        if (other.CompareTag("Missile") || other.CompareTag("Lazer") /*|| other.CompareTag("FirePoint")*/)
+        if (other.CompareTag("Missile") || other.CompareTag("Lazer") || other.CompareTag("FirePoint"))
         {
             TryGraze(other.gameObject);
         }
