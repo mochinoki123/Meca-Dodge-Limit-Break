@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UIElements;
 
 public class PlayerDamage : MonoBehaviour
 {
-    [SerializeField] private float mutekiTime;
-    [SerializeField] private int loopCount;
+    [Header("Settings")]
+    // 無敵時間
+    [SerializeField] private float mutekiTime = 2.0f;
+    // 点滅間隔
+    [SerializeField] private float blinkInterval = 0.1f;
+
     private PlayerMove playerMove;
     private PlayerParry playerParry;
     private PlayerPulseDiffuser playerPulseDiffuser;
@@ -13,11 +16,10 @@ public class PlayerDamage : MonoBehaviour
     private MaterialScript materialScript;
 
     private bool isMuteki = false;
-    private float alpha_Sin;
 
     private void Awake()
     {
-        // 各コンポーネント取得
+        // コンポーネント取得
         playerMove = GetComponent<PlayerMove>();
         playerParry = GetComponent<PlayerParry>();
         playerPulseDiffuser = GetComponent<PlayerPulseDiffuser>();
@@ -25,77 +27,71 @@ public class PlayerDamage : MonoBehaviour
         materialScript = GetComponent<MaterialScript>();
     }
 
-    private void Update()
+    // 被弾可否判定
+    private bool CanTakeDamage()
     {
-        // 明滅計算
-        alpha_Sin = Mathf.Sin(Time.time) / 2 + 0.5f;
+        if (isMuteki) return false;
+        if (playerMove.isRun) return false;
+        if (playerParry.isParry) return false;
+        if (playerPulseDiffuser.isPD) return false;
+        return true;
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        // パーティクル被弾処理
+        if (!CanTakeDamage()) return;
+
+        if (other.CompareTag("FirePoint"))
+        {
+            ApplyDamage();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // ダメージ無効状態なら処理しない
-        if (playerMove.isRun) return;
-        if (playerParry.isParry) return;
-        if (playerPulseDiffuser.isPD) return;
-        if (isMuteki) return;
+        // 接触判定
+        if (!CanTakeDamage()) return;
 
-        bool isDamage = false;
-
-        // ミサイル接触判定
+        // ミサイル処理
         if (other.CompareTag("Missile"))
         {
             var missile = other.GetComponentInParent<enemymissile>();
-            if (missile != null)
-            {
-                missile.Kill();
-                GameManager.Instance.Damage();
-                isDamage = true;
-            }
+            missile?.Kill();
+            ApplyDamage();
         }
-
-        // レーザー接触判定
-        if (other.CompareTag("Lazer"))
+        // レーザー処理
+        else if (other.CompareTag("Lazer"))
         {
             var lazer = other.GetComponentInParent<enemylazer>();
-            if (lazer != null)
-            {
-                lazer.Kill();
-                GameManager.Instance.Damage();
-                isDamage = true;
-            }
-        }
-
-        // 炎接触判定
-        if (other.CompareTag("FirePoint"))
-        {
-            GameManager.Instance.Damage();
-            isDamage = true;
-        }
-
-        // ダメージ発生時の無敵処理開始
-        if (isDamage)
-        {
-            StartCoroutine(MutekiTime());
+            lazer?.Kill();
+            ApplyDamage();
         }
     }
 
-    private IEnumerator MutekiTime()
+    private void ApplyDamage()
     {
-        // 無敵開始
-        isMuteki = true;
-        //色変更
-        materialScript.ChangeMaterial(MaterialScript.EffectType.Damage, 2f);
-        // 点滅ループ
-        for (int i = 0; i < loopCount; i++)
-        {
-            rend.enabled = false;
-            yield return new WaitForSeconds(0.1f);
+        // ダメージ適用と無敵開始
+        GameManager.Instance.Damage();
+        StartCoroutine(MutekiRoutine());
+    }
 
-            rend.enabled = true;
-            yield return new WaitForSeconds(0.1f);
+    private IEnumerator MutekiRoutine()
+    {
+        // 無敵設定とマテリアル変更
+        isMuteki = true;
+        materialScript.ChangeMaterial(MaterialScript.EffectType.Damage, 2f);
+
+        // 点滅ループ
+        float elapsed = 0;
+        while (elapsed < mutekiTime)
+        {
+            rend.enabled = !rend.enabled;
+            yield return new WaitForSeconds(blinkInterval);
+            elapsed += blinkInterval;
         }
 
-        // 無敵終了
+        // 復帰処理
         rend.enabled = true;
         isMuteki = false;
     }
