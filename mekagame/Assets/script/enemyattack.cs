@@ -14,6 +14,7 @@ public class enemyattack : MonoBehaviour
     private AudioSource audioSource;
     //プレハブ
     [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
+    [SerializeField] GameObject missile4;//ミサイル攻撃のオブジェクト
     //[SerializeField] GameObject attackpoint;//攻撃発生地点
     //フィールド範囲
     [SerializeField] float rndm = -9;//フィールドごとの範囲指定マイナス
@@ -194,7 +195,7 @@ public class enemyattack : MonoBehaviour
             attack12345 = Random.Range(0, 99);//ランダムで攻撃分岐
             Attackrndv2();//攻撃パターンⅡ
 
-            yield return new WaitForSeconds(2f);//2秒ごとにループする
+            yield return new WaitForSeconds(1.5f);//2秒ごとにループする
         }
 
         //Debug.Log("攻撃追加Ⅱ");
@@ -266,7 +267,7 @@ public class enemyattack : MonoBehaviour
             attack123456 = Random.Range(0, 99);//ランダムで攻撃分岐
             Attackrndv3();//攻撃パターンⅢ
 
-            yield return new WaitForSeconds(2f);//2秒ごとにループする
+            yield return new WaitForSeconds(1f);//2秒ごとにループする
         }
 
         //Debug.Log("攻撃追加");
@@ -417,7 +418,7 @@ public class enemyattack : MonoBehaviour
     void Attack4()
     {
         ap = Random.Range(rndm, rndp);//地面の広さによって変更
-        Instantiate(missile, new Vector3(ap, attackpointy, ap), Quaternion.Euler(180, 0, 0));//初弾
+        Instantiate(missile4, new Vector3(ap, attackpointy, ap), Quaternion.Euler(180, 0, 0));//初弾
         Invoke("Attack4b", 1f);
     }
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 412921045795716568}
   - component: {fileID: 2286769903798656082}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: bpoint
   m_TagString: AttackPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 469e1129d1f496543b3d51ecca879879, type: 2}
+  - {fileID: 2100000, guid: c9adde5d01a186947a197d20080463a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
