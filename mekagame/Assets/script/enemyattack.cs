@@ -20,7 +20,7 @@ public class enemyattack : MonoBehaviour
     [SerializeField] float rndp =  9;//ƒtƒB[ƒ‹ƒh‚²‚Æ‚Ì”ÍˆÍw’èƒvƒ‰ƒX
     Vector3 play;
 
-    //public float missilespeed = 10;
+    //public float missilespeed = 100f;
 
     //UŒ‚‚P
     [SerializeField] int attack1missile;//UŒ‚‚P‚Ìƒ~ƒTƒCƒ‹”@6
@@ -83,7 +83,6 @@ public class enemyattack : MonoBehaviour
     void Update()
     {
         
-     
     }
 
     //-----UŒ‚ƒpƒ^[ƒ“‡T-----
@@ -92,22 +91,28 @@ public class enemyattack : MonoBehaviour
         Invoke("Attack1", 3f);
         Invoke("Attack2", 5f);
         Invoke("Attack3", 8f);
-        Invoke("AttackLoop", 10f);
+        Invoke("Attack4", 11f);
+        Invoke("Attack5", 18f);
+        Invoke("AttackLoop", 33f);
     }
 
     //-----UŒ‚ƒpƒ^[ƒ“‡U-----
+    
     void EnemyAttackController2()
     {
         CancelInvoke("AttackLoop");
-        Invoke("Attack4", 3f);
-        Invoke("Attack5", 7f);
-        Invoke("AttackLoop2", 22f);
+        //Invoke("Attack4", 3f);
+        //Invoke("Attack5", 7f);
+        Invoke("Attack6", 3f);
+        //Invoke("AttackLoop2", 22f);
+        Invoke("AttackLoop2", 8f);
     }
+    
 
     //-----UŒ‚ƒpƒ^[ƒ“‡V-----
     void EnemyAttackController3()
     {
-        CancelInvoke("AttackLoop2");
+        CancelInvoke("AttackLoop");
         Invoke("Attack6", 3f);
         Invoke("AttackLoop3", 8f);
     }
@@ -137,17 +142,25 @@ public class enemyattack : MonoBehaviour
     //-----UŒ‚ƒpƒ^[ƒ“‡T•ªŠò-----
     void Attackrnd()
     {
-        if (attack123 <=33)
+        if (attack12345 <= 20)
         {
             Attack1();//UŒ‚‡T
         }
-        else if (attack123 <=66)
+        else if (attack12345 <= 40)
         {
             Attack2();//UŒ‚‡U
         }
-        else
+        else if (attack12345 <= 60)
         {
             Attack3();//UŒ‚‡V
+        }
+        else if (attack12345 <= 80)
+        {
+            Attack4();//UŒ‚‡W
+        }
+        else
+        {
+            Attack5();//UŒ‚‡X
         }
     }
 
@@ -175,25 +188,29 @@ public class enemyattack : MonoBehaviour
     //-----UŒ‚ƒpƒ^[ƒ“‡U•ªŠò-----
     void Attackrndv2()
     {
-        if (attack12345 <= 20)
+        if (attack123456 <= 16)
         {
             Attack1();//UŒ‚‡T
         }
-        else if (attack12345 <= 40)
+        else if (attack123456 <= 32)
         {
             Attack2();//UŒ‚‡U
         }
-        else if (attack12345 <= 60)
+        else if (attack123456 <= 48)
         {
             Attack3();//UŒ‚‡V
         }
-        else if (attack12345 <= 80)
+        else if (attack123456 <= 64)
         {
             Attack4();//UŒ‚‡W
         }
-        else
+        else if (attack123456 <= 80)
         {
             Attack5();//UŒ‚‡X
+        }
+        else
+        {
+            Attack6();//UŒ‚‡Y
         }
     }
 
@@ -261,8 +278,18 @@ public class enemyattack : MonoBehaviour
             */
 
             Instantiate(missile, new Vector3((attackf * groundx) - groundx, attackpointy, (attackf * groundz) - groundz),  Quaternion.Euler(180, 0, 0));//”­Ë
+            
             /*
-            Rigidbody missileRigidbody = missile.GetComponent<Rigidbody>();//ƒŠƒWƒbƒhƒ{ƒfƒB
+            Rigidbody missilerb = missile.GetComponent<Rigidbody>();//ƒŠƒWƒbƒhƒ{ƒfƒB
+            missilerb.AddForce(new Vector3(0, 10, 0) * missilespeed, ForceMode.Impulse);
+            */
+            /*
+            if (missilerb != null)
+            {
+                missilerb.linearVelocity = transform.up * missilespeed; // •ûŒü‚É”ò‚Î‚·
+            }
+            */
+            /*
             missileRigidbody.useGravity = false;
             missileRigidbody.linearVelocity = Vector3.down * missilespeed;*/
             //Instantiate(attackpoint, new Vector3((attackf * x) - x, 0, (attackf * z) - z), Quaternion.identity);//UŒ‚”ÍˆÍ
