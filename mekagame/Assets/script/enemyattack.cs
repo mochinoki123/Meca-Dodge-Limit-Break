@@ -9,67 +9,84 @@ public class enemyattack : MonoBehaviour
 {
     //Enemyスクリプト
     private Enemy enemyhpscripts;
+    [Header("レーザー効果音")]
     [SerializeField] private AudioClip lazerclip;
     [SerializeField] private AudioClip lazercharge;
     private AudioSource audioSource;
     //プレハブ
+    [Header("爆発ポイントプレハブ")]
+    [SerializeField] GameObject bpoint;//爆発ポイント
+    [Header("ミサイルプレハブ")]
     [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
     [SerializeField] GameObject missile4;//ミサイル攻撃のオブジェクト
-    //[SerializeField] GameObject attackpoint;//攻撃発生地点
+    [Header("レーザープレハブ")]
+    [SerializeField] GameObject lazer;//レーザーオブジェクト
+    [SerializeField] GameObject lazerattackpoint;//レーザー発生ポイントオブジェクト
+    //攻撃Ⅴ
+    [SerializeField] GameObject lazerx;//レーザーオブジェクト
+    [SerializeField] GameObject lazerattackpointx;//レーザー発生ポイントオブジェクト
     //フィールド範囲
+    [Header("エフェクト")]
+    [SerializeField] GameObject lazerchargeeffect;//レーザーチャージエフェクト
+    [SerializeField] GameObject ClustereffectPrefab;//爆発のエフェクト
+    [Header("攻撃範囲指定")]
     [SerializeField] float rndm = -9;//フィールドごとの範囲指定マイナス
     [SerializeField] float rndp =  9;//フィールドごとの範囲指定プラス
-    Vector3 play;
-
-    //public float missilespeed = 10;
-
+    //攻撃座標関係
+    [Header("攻撃座標指定")]
+    [SerializeField] int attackf;//攻撃の間隔 5
+    [SerializeField] int attackpointx;//攻撃発生の横 10
+    [SerializeField] int attackpointy;//攻撃発生の高さ 25
+    [SerializeField] int attackpointz;//攻撃発生の奥行 10
+    //レーザーy座標関係
+    [Header("レーザー座標指定・レーザー長指定")]
+    [SerializeField] int lazerpointy = 7; // 7
+    [SerializeField] float maxLength = -70f;   // 最終的な長さ
+    [SerializeField] float extendSpeed = 100;  // 伸びるスピード
+    
     //攻撃１
+    [Header("攻撃Ⅰ")]
     [SerializeField] int attack1missile;//攻撃１のミサイル数　6
     //攻撃２
-    [SerializeField] GameObject lazer;//レーザーオブジェクト
-    [SerializeField] GameObject lazerchargeeffect;//レーザーチャージエフェクト
-    [SerializeField] GameObject lazerattackpoint;//レーザー発生ポイントオブジェクト
+    [Header("攻撃Ⅱ")]
     [SerializeField] int attack2lazerz;//50
     //攻撃３
+    [Header("攻撃Ⅲ")]
     [SerializeField] int attack3missilex;//攻撃Ⅲxの範囲設定　10
     [SerializeField] int attack3missiley;//攻撃Ⅲ+の範囲設定　10
   //[SerializeField] int attackpointx3;//もしも用　使ってない
   //[SerializeField] int attackpointz3;//もしも用　使ってない
-    public float attackbunki;//random値確認用基本使わない
     //攻撃４
+    [Header("攻撃Ⅳ")]
     [SerializeField] int attack4missile;//攻撃４のミサイル範囲指定　10
-    [SerializeField] GameObject bpoint;//爆発ポイント
-    [SerializeField] GameObject ClustereffectPrefab;//爆発のエフェクト
     //攻撃５
-    [SerializeField] GameObject lazerx;//レーザーオブジェクト
+    [Header("攻撃Ⅴ")]
     [SerializeField] int Attack5ls;//攻撃５のレーザー数 10
-    [SerializeField] GameObject lazerattackpointx;//レーザー発生ポイントオブジェクト
     [SerializeField] public float l5x = 60;//ｘ攻撃開始地点・範囲
     [SerializeField] public float l5z = 50;//ｚ攻撃開始地点・範囲
     [SerializeField] public float k;//13 攻撃数
     [SerializeField] int attack5lx;//-100
     //攻撃６
+    [Header("攻撃Ⅵ")]
     [SerializeField] int Attack6ms;//攻撃６のミサイル数 5
-    //攻撃座標関係
-    [SerializeField] int attackf;//攻撃の間隔 5
-    [SerializeField] int attackpointx;//攻撃発生の横 10
-    [SerializeField] int attackpointy;//攻撃発生の高さ 25
-    [SerializeField] int attackpointz;//攻撃発生の奥行 10
-    public float ap;//random値確認用基本使わない
-    public float groundx;//random値確認用基本使わない
-    public float groundz;//random値確認用基本使わない
-    //レーザーy座標関係
-    [SerializeField] int lazerpointy = 7; // 7
-    [SerializeField] float maxLength = -70f;   // 最終的な長さ
-    [SerializeField] float extendSpeed = 100;  // 伸びるスピード
+    public float y;//攻撃発生高
+    Vector3 play;
 
     //攻撃分岐関係
+    [Header("ランダム値確認")]
+    public float attackbunki;//random値確認用基本使わない
+
     public int attack123;//random値確認用基本使わない
     public int attack12345;//random値確認用基本使わない
     public int attack123456;//random値確認用基本使わない
+
+    public float ap;//random値確認用基本使わない
+    public float groundx;//random値確認用基本使わない
+    public float groundz;//random値確認用基本使わない
+
     //プレイヤー座標取得
+    [Header("攻撃プレイヤー座標取得")]
     public float x;
-    public float y;//攻撃発生高 15
     public float z;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -415,6 +432,7 @@ public class enemyattack : MonoBehaviour
     }
 
     //-----攻撃Ⅳ-----
+
     void Attack4()
     {
         ap = Random.Range(rndm, rndp);//地面の広さによって変更
@@ -423,6 +441,7 @@ public class enemyattack : MonoBehaviour
     }
 
     //攻撃Ⅳクラスター
+
     void Attack4b()
     {
         for (int i = 1; i < attack4missile; i++)
@@ -454,6 +473,7 @@ public class enemyattack : MonoBehaviour
         }
         //Debug.Log("攻撃Ⅳ");
     }
+
     //-----攻撃Ⅴ-----
     void Attack5() 
     {
@@ -623,6 +643,7 @@ public class enemyattack : MonoBehaviour
     }
 
     //攻撃ⅥレーザーパターンⅡ
+
     IEnumerator Attack6lazer2Coroutine()
     {
         int i = 0;
@@ -635,6 +656,7 @@ public class enemyattack : MonoBehaviour
     }
 
     //攻撃Ⅵ追尾ミサイル
+
     void Attack6missile()
     {
         // transform.position で現在のワールド座標を取得
@@ -655,6 +677,7 @@ public class enemyattack : MonoBehaviour
     //-----攻撃ⅥパターンⅠ-----
 
     //攻撃ⅥレーザーポイントパターンⅠ右
+
     void Attack6lazerppoint()
     {
         audioSource.PlayOneShot(lazercharge);
@@ -691,6 +714,7 @@ public class enemyattack : MonoBehaviour
         Attack6lazerp.transform.localScale = scale;
         Invoke("Attack6lazerm2point", 2f);
     }
+
     //攻撃ⅥレーザーポイントパターンⅠ左
     void Attack6lazerm2point()
     {
@@ -771,6 +795,7 @@ public class enemyattack : MonoBehaviour
     }
 
     //攻撃ⅥレーザーポイントパターンⅡ右
+
     void Attack6lazerp2point()
     {
         audioSource.PlayOneShot(lazercharge);
@@ -782,6 +807,7 @@ public class enemyattack : MonoBehaviour
     }
 
     //攻撃ⅥレーザーパターンⅡ右
+
     void Attack6lazerp2()
     {
         audioSource.PlayOneShot(lazerclip);
