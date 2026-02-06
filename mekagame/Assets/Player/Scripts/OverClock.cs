@@ -51,14 +51,14 @@ public class OverClock : MonoBehaviour
             materialScript.ChangeMaterial(MaterialScript.EffectType.OverClock, oCTime);
 
             // グレイズ範囲拡大
-            pg.OCRange(oCGrazeRange);
+            pg.SetOCRange(oCGrazeRange);
 
             // 効果時間待機
             yield return new WaitForSeconds(oCTime);
 
             // 終了処理・範囲リセット
             isOC = false;
-            pg.Range();
+            pg.ResetRange();
         }
     }
 }
