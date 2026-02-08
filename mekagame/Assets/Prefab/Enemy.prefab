@@ -100,8 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ba6d8931aaf974f9849c825a46cd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHp: {fileID: 0}
-  EnemyHP: 1000
+  maxHP: 1000
 --- !u!82 &1184330210886708290
 AudioSource:
   m_ObjectHideFlags: 0
@@ -347,6 +346,22 @@ PrefabInstance:
     - target: {fileID: 4051490334789468339, guid: 0511d4f37fca5f6459463460bb40c97a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376065350448497320, guid: 0511d4f37fca5f6459463460bb40c97a, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376065350448497320, guid: 0511d4f37fca5f6459463460bb40c97a, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376065350448497320, guid: 0511d4f37fca5f6459463460bb40c97a, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376065350448497320, guid: 0511d4f37fca5f6459463460bb40c97a, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
