@@ -146,7 +146,7 @@ public class enemyattack : MonoBehaviour
     IEnumerator AttackLoopCoroutine()
     {
         //ループ脱出条件
-        while (enemyhpscripts.EnemyHP > 750)//敵のHP条件
+        while (enemyhpscripts.CurrentHP > 750)//敵のHP条件
         {
             //attack123 = Random.Range(0, 99);//ランダムで攻撃分岐
             attack12345 = Random.Range(0, 99);//ランダムで攻撃分岐
@@ -207,7 +207,7 @@ public class enemyattack : MonoBehaviour
     //-----攻撃パターンⅡループ脱出条件-----
     IEnumerator AttackLoop2Coroutine()
     {
-        while (enemyhpscripts.EnemyHP > 500)//敵のHP条件
+        while (enemyhpscripts.CurrentHP > 500)//敵のHP条件
         {
             attack12345 = Random.Range(0, 99);//ランダムで攻撃分岐
             Attackrndv2();//攻撃パターンⅡ
@@ -279,7 +279,7 @@ public class enemyattack : MonoBehaviour
     //-----攻撃パターンⅢループ脱出条件-----
     IEnumerator AttackLoop3Coroutine()
     {
-        while (enemyhpscripts.EnemyHP > 250)//敵のHP条件
+        while (enemyhpscripts.CurrentHP > 250)//敵のHP条件
         {
             attack123456 = Random.Range(0, 99);//ランダムで攻撃分岐
             Attackrndv3();//攻撃パターンⅢ
