@@ -454,9 +454,8 @@ public class enemyattack : MonoBehaviour
             Destroy(Attack4bpoint2, 1f);
             Destroy(Attack4bpoint3, 1f);
             Destroy(Attack4bpoint4, 1f);
-            Invoke("Attack4Cluster", 1f);
         }
-        
+        Invoke("Attack4Cluster", 1f);
     }
     void Attack4Cluster()
     {

@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
         UpdateCombo();
         float multiple = GetComboMultiple();
         nowGage += n * multiple;
+        //maxílÇí¥Ç¶Ç»Ç¢ÇÊÇ§Ç…
+        nowGage = Mathf.Min(nowGage, maxGage);
         grazeGage.SetValue(nowGage);
 
         UpdateText();
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
     {
         // ÉQÅ[ÉWè¡îÔ
         nowGage -= n;
+        nowGage = Mathf.Max(nowGage, 0f);
         grazeGage.SetValue(nowGage);
     }
 

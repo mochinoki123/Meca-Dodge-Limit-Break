@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class PlayerGraze : MonoBehaviour
 {
-    private Dictionary<GameObject, float> grazeCooldowns = new Dictionary<GameObject, float>();
-    private List<GameObject> removeCache = new List<GameObject>();
+    private Dictionary<int, float> grazeCooldowns = new Dictionary<int, float>();
+    private List<int> removeCache = new List<int>();
+    private readonly HashSet<string> targetTags = new HashSet<string> { "Missile", "Lazer", "FirePoint" };
 
     [Header("Settings")]
     [SerializeField] private float grazeRange;
     [SerializeField] private int ocAddGage;
     [SerializeField] private int addGage;
-    [SerializeField] private float reGrazeTime = 0.2f;
+    [SerializeField] private float reGrazeTime = 1.0f;
 
     [Header("Audio & Visuals")]
     [SerializeField] private AudioClip grazeSound;
@@ -22,6 +23,7 @@ public class PlayerGraze : MonoBehaviour
     private TextScript textScript;
     private SphereCollider myCollider;
     private AudioSource audioSource;
+    private Coroutine uiCoroutine;
 
     private void Awake()
     {
@@ -43,9 +45,9 @@ public class PlayerGraze : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!playerMove.isRun) return;
+        if (playerMove != null && !playerMove.isRun) return;
 
-        if (other.CompareTag("Missile") || other.CompareTag("Lazer") || other.CompareTag("FirePoint"))
+        if (targetTags.Contains(other.tag))
         {
             TryGraze(other.gameObject);
         }
@@ -55,10 +57,12 @@ public class PlayerGraze : MonoBehaviour
     {
         if (target == null) return;
 
-        float nextTime;
-        if (!grazeCooldowns.TryGetValue(target, out nextTime) || Time.time >= nextTime)
+        int targetID = target.GetInstanceID();
+        float currentTime = Time.time;
+
+        if (!grazeCooldowns.TryGetValue(targetID, out float nextTime) || currentTime >= nextTime)
         {
-            grazeCooldowns[target] = Time.time + reGrazeTime;
+            grazeCooldowns[targetID] = currentTime + reGrazeTime;
             ExecuteGraze();
         }
     }
@@ -85,18 +89,21 @@ public class PlayerGraze : MonoBehaviour
 
         if (textScript != null)
         {
-            StartCoroutine(ShowGrazeText());
+            if (uiCoroutine != null) StopCoroutine(uiCoroutine);
+            uiCoroutine = StartCoroutine(ShowGrazeText());
         }
     }
 
     private void CleanUpCooldowns()
     {
         removeCache.Clear();
-        foreach (var key in grazeCooldowns.Keys)
+        float currentTime = Time.time;
+
+        foreach (var kvp in grazeCooldowns)
         {
-            if (key == null)
+            if (currentTime > kvp.Value + 1.0f)
             {
-                removeCache.Add(key);
+                removeCache.Add(kvp.Key);
             }
         }
 
@@ -108,12 +115,12 @@ public class PlayerGraze : MonoBehaviour
 
     public void SetOCRange(float range)
     {
-        myCollider.radius = range;
+        if (myCollider != null) myCollider.radius = range;
     }
 
     public void ResetRange()
     {
-        myCollider.radius = grazeRange;
+        if (myCollider != null) myCollider.radius = grazeRange;
     }
 
     private IEnumerator ShowGrazeText()
@@ -121,5 +128,6 @@ public class PlayerGraze : MonoBehaviour
         textScript.Set(TextScript.EffectType.Graze);
         yield return new WaitForSeconds(1.0f);
         textScript.Removed(TextScript.EffectType.Graze);
+        uiCoroutine = null;
     }
 }
