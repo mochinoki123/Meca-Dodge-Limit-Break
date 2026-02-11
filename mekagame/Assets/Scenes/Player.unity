@@ -765,11 +765,6 @@ MonoBehaviour:
   - {fileID: 523947652}
   maxGage: 300
   nowGage: 0
---- !u!1 &625988431 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3759398697348694051, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
-  m_PrefabInstance: {fileID: 6096887209247199779}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &872127696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,17 +2355,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxGage: 300
-  comboText: {fileID: 1718472723}
   nowGage: 0
-  player: {fileID: 625988431}
+  lifeGage: {fileID: 1620747860}
+  grazeGage: {fileID: 532331647}
+  comboText: {fileID: 1718472723}
   comboTime: 4
   comboMultiple:
   - 1
   - 1.2
   - 1.5
   - 2
-  lifeGage: {fileID: 1620747860}
-  grazeGage: {fileID: 532331647}
 --- !u!4 &1744651155
 Transform:
   m_ObjectHideFlags: 0
@@ -2476,7 +2470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8562474437230650541, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: maxHP
-      value: 200
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8562474437230650541, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: EnemyHp
