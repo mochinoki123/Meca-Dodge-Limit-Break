@@ -9,6 +9,7 @@ public class enemyattack : MonoBehaviour
 {
     //Enemyスクリプト
     private Enemy enemyhpscripts;
+    //private Vector3 startPosition; 最初の座標・ポジション取得
     [Header("レーザー効果音")]
     [SerializeField] private AudioClip lazerclip;
     [SerializeField] private AudioClip lazercharge;
@@ -94,6 +95,8 @@ public class enemyattack : MonoBehaviour
     {
         enemyhpscripts = GetComponent<Enemy>();//敵データ呼び出し
         audioSource = GetComponent<AudioSource>();
+        //startPosition = transform.position;
+        //Object名.SetActive (false); オブジェクトを非表示する　表示の場合true
         EnemyAttackController1();//攻撃パターンⅠ
     }
 
