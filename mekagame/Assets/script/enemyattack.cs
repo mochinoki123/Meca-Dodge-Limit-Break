@@ -209,7 +209,7 @@ public class enemyattack : MonoBehaviour
     {
         while (enemyhpscripts.CurrentHP > 500)//“G‚ÌHPğŒ
         {
-            attack123456 = Random.Range(0, 99);//ƒ‰ƒ“ƒ_ƒ€‚ÅUŒ‚•ªŠò
+            attack12345 = Random.Range(0, 99);//ƒ‰ƒ“ƒ_ƒ€‚ÅUŒ‚•ªŠò
             Attackrndv2();//UŒ‚ƒpƒ^[ƒ“‡U
 
             yield return new WaitForSeconds(1.5f);//2•b‚²‚Æ‚Éƒ‹[ƒv‚·‚é
