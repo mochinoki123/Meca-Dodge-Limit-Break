@@ -14,34 +14,42 @@ public class enemyattack : MonoBehaviour
     [SerializeField] private AudioClip lazerclip;
     [SerializeField] private AudioClip lazercharge;
     private AudioSource audioSource;
+
     //プレハブ
     [Header("爆発ポイントプレハブ")]
     [SerializeField] GameObject bpoint;//爆発ポイント
+
     [Header("ミサイルプレハブ")]
     [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
     [SerializeField] GameObject missile4;//ミサイル攻撃のオブジェクト
+
     [Header("レーザープレハブ")]
     [SerializeField] GameObject lazer;//レーザーオブジェクト
     [SerializeField] GameObject lazerattackpoint;//レーザー発生ポイントオブジェクト
     //攻撃Ⅴ
     [SerializeField] GameObject lazerx;//レーザーオブジェクト
     [SerializeField] GameObject lazerattackpointx;//レーザー発生ポイントオブジェクト
-    //フィールド範囲
     [Header("エフェクト")]
     [SerializeField] GameObject lazerchargeeffect;//レーザーチャージエフェクト
     [SerializeField] GameObject ClustereffectPrefab;//爆発のエフェクト
+
+    //フィールド範囲
     [Header("攻撃範囲指定")]
     [SerializeField] float rndm = -9;//フィールドごとの範囲指定マイナス
     [SerializeField] float rndp =  9;//フィールドごとの範囲指定プラス
+
     //攻撃座標関係
     [Header("攻撃座標指定")]
     [SerializeField] int attackf;//攻撃の間隔 5
     [SerializeField] int attackpointx;//攻撃発生の横 10
     [SerializeField] int attackpointy;//攻撃発生の高さ 25
     [SerializeField] int attackpointz;//攻撃発生の奥行 10
+
     //レーザーy座標関係
-    [Header("レーザー座標指定・レーザー長指定")]
+    [Header("レーザー座標指定")]
     [SerializeField] int lazerpointy = 7; // 7
+
+    [Header("レーザー長指定")]
     [SerializeField] float maxLength = -70f;   // 最終的な長さ
     [SerializeField] float extendSpeed = 100;  // 伸びるスピード
     
@@ -102,9 +110,7 @@ public class enemyattack : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
-    }
+    {}
 
     //-----攻撃パターンⅠ-----
     void EnemyAttackController1()
