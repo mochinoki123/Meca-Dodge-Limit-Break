@@ -111,7 +111,24 @@ public class enemyattack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {}
-
+    /*メモ
+    void OnCollisionEnter(Collision collision)
+    {
+        if (a.activeSelf)
+        {
+    
+        }
+        if (collision.gameObject.CompareTag("Ground"))
+            {
+                transform.position = startPosition;
+                // 速度もリセットしたい場合はRigidbodyが必要
+                if (GetComponent<Rigidbody>())
+                {
+                    GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+                    GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                }
+            }    
+    }*/
     //-----攻撃パターンⅠ-----
     void EnemyAttackController1()
     {
