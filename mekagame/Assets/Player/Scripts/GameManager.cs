@@ -17,24 +17,35 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float comboTime = 2.0f;
     [SerializeField] private float[] comboMultiple = { 1.0f, 1.2f, 1.5f, 2.0f };
 
-    private GameObject player; // 実行時に探すか、プロパティで管理
+    public bool IsPlayerDead { get; private set; } = false;
+    public float NowGage => nowGage;
+
     private int combo;
     private int maxCombo;
     private float lastComboTime = 0;
-    private bool isPlayerDead = false;
 
     private void Awake()
     {
-        // シングルトンの重複チェック
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
             Destroy(gameObject);
             return;
+        }
+
+        FindUIElements();
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }
 
@@ -48,22 +59,34 @@ public class GameManager : MonoBehaviour
         CheckCombo();
     }
 
-    // --- コンボ・ゲージ関連 ---
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindUIElements();
 
-    public void AddGage(int n)
+    }
+
+    private void FindUIElements()
+    {
+        lifeGage = GameObject.Find("HP")?.GetComponent<LifeGage>();
+        grazeGage = GameObject.Find("GrazeGage")?.GetComponent<GrazeGage>();
+        comboText = GameObject.Find("Combo")?.GetComponent<TextMeshProUGUI>();
+    }
+
+    public void AddGage(float amount)
     {
         UpdateCombo();
-        nowGage += n * GetComboMultiple();
-        nowGage = Mathf.Min(nowGage, maxGage);
 
-        grazeGage.SetValue(nowGage);
+        nowGage += amount * GetComboMultiple();
+        nowGage = Mathf.Clamp(nowGage, 0, maxGage);
+
+        grazeGage?.SetValue(nowGage);
         UpdateText();
     }
 
-    public void UseGage(int n)
+    public void UseGage(float amount)
     {
-        nowGage = Mathf.Max(nowGage - n, 0f);
-        grazeGage.SetValue(nowGage);
+        nowGage = Mathf.Max(nowGage - amount, 0f);
+        grazeGage?.SetValue(nowGage);
     }
 
     private void UpdateCombo()
@@ -86,45 +109,39 @@ public class GameManager : MonoBehaviour
     {
         if (comboMultiple == null || comboMultiple.Length == 0) return 1f;
 
-        // 配列の範囲外参照を防ぎつつ倍率を適用
-        if (combo >= 40 && comboMultiple.Length > 3) return comboMultiple[3];
-        if (combo >= 30 && comboMultiple.Length > 2) return comboMultiple[2];
-        if (combo >= 10 && comboMultiple.Length > 1) return comboMultiple[1];
+        if (combo >= 40) return GetSafeMultiple(3);
+        if (combo >= 30) return GetSafeMultiple(2);
+        if (combo >= 10) return GetSafeMultiple(1);
 
-        return comboMultiple[0];
+        return GetSafeMultiple(0);
+    }
+
+    private float GetSafeMultiple(int index)
+    {
+        if (index >= comboMultiple.Length) return comboMultiple[comboMultiple.Length - 1];
+        return comboMultiple[index];
     }
 
     public void UpdateText()
     {
         if (comboText != null)
-            comboText.text = $"Combo : {combo}";
+        {
+            comboText.text = combo > 0 ? $"Combo : {combo}" : "";
+        }
     }
 
     public void ResetGage()
     {
         nowGage = 0;
+        combo = 0; 
         UpdateText();
     }
 
-    public float GetterGage()
-
-    {
-
-        // 現在値の取得
-
-        return nowGage;
-
-    }
-
-    // --- 状態管理 ---
-
-    public bool Died() => isPlayerDead; // 前回のSceneクラスとの整合性用
-
     public void Die()
     {
-        isPlayerDead = true;
+        if (IsPlayerDead) return;
+        IsPlayerDead = true;
 
-        // プレイヤーオブジェクトの削除（タグで探すのが一般的）
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         if (p != null) Destroy(p);
 
@@ -133,6 +150,6 @@ public class GameManager : MonoBehaviour
 
     public void Damage()
     {
-        if (lifeGage != null) lifeGage.Damage();
+        lifeGage?.Damage();
     }
 }

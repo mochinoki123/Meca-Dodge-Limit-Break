@@ -40,7 +40,7 @@ public class OverClock : MonoBehaviour
     private IEnumerator PlayOverClock()
     {
         // ゲージ残量チェック
-        if (GameManager.Instance.GetterGage() >= oCUseGage)
+        if (GameManager.Instance.NowGage >= oCUseGage)
         {
             // SE再生
             audioSource.PlayOneShot(overClock);

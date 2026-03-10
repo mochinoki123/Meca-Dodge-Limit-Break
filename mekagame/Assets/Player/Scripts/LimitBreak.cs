@@ -33,7 +33,7 @@ public class LimitBreak : MonoBehaviour
     private IEnumerator AttackLimitBreak()
     {
         // ゲージ残量チェック
-        if (GameManager.Instance.GetterGage() >= lBUseGage)
+        if (GameManager.Instance.NowGage >= lBUseGage)
         {
             isLB = true;
             // ゲージ消費

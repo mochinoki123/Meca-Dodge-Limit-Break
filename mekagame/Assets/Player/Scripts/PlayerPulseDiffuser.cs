@@ -27,7 +27,7 @@ public class PlayerPulseDiffuser : MonoBehaviour
     private IEnumerator PulseDiffuser()
     {
         // ゲージ残量チェック
-        if (GameManager.Instance.GetterGage() >= pDUseGage)
+        if (GameManager.Instance.NowGage >= pDUseGage)
         {
             // ゲージ消費して発動
             GameManager.Instance.UseGage(pDUseGage);

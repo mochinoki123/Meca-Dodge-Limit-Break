@@ -10,10 +10,8 @@ public class Scene : MonoBehaviour
 
     private void Start()
     {
-        bool isDead = GameManager.Instance.Died();
-
-        miss.SetActive(isDead);
-        complete.SetActive(!isDead);
+        miss.SetActive(GameManager.Instance.IsPlayerDead);
+        complete.SetActive(!GameManager.Instance.IsPlayerDead);
     }
     public void OnStartButton()
     {
