@@ -46,46 +46,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf0c0b7d06ec7c45969475ff0939424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sizem: 50
+  sizel: 20
   lazerclip: {fileID: 8300000, guid: 143ec0291adf7674090e4b17ff8f8311, type: 3}
   lazercharge: {fileID: 8300000, guid: b2e8cb20f4435a044b9ce2e64390093a, type: 3}
+  bpoint: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
   missile: {fileID: 4324720777855780103, guid: b040ceedd39cb3144b575af3f8f5d77f, type: 3}
   missile4: {fileID: 4324720777855780103, guid: cf4f91f70024de14cb6b5534948c1c88, type: 3}
+  lazer: {fileID: 8187081989845006493, guid: d2202b903d7a73747a2f2ff8f57c51b3, type: 3}
+  lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
+  lazerx: {fileID: 9078672028450228241, guid: 7054ebf7e29c702479a397e52a86cec6, type: 3}
+  lazerattackpointx: {fileID: 8819450423478130821, guid: 7b9408938b2e5e64cbe6fdcad059d5c3, type: 3}
+  lazerchargeeffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
+  ClustereffectPrefab: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
   rndm: -11
   rndp: 11
+  attackf: 5
+  attackpointx: 10
+  attackpointy: 60
+  attackpointz: 10
+  lazerpointy: 7
+  maxLength: -70
+  extendSpeed: 80
   attack1missile: 10
-  lazer: {fileID: 8187081989845006493, guid: d2202b903d7a73747a2f2ff8f57c51b3, type: 3}
-  lazerchargeeffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
-  lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
   attack2lazerz: 50
   attack3missilex: 6
   attack3missiley: 6
-  attackbunki: 0
   attack4missile: 10
-  bpoint: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
-  ClustereffectPrefab: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
-  lazerx: {fileID: 9078672028450228241, guid: 7054ebf7e29c702479a397e52a86cec6, type: 3}
   Attack5ls: 10
-  lazerattackpointx: {fileID: 8819450423478130821, guid: 7b9408938b2e5e64cbe6fdcad059d5c3, type: 3}
   l5x: 60
   l5z: 50
   k: 13
   attack5lx: -100
   Attack6ms: 5
-  attackf: 5
-  attackpointx: 10
-  attackpointy: 60
-  attackpointz: 10
-  ap: 0
-  groundx: 0
-  groundz: 0
-  lazerpointy: 7
-  maxLength: -70
-  extendSpeed: 80
+  y: 60
+  attackbunki: 0
   attack123: 0
   attack12345: 0
   attack123456: 0
+  ap: 0
+  groundx: 0
+  groundz: 0
   x: 0
-  y: 60
   z: 0
 --- !u!114 &8562474437230650541
 MonoBehaviour:

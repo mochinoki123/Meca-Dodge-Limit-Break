@@ -766,11 +766,6 @@ MonoBehaviour:
   - {fileID: 523947652}
   maxGage: 300
   nowGage: 0
---- !u!1 &625988431 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3759398697348694051, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
-  m_PrefabInstance: {fileID: 6096887209247199779}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &872127696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,7 +2358,7 @@ MonoBehaviour:
   maxGage: 300
   comboText: {fileID: 1718472723}
   nowGage: 0
-  player: {fileID: 625988431}
+  player: {fileID: 0}
   comboTime: 4
   comboMultiple:
   - 1

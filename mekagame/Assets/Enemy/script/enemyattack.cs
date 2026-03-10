@@ -4,11 +4,35 @@ using Unity.VisualScripting;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using System.Data;
+using System.Collections.Generic;
+using UnityEngine.Pool;
+using static UnityEngine.Rendering.ObjectPool<T>;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class enemyattack : MonoBehaviour
 {
     //Enemyスクリプト
     private Enemy enemyhpscripts;
+    [Header("プール数")]
+    //ミサイル
+    public int sizem = 50;
+    private Queue<GameObject> missilepool = new Queue<GameObject>();
+    //レーザー
+    public int sizel = 20;
+    private Queue<GameObject> lazerpool = new Queue<GameObject>();
+    /*
+    //攻撃Ⅳミサイル
+    public int sizem2 = 10;  
+    private Queue<GameObject> missile2pool = new Queue<GameObject>();
+    */
+    /*
+    //爆発ポイント
+    public int sizeb = 50;
+    private Queue<GameObject> bpointpool = new Queue<GameObject>();
+    //爆発エフェクト
+    public int sizebe = 50;
+    private Queue<GameObject> beffectpool = new Queue<GameObject>();
+    */
     [Header("レーザー効果音")]
     [SerializeField] private AudioClip lazerclip;
     [SerializeField] private AudioClip lazercharge;
@@ -41,9 +65,8 @@ public class enemyattack : MonoBehaviour
     //レーザーy座標関係
     [Header("レーザー座標指定・レーザー長指定")]
     [SerializeField] int lazerpointy = 7; // 7
-    [SerializeField] float maxLength = -70f;   // 最終的な長さ
+    [SerializeField] float maxLength = -50f;   // 最終的な長さ
     [SerializeField] float extendSpeed = 100;  // 伸びるスピード
-    
     //攻撃１
     [Header("攻撃Ⅰ")]
     [SerializeField] int attack1missile;//攻撃１のミサイル数　6
@@ -71,38 +94,154 @@ public class enemyattack : MonoBehaviour
     [SerializeField] int Attack6ms;//攻撃６のミサイル数 5
     public float y;//攻撃発生高
     Vector3 play;
-
     //攻撃分岐関係
     [Header("ランダム値確認")]
     public float attackbunki;//random値確認用基本使わない
-
     public int attack123;//random値確認用基本使わない
     public int attack12345;//random値確認用基本使わない
     public int attack123456;//random値確認用基本使わない
-
     public float ap;//random値確認用基本使わない
     public float groundx;//random値確認用基本使わない
     public float groundz;//random値確認用基本使わない
-
     //プレイヤー座標取得
     [Header("攻撃プレイヤー座標取得")]
     public float x;
     public float z;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         enemyhpscripts = GetComponent<Enemy>();//敵データ呼び出し
         audioSource = GetComponent<AudioSource>();
-        EnemyAttackController1();//攻撃パターンⅠ
+        CreatePool();
     }
-
     // Update is called once per frame
     void Update()
     {
         
     }
 
+    void CreatePool()
+    {
+        for (int i = 0; i < sizem; i++)
+        {
+            GameObject objm = Instantiate(missile);
+            objm.SetActive(false);
+            missilepool.Enqueue(objm);
+        }
+        for (int i = 0; i < sizel; i++)
+        {
+            GameObject objl = Instantiate(lazer);
+            objl.SetActive(false);
+            lazerpool.Enqueue(objl);
+        }
+        /*
+        for (int i = 0; i < sizem2; i++)
+        {
+            GameObject objm2 = Instantiate(missile4);
+            objm2.SetActive(false);
+            missile2pool.Enqueue(objm2);
+        }*/
+        /*
+        for (int i = 0; i < sizeb; i++)
+        {
+            GameObject objb = Instantiate(bpoint);
+            objb.SetActive(false);
+            missile2pool.Enqueue(objb);
+        }
+        for (int i = 0; i < sizebe; i++)
+        {
+            GameObject objbe = Instantiate(ClustereffectPrefab);
+            objbe.SetActive(false);
+            missile2pool.Enqueue(objbe);
+        }
+        */
+        EnemyAttackController1();//攻撃パターンⅠ
+    }
+
+    public GameObject Get()
+    {
+        if (missilepool.Count > 0)
+        {
+            GameObject objm = missilepool.Dequeue();
+            objm.SetActive(true);
+            return objm;
+        }
+        return Instantiate(missile);
+    }
+    public GameObject Getl()
+    {
+        if (lazerpool.Count > 0)
+        { 
+            GameObject objl = lazerpool.Dequeue();
+            objl.SetActive(true);
+            return objl;
+        }
+        return Instantiate(lazer);
+    }
+    /*
+    public GameObject Getm()
+    {
+        if (missile2pool.Count > 0)
+        {
+            GameObject objm2 = missile2pool.Dequeue();
+            objm2.SetActive(true);
+            return objm2;
+        }
+        return Instantiate(missile4);
+    }*/
+    /*
+    public GameObject Getb()
+    {
+        if (bpointpool.Count > 0)
+        {
+            GameObject objb = bpointpool.Dequeue();
+            objb.SetActive(true);
+            return objb;
+        }
+        return Instantiate(bpoint);
+    }
+    */
+    /*
+    public GameObject Getbe()
+    {
+        if (beffectpool.Count > 0)
+        {
+            GameObject objbe = beffectpool.Dequeue();
+            objbe.SetActive(true);
+            return objbe;
+        }
+        return Instantiate(ClustereffectPrefab);
+    }*/
+    public void Return(GameObject objm)
+    {
+        objm.SetActive(false);
+        missilepool.Enqueue(objm);
+    }
+    public void Returnl(GameObject objl)
+    {
+        objl.SetActive(false);
+        lazerpool.Enqueue(objl);
+    }
+    /*
+    public void Returnm(GameObject objm2)
+    {
+        objm2.SetActive(false);
+        missile2pool.Enqueue(objm2);
+    }*/
+    /*
+    public void Returnb(GameObject objb)
+    {
+        objb.SetActive(false);
+        bpointpool.Enqueue(objb);
+    }
+    */
+    /*
+    public void Returnbe(GameObject objbe)
+    {
+        objbe.SetActive(false);
+        beffectpool.Enqueue(objbe);
+    }
+    */
     //-----攻撃パターンⅠ-----
     void EnemyAttackController1()
     {
@@ -325,6 +464,8 @@ public class enemyattack : MonoBehaviour
     {
         for (int i = 0; i < attack1missile; i++)
         {
+            GameObject objm1 = Get();
+
             groundx = Random.Range(rndm, rndp);//地面の広さによって変更
             groundz = Random.Range(rndm, rndp);//地面の広さによって変更
 
@@ -333,12 +474,18 @@ public class enemyattack : MonoBehaviour
             Instantiate(attackpoint, new Vector3(x, 0, attackpointz - i * attackf), Quaternion.identity);//攻撃範囲
             */
 
-            Instantiate(missile, new Vector3((attackf * groundx) - groundx, attackpointy, (attackf * groundz) - groundz),  Quaternion.Euler(180, 0, 0));//発射
+            //Instantiate(missile, new Vector3((attackf * groundx) - groundx, attackpointy, (attackf * groundz) - groundz),  Quaternion.Euler(180, 0, 0));//発射
             /*
             Rigidbody missileRigidbody = missile.GetComponent<Rigidbody>();//リジッドボディ
             missileRigidbody.useGravity = false;
-            missileRigidbody.linearVelocity = Vector3.down * missilespeed;*/
+            missileRigidbody.linearVelocity = Vector3.down * missilespeed;
+            */
             //Instantiate(attackpoint, new Vector3((attackf * x) - x, 0, (attackf * z) - z), Quaternion.identity);//攻撃範囲
+            objm1.transform.position = new Vector3((attackf * groundx) - groundx, attackpointy, (attackf * groundz) - groundz);
+            objm1.transform.rotation = Quaternion.Euler(180, 0, 0);
+
+            objm1.SetActive(true);
+
         }
         //Debug.Log("攻撃Ⅰ");
     }
@@ -348,40 +495,44 @@ public class enemyattack : MonoBehaviour
     {
         audioSource.PlayOneShot(lazercharge);
         GameObject Attack2lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(groundx, 0, 0), Quaternion.identity);//レーザー発射地点
-        GameObject Attacklazerchargeeffect = Instantiate(lazerchargeeffect, new Vector3(groundx, lazerpointy, attack2lazerz), Quaternion.identity); 
+        GameObject Attacklazerchargeeffect = Instantiate(lazerchargeeffect, new Vector3(groundx, lazerpointy, attack2lazerz), Quaternion.identity);
         Destroy(Attack2lazerattackpoint, 1.3f);//1.3秒後に破壊
         Destroy(Attacklazerchargeeffect, 2f);//2秒後に破壊
-        Invoke("Attack2l", 1.3f);
+        StartCoroutine(LaserRoutine());
     }
 
     //攻撃Ⅱレーザー
-    void Attack2l()
+    IEnumerator LaserRoutine()
     {
+        yield return new WaitForSeconds(1.3f);
+
         audioSource.PlayOneShot(lazerclip);
-        GameObject Attack2lazer = Instantiate(lazer, new Vector3(groundx, lazerpointy, attack2lazerz), Quaternion.identity);//発射
-        StartCoroutine(ExtendLazer2(Attack2lazer));
+
+        GameObject lazer2 = Getl();
+
+        lazer2.transform.position = new Vector3(groundx, lazerpointy, attack2lazerz);
+
+        StartCoroutine(ExtendLaser(lazer2));
     }
 
-    IEnumerator ExtendLazer2(GameObject Attack2lazer)
+    IEnumerator ExtendLaser(GameObject lazer2)
     {
-        Vector3 scale = Attack2lazer.transform.localScale;
-        scale.z = 0f; // 最初は長さ0
-        Attack2lazer.transform.localScale = scale;
+        Vector3 scale = lazer2.transform.localScale;
+        scale.z = 0;
+        lazer2.transform.localScale = scale;
 
         while (scale.z > maxLength)
         {
             scale.z -= extendSpeed * Time.deltaTime;
-            Attack2lazer.transform.localScale = scale;
+            lazer2.transform.localScale = scale;
 
-            Destroy(Attack2lazer, 1f);
-            //Debug.Log("攻撃Ⅱ");
-            yield return null; // 次のフレームへ
+            yield return null;
         }
+        yield return new WaitForSeconds(1f);
 
-        // 最終値を保証
-        scale.z = maxLength;
-        Attack2lazer.transform.localScale = scale;
+        Returnl(lazer2);
     }
+
 
     //-----攻撃Ⅲ-----
     void Attack3()
@@ -390,7 +541,10 @@ public class enemyattack : MonoBehaviour
 
         if (attackbunki < 0.5f)//クロス型
         {
-            Instantiate(missile, new Vector3(0, attackpointy, 0), Quaternion.Euler(180, 0, 0));//中心地点発射
+            GameObject objm3 = Get();
+            objm3.transform.position = new Vector3(0, attackpointy, 0);
+            objm3.transform.rotation = Quaternion.Euler(180, 0, 0);
+            //Instantiate(missile, new Vector3(0, attackpointy, 0), Quaternion.Euler(180, 0, 0));//中心地点発射
             for (int i = 1; i <= attack3missilex; i++)//クロスになるように繰り返す
             {
                 /*
@@ -403,16 +557,38 @@ public class enemyattack : MonoBehaviour
                 Instantiate(missile, new Vector3(attackpointx + i * attackf, attackpointy, attackpointz + i * attackf), Quaternion.identity);
                 //Instantiate(attackpoint, new Vector3(attackpointx + i * attackf, 0, attackpointz + i * attackf), Quaternion.identity);
                 */
-                Instantiate(missile, new Vector3(attackpointx * i, attackpointy, -attackpointz * i), Quaternion.Euler(180, 0, 0));//　左下
-                Instantiate(missile, new Vector3(-attackpointx * i, attackpointy, attackpointz * i), Quaternion.Euler(180, 0, 0));//　右上
-                Instantiate(missile, new Vector3(attackpointx * i, attackpointy, attackpointz * i), Quaternion.Euler(180, 0, 0));//　左上
-                Instantiate(missile, new Vector3(-attackpointx * i, attackpointy, -attackpointz * i), Quaternion.Euler(180, 0, 0));//　右下
+
+                /*
+                Instantiate(missile, new Vector3(attackpointx * i, attackpointy, -attackpointz * i), Quaternion.Euler(180, 0, 0));
+                Instantiate(missile, new Vector3(-attackpointx * i, attackpointy, attackpointz * i), Quaternion.Euler(180, 0, 0));
+                Instantiate(missile, new Vector3(attackpointx * i, attackpointy, attackpointz * i), Quaternion.Euler(180, 0, 0));
+                Instantiate(missile, new Vector3(-attackpointx * i, attackpointy, -attackpointz * i), Quaternion.Euler(180, 0, 0));
+                */
+                GameObject m3ldx = Get();
+                m3ldx.transform.position = new Vector3(attackpointx * i, attackpointy, -attackpointz * i);//　左下
+                m3ldx.transform.rotation = Quaternion.Euler(180, 0, 0);
+                m3ldx.SetActive(true);
+                GameObject m3rdx = Get();
+                m3rdx.transform.position = new Vector3(-attackpointx * i, attackpointy, attackpointz * i);//　右上
+                m3rdx.transform.rotation = Quaternion.Euler(180, 0, 0);
+                m3rdx.SetActive(true);
+                GameObject m3lux = Get();
+                m3lux.transform.position = new Vector3(attackpointx * i, attackpointy, attackpointz * i);//　左上
+                m3lux.transform.rotation = Quaternion.Euler(180, 0, 0);
+                m3lux.SetActive(true);
+                GameObject m3rux = Get();
+                m3rux.transform.position = new Vector3(-attackpointx * i, attackpointy, -attackpointz * i);//　右下
+                m3rux.transform.rotation = Quaternion.Euler(180, 0, 0);
+                m3rux.SetActive(true);
             }
             //Debug.Log("攻撃Ⅲx");
         }
         else//十字型
         {
-            Instantiate(missile, new Vector3(0, attackpointy, 0), Quaternion.Euler(180, 0, 0));//中心地点発射
+            GameObject objm3 = Get();
+            objm3.transform.position = new Vector3(0, attackpointy, 0);
+            objm3.transform.rotation = Quaternion.Euler(180, 0, 0);
+            //Instantiate(missile, new Vector3(0, attackpointy, 0), Quaternion.Euler(180, 0, 0));//中心地点発射
             for (int i = 1; i < attack3missiley; i++)//十字になるように繰り返す
             {
                 /*
@@ -421,10 +597,29 @@ public class enemyattack : MonoBehaviour
                 Instantiate(missile, new Vector3(attackpointx3 - i * attackf, attackpointy, 0), Quaternion.identity);
                 //Instantiate(attackpoint, new Vector3(attackpointx3ty - i * attackf, 0, 0), Quaternion.identity);
                 */
-                Instantiate(missile, new Vector3(0 , attackpointy, -attackpointz * i), Quaternion.Euler(180, 0, 0));//南
-                Instantiate(missile, new Vector3(-attackpointx * i, attackpointy, 0), Quaternion.Euler(180, 0, 0));//西
-                Instantiate(missile, new Vector3(0, attackpointy, attackpointz * i), Quaternion.Euler(180, 0, 0));//北
-                Instantiate(missile, new Vector3(attackpointx * i, attackpointy, 0), Quaternion.Euler(180, 0, 0));//東
+                /*
+                Instantiate(missile, new Vector3(0 , attackpointy, -attackpointz * i), Quaternion.Euler(180, 0, 0));
+                Instantiate(missile, new Vector3(-attackpointx * i, attackpointy, 0), Quaternion.Euler(180, 0, 0));
+                Instantiate(missile, new Vector3(0, attackpointy, attackpointz * i), Quaternion.Euler(180, 0, 0));
+                Instantiate(missile, new Vector3(attackpointx * i, attackpointy, 0), Quaternion.Euler(180, 0, 0));
+                */
+                GameObject m3d = Get();
+                m3d.transform.position = new Vector3(0, attackpointy, -attackpointz * i);//南
+                m3d.transform.rotation = Quaternion.Euler(180, 0, 0);
+                m3d.SetActive(true);
+                GameObject m3l = Get();
+                m3l.transform.position = new Vector3(-attackpointx * i, attackpointy, 0);//西
+                m3l.transform.rotation = Quaternion.Euler(180, 0, 0);
+                m3l.SetActive(true);
+                GameObject m3u = Get();
+                m3u.transform.position = new Vector3(0, attackpointy, attackpointz * i);//北
+                m3u.transform.rotation = Quaternion.Euler(180, 0, 0);
+                m3u.SetActive(true); 
+                GameObject m3r = Get();
+                m3r.transform.position = new Vector3(attackpointx * i, attackpointy, 0);//東
+                m3r.transform.rotation = Quaternion.Euler(180, 0, 0);
+                m3r.SetActive(true);
+                
             }
             //Debug.Log("攻撃Ⅲ+");
         }
@@ -436,6 +631,12 @@ public class enemyattack : MonoBehaviour
     void Attack4()
     {
         ap = Random.Range(rndm, rndp);//地面の広さによって変更
+        /*
+        GameObject objm4 = Getm();
+        objm4.transform.position = new Vector3(ap, attackpointy, ap);
+        objm4.transform.rotation = Quaternion.Euler(180, 0, 0);
+        objm4.SetActive(true);*/
+
         Instantiate(missile4, new Vector3(ap, attackpointy, ap), Quaternion.Euler(180, 0, 0));//初弾
         Invoke("Attack4b", 1f);
     }
@@ -446,7 +647,25 @@ public class enemyattack : MonoBehaviour
     {
         for (int i = 1; i < attack4missile; i++)
         {
-            GameObject Attack4bpoint1 = Instantiate(bpoint, new Vector3(ap, 0, ap + 10 * i), Quaternion.Euler(180, 0, 0));//北
+            /*
+            GameObject objm4bu = Getb();
+            objm4bu.transform.position = new Vector3(ap, 0, ap + 10 * i);//北
+            objm4bu.transform.rotation = Quaternion.Euler(180, 0, 0);
+            objm4bu.SetActive(true);
+            GameObject objm4br = Getb();
+            objm4br.transform.position = new Vector3(ap + 10 * i, 0, ap);//東
+            objm4br.transform.rotation = Quaternion.Euler(180, 0, 0);
+            objm4br.SetActive(true);
+            GameObject objm4bd = Getb();
+            objm4bd.transform.position = new Vector3(ap, 0, ap - 10 * i);//南
+            objm4bd.transform.rotation = Quaternion.Euler(180, 0, 0);
+            objm4bd.SetActive(true);
+            GameObject objm4bl = Getb();
+            objm4bl.transform.position = new Vector3(ap - 10 * i, 0, ap);//西
+            objm4bl.transform.rotation = Quaternion.Euler(180, 0, 0);
+            objm4bl.SetActive(true);*/
+            
+            GameObject Attack4bpoint1 = Instantiate(bpoint, new Vector3(ap, 0, ap + 10 * i), Quaternion.Euler(180, 0, 0));
             GameObject Attack4bpoint2 = Instantiate(bpoint, new Vector3(ap + 10 * i, 0, ap), Quaternion.Euler(180, 0, 0));//東
             GameObject Attack4bpoint3 = Instantiate(bpoint, new Vector3(ap, 0, ap - 10 * i), Quaternion.Euler(180, 0, 0));//南
             GameObject Attack4bpoint4 = Instantiate(bpoint, new Vector3(ap - 10 * i, 0, ap), Quaternion.Euler(180, 0, 0));//西
@@ -454,14 +673,32 @@ public class enemyattack : MonoBehaviour
             Destroy(Attack4bpoint2, 1f);
             Destroy(Attack4bpoint3, 1f);
             Destroy(Attack4bpoint4, 1f);
-            Invoke("Attack4Cluster", 1f);
         }
-        
+        Invoke("Attack4Cluster", 1f);
     }
     void Attack4Cluster()
     {
         for (int i = 1; i < attack4missile; i++)
         {
+            /*
+            GameObject objm4beu = Getbe();
+            objm4beu.transform.position = new Vector3(ap, 0, ap + 10 * i);//北
+            objm4beu.transform.rotation = Quaternion.Euler(180, 0, 0);
+            objm4beu.SetActive(true);
+            GameObject objm4ber = Getbe();
+            objm4ber.transform.position = new Vector3(ap + 10 * i, 0, ap);//東
+            objm4ber.transform.rotation = Quaternion.Euler(180, 0, 0);
+            objm4ber.SetActive(true);
+            GameObject objm4bed = Getbe();
+            objm4bed.transform.position = new Vector3(ap, 0, ap - 10 * i);//南
+            objm4bed.transform.rotation = Quaternion.Euler(180, 0, 0);
+            objm4bed.SetActive(true);
+            GameObject objm4bel = Getbe();
+            objm4bel.transform.position = new Vector3(ap - 10 * i, 0, ap);//西
+            objm4bel.transform.rotation = Quaternion.Euler(180, 0, 0);
+            objm4bel.SetActive(true);
+            */
+            
             GameObject Attack4effectbpoint1 = Instantiate(ClustereffectPrefab, new Vector3(ap, 0, ap + 10 * i), Quaternion.identity);//北
             GameObject Attack4effectbpoint2 = Instantiate(ClustereffectPrefab, new Vector3(ap + 10 * i, 0, ap), Quaternion.identity);//東
             GameObject Attack4effectbpoint3 = Instantiate(ClustereffectPrefab, new Vector3(ap, 0, ap - 10 * i), Quaternion.identity);//南
@@ -470,6 +707,7 @@ public class enemyattack : MonoBehaviour
             Destroy(Attack4effectbpoint2, 2f);
             Destroy(Attack4effectbpoint3, 2f);
             Destroy(Attack4effectbpoint4, 2f);
+            
         }
         //Debug.Log("攻撃Ⅳ");
     }
@@ -479,20 +717,21 @@ public class enemyattack : MonoBehaviour
     {
         
         attackbunki = Random.Range(0f, 1f);//攻撃分岐
-        if (attackbunki < 0.5f)
+        /*if (attackbunki < 0.5f)
         {
             StartCoroutine(Attack5lxCoroutine());//奥から攻撃
         }
         else
         {
             StartCoroutine(Attack5lzCoroutine());//横から攻撃
-        }
-        
+        }*/
+        StartCoroutine(Attack5lxCoroutine());//奥から攻撃
     }
 
     //攻撃Ⅴ縦レーザー
     IEnumerator Attack5lxCoroutine()
     {
+        
         int i = 0;
         while (i < Attack5ls)//連続縦レーザー攻撃
         {
@@ -501,6 +740,17 @@ public class enemyattack : MonoBehaviour
             yield return new WaitForSeconds(2f);//2秒ごとにループする
         }
         l5x = 60;
+        /*
+        l5x = 60f;
+
+        for (int i = 0; i < Attack5ls; i++)
+        {
+            Attack5lpx(new Vector3(l5x, lazerpointy, attack2lazerz));
+
+            l5x -= k;
+
+            yield return new WaitForSeconds(2f);
+        }*/
     }
 
     //攻撃Ⅴ横レーザー
@@ -532,28 +782,47 @@ public class enemyattack : MonoBehaviour
     void Attack5lx()
     {
         audioSource.PlayOneShot(lazerclip);
-        GameObject Attack5lazer = Instantiate(lazer, new Vector3(l5x, lazerpointy, attack2lazerz), Quaternion.identity);//発射
-      
-        StartCoroutine(ExtendLazer5x(Attack5lazer));
+        GameObject lazerObj = Getl();
+        lazerObj.transform.position = new Vector3(l5x, lazerpointy, attack2lazerz);
+        lazerObj.SetActive(true);
+        StartCoroutine(ExtendLazer5x(lazerObj));
     }
-    IEnumerator ExtendLazer5x(GameObject Attack5lazer)
+    IEnumerator ExtendLazer5x(GameObject lazerObj)
     {
-        Vector3 scale = Attack5lazer.transform.localScale;
-        scale.z = 0f; // 最初は長さ0
+        Vector3 scale = lazerObj.transform.localScale;
+        scale.z = 0;
         l5x = l5x - k;//発射地点を横にずらす
-        Attack5lazer.transform.localScale = scale;
+        lazer.transform.localScale = scale;
+
         while (scale.z > maxLength)
         {
             scale.z -= extendSpeed * Time.deltaTime;
-            Attack5lazer.transform.localScale = scale;
-            Destroy(Attack5lazer, 1f);
+            lazerObj.transform.localScale = scale;
+
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
+
+        Returnl(lazerObj);
+        /*
+        Vector3 scale = lazerObj.transform.localScale;
+        scale.z = 0f; // 最初は長さ0
+        l5x = l5x - k;//発射地点を横にずらす
+        lazerObj.transform.localScale = scale;
+        while (scale.z > maxLength)
+        {
+            scale.z -= extendSpeed * Time.deltaTime;
+            lazerObj.transform.localScale = scale;
+            Destroy(lazerObj, 1f);
             //Debug.Log("攻撃Ⅴx");
             yield return null; // 次のフレームへ
         }
-        
+
         // 最終値を保証
         //scale.z = maxLength;
-        Attack5lazer.transform.localScale = scale;
+        lazerObj.transform.localScale = scale;
+
+        Returnl(lazerObj);*/
     }
 
     //攻撃Ⅴ横レーザーポイント
