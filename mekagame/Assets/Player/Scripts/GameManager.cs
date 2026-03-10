@@ -38,6 +38,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
     private void Start()
     {
         ResetGage();
@@ -46,6 +55,18 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         CheckCombo();
+    }
+   
+    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    {
+        FindUIElements();
+    }
+
+    private void FindUIElements()
+    {
+        lifeGage = GameObject.Find("HP")?.GetComponent<LifeGage>();
+        grazeGage = GameObject.Find("GrazeGage")?.GetComponent<GrazeGage>();
+        comboText = GameObject.Find("Combo")?.GetComponent<TextMeshProUGUI>();
     }
 
     // --- コンボ・ゲージ関連 ---
