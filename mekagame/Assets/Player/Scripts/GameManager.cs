@@ -80,18 +80,6 @@ public class GameManager : MonoBehaviour
         comboText = GameObject.Find("Combo")?.GetComponent<TextMeshProUGUI>();
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        FindUIElements();
-
-    }
-
-    private void FindUIElements()
-    {
-        lifeGage = GameObject.Find("HP")?.GetComponent<LifeGage>();
-        grazeGage = GameObject.Find("GrazeGage")?.GetComponent<GrazeGage>();
-        comboText = GameObject.Find("Combo")?.GetComponent<TextMeshProUGUI>();
-    }
 
     public void AddGage(float amount)
     {
