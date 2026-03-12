@@ -69,6 +69,7 @@ public class enemyattack : MonoBehaviour
     [Header("ƒŒ[ƒU[À•Ww’èEƒŒ[ƒU[’·w’è")]
     [SerializeField] int lazerpointy = 7; // 7
     [SerializeField] float maxLength = -50f;   // ÅI“I‚È’·‚³
+    [SerializeField] float maxLengthx = 50f;   // ÅI“I‚È’·‚³
     [SerializeField] float extendSpeed = 100;  // L‚Ñ‚éƒXƒs[ƒh
     //UŒ‚‚P
     [Header("UŒ‚‡T")]
@@ -244,7 +245,7 @@ public class enemyattack : MonoBehaviour
     public void Returnlx(GameObject objlx)
     {
         objlx.SetActive(false);
-        lazerpool.Enqueue(objlx);
+        lazerxpool.Enqueue(objlx);
     }
     /*
     public void Returnm(GameObject objm2)
@@ -372,7 +373,7 @@ public class enemyattack : MonoBehaviour
     {
         while (enemyhpscripts.maxHP > 500)//“G‚ÌHPğŒ
         {
-            attack12345 = Random.Range(0, 99);//ƒ‰ƒ“ƒ_ƒ€‚ÅUŒ‚•ªŠò
+            attack123456 = Random.Range(0, 99);//ƒ‰ƒ“ƒ_ƒ€‚ÅUŒ‚•ªŠò
             Attackrndv2();//UŒ‚ƒpƒ^[ƒ“‡U
 
             yield return new WaitForSeconds(1.5f);//2•b‚²‚Æ‚Éƒ‹[ƒv‚·‚é
@@ -740,6 +741,7 @@ public class enemyattack : MonoBehaviour
     void Attack5()
     {
         attackbunki = Random.Range(0f, 1f);//UŒ‚•ªŠò
+        
         if (attackbunki < 0.5f)
         {
             StartCoroutine(Attack5lxCoroutine());//‰œ‚©‚çUŒ‚
@@ -748,6 +750,7 @@ public class enemyattack : MonoBehaviour
         {
             StartCoroutine(Attack5lzCoroutine());//‰¡‚©‚çUŒ‚
         }
+       
 
     }
 
@@ -876,22 +879,21 @@ public class enemyattack : MonoBehaviour
     IEnumerator ExtendLazer5z(GameObject lazerObjx)
     {
         Vector3 scale = lazerObjx.transform.localScale;
-        scale.x = 0f; // Å‰‚Í’·‚³0
+        scale.x = 0; // Å‰‚Í’·‚³0
         l5z = l5z - k;//”­Ë’n“_‚ğc‚É‚¸‚ç‚·
         lazerObjx.transform.localScale = scale;
-        while (scale.x > maxLength)
+        while (scale.x < maxLengthx)
         {
             scale.x += extendSpeed * Time.deltaTime;
             lazerObjx.transform.localScale = scale;
-
-            //Debug.Log("UŒ‚‡Xx");
+            Debug.Log("UŒ‚‡Xx");
             yield return null; // Ÿ‚ÌƒtƒŒ[ƒ€‚Ö
         }
+        yield return new WaitForSeconds(1f);
         // ÅI’l‚ğ•ÛØ
         //scale.x = maxLength;
-        yield return new WaitForSeconds(1f);
-
-        Returnl(lazerObjx);
+        Debug.Log("UŒ‚‡Xx2");
+        Returnlx(lazerObjx);
     }
 
     //-----UŒ‚‡Y-----
