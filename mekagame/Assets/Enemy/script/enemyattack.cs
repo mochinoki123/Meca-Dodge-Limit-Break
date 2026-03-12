@@ -13,6 +13,7 @@ public class enemyattack : MonoBehaviour
 {
     //Enemyスクリプト
     private Enemy enemyhpscripts;
+<<<<<<< HEAD
     [Header("プール数")]
     //ミサイル
     public int sizem = 50;
@@ -36,39 +37,60 @@ public class enemyattack : MonoBehaviour
     public int sizebe = 50;
     private Queue<GameObject> beffectpool = new Queue<GameObject>();
     */
+=======
+    //private Vector3 startPosition; 最初の座標・ポジション取得
+>>>>>>> main
     [Header("レーザー効果音")]
     [SerializeField] private AudioClip lazerclip;
     [SerializeField] private AudioClip lazercharge;
     private AudioSource audioSource;
+
     //プレハブ
     [Header("爆発ポイントプレハブ")]
     [SerializeField] GameObject bpoint;//爆発ポイント
+
     [Header("ミサイルプレハブ")]
     [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
     [SerializeField] GameObject missile4;//ミサイル攻撃のオブジェクト
+
     [Header("レーザープレハブ")]
     [SerializeField] GameObject lazer;//レーザーオブジェクト
     [SerializeField] GameObject lazerattackpoint;//レーザー発生ポイントオブジェクト
     //攻撃Ⅴ
+<<<<<<< HEAD
     [SerializeField] GameObject lazerz;//レーザーオブジェクト
     [SerializeField] GameObject lazerattackpointz;//レーザー発生ポイントオブジェクト
     //フィールド範囲
+=======
+    [SerializeField] GameObject lazerx;//レーザーオブジェクト
+    [SerializeField] GameObject lazerattackpointx;//レーザー発生ポイントオブジェクト
+>>>>>>> main
     [Header("エフェクト")]
     [SerializeField] GameObject lazerchargeeffect;//レーザーチャージエフェクト
     [SerializeField] GameObject ClustereffectPrefab;//爆発のエフェクト
+
+    //フィールド範囲
     [Header("攻撃範囲指定")]
     [SerializeField] float rndm = -9;//フィールドごとの範囲指定マイナス
     [SerializeField] float rndp =  9;//フィールドごとの範囲指定プラス
+
     //攻撃座標関係
     [Header("攻撃座標指定")]
     [SerializeField] int attackf;//攻撃の間隔 5
     [SerializeField] int attackpointx;//攻撃発生の横 10
     [SerializeField] int attackpointy;//攻撃発生の高さ 25
     [SerializeField] int attackpointz;//攻撃発生の奥行 10
+
     //レーザーy座標関係
-    [Header("レーザー座標指定・レーザー長指定")]
+    [Header("レーザー座標指定")]
     [SerializeField] int lazerpointy = 7; // 7
+<<<<<<< HEAD
     [SerializeField] float maxLength = -50f;   // 最終的な長さ
+=======
+
+    [Header("レーザー長指定")]
+    [SerializeField] float maxLength = -70f;   // 最終的な長さ
+>>>>>>> main
     [SerializeField] float extendSpeed = 100;  // 伸びるスピード
     //攻撃１
     [Header("攻撃Ⅰ")]
@@ -115,11 +137,21 @@ public class enemyattack : MonoBehaviour
     {
         enemyhpscripts = GetComponent<Enemy>();//敵データ呼び出し
         audioSource = GetComponent<AudioSource>();
+<<<<<<< HEAD
         CreatePool();
+=======
+        //startPosition = transform.position;
+        //Object名.SetActive (false); オブジェクトを非表示する　表示の場合true
+        EnemyAttackController1();//攻撃パターンⅠ
+>>>>>>> main
     }
     // Update is called once per frame
     void Update()
+    {}
+    /*メモ
+    void OnCollisionEnter(Collision collision)
     {
+<<<<<<< HEAD
         
     }
 
@@ -266,6 +298,23 @@ public class enemyattack : MonoBehaviour
         beffectpool.Enqueue(objbe);
     }
     */
+=======
+        if (a.activeSelf)
+        {
+    
+        }
+        if (collision.gameObject.CompareTag("Ground"))
+            {
+                transform.position = startPosition;
+                // 速度もリセットしたい場合はRigidbodyが必要
+                if (GetComponent<Rigidbody>())
+                {
+                    GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+                    GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                }
+            }    
+    }*/
+>>>>>>> main
     //-----攻撃パターンⅠ-----
     void EnemyAttackController1()
     {
@@ -309,7 +358,7 @@ public class enemyattack : MonoBehaviour
     IEnumerator AttackLoopCoroutine()
     {
         //ループ脱出条件
-        while (enemyhpscripts.EnemyHP > 750)//敵のHP条件
+        while (enemyhpscripts.CurrentHP > 750)//敵のHP条件
         {
             //attack123 = Random.Range(0, 99);//ランダムで攻撃分岐
             attack12345 = Random.Range(0, 99);//ランダムで攻撃分岐
@@ -370,9 +419,9 @@ public class enemyattack : MonoBehaviour
     //-----攻撃パターンⅡループ脱出条件-----
     IEnumerator AttackLoop2Coroutine()
     {
-        while (enemyhpscripts.EnemyHP > 500)//敵のHP条件
+        while (enemyhpscripts.CurrentHP > 500)//敵のHP条件
         {
-            attack12345 = Random.Range(0, 99);//ランダムで攻撃分岐
+            attack123456 = Random.Range(0, 99);//ランダムで攻撃分岐
             Attackrndv2();//攻撃パターンⅡ
 
             yield return new WaitForSeconds(1.5f);//2秒ごとにループする
@@ -442,7 +491,7 @@ public class enemyattack : MonoBehaviour
     //-----攻撃パターンⅢループ脱出条件-----
     IEnumerator AttackLoop3Coroutine()
     {
-        while (enemyhpscripts.EnemyHP > 250)//敵のHP条件
+        while (enemyhpscripts.CurrentHP > 250)//敵のHP条件
         {
             attack123456 = Random.Range(0, 99);//ランダムで攻撃分岐
             Attackrndv3();//攻撃パターンⅢ

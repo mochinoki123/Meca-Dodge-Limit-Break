@@ -1,9 +1,18 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Scene : MonoBehaviour
 {
+    [SerializeField] private GameObject complete;
+    [SerializeField] private GameObject miss;
+
+    private void Start()
+    {
+        miss.SetActive(GameManager.Instance.IsPlayerDead);
+        complete.SetActive(!GameManager.Instance.IsPlayerDead);
+    }
     public void OnStartButton()
     {
         SceneManager.LoadScene("Player");

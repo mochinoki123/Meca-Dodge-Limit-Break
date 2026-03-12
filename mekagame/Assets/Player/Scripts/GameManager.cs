@@ -1,19 +1,24 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    [SerializeField] private int maxGage;
-    [SerializeField] private TextMeshProUGUI comboText;
+
+    [Header("Gage Settings")]
+    [SerializeField] private int maxGage = 100;
     [SerializeField] private float nowGage;
-    [SerializeField] private GameObject player;
-    [SerializeField] private float comboTime;
-    [SerializeField] private float[] comboMultiple;
     [SerializeField] private LifeGage lifeGage;
     [SerializeField] private GrazeGage grazeGage;
+
+    [Header("Combo Settings")]
+    [SerializeField] private TextMeshProUGUI comboText;
+    [SerializeField] private float comboTime = 2.0f;
+    [SerializeField] private float[] comboMultiple = { 1.0f, 1.2f, 1.5f, 2.0f };
+
+    public bool IsPlayerDead { get; private set; } = false;
+    public float NowGage => nowGage;
 
     private int combo;
     private int maxCombo;
@@ -21,105 +26,139 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        // シングルトン設定
-        DontDestroyOnLoad(gameObject);
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        FindUIElements();
     }
 
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
     private void Start()
     {
-        // 初期化
         ResetGage();
-        UpdateText();
     }
 
     private void Update()
     {
-        // コンボ継続判定
         CheckCombo();
     }
-
-    public void UpdateText()
+   
+    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
-        // UI表示更新
-        comboText.text = "Combo : " + combo;
+        FindUIElements();
     }
 
-    public void Damage()
+    private void FindUIElements()
     {
-        // ダメージ処理
-        lifeGage.Damage();
+        lifeGage = GameObject.Find("HP")?.GetComponent<LifeGage>();
+        grazeGage = GameObject.Find("GrazeGage")?.GetComponent<GrazeGage>();
+        comboText = GameObject.Find("Combo")?.GetComponent<TextMeshProUGUI>();
     }
 
-    public void AddGage(int n)
+
+    public void AddGage(float amount)
     {
-        // コンボ更新とゲージ加算（倍率適用）
         UpdateCombo();
-        float multiple = GetComboMultiple();
-        nowGage += n * multiple;
-        grazeGage.SetValue(nowGage);
 
+        nowGage += amount * GetComboMultiple();
+        nowGage = Mathf.Clamp(nowGage, 0, maxGage);
+
+        grazeGage?.SetValue(nowGage);
         UpdateText();
     }
 
-    public void ResetGage()
+    public void UseGage(float amount)
     {
-        // ゲージリセット
-        nowGage = 0;
-        UpdateText();
+        nowGage = Mathf.Max(nowGage - amount, 0f);
+        grazeGage?.SetValue(nowGage);
     }
 
-    public void UseGage(int n)
+    private void UpdateCombo()
     {
-        // ゲージ消費
-        nowGage -= n;
-        grazeGage.SetValue(nowGage);
-    }
-
-    public float GetterGage()
-    {
-        // 現在値の取得
-        return nowGage;
-    }
-
-    public void Die()
-    {
-        // プレイヤー破壊とシーン遷移
-        Destroy(player);
-        SceneManager.LoadScene("Result");
+        combo++;
+        lastComboTime = Time.time;
+        if (combo > maxCombo) maxCombo = combo;
     }
 
     private void CheckCombo()
     {
-        if (combo == 0) return;
-
-        // 時間経過でコンボリセット
-        if (Time.time - lastComboTime > comboTime)
+        if (combo > 0 && Time.time - lastComboTime > comboTime)
         {
             combo = 0;
             UpdateText();
         }
     }
 
-    private void UpdateCombo()
+    private float GetComboMultiple()
     {
-        // コンボ加算と時間記録
-        combo++;
-        lastComboTime = Time.time;
+        if (comboMultiple == null || comboMultiple.Length == 0) return 1f;
 
-        if (combo > maxCombo)
+        if (combo >= 40) return GetSafeMultiple(3);
+        if (combo >= 30) return GetSafeMultiple(2);
+        if (combo >= 10) return GetSafeMultiple(1);
+
+        return GetSafeMultiple(0);
+    }
+
+    private float GetSafeMultiple(int index)
+    {
+        if (index >= comboMultiple.Length) return comboMultiple[comboMultiple.Length - 1];
+        return comboMultiple[index];
+    }
+
+    public void UpdateText()
+    {
+        if (comboText != null)
         {
-            maxCombo = combo;
+            comboText.text = combo > 0 ? $"Combo : {combo}" : "";
         }
     }
 
-    private float GetComboMultiple()
+    public void ResetGage()
     {
-        // コンボ数に応じた倍率を返す
-        if (combo >= 40) return comboMultiple[3];
-        if (combo >= 30) return comboMultiple[2];
-        if (combo >= 10) return comboMultiple[1];
+        nowGage = 0;
+        combo = 0; 
+        UpdateText();
+    }
 
-        return comboMultiple[0];
+    public void Die()
+    {
+        if (IsPlayerDead) return;
+        IsPlayerDead = true;
+
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+        if (p != null) Destroy(p);
+
+        SceneManager.LoadScene("Result");
+    }
+
+    public void Damage()
+    {
+        lifeGage?.Damage();
     }
 }

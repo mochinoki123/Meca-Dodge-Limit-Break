@@ -1,52 +1,32 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     [Header("敵ステータス")]
-    [SerializeField] TextMeshProUGUI EnemyHp;
-  //[SerializeField] public int EnemyMAXHP = 1000;
-    [SerializeField] public int EnemyHP = 1000;
+    [SerializeField] public int maxHP = 1000;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        EnemyHp.text = "HP: " + EnemyHP.ToString();
-        //Invoke("EnemyHPtime",30f);
-        //Invoke("EnemyHPtime",60f);
-        //Invoke("EnemyHPtime",90f);
-        
-    }
+    public int CurrentHP { get; private set; }
 
-    void EnemyHPtime()
+    void Awake()
     {
-        EnemyHP = EnemyHP - 250;
-        EnemyHp.text = "HP: " + EnemyHP.ToString();
+        CurrentHP = maxHP;
     }
 
     public void Damage(int damage)
     {
-        EnemyHP -= damage;
-        EnemyHp.text = "HP: " + EnemyHP.ToString();
-        Enemydown();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        CurrentHP -= damage;
+        CurrentHP = Mathf.Max(CurrentHP, 0);
+
+        CheckIfDead();
     }
 
-    public void Enemydown()
+    private void CheckIfDead()
     {
-        if (EnemyHP<=0)
+        if (CurrentHP <= 0)
         {
-            SceneManager.LoadScene("Result");//シーン名を入れる
+            SceneManager.LoadScene("Result");
         }
     }
-    //シーン移動使う場合
-    /*
-    SceneManager.LoadScene("Scene");//シーン名を入れる
-    */
 }
