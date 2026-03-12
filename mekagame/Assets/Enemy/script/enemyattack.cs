@@ -13,7 +13,6 @@ public class enemyattack : MonoBehaviour
 {
     //Enemyスクリプト
     private Enemy enemyhpscripts;
-<<<<<<< HEAD
     [Header("プール数")]
     //ミサイル
     public int sizem = 50;
@@ -37,60 +36,39 @@ public class enemyattack : MonoBehaviour
     public int sizebe = 50;
     private Queue<GameObject> beffectpool = new Queue<GameObject>();
     */
-=======
-    //private Vector3 startPosition; 最初の座標・ポジション取得
->>>>>>> main
     [Header("レーザー効果音")]
     [SerializeField] private AudioClip lazerclip;
     [SerializeField] private AudioClip lazercharge;
     private AudioSource audioSource;
-
     //プレハブ
     [Header("爆発ポイントプレハブ")]
     [SerializeField] GameObject bpoint;//爆発ポイント
-
     [Header("ミサイルプレハブ")]
     [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
     [SerializeField] GameObject missile4;//ミサイル攻撃のオブジェクト
-
     [Header("レーザープレハブ")]
     [SerializeField] GameObject lazer;//レーザーオブジェクト
     [SerializeField] GameObject lazerattackpoint;//レーザー発生ポイントオブジェクト
     //攻撃Ⅴ
-<<<<<<< HEAD
     [SerializeField] GameObject lazerz;//レーザーオブジェクト
     [SerializeField] GameObject lazerattackpointz;//レーザー発生ポイントオブジェクト
     //フィールド範囲
-=======
-    [SerializeField] GameObject lazerx;//レーザーオブジェクト
-    [SerializeField] GameObject lazerattackpointx;//レーザー発生ポイントオブジェクト
->>>>>>> main
     [Header("エフェクト")]
     [SerializeField] GameObject lazerchargeeffect;//レーザーチャージエフェクト
     [SerializeField] GameObject ClustereffectPrefab;//爆発のエフェクト
-
-    //フィールド範囲
     [Header("攻撃範囲指定")]
     [SerializeField] float rndm = -9;//フィールドごとの範囲指定マイナス
-    [SerializeField] float rndp =  9;//フィールドごとの範囲指定プラス
-
+    [SerializeField] float rndp = 9;//フィールドごとの範囲指定プラス
     //攻撃座標関係
     [Header("攻撃座標指定")]
     [SerializeField] int attackf;//攻撃の間隔 5
     [SerializeField] int attackpointx;//攻撃発生の横 10
     [SerializeField] int attackpointy;//攻撃発生の高さ 25
     [SerializeField] int attackpointz;//攻撃発生の奥行 10
-
     //レーザーy座標関係
-    [Header("レーザー座標指定")]
+    [Header("レーザー座標指定・レーザー長指定")]
     [SerializeField] int lazerpointy = 7; // 7
-<<<<<<< HEAD
     [SerializeField] float maxLength = -50f;   // 最終的な長さ
-=======
-
-    [Header("レーザー長指定")]
-    [SerializeField] float maxLength = -70f;   // 最終的な長さ
->>>>>>> main
     [SerializeField] float extendSpeed = 100;  // 伸びるスピード
     //攻撃１
     [Header("攻撃Ⅰ")]
@@ -102,9 +80,9 @@ public class enemyattack : MonoBehaviour
     [Header("攻撃Ⅲ")]
     [SerializeField] int attack3missilex;//攻撃Ⅲxの範囲設定　10
     [SerializeField] int attack3missiley;//攻撃Ⅲ+の範囲設定　10
-  //[SerializeField] int attackpointx3;//もしも用　使ってない
-  //[SerializeField] int attackpointz3;//もしも用　使ってない
-    //攻撃４
+                                         //[SerializeField] int attackpointx3;//もしも用　使ってない
+                                         //[SerializeField] int attackpointz3;//もしも用　使ってない
+                                         //攻撃４
     [Header("攻撃Ⅳ")]
     [SerializeField] int attack4missile;//攻撃４のミサイル範囲指定　10
     //攻撃５
@@ -137,22 +115,12 @@ public class enemyattack : MonoBehaviour
     {
         enemyhpscripts = GetComponent<Enemy>();//敵データ呼び出し
         audioSource = GetComponent<AudioSource>();
-<<<<<<< HEAD
         CreatePool();
-=======
-        //startPosition = transform.position;
-        //Object名.SetActive (false); オブジェクトを非表示する　表示の場合true
-        EnemyAttackController1();//攻撃パターンⅠ
->>>>>>> main
     }
     // Update is called once per frame
     void Update()
-    {}
-    /*メモ
-    void OnCollisionEnter(Collision collision)
     {
-<<<<<<< HEAD
-        
+
     }
 
     void CreatePool()
@@ -212,7 +180,7 @@ public class enemyattack : MonoBehaviour
     public GameObject Getl()
     {
         if (lazerpool.Count > 0)
-        { 
+        {
             GameObject objl = lazerpool.Dequeue();
             objl.SetActive(true);
             return objl;
@@ -298,23 +266,6 @@ public class enemyattack : MonoBehaviour
         beffectpool.Enqueue(objbe);
     }
     */
-=======
-        if (a.activeSelf)
-        {
-    
-        }
-        if (collision.gameObject.CompareTag("Ground"))
-            {
-                transform.position = startPosition;
-                // 速度もリセットしたい場合はRigidbodyが必要
-                if (GetComponent<Rigidbody>())
-                {
-                    GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-                    GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-                }
-            }    
-    }*/
->>>>>>> main
     //-----攻撃パターンⅠ-----
     void EnemyAttackController1()
     {
@@ -358,7 +309,7 @@ public class enemyattack : MonoBehaviour
     IEnumerator AttackLoopCoroutine()
     {
         //ループ脱出条件
-        while (enemyhpscripts.CurrentHP > 750)//敵のHP条件
+        while (enemyhpscripts.maxHP > 750)//敵のHP条件
         {
             //attack123 = Random.Range(0, 99);//ランダムで攻撃分岐
             attack12345 = Random.Range(0, 99);//ランダムで攻撃分岐
@@ -419,9 +370,9 @@ public class enemyattack : MonoBehaviour
     //-----攻撃パターンⅡループ脱出条件-----
     IEnumerator AttackLoop2Coroutine()
     {
-        while (enemyhpscripts.CurrentHP > 500)//敵のHP条件
+        while (enemyhpscripts.maxHP > 500)//敵のHP条件
         {
-            attack123456 = Random.Range(0, 99);//ランダムで攻撃分岐
+            attack12345 = Random.Range(0, 99);//ランダムで攻撃分岐
             Attackrndv2();//攻撃パターンⅡ
 
             yield return new WaitForSeconds(1.5f);//2秒ごとにループする
@@ -491,7 +442,7 @@ public class enemyattack : MonoBehaviour
     //-----攻撃パターンⅢループ脱出条件-----
     IEnumerator AttackLoop3Coroutine()
     {
-        while (enemyhpscripts.CurrentHP > 250)//敵のHP条件
+        while (enemyhpscripts.maxHP > 250)//敵のHP条件
         {
             attack123456 = Random.Range(0, 99);//ランダムで攻撃分岐
             Attackrndv3();//攻撃パターンⅢ
@@ -687,12 +638,12 @@ public class enemyattack : MonoBehaviour
                 GameObject m3u = Get();
                 m3u.transform.position = new Vector3(0, attackpointy, attackpointz * i);//北
                 m3u.transform.rotation = Quaternion.Euler(180, 0, 0);
-                m3u.SetActive(true); 
+                m3u.SetActive(true);
                 GameObject m3r = Get();
                 m3r.transform.position = new Vector3(attackpointx * i, attackpointy, 0);//東
                 m3r.transform.rotation = Quaternion.Euler(180, 0, 0);
                 m3r.SetActive(true);
-                
+
             }
             //Debug.Log("攻撃Ⅲ+");
         }
@@ -737,7 +688,7 @@ public class enemyattack : MonoBehaviour
             objm4bl.transform.position = new Vector3(ap - 10 * i, 0, ap);//西
             objm4bl.transform.rotation = Quaternion.Euler(180, 0, 0);
             objm4bl.SetActive(true);*/
-            
+
             GameObject Attack4bpoint1 = Instantiate(bpoint, new Vector3(ap, 0, ap + 10 * i), Quaternion.Euler(180, 0, 0));
             GameObject Attack4bpoint2 = Instantiate(bpoint, new Vector3(ap + 10 * i, 0, ap), Quaternion.Euler(180, 0, 0));//東
             GameObject Attack4bpoint3 = Instantiate(bpoint, new Vector3(ap, 0, ap - 10 * i), Quaternion.Euler(180, 0, 0));//南
@@ -771,7 +722,7 @@ public class enemyattack : MonoBehaviour
             objm4bel.transform.rotation = Quaternion.Euler(180, 0, 0);
             objm4bel.SetActive(true);
             */
-            
+
             GameObject Attack4effectbpoint1 = Instantiate(ClustereffectPrefab, new Vector3(ap, 0, ap + 10 * i), Quaternion.identity);//北
             GameObject Attack4effectbpoint2 = Instantiate(ClustereffectPrefab, new Vector3(ap + 10 * i, 0, ap), Quaternion.identity);//東
             GameObject Attack4effectbpoint3 = Instantiate(ClustereffectPrefab, new Vector3(ap, 0, ap - 10 * i), Quaternion.identity);//南
@@ -780,13 +731,13 @@ public class enemyattack : MonoBehaviour
             Destroy(Attack4effectbpoint2, 2f);
             Destroy(Attack4effectbpoint3, 2f);
             Destroy(Attack4effectbpoint4, 2f);
-            
+
         }
         //Debug.Log("攻撃Ⅳ");
     }
 
     //-----攻撃Ⅴ-----
-    void Attack5() 
+    void Attack5()
     {
         attackbunki = Random.Range(0f, 1f);//攻撃分岐
         if (attackbunki < 0.5f)
@@ -797,13 +748,13 @@ public class enemyattack : MonoBehaviour
         {
             StartCoroutine(Attack5lzCoroutine());//横から攻撃
         }
-        
+
     }
 
     //攻撃Ⅴ縦レーザー
     IEnumerator Attack5lxCoroutine()
     {
-        
+
         int i = 0;
         while (i < Attack5ls)//連続縦レーザー攻撃
         {
@@ -847,7 +798,7 @@ public class enemyattack : MonoBehaviour
         GameObject Attacklazerchargeeffect = Instantiate(lazerchargeeffect, new Vector3(l5x, lazerpointy, attack2lazerz), Quaternion.identity);
         Destroy(Attack5lazerattackpoint, 2f);
         Destroy(Attacklazerchargeeffect, 2f);
-        Invoke("Attack5lx",2f);
+        Invoke("Attack5lx", 2f);
     }
 
     //攻撃Ⅴ縦レーザー
@@ -918,7 +869,7 @@ public class enemyattack : MonoBehaviour
         //Rigidbody cubeRigidbody = Attack5lazerx.GetComponent<Rigidbody>();
         //cubeRigidbody.AddForce(new Vector3(1, 0, 0) * 10, ForceMode.Impulse);
         StartCoroutine(ExtendLazer5z(lazerObjx));
-        
+
         //Debug.Log("攻撃Ⅴz");
     }
 
@@ -1013,7 +964,7 @@ public class enemyattack : MonoBehaviour
 
         Vector3 play = GameObject.Find("Player").transform.position;//プレイヤーの座標取得
         Instantiate(missile, new Vector3(play.x, y, play.z), Quaternion.Euler(180, 0, 0));//プレイヤーのいる座標に向かって発射
-        
+
         //Instantiate(missile, new Vector3(x,y,z), Quaternion.identity);
     }
 
@@ -1088,7 +1039,7 @@ public class enemyattack : MonoBehaviour
             Attack6lazerm2.transform.localScale = scale;
 
             Destroy(Attack6lazerm2, 1f);
-            
+
             yield return null; // 次のフレームへ
         }
         // 最終値を保証
@@ -1121,7 +1072,7 @@ public class enemyattack : MonoBehaviour
         Vector3 scale = Attack6lazerm.transform.localScale;
         scale.z = 0f; // 最初は長さ0
         Attack6lazerm.transform.localScale = scale;
-       
+
         while (scale.z > maxLength)
         {
             scale.z -= extendSpeed * Time.deltaTime;
