@@ -757,7 +757,6 @@ public class enemyattack : MonoBehaviour
     //攻撃Ⅴ縦レーザー
     IEnumerator Attack5lxCoroutine()
     {
-
         int i = 0;
         while (i < Attack5ls)//連続縦レーザー攻撃
         {
@@ -952,9 +951,9 @@ public class enemyattack : MonoBehaviour
     }
 
     //攻撃Ⅵ追尾ミサイル
-
     void Attack6missile()
     {
+        GameObject objm6 = Get();
         // transform.position で現在のワールド座標を取得
         Vector3 currentPosition = transform.position;
         //Debug.Log("プレイヤーの座標: " + currentPosition);
@@ -965,7 +964,11 @@ public class enemyattack : MonoBehaviour
         //Debug.Log("X座標: " + x + ", Z座標: " + z);
 
         Vector3 play = GameObject.Find("Player").transform.position;//プレイヤーの座標取得
+        objm6.transform.position = new Vector3(play.x, y, play.z);
+        objm6.transform.rotation = Quaternion.Euler(180, 0, 0);
+        /*
         Instantiate(missile, new Vector3(play.x, y, play.z), Quaternion.Euler(180, 0, 0));//プレイヤーのいる座標に向かって発射
+        */
 
         //Instantiate(missile, new Vector3(x,y,z), Quaternion.identity);
     }
@@ -987,27 +990,35 @@ public class enemyattack : MonoBehaviour
     //攻撃ⅥレーザーパターンⅠ右
     void Attack6lazerp()
     {
+        /*
         audioSource.PlayOneShot(lazerclip);
         GameObject Attack6lazerp = Instantiate(lazer, new Vector3(30, lazerpointy, attack2lazerz), Quaternion.identity);//発射
         StartCoroutine(ExtendLazer6p1(Attack6lazerp));
+        yield return new WaitForSeconds(1.3f);
+        */
+        audioSource.PlayOneShot(lazerclip);
+
+        GameObject lazer6p1 = Getl();
+
+        lazer6p1.transform.position = new Vector3(30, lazerpointy, attack2lazerz);
+
+        StartCoroutine(ExtendLazer6p1(lazer6p1));
     }
-    IEnumerator ExtendLazer6p1(GameObject Attack6lazerp)
+    IEnumerator ExtendLazer6p1(GameObject lazer6p1)
     {
-        Vector3 scale = Attack6lazerp.transform.localScale;
+        Vector3 scale = lazer6p1.transform.localScale;
         scale.z = 0f; // 最初は長さ0
-        Attack6lazerp.transform.localScale = scale;
+        lazer6p1.transform.localScale = scale;
         while (scale.z > maxLength)
         {
             scale.z -= extendSpeed * Time.deltaTime;
-            Attack6lazerp.transform.localScale = scale;
-
-            Destroy(Attack6lazerp, 1f);
+            lazer6p1.transform.localScale = scale;
 
             yield return null; // 次のフレームへ
         }
-        // 最終値を保証
-        scale.z = maxLength;
-        Attack6lazerp.transform.localScale = scale;
+        yield return new WaitForSeconds(1f);
+
+        Returnl(lazer6p1);
         Invoke("Attack6lazerm2point", 2f);
     }
 
@@ -1025,32 +1036,37 @@ public class enemyattack : MonoBehaviour
     //攻撃ⅥレーザーパターンⅠ左
     void Attack6lazerm2()
     {
+        /*
         audioSource.PlayOneShot(lazerclip);
         GameObject Attack6lazerm2 = Instantiate(lazer, new Vector3(-30, lazerpointy, attack2lazerz), Quaternion.identity);//発射
         StartCoroutine(ExtendLazer6m2(Attack6lazerm2));
         Destroy(Attack6lazerm2, 1f);
+        */
+        audioSource.PlayOneShot(lazerclip);
+        GameObject lazer6m2 = Getl();
+
+        lazer6m2.transform.position = new Vector3(-30, lazerpointy, attack2lazerz);
+
+        StartCoroutine(ExtendLazer6m2(lazer6m2));
     }
-    IEnumerator ExtendLazer6m2(GameObject Attack6lazerm2)
+    IEnumerator ExtendLazer6m2(GameObject lazer6m2)
     {
-        Vector3 scale = Attack6lazerm2.transform.localScale;
+        Vector3 scale = lazer6m2.transform.localScale;
         scale.z = 0f; // 最初は長さ0
-        Attack6lazerm2.transform.localScale = scale;
+        lazer6m2.transform.localScale = scale;
         while (scale.z > maxLength)
         {
             scale.z -= extendSpeed * Time.deltaTime;
-            Attack6lazerm2.transform.localScale = scale;
-
-            Destroy(Attack6lazerm2, 1f);
+            lazer6m2.transform.localScale = scale;
 
             yield return null; // 次のフレームへ
         }
-        // 最終値を保証
-        scale.z = maxLength;
-        Attack6lazerm2.transform.localScale = scale;
+        yield return new WaitForSeconds(1f);
+
+        Returnl(lazer6m2);
     }
 
     //-----攻撃ⅥパターンⅡ-----
-
     //攻撃ⅥレーザーポイントパターンⅡ左
     void Attack6lazermpoint()
     {
@@ -1064,29 +1080,33 @@ public class enemyattack : MonoBehaviour
 
     //攻撃ⅥレーザーパターンⅡ左
     void Attack6lazerm()
-    {
+    {/*
         audioSource.PlayOneShot(lazerclip);
         GameObject Attack6lazerm = Instantiate(lazer, new Vector3(-30, lazerpointy, attack2lazerz), Quaternion.identity);//発射
-        StartCoroutine(ExtendLazer6m1(Attack6lazerm));
+        StartCoroutine(ExtendLazer6m1(Attack6lazerm));*/
+        audioSource.PlayOneShot(lazerclip);
+        GameObject lazer6m1 = Getl();
+
+        lazer6m1.transform.position = new Vector3(-30, lazerpointy, attack2lazerz);
+
+        StartCoroutine(ExtendLazer6m1(lazer6m1));
     }
-    IEnumerator ExtendLazer6m1(GameObject Attack6lazerm)
+    IEnumerator ExtendLazer6m1(GameObject lazer6m1)
     {
-        Vector3 scale = Attack6lazerm.transform.localScale;
+        Vector3 scale = lazer6m1.transform.localScale;
         scale.z = 0f; // 最初は長さ0
-        Attack6lazerm.transform.localScale = scale;
+        lazer6m1.transform.localScale = scale;
 
         while (scale.z > maxLength)
         {
             scale.z -= extendSpeed * Time.deltaTime;
-            Attack6lazerm.transform.localScale = scale;
-
-            Destroy(Attack6lazerm, 1f);
+            lazer6m1.transform.localScale = scale;
 
             yield return null; // 次のフレームへ
         }
-        // 最終値を保証
-        scale.z = maxLength;
-        Attack6lazerm.transform.localScale = scale;
+        yield return new WaitForSeconds(1f);
+
+        Returnl(lazer6m1);
         Invoke("Attack6lazerp2point", 2f);
     }
 
@@ -1103,31 +1123,36 @@ public class enemyattack : MonoBehaviour
     }
 
     //攻撃ⅥレーザーパターンⅡ右
-
     void Attack6lazerp2()
     {
+        /*
         audioSource.PlayOneShot(lazerclip);
         GameObject Attack6lazerp2 = Instantiate(lazer, new Vector3(30, lazerpointy, attack2lazerz), Quaternion.identity);//発射
         StartCoroutine(ExtendLazer6p2(Attack6lazerp2));
-        //Debug.Log("攻撃Ⅵ パターン2");
+        //Debug.Log("攻撃Ⅵ パターン2");*/
+        audioSource.PlayOneShot(lazerclip);
+
+        GameObject lazer6p2 = Getl();
+
+        lazer6p2.transform.position = new Vector3(30, lazerpointy, attack2lazerz);
+
+        StartCoroutine(ExtendLazer6p2(lazer6p2));
     }
-    IEnumerator ExtendLazer6p2(GameObject Attack6lazerp2)
+    IEnumerator ExtendLazer6p2(GameObject lazer6p2)
     {
-        Vector3 scale = Attack6lazerp2.transform.localScale;
+        Vector3 scale = lazer6p2.transform.localScale;
         scale.z = 0f; // 最初は長さ0
-        Attack6lazerp2.transform.localScale = scale;
+        lazer6p2.transform.localScale = scale;
 
         while (scale.z > maxLength)
         {
             scale.z -= extendSpeed * Time.deltaTime;
-            Attack6lazerp2.transform.localScale = scale;
-
-            Destroy(Attack6lazerp2, 1f);
+            lazer6p2.transform.localScale = scale;
 
             yield return null; // 次のフレームへ
         }
-        // 最終値を保証
-        scale.z = maxLength;
-        Attack6lazerp2.transform.localScale = scale;
+        yield return new WaitForSeconds(1f);
+
+        Returnl(lazer6p2);
     }
 }
