@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizem: 50
   sizel: 20
+  sizelz: 20
   lazerclip: {fileID: 8300000, guid: 143ec0291adf7674090e4b17ff8f8311, type: 3}
   lazercharge: {fileID: 8300000, guid: b2e8cb20f4435a044b9ce2e64390093a, type: 3}
   bpoint: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
@@ -55,8 +56,8 @@ MonoBehaviour:
   missile4: {fileID: 4324720777855780103, guid: cf4f91f70024de14cb6b5534948c1c88, type: 3}
   lazer: {fileID: 8187081989845006493, guid: d2202b903d7a73747a2f2ff8f57c51b3, type: 3}
   lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
-  lazerx: {fileID: 9078672028450228241, guid: 7054ebf7e29c702479a397e52a86cec6, type: 3}
-  lazerattackpointx: {fileID: 8819450423478130821, guid: 7b9408938b2e5e64cbe6fdcad059d5c3, type: 3}
+  lazerz: {fileID: 9078672028450228241, guid: 7054ebf7e29c702479a397e52a86cec6, type: 3}
+  lazerattackpointz: {fileID: 8819450423478130821, guid: 7b9408938b2e5e64cbe6fdcad059d5c3, type: 3}
   lazerchargeeffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
   ClustereffectPrefab: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
   rndm: -11

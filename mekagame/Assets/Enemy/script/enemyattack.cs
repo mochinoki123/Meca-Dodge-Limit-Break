@@ -17,9 +17,12 @@ public class enemyattack : MonoBehaviour
     //ミサイル
     public int sizem = 50;
     private Queue<GameObject> missilepool = new Queue<GameObject>();
-    //レーザー
+    //縦レーザー
     public int sizel = 20;
     private Queue<GameObject> lazerpool = new Queue<GameObject>();
+    //横レーザー
+    public int sizelx = 20;
+    private Queue<GameObject> lazerxpool = new Queue<GameObject>();
     /*
     //攻撃Ⅳミサイル
     public int sizem2 = 10;  
@@ -47,8 +50,8 @@ public class enemyattack : MonoBehaviour
     [SerializeField] GameObject lazer;//レーザーオブジェクト
     [SerializeField] GameObject lazerattackpoint;//レーザー発生ポイントオブジェクト
     //攻撃Ⅴ
-    [SerializeField] GameObject lazerx;//レーザーオブジェクト
-    [SerializeField] GameObject lazerattackpointx;//レーザー発生ポイントオブジェクト
+    [SerializeField] GameObject lazerz;//レーザーオブジェクト
+    [SerializeField] GameObject lazerattackpointz;//レーザー発生ポイントオブジェクト
     //フィールド範囲
     [Header("エフェクト")]
     [SerializeField] GameObject lazerchargeeffect;//レーザーチャージエフェクト
@@ -134,6 +137,12 @@ public class enemyattack : MonoBehaviour
             objl.SetActive(false);
             lazerpool.Enqueue(objl);
         }
+        for (int i = 0; i < sizelx; i++)
+        {
+            GameObject objlx = Instantiate(lazerz);
+            objlx.SetActive(false);
+            lazerxpool.Enqueue(objlx);
+        }
         /*
         for (int i = 0; i < sizem2; i++)
         {
@@ -178,6 +187,16 @@ public class enemyattack : MonoBehaviour
         }
         return Instantiate(lazer);
     }
+    public GameObject Getlx()
+    {
+        if (lazerxpool.Count > 0)
+        {
+            GameObject objlx = lazerxpool.Dequeue();
+            objlx.SetActive(true);
+            return objlx;
+        }
+        return Instantiate(lazerz);
+    }
     /*
     public GameObject Getm()
     {
@@ -221,6 +240,11 @@ public class enemyattack : MonoBehaviour
     {
         objl.SetActive(false);
         lazerpool.Enqueue(objl);
+    }
+    public void Returnlx(GameObject objlx)
+    {
+        objlx.SetActive(false);
+        lazerpool.Enqueue(objlx);
     }
     /*
     public void Returnm(GameObject objm2)
@@ -715,17 +739,16 @@ public class enemyattack : MonoBehaviour
     //-----攻撃Ⅴ-----
     void Attack5() 
     {
-        
         attackbunki = Random.Range(0f, 1f);//攻撃分岐
-        /*if (attackbunki < 0.5f)
+        if (attackbunki < 0.5f)
         {
             StartCoroutine(Attack5lxCoroutine());//奥から攻撃
         }
         else
         {
             StartCoroutine(Attack5lzCoroutine());//横から攻撃
-        }*/
-        StartCoroutine(Attack5lxCoroutine());//奥から攻撃
+        }
+        
     }
 
     //攻撃Ⅴ縦レーザー
@@ -829,7 +852,7 @@ public class enemyattack : MonoBehaviour
     void Attack5lpz()
     {
         audioSource.PlayOneShot(lazercharge);
-        GameObject Attack5lazerattackpointx = Instantiate(lazerattackpointx, new Vector3(0, 0, l5z), Quaternion.identity);//横レーザー発射地点
+        GameObject Attack5lazerattackpointx = Instantiate(lazerattackpointz, new Vector3(0, 0, l5z), Quaternion.identity);//横レーザー発射地点
         GameObject Attacklazerchargeeffect = Instantiate(lazerchargeeffect, new Vector3(attack5lx, lazerpointy, l5z), Quaternion.identity);
         Destroy(Attack5lazerattackpointx, 2f);
         Destroy(Attacklazerchargeeffect, 2f);
@@ -840,33 +863,35 @@ public class enemyattack : MonoBehaviour
     void Attack5lz()
     {
         audioSource.PlayOneShot(lazerclip);
-        GameObject Attack5lazerx = Instantiate(lazerx, new Vector3(attack5lx, lazerpointy, l5z), Quaternion.identity);//発射
-      //Rigidbody cubeRigidbody = Attack5lazerx.GetComponent<Rigidbody>();
-      //cubeRigidbody.AddForce(new Vector3(1, 0, 0) * 10, ForceMode.Impulse);
-        StartCoroutine(ExtendLazer5z(Attack5lazerx));
+        GameObject lazerObjx = Getlx();
+        lazerObjx.transform.position = new Vector3(attack5lx, lazerpointy, l5z);//発射
+        lazerObjx.SetActive(true);
+        //Rigidbody cubeRigidbody = Attack5lazerx.GetComponent<Rigidbody>();
+        //cubeRigidbody.AddForce(new Vector3(1, 0, 0) * 10, ForceMode.Impulse);
+        StartCoroutine(ExtendLazer5z(lazerObjx));
         
         //Debug.Log("攻撃Ⅴz");
     }
 
-    IEnumerator ExtendLazer5z(GameObject Attack5lazerx)
+    IEnumerator ExtendLazer5z(GameObject lazerObjx)
     {
-        Vector3 scale = Attack5lazerx.transform.localScale;
+        Vector3 scale = lazerObjx.transform.localScale;
         scale.x = 0f; // 最初は長さ0
         l5z = l5z - k;//発射地点を縦にずらす
-        Attack5lazerx.transform.localScale = scale;
+        lazerObjx.transform.localScale = scale;
         while (scale.x > maxLength)
         {
             scale.x += extendSpeed * Time.deltaTime;
-            Attack5lazerx.transform.localScale = scale;
-
-            Destroy(Attack5lazerx, 1f);
+            lazerObjx.transform.localScale = scale;
 
             //Debug.Log("攻撃Ⅴx");
             yield return null; // 次のフレームへ
         }
         // 最終値を保証
         //scale.x = maxLength;
-        Attack5lazerx.transform.localScale = scale;
+        yield return new WaitForSeconds(1f);
+
+        Returnl(lazerObjx);
     }
 
     //-----攻撃Ⅵ-----
