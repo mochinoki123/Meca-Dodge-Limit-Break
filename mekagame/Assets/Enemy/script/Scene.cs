@@ -7,6 +7,7 @@ public class Scene : MonoBehaviour
 {
     [SerializeField] private GameObject complete;
     [SerializeField] private GameObject miss;
+    [SerializeField] private GameObject skillCustomCanvas;
 
     private void Start()
     {
@@ -24,5 +25,13 @@ public class Scene : MonoBehaviour
     public void OnEndButton()
     {
         Application.Quit();
+    }
+    public void OnTutorialButton()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+    public void OnSkillCustomButton(bool b)
+    {
+        skillCustomCanvas.SetActive(b);
     }
 }

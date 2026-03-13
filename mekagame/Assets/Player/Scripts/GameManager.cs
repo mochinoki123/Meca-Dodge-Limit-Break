@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private int combo;
     private int maxCombo;
     private float lastComboTime = 0;
+    SkillIcon skillIcon;
 
     private void Awake()
     {
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
         lifeGage = GameObject.Find("HP")?.GetComponent<LifeGage>();
         grazeGage = GameObject.Find("GrazeGage")?.GetComponent<GrazeGage>();
         comboText = GameObject.Find("Combo")?.GetComponent<TextMeshProUGUI>();
+        skillIcon = GameObject.Find("SkillIcon")?.GetComponent<SkillIcon>();
     }
 
 
@@ -150,6 +152,7 @@ public class GameManager : MonoBehaviour
     {
         if (IsPlayerDead) return;
         IsPlayerDead = true;
+        skillIcon.ResetSkill();
 
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         if (p != null) Destroy(p);
