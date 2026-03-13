@@ -32,6 +32,7 @@ public class enemymissile : MonoBehaviour
         if (other.CompareTag("AttackPoint"))
         {
             b = Instantiate(attack1missileeffectPrefab, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
+            audioSource.PlayOneShot(bakuhatuclip);
             Kill();
         }
         audioSource.PlayOneShot(bakuhatuclip);

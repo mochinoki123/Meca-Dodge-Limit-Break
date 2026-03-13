@@ -18,10 +18,10 @@ public class enemyattack : MonoBehaviour
     public int sizem = 50;
     private Queue<GameObject> missilepool = new Queue<GameObject>();
     //縦レーザー
-    public int sizel = 20;
+    public int sizel = 50;
     private Queue<GameObject> lazerpool = new Queue<GameObject>();
     //横レーザー
-    public int sizelx = 20;
+    public int sizelx = 50;
     private Queue<GameObject> lazerxpool = new Queue<GameObject>();
     /*
     //攻撃Ⅳミサイル
@@ -70,7 +70,7 @@ public class enemyattack : MonoBehaviour
     [SerializeField] int lazerpointy = 7; // 7
     [SerializeField] float maxLength = -50f;   // 最終的な長さ
     [SerializeField] float maxLengthx = 50f;   // 最終的な長さ
-    [SerializeField] float extendSpeed = 100;  // 伸びるスピード
+    [SerializeField] float extendSpeed = 100f;  // 伸びるスピード
     //攻撃１
     [Header("攻撃Ⅰ")]
     [SerializeField] int attack1missile;//攻撃１のミサイル数　6
@@ -239,11 +239,13 @@ public class enemyattack : MonoBehaviour
     }
     public void Returnl(GameObject objl)
     {
+        objl.transform.localScale = new Vector3(15, 15, 0);
         objl.SetActive(false);
         lazerpool.Enqueue(objl);
     }
     public void Returnlx(GameObject objlx)
     {
+        objlx.transform.localScale = new Vector3(0, 15, 15);
         objlx.SetActive(false);
         lazerxpool.Enqueue(objlx);
     }
@@ -310,7 +312,7 @@ public class enemyattack : MonoBehaviour
     IEnumerator AttackLoopCoroutine()
     {
         //ループ脱出条件
-        while (enemyhpscripts.maxHP > 750)//敵のHP条件
+        while (enemyhpscripts.CurrentHP > 750)//敵のHP条件
         {
             //attack123 = Random.Range(0, 99);//ランダムで攻撃分岐
             attack12345 = Random.Range(0, 99);//ランダムで攻撃分岐
@@ -371,7 +373,7 @@ public class enemyattack : MonoBehaviour
     //-----攻撃パターンⅡループ脱出条件-----
     IEnumerator AttackLoop2Coroutine()
     {
-        while (enemyhpscripts.maxHP > 500)//敵のHP条件
+        while (enemyhpscripts.CurrentHP > 500)//敵のHP条件
         {
             attack123456 = Random.Range(0, 99);//ランダムで攻撃分岐
             Attackrndv2();//攻撃パターンⅡ
@@ -443,7 +445,7 @@ public class enemyattack : MonoBehaviour
     //-----攻撃パターンⅢループ脱出条件-----
     IEnumerator AttackLoop3Coroutine()
     {
-        while (enemyhpscripts.maxHP > 250)//敵のHP条件
+        while (enemyhpscripts.CurrentHP > 250)//敵のHP条件
         {
             attack123456 = Random.Range(0, 99);//ランダムで攻撃分岐
             Attackrndv3();//攻撃パターンⅢ
@@ -809,7 +811,6 @@ public class enemyattack : MonoBehaviour
         audioSource.PlayOneShot(lazerclip);
         GameObject lazerObj = Getl();
         lazerObj.transform.position = new Vector3(l5x, lazerpointy, attack2lazerz);
-        lazerObj.SetActive(true);
         StartCoroutine(ExtendLazer5x(lazerObj));
     }
     IEnumerator ExtendLazer5x(GameObject lazerObj)
@@ -867,7 +868,6 @@ public class enemyattack : MonoBehaviour
         audioSource.PlayOneShot(lazerclip);
         GameObject lazerObjx = Getlx();
         lazerObjx.transform.position = new Vector3(attack5lx, lazerpointy, l5z);//発射
-        lazerObjx.SetActive(true);
         //Rigidbody cubeRigidbody = Attack5lazerx.GetComponent<Rigidbody>();
         //cubeRigidbody.AddForce(new Vector3(1, 0, 0) * 10, ForceMode.Impulse);
         StartCoroutine(ExtendLazer5z(lazerObjx));

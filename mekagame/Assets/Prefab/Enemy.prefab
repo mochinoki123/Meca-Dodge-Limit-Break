@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sizem: 50
-  sizel: 20
-  sizelx: 20
+  sizel: 50
+  sizelx: 50
   lazerclip: {fileID: 8300000, guid: 143ec0291adf7674090e4b17ff8f8311, type: 3}
   lazercharge: {fileID: 8300000, guid: b2e8cb20f4435a044b9ce2e64390093a, type: 3}
   bpoint: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
@@ -68,7 +68,7 @@ MonoBehaviour:
   attackpointy: 60
   attackpointz: 10
   lazerpointy: 7
-  maxLength: -70
+  maxLength: -50
   maxLengthx: 50
   extendSpeed: 80
   attack1missile: 10

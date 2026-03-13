@@ -2397,6 +2397,10 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5303099277553830569, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: sizel
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303099277553830569, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: bpoint
       value: 
       objectReference: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
@@ -2404,6 +2408,10 @@ PrefabInstance:
       propertyPath: lazerz
       value: 
       objectReference: {fileID: 9078672028450228241, guid: 7054ebf7e29c702479a397e52a86cec6, type: 3}
+    - target: {fileID: 5303099277553830569, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: sizelx
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5303099277553830569, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: maxLength
       value: -50
