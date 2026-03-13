@@ -817,7 +817,7 @@ public class enemyattack : MonoBehaviour
         Vector3 scale = lazerObj.transform.localScale;
         scale.z = 0;
         l5x = l5x - k;//発射地点を横にずらす
-        lazer.transform.localScale = scale;
+        lazerObj.transform.localScale = scale;
 
         while (scale.z > maxLength)
         {
@@ -885,13 +885,11 @@ public class enemyattack : MonoBehaviour
         {
             scale.x += extendSpeed * Time.deltaTime;
             lazerObjx.transform.localScale = scale;
-            Debug.Log("攻撃Ⅴx");
             yield return null; // 次のフレームへ
         }
         yield return new WaitForSeconds(1f);
         // 最終値を保証
         //scale.x = maxLength;
-        Debug.Log("攻撃Ⅴx2");
         Returnlx(lazerObjx);
     }
 
