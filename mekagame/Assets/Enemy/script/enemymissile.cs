@@ -11,7 +11,8 @@ public class enemymissile : MonoBehaviour
     private GameObject p;
     private GameObject b;
     public float missilespeed = 10f;
-    
+    enemyattack enemyAttack;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,7 +42,7 @@ public class enemymissile : MonoBehaviour
     public void Kill()
     {
         Destroy(p);
-        Destroy(gameObject);
+        enemyAttack.Return(gameObject);
         Destroy(b,1.2f);
     }
 }
