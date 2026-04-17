@@ -71,6 +71,12 @@ public class enemyattack : MonoBehaviour
     [SerializeField] float maxLength = -50f;   // 最終的な長さ
     [SerializeField] float maxLengthx = 50f;   // 最終的な長さ
     [SerializeField] float extendSpeed = 100f;  // 伸びるスピード
+    public enum LazerAngle//状態遷移
+    {
+        Vertical,
+        Horizontal
+    }
+
     //攻撃１
     [Header("攻撃Ⅰ")]
     [SerializeField] int attack1missile;//攻撃１のミサイル数　6
@@ -811,45 +817,45 @@ public class enemyattack : MonoBehaviour
         audioSource.PlayOneShot(lazerclip);
         GameObject lazerObj = Getl();
         lazerObj.transform.position = new Vector3(l5x, lazerpointy, attack2lazerz);
-        StartCoroutine(ExtendLazer5x(lazerObj));
+        //StartCoroutine(ExtendLazer5x(lazerObj));
     }
-    IEnumerator ExtendLazer5x(GameObject lazerObj)
-    {
-        Vector3 scale = lazerObj.transform.localScale;
-        scale.z = 0;
-        l5x = l5x - k;//発射地点を横にずらす
-        lazerObj.transform.localScale = scale;
+    //IEnumerator ExtendLazer5x(GameObject lazerObj)
+    //{
+    //    Vector3 scale = lazerObj.transform.localScale;
+    //    scale.z = 0;
+    //    l5x = l5x - k;//発射地点を横にずらす
+    //    lazerObj.transform.localScale = scale;
 
-        while (scale.z > maxLength)
-        {
-            scale.z -= extendSpeed * Time.deltaTime;
-            lazerObj.transform.localScale = scale;
+    //    while (scale.z > maxLength)
+    //    {
+    //        scale.z -= extendSpeed * Time.deltaTime;
+    //        lazerObj.transform.localScale = scale;
 
-            yield return null;
-        }
-        yield return new WaitForSeconds(1f);
+    //        yield return null;
+    //    }
+    //    yield return new WaitForSeconds(1f);
 
-        Returnl(lazerObj);
-        /*
-        Vector3 scale = lazerObj.transform.localScale;
-        scale.z = 0f; // 最初は長さ0
-        l5x = l5x - k;//発射地点を横にずらす
-        lazerObj.transform.localScale = scale;
-        while (scale.z > maxLength)
-        {
-            scale.z -= extendSpeed * Time.deltaTime;
-            lazerObj.transform.localScale = scale;
-            Destroy(lazerObj, 1f);
-            //Debug.Log("攻撃Ⅴx");
-            yield return null; // 次のフレームへ
-        }
+    //    Returnl(lazerObj);
+    //    /*
+    //    Vector3 scale = lazerObj.transform.localScale;
+    //    scale.z = 0f; // 最初は長さ0
+    //    l5x = l5x - k;//発射地点を横にずらす
+    //    lazerObj.transform.localScale = scale;
+    //    while (scale.z > maxLength)
+    //    {
+    //        scale.z -= extendSpeed * Time.deltaTime;
+    //        lazerObj.transform.localScale = scale;
+    //        Destroy(lazerObj, 1f);
+    //        //Debug.Log("攻撃Ⅴx");
+    //        yield return null; // 次のフレームへ
+    //    }
 
-        // 最終値を保証
-        //scale.z = maxLength;
-        lazerObj.transform.localScale = scale;
+    //    // 最終値を保証
+    //    //scale.z = maxLength;
+    //    lazerObj.transform.localScale = scale;
 
-        Returnl(lazerObj);*/
-    }
+    //    Returnl(lazerObj);*/
+    //}
 
     //攻撃Ⅴ横レーザーポイント
     void Attack5lpz()
@@ -870,28 +876,28 @@ public class enemyattack : MonoBehaviour
         lazerObjx.transform.position = new Vector3(attack5lx, lazerpointy, l5z);//発射
         //Rigidbody cubeRigidbody = Attack5lazerx.GetComponent<Rigidbody>();
         //cubeRigidbody.AddForce(new Vector3(1, 0, 0) * 10, ForceMode.Impulse);
-        StartCoroutine(ExtendLazer5z(lazerObjx));
+        //StartCoroutine(ExtendLazer5z(lazerObjx));
 
         //Debug.Log("攻撃Ⅴz");
     }
 
-    IEnumerator ExtendLazer5z(GameObject lazerObjx)
-    {
-        Vector3 scale = lazerObjx.transform.localScale;
-        scale.x = 0; // 最初は長さ0
-        l5z = l5z - k;//発射地点を縦にずらす
-        lazerObjx.transform.localScale = scale;
-        while (scale.x < maxLengthx)
-        {
-            scale.x += extendSpeed * Time.deltaTime;
-            lazerObjx.transform.localScale = scale;
-            yield return null; // 次のフレームへ
-        }
-        yield return new WaitForSeconds(1f);
-        // 最終値を保証
-        //scale.x = maxLength;
-        Returnlx(lazerObjx);
-    }
+    //IEnumerator ExtendLazer5z(GameObject lazerObjx)
+    //{
+    //    Vector3 scale = lazerObjx.transform.localScale;
+    //    scale.x = 0; // 最初は長さ0
+    //    l5z = l5z - k;//発射地点を縦にずらす
+    //    lazerObjx.transform.localScale = scale;
+    //    while (scale.x < maxLengthx)
+    //    {
+    //        scale.x += extendSpeed * Time.deltaTime;
+    //        lazerObjx.transform.localScale = scale;
+    //        yield return null; // 次のフレームへ
+    //    }
+    //    yield return new WaitForSeconds(1f);
+    //    // 最終値を保証
+    //    //scale.x = maxLength;
+    //    Returnlx(lazerObjx);
+    //}
 
     //-----攻撃Ⅵ-----
     void Attack6()
