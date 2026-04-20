@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
@@ -41,15 +40,6 @@ public class GameManager : MonoBehaviour
 
         FindUIElements();
     }
-
-    private void OnDestroy()
-    {
-        if (Instance == this)
-        {
-            SceneManager.sceneLoaded -= OnSceneLoaded;
-        }
-    }
-
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;

@@ -678,7 +678,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1016219887}
         m_TargetAssemblyTypeName: Scene, Assembly-CSharp
         m_MethodName: OnSkillCustomButton
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
