@@ -36,13 +36,13 @@ public class enemymissile : MonoBehaviour
             audioSource.PlayOneShot(bakuhatuclip);
             Kill();
         }
-        audioSource.PlayOneShot(bakuhatuclip);
     }
 
     public void Kill()
     {
         Destroy(p);
+        Destroy(b, 1.2f);
         enemyAttack.Return(gameObject);
-        Destroy(b,1.2f);
+        
     }
 }

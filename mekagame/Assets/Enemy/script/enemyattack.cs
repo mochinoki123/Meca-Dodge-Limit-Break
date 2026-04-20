@@ -14,6 +14,7 @@ public class enemyattack : MonoBehaviour
 {
     //Enemyスクリプト
     private Enemy enemyhpscripts;
+    #region オブジェクトプール
     [Header("プール数")]
     //ミサイル
     public int sizem = 50;
@@ -37,11 +38,15 @@ public class enemyattack : MonoBehaviour
     public int sizebe = 50;
     private Queue<GameObject> beffectpool = new Queue<GameObject>();
     */
+    #endregion
+    #region 効果音
     [Header("レーザー効果音")]
     [SerializeField] private AudioClip lazerclip;
     [SerializeField] private AudioClip lazercharge;
     private AudioSource audioSource;
+    #endregion
     //プレハブ
+    #region プレハブ
     [Header("爆発ポイントプレハブ")]
     [SerializeField] GameObject bpoint;//爆発ポイント
     [Header("ミサイルプレハブ")]
@@ -57,6 +62,7 @@ public class enemyattack : MonoBehaviour
     [Header("エフェクト")]
     [SerializeField] GameObject lazerchargeeffect;//レーザーチャージエフェクト
     [SerializeField] GameObject ClustereffectPrefab;//爆発のエフェクト
+    #endregion
     [Header("攻撃範囲指定")]
     [SerializeField] float rndm = -9;//フィールドごとの範囲指定マイナス
     [SerializeField] float rndp = 9;//フィールドごとの範囲指定プラス
