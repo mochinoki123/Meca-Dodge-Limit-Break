@@ -39,6 +39,7 @@ public class enemyattack : MonoBehaviour
     private Queue<GameObject> beffectpool = new Queue<GameObject>();
     */
     #endregion
+
     #region Œø‰Ê‰¹
     [Header("ƒŒ[ƒU[Œø‰Ê‰¹")]
     [SerializeField] private AudioClip lazerclip;

@@ -13,7 +13,6 @@ public class enemymissile : MonoBehaviour
     public float missilespeed = 10f;
     enemyattack enemyAttack;
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +20,7 @@ public class enemymissile : MonoBehaviour
         Vector3 mPos = new Vector3(transform.position.x, 0, transform.position.z);
         p = Instantiate(point, mPos, Quaternion.identity);
         audioSource = GetComponent<AudioSource>();
+        enemyAttack = FindAnyObjectByType<enemyattack>();
     }
 
     // Update is called once per frame
@@ -43,6 +43,5 @@ public class enemymissile : MonoBehaviour
         Destroy(p);
         Destroy(b, 1.2f);
         enemyAttack.Return(gameObject);
-        
     }
 }
