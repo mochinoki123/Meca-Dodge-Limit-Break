@@ -30,8 +30,8 @@ public class Scene : MonoBehaviour
     {
         SceneManager.LoadScene("Tutorial");
     }
-    public void OnSkillCustomButton(bool b)
+    public void OnSkillCustomButton()
     {
-        skillCustomCanvas.SetActive(b);
+        SceneManager.LoadScene("SkillCustom");
     }
 }

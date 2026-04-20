@@ -8,6 +8,14 @@ public class SkillIcon : MonoBehaviour
     [SerializeField] private Transform[] iconTransform;
     GameObject[] s = new GameObject[3];
 
+    PlayerParry parry;
+    PlayerPulseDiffuser pulseDiffuser;
+    OverClock overClock;
+    LimitBreak limitBreak;
+    Heal heal;
+    GrazeAttack grazeAttack;
+    CounterHeal counterHeal;
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -24,7 +32,7 @@ public class SkillIcon : MonoBehaviour
 
     private void UpdateSkill()
     {
-        int[] skillNumbers = { 0, 1, 2 };
+        int[] skillNumbers = { 0, 1, 2 ,3};
 
         for (int i = 0; i < useSkill.Length; i++)
         {
