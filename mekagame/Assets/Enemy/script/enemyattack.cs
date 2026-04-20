@@ -1,13 +1,14 @@
-using UnityEngine;
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine.Audio;
-using UnityEngine.Rendering;
-using System.Data;
 using System.Collections.Generic;
+using System.Data;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Pool;
-using static UnityEngine.Rendering.ObjectPool<T>;
+using UnityEngine.Rendering;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
+using static UnityEngine.Rendering.ObjectPool<T>;
 
 public class enemyattack : MonoBehaviour
 {
@@ -71,11 +72,7 @@ public class enemyattack : MonoBehaviour
     [SerializeField] float maxLength = -50f;   // 最終的な長さ
     [SerializeField] float maxLengthx = 50f;   // 最終的な長さ
     [SerializeField] float extendSpeed = 100f;  // 伸びるスピード
-    public enum LazerAngle//状態遷移
-    {
-        Vertical,
-        Horizontal
-    }
+    enemylazer enemyLazer;
 
     //攻撃１
     [Header("攻撃Ⅰ")]
@@ -122,6 +119,7 @@ public class enemyattack : MonoBehaviour
     {
         enemyhpscripts = GetComponent<Enemy>();//敵データ呼び出し
         audioSource = GetComponent<AudioSource>();
+        enemyLazer = FindAnyObjectByType<enemylazer>();
         CreatePool();
     }
     // Update is called once per frame
@@ -874,6 +872,7 @@ public class enemyattack : MonoBehaviour
         audioSource.PlayOneShot(lazerclip);
         GameObject lazerObjx = Getlx();
         lazerObjx.transform.position = new Vector3(attack5lx, lazerpointy, l5z);//発射
+        //lazerObjx.AngleLazer(enemylazer.LazerAngle.Hor);
         //Rigidbody cubeRigidbody = Attack5lazerx.GetComponent<Rigidbody>();
         //cubeRigidbody.AddForce(new Vector3(1, 0, 0) * 10, ForceMode.Impulse);
         //StartCoroutine(ExtendLazer5z(lazerObjx));

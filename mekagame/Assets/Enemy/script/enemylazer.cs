@@ -10,25 +10,26 @@ public class enemylazer : MonoBehaviour
     public enum LazerAngle
     {
         //縦
-        Vertical,
+        Ver,
         //横
-        Horizontal
+        Hor
     }
     private void Start()
     {
         enemyAttack = FindAnyObjectByType<enemyattack>();
+        AngleLazer(LazerAngle.Hor);
     }
     public void AngleLazer(LazerAngle state)
     {
         switch(state)
         {
-            case LazerAngle.Vertical:
+            case LazerAngle.Ver:
                 transform.rotation = Quaternion.identity;
-                StartCoroutine(ExtendLazer5(gameObject));
+                StartCoroutine(ExtendLazer5());
                 break;
-            case LazerAngle.Horizontal:
+            case LazerAngle.Hor:
                 transform.rotation = Quaternion.Euler(0, 90, 0);
-                StartCoroutine(ExtendLazer5(gameObject));
+                StartCoroutine(ExtendLazer5());
                 break;
         }
     }
@@ -37,20 +38,18 @@ public class enemylazer : MonoBehaviour
         enemyAttack.Return(gameObject);
     }
 
-    IEnumerator ExtendLazer5(GameObject gameObject)
+    IEnumerator ExtendLazer5()
     {
         Vector3 scale = transform.localScale;
-        scale.x = 0; // 最初は長さ0
+        scale.z = 0; // 最初は長さ0
         transform.localScale = scale;
-        while (scale.x < maxLengthx)
+        while (scale.z < maxLengthx)
         {
-            scale.x += extendSpeed * Time.deltaTime;
+            scale.z += extendSpeed * Time.deltaTime;
             transform.localScale = scale;
-            yield return null; // 次のフレームへ
+            yield return null; 
         }
         yield return new WaitForSeconds(1f);
-        // 最終値を保証
-        //scale.x = maxLength;
         enemyAttack.Returnlx(gameObject);
     }
 }
