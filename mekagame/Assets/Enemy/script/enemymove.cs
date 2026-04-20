@@ -17,4 +17,6 @@ public class enemymove : MonoBehaviour
     {
         transform.position = new Vector3(transform.position.x, EnemyPosi + Mathf.PingPong(Time.time*2, 3f), transform.position.z);
     }
+
+    
 }
