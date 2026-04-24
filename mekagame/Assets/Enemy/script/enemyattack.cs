@@ -355,19 +355,19 @@ public class enemyattack : MonoBehaviour
         */
         if (attack12345 <= 20)
         {
-            Attack1();//UŒ‚‡T
+            //Attack1();//UŒ‚‡T
         }
         else if (attack12345 <= 40)
         {
-            Attack2();//UŒ‚‡U
+            //Attack2();//UŒ‚‡U
         }
         else if (attack12345 <= 60)
         {
-            Attack3();//UŒ‚‡V
+            //Attack3();//UŒ‚‡V
         }
         else if (attack12345 <= 80)
         {
-            Attack4();//UŒ‚‡W
+            //Attack4();//UŒ‚‡W
         }
         else
         {
@@ -423,19 +423,19 @@ public class enemyattack : MonoBehaviour
         */
         if (attack123456 <= 16)
         {
-            Attack1();//UŒ‚‡T
+            //Attack1();//UŒ‚‡T
         }
         else if (attack123456 <= 32)
         {
-            Attack2();//UŒ‚‡U
+            //Attack2();//UŒ‚‡U
         }
         else if (attack123456 <= 48)
         {
-            Attack3();//UŒ‚‡V
+            //Attack3();//UŒ‚‡V
         }
         else if (attack123456 <= 64)
         {
-            Attack4();//UŒ‚‡W
+            //Attack4();//UŒ‚‡W
         }
         else if (attack123456 <= 80)
         {
@@ -473,19 +473,19 @@ public class enemyattack : MonoBehaviour
     {
         if (attack123456 <= 16)
         {
-            Attack1();//UŒ‚‡T
+            //Attack1();//UŒ‚‡T
         }
         else if (attack123456 <= 32)
         {
-            Attack2();//UŒ‚‡U
+            //Attack2();//UŒ‚‡U
         }
         else if (attack123456 <= 48)
         {
-            Attack3();//UŒ‚‡V
+            //Attack3();//UŒ‚‡V
         }
         else if (attack123456 <= 64)
         {
-            Attack4();//UŒ‚‡W
+            //Attack4();//UŒ‚‡W
         }
         else if (attack123456 <= 80)
         {
@@ -496,7 +496,7 @@ public class enemyattack : MonoBehaviour
             Attack6();//UŒ‚‡Y
         }
     }
-
+    /*
     //-----UŒ‚‡T-----
     void Attack1()
     {
@@ -519,17 +519,17 @@ public class enemyattack : MonoBehaviour
             missileRigidbody.linearVelocity = Vector3.down * missilespeed;
             */
             //Instantiate(attackpoint, new Vector3((attackf * x) - x, 0, (attackf * z) - z), Quaternion.identity);//UŒ‚”ÍˆÍ
-            objm1.transform.position = new Vector3((attackf * groundx) - groundx, attackpointy, (attackf * groundz) - groundz);
+            /*objm1.transform.position = new Vector3((attackf * groundx) - groundx, attackpointy, (attackf * groundz) - groundz);
             objm1.transform.rotation = Quaternion.Euler(180, 0, 0);
 
             objm1.SetActive(true);
 
         }
         //Debug.Log("UŒ‚‡T");
-    }
+    }*/
 
     //-----UŒ‚‡U-----
-    void Attack2()
+    /*void Attack2()
     {
         audioSource.PlayOneShot(lazercharge);
         GameObject Attack2lazerattackpoint = Instantiate(lazerattackpoint, new Vector3(groundx, 0, 0), Quaternion.identity);//ƒŒ[ƒU[”­ŽË’n“_
@@ -537,10 +537,10 @@ public class enemyattack : MonoBehaviour
         Destroy(Attack2lazerattackpoint, 1.3f);//1.3•bŒã‚É”j‰ó
         Destroy(Attacklazerchargeeffect, 2f);//2•bŒã‚É”j‰ó
         StartCoroutine(LaserRoutine());
-    }
+    }*/
 
     //UŒ‚‡UƒŒ[ƒU[
-    IEnumerator LaserRoutine()
+    /*IEnumerator LaserRoutine()
     {
         yield return new WaitForSeconds(1.3f);
 
@@ -551,8 +551,8 @@ public class enemyattack : MonoBehaviour
         lazer2.transform.position = new Vector3(groundx, lazerpointy, attack2lazerz);
 
         StartCoroutine(ExtendLaser(lazer2));
-    }
-
+    }*/
+    /*
     IEnumerator ExtendLaser(GameObject lazer2)
     {
         Vector3 scale = lazer2.transform.localScale;
@@ -569,9 +569,9 @@ public class enemyattack : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         Returnl(lazer2);
-    }
+    */
 
-
+    /*
     //-----UŒ‚‡V-----
     void Attack3()
     {
@@ -602,6 +602,7 @@ public class enemyattack : MonoBehaviour
                 Instantiate(missile, new Vector3(attackpointx * i, attackpointy, attackpointz * i), Quaternion.Euler(180, 0, 0));
                 Instantiate(missile, new Vector3(-attackpointx * i, attackpointy, -attackpointz * i), Quaternion.Euler(180, 0, 0));
                 */
+                /*
                 GameObject m3ldx = Get();
                 m3ldx.transform.position = new Vector3(attackpointx * i, attackpointy, -attackpointz * i);//@¶‰º
                 m3ldx.transform.rotation = Quaternion.Euler(180, 0, 0);
@@ -641,6 +642,7 @@ public class enemyattack : MonoBehaviour
                 Instantiate(missile, new Vector3(0, attackpointy, attackpointz * i), Quaternion.Euler(180, 0, 0));
                 Instantiate(missile, new Vector3(attackpointx * i, attackpointy, 0), Quaternion.Euler(180, 0, 0));
                 */
+                /*
                 GameObject m3d = Get();
                 m3d.transform.position = new Vector3(0, attackpointy, -attackpointz * i);//“ì
                 m3d.transform.rotation = Quaternion.Euler(180, 0, 0);
@@ -663,9 +665,9 @@ public class enemyattack : MonoBehaviour
         }
         //Debug.Log("UŒ‚‡V");
     }
-
+    */
     //-----UŒ‚‡W-----
-
+    /*
     void Attack4()
     {
         ap = Random.Range(rndm, rndp);//’n–Ê‚ÌL‚³‚É‚æ‚Á‚Ä•ÏX
@@ -674,7 +676,7 @@ public class enemyattack : MonoBehaviour
         objm4.transform.position = new Vector3(ap, attackpointy, ap);
         objm4.transform.rotation = Quaternion.Euler(180, 0, 0);
         objm4.SetActive(true);*/
-
+    /*
         Instantiate(missile4, new Vector3(ap, attackpointy, ap), Quaternion.Euler(180, 0, 0));//‰’e
         Invoke("Attack4b", 1f);
     }
@@ -702,7 +704,7 @@ public class enemyattack : MonoBehaviour
             objm4bl.transform.position = new Vector3(ap - 10 * i, 0, ap);//¼
             objm4bl.transform.rotation = Quaternion.Euler(180, 0, 0);
             objm4bl.SetActive(true);*/
-
+    /*
             GameObject Attack4bpoint1 = Instantiate(bpoint, new Vector3(ap, 0, ap + 10 * i), Quaternion.Euler(180, 0, 0));
             GameObject Attack4bpoint2 = Instantiate(bpoint, new Vector3(ap + 10 * i, 0, ap), Quaternion.Euler(180, 0, 0));//“Œ
             GameObject Attack4bpoint3 = Instantiate(bpoint, new Vector3(ap, 0, ap - 10 * i), Quaternion.Euler(180, 0, 0));//“ì
@@ -736,7 +738,7 @@ public class enemyattack : MonoBehaviour
             objm4bel.transform.rotation = Quaternion.Euler(180, 0, 0);
             objm4bel.SetActive(true);
             */
-
+    /*
             GameObject Attack4effectbpoint1 = Instantiate(ClustereffectPrefab, new Vector3(ap, 0, ap + 10 * i), Quaternion.identity);//–k
             GameObject Attack4effectbpoint2 = Instantiate(ClustereffectPrefab, new Vector3(ap + 10 * i, 0, ap), Quaternion.identity);//“Œ
             GameObject Attack4effectbpoint3 = Instantiate(ClustereffectPrefab, new Vector3(ap, 0, ap - 10 * i), Quaternion.identity);//“ì
@@ -748,7 +750,7 @@ public class enemyattack : MonoBehaviour
 
         }
         //Debug.Log("UŒ‚‡W");
-    }
+    }*/
 
     //-----UŒ‚‡X-----
     void Attack5()
