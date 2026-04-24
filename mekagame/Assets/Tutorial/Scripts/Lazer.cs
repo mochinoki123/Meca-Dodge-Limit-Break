@@ -13,11 +13,16 @@ public class Lazer : MonoBehaviour
 
     private IEnumerator Grow()
     {
-        while(transform.localScale.x < maxScale)
+        while (transform.localScale.x < maxScale)
         {
-            transform.localScale = new Vector3(speed, 0, 0);
+            float newX = transform.localScale.x + (speed * Time.deltaTime);
+
+            transform.localScale = new Vector3(newX, transform.localScale.y, transform.localScale.z);
+
+            yield return null;
         }
-        yield return null;
+
+        transform.localScale = new Vector3(maxScale, transform.localScale.y, transform.localScale.z);
     }
 
     private void OnDisable()
