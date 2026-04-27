@@ -27,10 +27,10 @@ public class enemyattack : MonoBehaviour
     public int sizem = 50;
     private Queue<GameObject> missilepool = new Queue<GameObject>();
     //縦レーザー
-    public int sizel = 50;
+    public int sizel = 20;
     private Queue<GameObject> lazerpool = new Queue<GameObject>();
     //横レーザー
-    public int sizelx = 50;
+    public int sizelx = 20;
     private Queue<GameObject> lazerxpool = new Queue<GameObject>();
     //攻撃Ⅳミサイル
     public int sizem2 = 10;  
@@ -182,9 +182,9 @@ public class enemyattack : MonoBehaviour
         
         for (int i = 0; i < sizep; i++)
         {
-            GameObject objb = Instantiate(point);
-            objb.SetActive(false);
-            missile2pool.Enqueue(objb);
+            GameObject objp = Instantiate(point);
+            objp.SetActive(false);
+            pointpool.Enqueue(objp);
         }
         /*
         for (int i = 0; i < sizebe; i++)
@@ -242,9 +242,9 @@ public class enemyattack : MonoBehaviour
     {
         if (pointpool.Count > 0)
         {
-            GameObject objb = pointpool.Dequeue();
-            objb.SetActive(true);
-            return objb;
+            GameObject objp = pointpool.Dequeue();
+            objp.SetActive(true);
+            return objp;
         }
         return Instantiate(point);
     }
