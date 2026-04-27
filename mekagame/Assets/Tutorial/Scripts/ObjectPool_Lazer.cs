@@ -37,6 +37,15 @@ public class ObjectPool_Lazer : MonoBehaviour
             20);
     }
 
+    public GameObject Spawn(Vector3 position, Quaternion rotation)
+    {
+        GameObject spawnedObj = pool.Get();
+
+        spawnedObj.transform.SetPositionAndRotation(position, rotation);
+
+        return spawnedObj;
+    }
+
     GameObject CreateLaser()
     {
         return Instantiate(laserPrefab);    //prefabオブジェクトを生成する処理
