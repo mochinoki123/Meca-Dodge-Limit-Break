@@ -131,12 +131,12 @@ public class enemyattack : MonoBehaviour
         enemyhpscripts = GetComponent<Enemy>();//敵データ呼び出し
         audioSource = GetComponent<AudioSource>();
         enemyLazer = FindAnyObjectByType<enemylazer>();
-        a1 = GetComponent<enemyattack1>();
-        a2 = GetComponent<enemyattack2>();
-        a3 = GetComponent<enemyattack3>();
-        a4 = GetComponent<enemyattack4>();
-        a5 = GetComponent<enemyattack5>();
-        a6 = GetComponent<enemyattack6>();
+        a1 = FindAnyObjectByType<enemyattack1>();
+        a2 = FindAnyObjectByType<enemyattack2>();
+        a3 = FindAnyObjectByType<enemyattack3>();
+        a4 = FindAnyObjectByType<enemyattack4>();
+        a5 = FindAnyObjectByType<enemyattack5>();
+        a6 = FindAnyObjectByType<enemyattack6>();
         CreatePool();
     }
     // Update is called once per frame
