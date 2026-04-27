@@ -18,7 +18,7 @@ public class enemymissile : MonoBehaviour
 
     void Awake()
     {
-        p = enemymanager.Getp();
+        
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,6 +44,7 @@ public class enemymissile : MonoBehaviour
     void missile()
     {
         Vector3 mPos = new Vector3(transform.position.x, 0.1f, transform.position.z);
+        p = enemymanager.Getp();
         p.transform.position = mPos;
         p.transform.rotation = Quaternion.identity;
         p.SetActive(true);
