@@ -117,10 +117,12 @@ MonoBehaviour:
   sizel: 20
   sizelx: 20
   sizem2: 5
+  sizep: 50
   missile: {fileID: 4324720777855780103, guid: b040ceedd39cb3144b575af3f8f5d77f, type: 3}
   missile4: {fileID: 4324720777855780103, guid: cf4f91f70024de14cb6b5534948c1c88, type: 3}
   lazer: {fileID: 8187081989845006493, guid: d2202b903d7a73747a2f2ff8f57c51b3, type: 3}
   lazerz: {fileID: 9078672028450228241, guid: 7054ebf7e29c702479a397e52a86cec6, type: 3}
+  point: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
 --- !u!114 &3954432314290607981
 MonoBehaviour:
   m_ObjectHideFlags: 0

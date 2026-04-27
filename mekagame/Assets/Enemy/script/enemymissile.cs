@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Splines;
@@ -22,8 +23,8 @@ public class enemymissile : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         enemyAttack = FindAnyObjectByType<enemyattack>();
         Vector3 mPos = new Vector3(transform.position.x, 0.1f, transform.position.z);
-        //enemymanager.Getp(mPos, Quaternion.identity);
-        //p = Instantiate(point, mPos, Quaternion.identity);
+        //GameObject p = enemymanager.Getp();
+        p = Instantiate(point, mPos, Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -44,8 +45,9 @@ public class enemymissile : MonoBehaviour
 
     public void Kill()
     {
-        Destroy(p);
         Destroy(b, 1.2f);
+        Destroy(p);
+        enemyAttack.Returnp(p);
         enemyAttack.Return(gameObject);
     }
 }
