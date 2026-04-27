@@ -46,8 +46,11 @@ public class enemyattack : MonoBehaviour
     private Queue<GameObject> beffectpool = new Queue<GameObject>();
     */
     #endregion
+    [SerializeField] GameObject lazer;//レーザーオブジェクト
+    [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
+    [SerializeField] GameObject lazerz;//レーザーオブジェクト
 
-    
+    /*
     [Header("レーザー効果音")]
     [SerializeField] private AudioClip lazerclip;
     [SerializeField] private AudioClip lazercharge;
@@ -125,12 +128,15 @@ public class enemyattack : MonoBehaviour
     [Header("攻撃プレイヤー座標取得")]
     public float x;
     public float z;
+    */
+    int attack12345;//random値確認用基本使わない
+    int attack123456;//random値確認用基本使わない
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         enemyhpscripts = GetComponent<Enemy>();//敵データ呼び出し
-        audioSource = GetComponent<AudioSource>();
-        enemyLazer = FindAnyObjectByType<enemylazer>();
+        //audioSource = GetComponent<AudioSource>();
+        //enemyLazer = FindAnyObjectByType<enemylazer>();
         a1 = FindAnyObjectByType<enemyattack1>();
         a2 = FindAnyObjectByType<enemyattack2>();
         a3 = FindAnyObjectByType<enemyattack3>();
@@ -453,7 +459,7 @@ public class enemyattack : MonoBehaviour
         }
         else
         {
-            //Attack6();//攻撃Ⅵ
+            a6.Attack6();//攻撃Ⅵ
         }
     }
 
