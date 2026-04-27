@@ -32,24 +32,25 @@ public class enemyattack : MonoBehaviour
     //横レーザー
     public int sizelx = 50;
     private Queue<GameObject> lazerxpool = new Queue<GameObject>();
-    /*
     //攻撃Ⅳミサイル
     public int sizem2 = 10;  
     private Queue<GameObject> missile2pool = new Queue<GameObject>();
-    */
+    
+    
+    //ポイント
+    public int sizep = 50;
+    private Queue<GameObject> pointpool = new Queue<GameObject>();
     /*
-    //爆発ポイント
-    public int sizeb = 50;
-    private Queue<GameObject> bpointpool = new Queue<GameObject>();
     //爆発エフェクト
     public int sizebe = 50;
     private Queue<GameObject> beffectpool = new Queue<GameObject>();
     */
     #endregion
-    [SerializeField] GameObject lazer;//レーザーオブジェクト
     [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
+    [SerializeField] GameObject missile4;//ミサイル攻撃のオブジェクト
+    [SerializeField] GameObject lazer;//レーザーオブジェクト
     [SerializeField] GameObject lazerz;//レーザーオブジェクト
-
+    [SerializeField] GameObject point;//爆発ポイント
     /*
     [Header("レーザー効果音")]
     [SerializeField] private AudioClip lazerclip;
@@ -171,20 +172,21 @@ public class enemyattack : MonoBehaviour
             objlx.SetActive(false);
             lazerxpool.Enqueue(objlx);
         }
-        /*
+        
         for (int i = 0; i < sizem2; i++)
         {
             GameObject objm2 = Instantiate(missile4);
             objm2.SetActive(false);
             missile2pool.Enqueue(objm2);
-        }*/
-        /*
-        for (int i = 0; i < sizeb; i++)
+        }
+        
+        for (int i = 0; i < sizep; i++)
         {
-            GameObject objb = Instantiate(bpoint);
+            GameObject objb = Instantiate(point);
             objb.SetActive(false);
             missile2pool.Enqueue(objb);
         }
+        /*
         for (int i = 0; i < sizebe; i++)
         {
             GameObject objbe = Instantiate(ClustereffectPrefab);
@@ -225,7 +227,6 @@ public class enemyattack : MonoBehaviour
         }
         return Instantiate(lazerz);
     }
-    /*
     public GameObject Getm()
     {
         if (missile2pool.Count > 0)
@@ -235,19 +236,19 @@ public class enemyattack : MonoBehaviour
             return objm2;
         }
         return Instantiate(missile4);
-    }*/
-    /*
-    public GameObject Getb()
+    }
+    
+    public GameObject Getp()
     {
-        if (bpointpool.Count > 0)
+        if (pointpool.Count > 0)
         {
-            GameObject objb = bpointpool.Dequeue();
+            GameObject objb = pointpool.Dequeue();
             objb.SetActive(true);
             return objb;
         }
-        return Instantiate(bpoint);
+        return Instantiate(point);
     }
-    */
+    
     /*
     public GameObject Getbe()
     {
@@ -276,19 +277,19 @@ public class enemyattack : MonoBehaviour
         objlx.SetActive(false);
         lazerxpool.Enqueue(objlx);
     }
-    /*
+    
     public void Returnm(GameObject objm2)
     {
         objm2.SetActive(false);
         missile2pool.Enqueue(objm2);
-    }*/
-    /*
-    public void Returnb(GameObject objb)
-    {
-        objb.SetActive(false);
-        bpointpool.Enqueue(objb);
     }
-    */
+    
+    public void Returnb(GameObject objp)
+    {
+        objp.SetActive(false);
+        pointpool.Enqueue(objp);
+    }
+    
     /*
     public void Returnbe(GameObject objbe)
     {

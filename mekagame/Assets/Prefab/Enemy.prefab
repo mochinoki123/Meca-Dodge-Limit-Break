@@ -114,10 +114,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemyattack
   sizem: 50
-  sizel: 50
-  sizelx: 50
-  lazer: {fileID: 8187081989845006493, guid: d2202b903d7a73747a2f2ff8f57c51b3, type: 3}
+  sizel: 20
+  sizelx: 20
+  sizem2: 5
   missile: {fileID: 4324720777855780103, guid: b040ceedd39cb3144b575af3f8f5d77f, type: 3}
+  missile4: {fileID: 4324720777855780103, guid: cf4f91f70024de14cb6b5534948c1c88, type: 3}
+  lazer: {fileID: 8187081989845006493, guid: d2202b903d7a73747a2f2ff8f57c51b3, type: 3}
   lazerz: {fileID: 9078672028450228241, guid: 7054ebf7e29c702479a397e52a86cec6, type: 3}
 --- !u!114 &3954432314290607981
 MonoBehaviour:
@@ -243,7 +245,7 @@ MonoBehaviour:
   lazercharge: {fileID: 8300000, guid: b2e8cb20f4435a044b9ce2e64390093a, type: 3}
   lazerchargeeffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
   Attack6ms: 5
-  y: 10
+  y: 60
   lazerpointy: 7
   maxLength: -50
   maxLengthx: 50
