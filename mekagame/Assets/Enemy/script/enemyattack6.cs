@@ -20,7 +20,7 @@ public class enemyattack6 : MonoBehaviour
     //攻撃６
     [Header("攻撃Ⅵ")]
     [SerializeField] int Attack6ms = 5;//攻撃６のミサイル数
-    public float y;//攻撃発生高
+    public float y = 60;//攻撃発生高
     Vector3 play;
     [Header("レーザー座標指定・レーザー長指定")]
     [SerializeField] int lazerpointy = 7;
