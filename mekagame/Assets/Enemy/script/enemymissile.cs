@@ -22,7 +22,7 @@ public class enemymissile : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         enemyAttack = FindAnyObjectByType<enemyattack>();
         Vector3 mPos = new Vector3(transform.position.x, 0.1f, transform.position.z);
-        //enemymanager.Getp = (point, mPos, Quaternion.identity);
+        //enemymanager.Getp(mPos, Quaternion.identity);
         //p = Instantiate(point, mPos, Quaternion.identity);
     }
 
