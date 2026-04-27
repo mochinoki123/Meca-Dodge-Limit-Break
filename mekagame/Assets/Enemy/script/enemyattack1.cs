@@ -3,17 +3,17 @@ using UnityEngine;
 public class enemyattack1 : MonoBehaviour
 {
     private enemyattack enemymanager;
-    [SerializeField] float rndm = -11;//フィールドごとの範囲指定マイナス
-    [SerializeField] float rndp = 11;//フィールドごとの範囲指定プラス
+    [SerializeField] float rndm = -9;//フィールドごとの範囲指定マイナス
+    [SerializeField] float rndp = 9;//フィールドごとの範囲指定プラス
     [SerializeField] int attackf = 5;//攻撃の間隔 5
     [SerializeField] int attackpointx = 10;//攻撃発生の横 10
     [SerializeField] int attackpointy = 60;//攻撃発生の高さ 25
     [SerializeField] int attackpointz = 10;//攻撃発生の奥行 10
     //攻撃１
     [Header("攻撃Ⅰ")]
-    [SerializeField] int attack1missile;//攻撃１のミサイル数　6
-    public float groundx;//random値確認用基本使わない
-    public float groundz;//random値確認用基本使わない
+    [SerializeField] int attack1missile= 10;//攻撃１のミサイル数　6
+    float groundx;//random値確認用基本使わない
+    float groundz;//random値確認用基本使わない
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,7 +27,7 @@ public class enemyattack1 : MonoBehaviour
         
     }
 
-    void Attack1()
+    public void Attack1()
     {
         for (int i = 0; i < attack1missile; i++)
         {

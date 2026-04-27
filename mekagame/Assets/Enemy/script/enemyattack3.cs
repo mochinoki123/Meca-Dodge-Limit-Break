@@ -4,12 +4,12 @@ public class enemyattack3 : MonoBehaviour
 {
     private enemyattack enemymanager;
     [Header("UŒ‚‡V")]
-    [SerializeField] int attack3missilex;//UŒ‚‡Vx‚Ì”ÍˆÍİ’è@10
-    [SerializeField] int attack3missiley;//UŒ‚‡V+‚Ì”ÍˆÍİ’è@10
-    [SerializeField] int attackpointx = 10;//UŒ‚”­¶‚Ì‰¡ 10
-    [SerializeField] int attackpointy = 60;//UŒ‚”­¶‚Ì‚‚³ 25
-    [SerializeField] int attackpointz = 10;//UŒ‚”­¶‚Ì‰œs 10
-    public float attackbunki;//random’lŠm”F—pŠî–{g‚í‚È‚¢
+    [SerializeField] int attack3missilex = 6;//UŒ‚‡Vx‚Ì”ÍˆÍİ’è
+    [SerializeField] int attack3missiley = 6;//UŒ‚‡V+‚Ì”ÍˆÍİ’è
+    [SerializeField] int attackpointx = 10;//UŒ‚”­¶‚Ì‰¡
+    [SerializeField] int attackpointy = 60;//UŒ‚”­¶‚Ì‚‚³
+    [SerializeField] int attackpointz = 10;//UŒ‚”­¶‚Ì‰œs
+    float attackbunki;//random’lŠm”F—pŠî–{g‚í‚È‚¢
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,7 +24,7 @@ public class enemyattack3 : MonoBehaviour
     }
 
     //-----UŒ‚‡V-----
-    void Attack3()
+    public void Attack3()
     {
         attackbunki = Random.Range(0f, 1f);//UŒ‚•ªŠò
 

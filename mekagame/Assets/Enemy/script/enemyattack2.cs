@@ -11,7 +11,7 @@ public class enemyattack2 : MonoBehaviour
     private enemyattack enemymanager;
     //攻撃２
     [Header("攻撃Ⅱ")]
-    [SerializeField] int attack2lazerz;//50
+    [SerializeField] int attack2lazerz = 50;
     [Header("レーザー効果音")]
     [SerializeField] private AudioClip lazerclip;
     [SerializeField] private AudioClip lazercharge;
@@ -21,15 +21,15 @@ public class enemyattack2 : MonoBehaviour
     [Header("レーザープレハブ")]
     [SerializeField] GameObject lazerattackpoint;//レーザー発生ポイントオブジェクト
     [Header("レーザー座標指定・レーザー長指定")]
-    [SerializeField] int lazerpointy = 7; // 7
+    [SerializeField] int lazerpointy = 7;
     [SerializeField] float maxLength = -50f;   // 最終的な長さ
     [SerializeField] float maxLengthx = 50f;   // 最終的な長さ
     [SerializeField] float extendSpeed = 100f;  // 伸びるスピード
     enemylazer enemyLazer;
-    [SerializeField] float rndm = -11;//フィールドごとの範囲指定マイナス
-    [SerializeField] float rndp = 11;//フィールドごとの範囲指定プラス
-    public float groundx;//random値確認用基本使わない
-    public float groundz;//random値確認用基本使わない
+    [SerializeField] float rndm = -9;//フィールドごとの範囲指定マイナス
+    [SerializeField] float rndp = 9;//フィールドごとの範囲指定プラス
+    float groundx;//random値確認用基本使わない
+    float groundz;//random値確認用基本使わない
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -46,7 +46,7 @@ public class enemyattack2 : MonoBehaviour
     }
 
     //-----攻撃Ⅱ-----
-    void Attack2()
+    public void Attack2()
     {
         groundx = Random.Range(rndm, rndp);//地面の広さによって変更
         groundz = Random.Range(rndm, rndp);//地面の広さによって変更

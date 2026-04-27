@@ -365,23 +365,23 @@ public class enemyattack : MonoBehaviour
         */
         if (attack12345 <= 20)
         {
-            //Attack1();//UŒ‚‡T
+            a1.Attack1();//UŒ‚‡T
         }
         else if (attack12345 <= 40)
         {
-            //Attack2();//UŒ‚‡U
+            a2.Attack2();//UŒ‚‡U
         }
         else if (attack12345 <= 60)
         {
-            //Attack3();//UŒ‚‡V
+            a3.Attack3();//UŒ‚‡V
         }
         else if (attack12345 <= 80)
         {
-            //Attack4();//UŒ‚‡W
+            a4.Attack4();//UŒ‚‡W
         }
         else
         {
-            //Attack5();//UŒ‚‡X
+            a5.Attack5();//UŒ‚‡X
         }
     }
 
@@ -433,23 +433,23 @@ public class enemyattack : MonoBehaviour
         */
         if (attack123456 <= 16)
         {
-            //Attack1();//UŒ‚‡T
+            a1.Attack1();//UŒ‚‡T
         }
         else if (attack123456 <= 32)
         {
-            //Attack2();//UŒ‚‡U
+            a2.Attack2();//UŒ‚‡U
         }
         else if (attack123456 <= 48)
         {
-            //Attack3();//UŒ‚‡V
+            a3.Attack3();//UŒ‚‡V
         }
         else if (attack123456 <= 64)
         {
-            //Attack4();//UŒ‚‡W
+            a4.Attack4();//UŒ‚‡W
         }
         else if (attack123456 <= 80)
         {
-            //Attack5();//UŒ‚‡X
+            a5.Attack5();//UŒ‚‡X
         }
         else
         {
@@ -483,27 +483,27 @@ public class enemyattack : MonoBehaviour
     {
         if (attack123456 <= 16)
         {
-            //Attack1();//UŒ‚‡T
+            a1.Attack1();//UŒ‚‡T
         }
         else if (attack123456 <= 32)
         {
-            //Attack2();//UŒ‚‡U
+            a2.Attack2();//UŒ‚‡U
         }
         else if (attack123456 <= 48)
         {
-            //Attack3();//UŒ‚‡V
+            a3.Attack3();//UŒ‚‡V
         }
         else if (attack123456 <= 64)
         {
-            //Attack4();//UŒ‚‡W
+            a4.Attack4();//UŒ‚‡W
         }
         else if (attack123456 <= 80)
         {
-            //Attack5();//UŒ‚‡X
+            a5.Attack5();//UŒ‚‡X
         }
         else
         {
-            //Attack6();//UŒ‚‡Y
+            a6.Attack6();//UŒ‚‡Y
         }
     }
     /*

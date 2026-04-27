@@ -9,7 +9,7 @@ public class enemyattack6 : MonoBehaviour
     private enemyattack enemymanager;
     enemylazer enemyLazer;
     [Header("レーザープレハブ")]
-    [SerializeField] int attack2lazerz;//50
+    [SerializeField] int attack2lazerz = 50;
     [SerializeField] GameObject lazerattackpoint;//レーザー発生ポイントオブジェクト
     [Header("レーザー効果音")]
     [SerializeField] private AudioClip lazerclip;
@@ -19,19 +19,18 @@ public class enemyattack6 : MonoBehaviour
     [SerializeField] GameObject lazerchargeeffect;//レーザーチャージエフェクト
     //攻撃６
     [Header("攻撃Ⅵ")]
-    [SerializeField] int Attack6ms;//攻撃６のミサイル数 5
+    [SerializeField] int Attack6ms = 5;//攻撃６のミサイル数
     public float y;//攻撃発生高
     Vector3 play;
     [Header("レーザー座標指定・レーザー長指定")]
-    [SerializeField] int lazerpointy = 7; // 7
+    [SerializeField] int lazerpointy = 7;
     [SerializeField] float maxLength = -50f;   // 最終的な長さ
     [SerializeField] float maxLengthx = 50f;   // 最終的な長さ
     [SerializeField] float extendSpeed = 100f;  // 伸びるスピード
     //プレイヤー座標取得
-    [Header("攻撃プレイヤー座標取得")]
-    public float x;
-    public float z;
-    public float attackbunki;//random値確認用基本使わない
+    float x;
+    float z;
+    float attackbunki;//random値確認用基本使わない
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,7 +46,7 @@ public class enemyattack6 : MonoBehaviour
         
     }
     //-----攻撃Ⅵ-----
-    void Attack6()
+    public void Attack6()
     {
         StartCoroutine(Attack6missileCoroutine());//追尾攻撃スタート
         attackbunki = Random.Range(0, 1);//レーザー攻撃分岐

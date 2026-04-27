@@ -8,7 +8,7 @@ public class enemyattack5 : MonoBehaviour
     private enemyattack enemymanager;
     enemylazer enemyLazer;
     [Header("レーザープレハブ")]
-    [SerializeField] int attack2lazerz;//50
+    [SerializeField] int attack2lazerz = 50;
     [SerializeField] GameObject lazerattackpoint;//レーザー発生ポイントオブジェクト
     [Header("レーザー効果音")]
     [SerializeField] private AudioClip lazerclip;
@@ -20,18 +20,18 @@ public class enemyattack5 : MonoBehaviour
     //攻撃Ⅴ
     [SerializeField] GameObject lazerz;//レーザーオブジェクト
     [SerializeField] GameObject lazerattackpointz;//レーザー発生ポイントオブジェクト
-    [SerializeField] int Attack5ls;//攻撃５のレーザー数 10
+    [SerializeField] int Attack5ls = 10;//攻撃５のレーザー数
     [SerializeField] public float l5x = 60;//ｘ攻撃開始地点・範囲
     [SerializeField] public float l5z = 50;//ｚ攻撃開始地点・範囲
-    [SerializeField] public float k;//13 攻撃数
-    [SerializeField] int attack5lx;//-100
+    [SerializeField] public float k = 13;// 攻撃数
+    [SerializeField] int attack5lx = -100;
                                    //レーザーy座標関係
     [Header("レーザー座標指定・レーザー長指定")]
-    [SerializeField] int lazerpointy = 7; // 7
+    [SerializeField] int lazerpointy = 7; // 
     [SerializeField] float maxLength = -50f;   // 最終的な長さ
     [SerializeField] float maxLengthx = 50f;   // 最終的な長さ
     [SerializeField] float extendSpeed = 100f;  // 伸びるスピード
-    public float attackbunki;//random値確認用基本使わない
+    float attackbunki;//random値確認用基本使わない
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,7 +47,7 @@ public class enemyattack5 : MonoBehaviour
         
     }
     //-----攻撃Ⅴ-----
-    void Attack5()
+    public void Attack5()
     {
         attackbunki = Random.Range(0f, 1f);//攻撃分岐
 
