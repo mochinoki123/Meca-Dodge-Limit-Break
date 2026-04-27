@@ -35,6 +35,7 @@ public class enemyattack2 : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         enemyLazer = FindAnyObjectByType<enemylazer>();
+        enemymanager = GetComponent<enemyattack>();
         Invoke("Attack2", 5f);
     }
 

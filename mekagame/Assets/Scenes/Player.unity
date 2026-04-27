@@ -1868,6 +1868,59 @@ MonoBehaviour:
   rndm: -9
   rndp: 9
   ap: 0
+--- !u!114 &1226156562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226156551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ab1abd4959c8743bf935a8ed0020b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack5
+  attack2lazerz: 50
+  lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
+  lazerclip: {fileID: 8300000, guid: 143ec0291adf7674090e4b17ff8f8311, type: 3}
+  lazercharge: {fileID: 8300000, guid: b2e8cb20f4435a044b9ce2e64390093a, type: 3}
+  lazerchargeeffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
+  lazerz: {fileID: 9078672028450228241, guid: 7054ebf7e29c702479a397e52a86cec6, type: 3}
+  lazerattackpointz: {fileID: 8819450423478130821, guid: 7b9408938b2e5e64cbe6fdcad059d5c3, type: 3}
+  Attack5ls: 10
+  l5x: 60
+  l5z: 50
+  k: -13
+  attack5lx: -100
+  lazerpointy: 7
+  maxLength: -50
+  maxLengthx: 50
+  extendSpeed: 100
+  attackbunki: 0
+--- !u!114 &1226156563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226156551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 262a51890886776498bd50ccd9a9e09f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack6
+  attack2lazerz: 0
+  lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
+  lazerclip: {fileID: 8300000, guid: 143ec0291adf7674090e4b17ff8f8311, type: 3}
+  lazercharge: {fileID: 8300000, guid: b2e8cb20f4435a044b9ce2e64390093a, type: 3}
+  lazerchargeeffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
+  Attack6ms: 5
+  y: 60
+  lazerpointy: 7
+  maxLength: -50
+  maxLengthx: 50
+  extendSpeed: 100
+  attackbunki: 0
 --- !u!1 &1228630988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3175,6 +3228,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 94001505024127875, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       insertIndex: 6
       addedObject: {fileID: 1226156558}
+    - targetCorrespondingSourceObject: {fileID: 94001505024127875, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 1226156562}
+    - targetCorrespondingSourceObject: {fileID: 94001505024127875, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      insertIndex: 8
+      addedObject: {fileID: 1226156563}
   m_SourcePrefab: {fileID: 100100000, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
 --- !u!1 &1852615408
 GameObject:
