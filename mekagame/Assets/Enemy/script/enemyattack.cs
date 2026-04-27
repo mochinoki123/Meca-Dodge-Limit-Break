@@ -14,40 +14,49 @@ public class enemyattack : MonoBehaviour
 {
     //Enemyスクリプト
     private Enemy enemyhpscripts;
+    enemyattack1 a1;
+    enemyattack2 a2;
+    enemyattack3 a3;
+    enemyattack4 a4;
+    enemyattack5 a5;
+    enemyattack6 a6;
+
     #region オブジェクトプール
     [Header("プール数")]
     //ミサイル
     public int sizem = 50;
     private Queue<GameObject> missilepool = new Queue<GameObject>();
     //縦レーザー
-    public int sizel = 50;
+    public int sizel = 20;
     private Queue<GameObject> lazerpool = new Queue<GameObject>();
     //横レーザー
-    public int sizelx = 50;
+    public int sizelx = 20;
     private Queue<GameObject> lazerxpool = new Queue<GameObject>();
-    /*
     //攻撃Ⅳミサイル
     public int sizem2 = 10;  
     private Queue<GameObject> missile2pool = new Queue<GameObject>();
-    */
+    
+    
+    //ポイント
+    public int sizep = 50;
+    private Queue<GameObject> pointpool = new Queue<GameObject>();
     /*
-    //爆発ポイント
-    public int sizeb = 50;
-    private Queue<GameObject> bpointpool = new Queue<GameObject>();
     //爆発エフェクト
     public int sizebe = 50;
     private Queue<GameObject> beffectpool = new Queue<GameObject>();
     */
     #endregion
-
-    #region 効果音
+    [SerializeField] GameObject missile;//ミサイル攻撃のオブジェクト
+    [SerializeField] GameObject missile4;//ミサイル攻撃のオブジェクト
+    [SerializeField] GameObject lazer;//レーザーオブジェクト
+    [SerializeField] GameObject lazerz;//レーザーオブジェクト
+    [SerializeField] GameObject point;//爆発ポイント
+    /*
     [Header("レーザー効果音")]
     [SerializeField] private AudioClip lazerclip;
     [SerializeField] private AudioClip lazercharge;
     private AudioSource audioSource;
-    #endregion
     //プレハブ
-    #region プレハブ
     [Header("爆発ポイントプレハブ")]
     [SerializeField] GameObject bpoint;//爆発ポイント
     [Header("ミサイルプレハブ")]
@@ -63,7 +72,6 @@ public class enemyattack : MonoBehaviour
     [Header("エフェクト")]
     [SerializeField] GameObject lazerchargeeffect;//レーザーチャージエフェクト
     [SerializeField] GameObject ClustereffectPrefab;//爆発のエフェクト
-    #endregion
     [Header("攻撃範囲指定")]
     [SerializeField] float rndm = -9;//フィールドごとの範囲指定マイナス
     [SerializeField] float rndp = 9;//フィールドごとの範囲指定プラス
@@ -121,12 +129,21 @@ public class enemyattack : MonoBehaviour
     [Header("攻撃プレイヤー座標取得")]
     public float x;
     public float z;
+    */
+    int attack12345;//random値確認用基本使わない
+    int attack123456;//random値確認用基本使わない
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         enemyhpscripts = GetComponent<Enemy>();//敵データ呼び出し
-        audioSource = GetComponent<AudioSource>();
-        enemyLazer = FindAnyObjectByType<enemylazer>();
+        //audioSource = GetComponent<AudioSource>();
+        //enemyLazer = FindAnyObjectByType<enemylazer>();
+        a1 = FindAnyObjectByType<enemyattack1>();
+        a2 = FindAnyObjectByType<enemyattack2>();
+        a3 = FindAnyObjectByType<enemyattack3>();
+        a4 = FindAnyObjectByType<enemyattack4>();
+        a5 = FindAnyObjectByType<enemyattack5>();
+        a6 = FindAnyObjectByType<enemyattack6>();
         CreatePool();
     }
     // Update is called once per frame
@@ -155,20 +172,21 @@ public class enemyattack : MonoBehaviour
             objlx.SetActive(false);
             lazerxpool.Enqueue(objlx);
         }
-        /*
+        
         for (int i = 0; i < sizem2; i++)
         {
             GameObject objm2 = Instantiate(missile4);
             objm2.SetActive(false);
             missile2pool.Enqueue(objm2);
-        }*/
-        /*
-        for (int i = 0; i < sizeb; i++)
-        {
-            GameObject objb = Instantiate(bpoint);
-            objb.SetActive(false);
-            missile2pool.Enqueue(objb);
         }
+        
+        for (int i = 0; i < sizep; i++)
+        {
+            GameObject objp = Instantiate(point);
+            objp.SetActive(false);
+            pointpool.Enqueue(objp);
+        }
+        /*
         for (int i = 0; i < sizebe; i++)
         {
             GameObject objbe = Instantiate(ClustereffectPrefab);
@@ -209,7 +227,6 @@ public class enemyattack : MonoBehaviour
         }
         return Instantiate(lazerz);
     }
-    /*
     public GameObject Getm()
     {
         if (missile2pool.Count > 0)
@@ -219,19 +236,19 @@ public class enemyattack : MonoBehaviour
             return objm2;
         }
         return Instantiate(missile4);
-    }*/
-    /*
-    public GameObject Getb()
-    {
-        if (bpointpool.Count > 0)
-        {
-            GameObject objb = bpointpool.Dequeue();
-            objb.SetActive(true);
-            return objb;
-        }
-        return Instantiate(bpoint);
     }
-    */
+    
+    public GameObject Getp()
+    {
+        if (pointpool.Count > 0)
+        {
+            GameObject objp = pointpool.Dequeue();
+            objp.SetActive(true);
+            return objp;
+        }
+        return Instantiate(point);
+    }
+    
     /*
     public GameObject Getbe()
     {
@@ -260,19 +277,19 @@ public class enemyattack : MonoBehaviour
         objlx.SetActive(false);
         lazerxpool.Enqueue(objlx);
     }
-    /*
+    
     public void Returnm(GameObject objm2)
     {
         objm2.SetActive(false);
         missile2pool.Enqueue(objm2);
-    }*/
-    /*
-    public void Returnb(GameObject objb)
-    {
-        objb.SetActive(false);
-        bpointpool.Enqueue(objb);
     }
-    */
+    
+    public void Returnp(GameObject objp)
+    {
+        objp.SetActive(false);
+        pointpool.Enqueue(objp);
+    }
+    
     /*
     public void Returnbe(GameObject objbe)
     {
@@ -355,23 +372,23 @@ public class enemyattack : MonoBehaviour
         */
         if (attack12345 <= 20)
         {
-            //Attack1();//攻撃Ⅰ
+            a1.Attack1();//攻撃Ⅰ
         }
         else if (attack12345 <= 40)
         {
-            //Attack2();//攻撃Ⅱ
+            a2.Attack2();//攻撃Ⅱ
         }
         else if (attack12345 <= 60)
         {
-            //Attack3();//攻撃Ⅲ
+            a3.Attack3();//攻撃Ⅲ
         }
         else if (attack12345 <= 80)
         {
-            //Attack4();//攻撃Ⅳ
+            a4.Attack4();//攻撃Ⅳ
         }
         else
         {
-            Attack5();//攻撃Ⅴ
+            a5.Attack5();//攻撃Ⅴ
         }
     }
 
@@ -423,27 +440,27 @@ public class enemyattack : MonoBehaviour
         */
         if (attack123456 <= 16)
         {
-            //Attack1();//攻撃Ⅰ
+            a1.Attack1();//攻撃Ⅰ
         }
         else if (attack123456 <= 32)
         {
-            //Attack2();//攻撃Ⅱ
+            a2.Attack2();//攻撃Ⅱ
         }
         else if (attack123456 <= 48)
         {
-            //Attack3();//攻撃Ⅲ
+            a3.Attack3();//攻撃Ⅲ
         }
         else if (attack123456 <= 64)
         {
-            //Attack4();//攻撃Ⅳ
+            a4.Attack4();//攻撃Ⅳ
         }
         else if (attack123456 <= 80)
         {
-            Attack5();//攻撃Ⅴ
+            a5.Attack5();//攻撃Ⅴ
         }
         else
         {
-            Attack6();//攻撃Ⅵ
+            a6.Attack6();//攻撃Ⅵ
         }
     }
 
@@ -473,27 +490,27 @@ public class enemyattack : MonoBehaviour
     {
         if (attack123456 <= 16)
         {
-            //Attack1();//攻撃Ⅰ
+            a1.Attack1();//攻撃Ⅰ
         }
         else if (attack123456 <= 32)
         {
-            //Attack2();//攻撃Ⅱ
+            a2.Attack2();//攻撃Ⅱ
         }
         else if (attack123456 <= 48)
         {
-            //Attack3();//攻撃Ⅲ
+            a3.Attack3();//攻撃Ⅲ
         }
         else if (attack123456 <= 64)
         {
-            //Attack4();//攻撃Ⅳ
+            a4.Attack4();//攻撃Ⅳ
         }
         else if (attack123456 <= 80)
         {
-            Attack5();//攻撃Ⅴ
+            a5.Attack5();//攻撃Ⅴ
         }
         else
         {
-            Attack6();//攻撃Ⅵ
+            a6.Attack6();//攻撃Ⅵ
         }
     }
     /*
@@ -752,6 +769,7 @@ public class enemyattack : MonoBehaviour
         //Debug.Log("攻撃Ⅳ");
     }*/
 
+    /*
     //-----攻撃Ⅴ-----
     void Attack5()
     {
@@ -791,6 +809,7 @@ public class enemyattack : MonoBehaviour
 
             yield return new WaitForSeconds(2f);
         }*/
+    /*
     }
 
     //攻撃Ⅴ横レーザー
@@ -863,7 +882,7 @@ public class enemyattack : MonoBehaviour
 
     //    Returnl(lazerObj);*/
     //}
-
+    /*
     //攻撃Ⅴ横レーザーポイント
     void Attack5lpz()
     {
@@ -905,8 +924,9 @@ public class enemyattack : MonoBehaviour
     //    // 最終値を保証
     //    //scale.x = maxLength;
     //    Returnlx(lazerObjx);
-    //}
+    //}*/
 
+    /*
     //-----攻撃Ⅵ-----
     void Attack6()
     {
@@ -988,7 +1008,7 @@ public class enemyattack : MonoBehaviour
     //-----攻撃ⅥパターンⅠ-----
 
     //攻撃ⅥレーザーポイントパターンⅠ右
-
+    /*
     void Attack6lazerppoint()
     {
         audioSource.PlayOneShot(lazercharge);
@@ -1008,6 +1028,7 @@ public class enemyattack : MonoBehaviour
         StartCoroutine(ExtendLazer6p1(Attack6lazerp));
         yield return new WaitForSeconds(1.3f);
         */
+    /*
         audioSource.PlayOneShot(lazerclip);
 
         GameObject lazer6p1 = Getl();
@@ -1054,6 +1075,7 @@ public class enemyattack : MonoBehaviour
         StartCoroutine(ExtendLazer6m2(Attack6lazerm2));
         Destroy(Attack6lazerm2, 1f);
         */
+    /*
         audioSource.PlayOneShot(lazerclip);
         GameObject lazer6m2 = Getl();
 
@@ -1096,6 +1118,7 @@ public class enemyattack : MonoBehaviour
         audioSource.PlayOneShot(lazerclip);
         GameObject Attack6lazerm = Instantiate(lazer, new Vector3(-30, lazerpointy, attack2lazerz), Quaternion.identity);//発射
         StartCoroutine(ExtendLazer6m1(Attack6lazerm));*/
+    /*
         audioSource.PlayOneShot(lazerclip);
         GameObject lazer6m1 = Getl();
 
@@ -1142,6 +1165,8 @@ public class enemyattack : MonoBehaviour
         GameObject Attack6lazerp2 = Instantiate(lazer, new Vector3(30, lazerpointy, attack2lazerz), Quaternion.identity);//発射
         StartCoroutine(ExtendLazer6p2(Attack6lazerp2));
         //Debug.Log("攻撃Ⅵ パターン2");*/
+    //
+    /*
         audioSource.PlayOneShot(lazerclip);
 
         GameObject lazer6p2 = Getl();
@@ -1167,4 +1192,4 @@ public class enemyattack : MonoBehaviour
 
         Returnl(lazer6p2);
     }
-}
+}*/

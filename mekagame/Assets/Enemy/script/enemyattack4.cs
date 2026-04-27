@@ -4,16 +4,16 @@ public class enemyattack4 : MonoBehaviour
 {
     private enemyattack enemymanager;
     [Header("攻撃Ⅳ")]
-    [SerializeField] int attack4missile;//攻撃４のミサイル範囲指定　10
+    [SerializeField] int attack4missile = 10;//攻撃４のミサイル範囲指定
     [SerializeField] GameObject missile4;//ミサイル攻撃のオブジェクト
     [Header("爆発ポイントプレハブ")]
     [SerializeField] GameObject bpoint;//爆発ポイント
     [SerializeField] GameObject ClustereffectPrefab;//爆発のエフェクト
-    [SerializeField] int attackpointy;//攻撃発生の高さ 25
+    [SerializeField] int attackpointy = 60;//攻撃発生の高さ
     [Header("攻撃範囲指定")]
     [SerializeField] float rndm = -9;//フィールドごとの範囲指定マイナス
     [SerializeField] float rndp = 9;//フィールドごとの範囲指定プラス
-    public float ap;//random値確認用基本使わない
+    float ap;//random値確認用基本使わない
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,16 +29,16 @@ public class enemyattack4 : MonoBehaviour
 
     //-----攻撃Ⅳ-----
 
-    void Attack4()
+    public void Attack4()
     {
         ap = Random.Range(rndm, rndp);//地面の広さによって変更
-        /*
-        GameObject objm4 = Getm();
+        
+        GameObject objm4 = enemymanager.Getm();
         objm4.transform.position = new Vector3(ap, attackpointy, ap);
         objm4.transform.rotation = Quaternion.Euler(180, 0, 0);
-        objm4.SetActive(true);*/
+        objm4.SetActive(true);
 
-        Instantiate(missile4, new Vector3(ap, attackpointy, ap), Quaternion.Euler(180, 0, 0));//初弾
+      //Instantiate(missile4, new Vector3(ap, attackpointy, ap), Quaternion.Euler(180, 0, 0));//初弾
         Invoke("Attack4b", 1f);
     }
 

@@ -1427,17 +1427,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1111768109 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8562474437230650541, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
-  m_PrefabInstance: {fileID: 1755174194}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226156551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49ba6d8931aaf974f9849c825a46cd54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1140864147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,95 +1768,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210531064}
   m_CullTransparentMesh: 1
---- !u!1 &1226156551 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 94001505024127875, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
-  m_PrefabInstance: {fileID: 1755174194}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1226156555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226156551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1db8e5359395b442a13de805b0cb07e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::enemyattack1
-  rndm: -9
-  rndp: 9
-  attackf: 5
-  attackpointx: 10
-  attackpointy: 60
-  attackpointz: 10
-  attack1missile: 10
-  groundx: 0
-  groundz: 0
---- !u!114 &1226156556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226156551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7374bfcf933e6e94a8856e7f1f42844e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::enemyattack2
-  attack2lazerz: 50
-  lazerclip: {fileID: 8300000, guid: 143ec0291adf7674090e4b17ff8f8311, type: 3}
-  lazercharge: {fileID: 8300000, guid: b2e8cb20f4435a044b9ce2e64390093a, type: 3}
-  lazerchargeeffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
-  lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
-  lazerpointy: 7
-  maxLength: -50
-  maxLengthx: 50
-  extendSpeed: 100
-  rndm: -11
-  rndp: 11
-  groundx: 0
-  groundz: 0
---- !u!114 &1226156557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226156551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce8f7126801a00d418d5f67d41cbef13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::enemyattack3
-  attack3missilex: 6
-  attack3missiley: 6
-  attackpointx: 10
-  attackpointy: 60
-  attackpointz: 10
-  attackbunki: 0
---- !u!114 &1226156558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226156551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfecd00fc8ffe3e46828941d2802df20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::enemyattack4
-  attack4missile: 10
-  missile4: {fileID: 4324720777855780103, guid: cf4f91f70024de14cb6b5534948c1c88, type: 3}
-  bpoint: {fileID: 6062530079735253497, guid: 000049e108e3c32489d2d889d5975210, type: 3}
-  ClustereffectPrefab: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
-  attackpointy: 60
-  rndm: -9
-  rndp: 9
-  ap: 0
 --- !u!1 &1228630988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,19 +3062,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4426586580742010911, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 94001505024127875, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 1226156555}
-    - targetCorrespondingSourceObject: {fileID: 94001505024127875, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 1226156556}
-    - targetCorrespondingSourceObject: {fileID: 94001505024127875, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 1226156557}
-    - targetCorrespondingSourceObject: {fileID: 94001505024127875, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
-      insertIndex: 6
-      addedObject: {fileID: 1226156558}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
 --- !u!1 &1852615408
 GameObject:
@@ -3621,7 +3509,7 @@ PrefabInstance:
     - target: {fileID: 8288794723561334125, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 1111768109}
+      objectReference: {fileID: 0}
     - target: {fileID: 8288794723561334125, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: enemyPos
       value: 

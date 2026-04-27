@@ -9,9 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4512031061145126539}
-  - component: {fileID: 5303099277553830569}
-  - component: {fileID: 8562474437230650541}
-  - component: {fileID: 1184330210886708290}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -35,83 +32,233 @@ Transform:
   - {fileID: 618362546216865854}
   m_Father: {fileID: 7484231396979750424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5303099277553830569
+--- !u!1 &788469581091682507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7484231396979750424}
+  - component: {fileID: -8461596928464388786}
+  - component: {fileID: -6960323230353872841}
+  - component: {fileID: 359795321045862813}
+  - component: {fileID: 3954432314290607981}
+  - component: {fileID: -5911997119328644906}
+  - component: {fileID: 5541819859851561438}
+  - component: {fileID: -191212177364559174}
+  - component: {fileID: -7606214123860960135}
+  - component: {fileID: 4734707873542018438}
+  - component: {fileID: -6565724742502022513}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7484231396979750424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788469581091682507}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.46, z: 25.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4512031061145126539}
+  - {fileID: 5193961018637650117}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8461596928464388786
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94001505024127875}
+  m_GameObject: {fileID: 788469581091682507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de9387eedad5c04e8c9f8bcbba8a5ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPosi: 0
+--- !u!114 &-6960323230353872841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788469581091682507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ba6d8931aaf974f9849c825a46cd54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  maxHP: 1000
+--- !u!114 &359795321045862813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788469581091682507}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7bf0c0b7d06ec7c45969475ff0939424, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack
   sizem: 50
-  sizel: 50
-  sizelx: 50
-  lazerclip: {fileID: 8300000, guid: 143ec0291adf7674090e4b17ff8f8311, type: 3}
-  lazercharge: {fileID: 8300000, guid: b2e8cb20f4435a044b9ce2e64390093a, type: 3}
-  bpoint: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
+  sizel: 20
+  sizelx: 20
+  sizem2: 5
+  sizep: 50
   missile: {fileID: 4324720777855780103, guid: b040ceedd39cb3144b575af3f8f5d77f, type: 3}
   missile4: {fileID: 4324720777855780103, guid: cf4f91f70024de14cb6b5534948c1c88, type: 3}
   lazer: {fileID: 8187081989845006493, guid: d2202b903d7a73747a2f2ff8f57c51b3, type: 3}
-  lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
   lazerz: {fileID: 9078672028450228241, guid: 7054ebf7e29c702479a397e52a86cec6, type: 3}
-  lazerattackpointz: {fileID: 8819450423478130821, guid: 7b9408938b2e5e64cbe6fdcad059d5c3, type: 3}
-  lazerchargeeffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
-  ClustereffectPrefab: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
-  rndm: -11
-  rndp: 11
+  point: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
+--- !u!114 &3954432314290607981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788469581091682507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1db8e5359395b442a13de805b0cb07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack1
+  rndm: -9
+  rndp: 9
   attackf: 5
   attackpointx: 10
   attackpointy: 60
   attackpointz: 10
+  attack1missile: 10
+--- !u!114 &-5911997119328644906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788469581091682507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7374bfcf933e6e94a8856e7f1f42844e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack2
+  attack2lazerz: 50
+  lazerclip: {fileID: 8300000, guid: 143ec0291adf7674090e4b17ff8f8311, type: 3}
+  lazercharge: {fileID: 8300000, guid: b2e8cb20f4435a044b9ce2e64390093a, type: 3}
+  lazerchargeeffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
+  lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
   lazerpointy: 7
   maxLength: -50
   maxLengthx: 50
-  extendSpeed: 80
-  attack1missile: 10
-  attack2lazerz: 50
+  extendSpeed: 100
+  rndm: -9
+  rndp: 9
+--- !u!114 &5541819859851561438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788469581091682507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8f7126801a00d418d5f67d41cbef13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack3
   attack3missilex: 6
   attack3missiley: 6
+  attackpointx: 10
+  attackpointy: 60
+  attackpointz: 10
+--- !u!114 &-191212177364559174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788469581091682507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfecd00fc8ffe3e46828941d2802df20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack4
   attack4missile: 10
+  missile4: {fileID: 4324720777855780103, guid: cf4f91f70024de14cb6b5534948c1c88, type: 3}
+  bpoint: {fileID: 6062530079735253497, guid: 000049e108e3c32489d2d889d5975210, type: 3}
+  ClustereffectPrefab: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
+  attackpointy: 60
+  rndm: -9
+  rndp: 9
+--- !u!114 &-7606214123860960135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788469581091682507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ab1abd4959c8743bf935a8ed0020b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack5
+  attack2lazerz: 50
+  lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
+  lazerclip: {fileID: 8300000, guid: 143ec0291adf7674090e4b17ff8f8311, type: 3}
+  lazercharge: {fileID: 8300000, guid: b2e8cb20f4435a044b9ce2e64390093a, type: 3}
+  lazerchargeeffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
+  lazerz: {fileID: 9078672028450228241, guid: 7054ebf7e29c702479a397e52a86cec6, type: 3}
+  lazerattackpointz: {fileID: 8819450423478130821, guid: 7b9408938b2e5e64cbe6fdcad059d5c3, type: 3}
   Attack5ls: 10
   l5x: 60
   l5z: 50
   k: 13
   attack5lx: -100
-  Attack6ms: 5
-  y: 60
-  attackbunki: 0
-  attack123: 0
-  attack12345: 0
-  attack123456: 0
-  ap: 0
-  groundx: 0
-  groundz: 0
-  x: 0
-  z: 0
---- !u!114 &8562474437230650541
+  lazerpointy: 7
+  maxLength: -50
+  maxLengthx: 50
+  extendSpeed: 100
+--- !u!114 &4734707873542018438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94001505024127875}
+  m_GameObject: {fileID: 788469581091682507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49ba6d8931aaf974f9849c825a46cd54, type: 3}
+  m_Script: {fileID: 11500000, guid: 262a51890886776498bd50ccd9a9e09f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 1000
---- !u!82 &1184330210886708290
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack6
+  attack2lazerz: 50
+  lazerattackpoint: {fileID: 6435778857574417295, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
+  lazerclip: {fileID: 8300000, guid: 143ec0291adf7674090e4b17ff8f8311, type: 3}
+  lazercharge: {fileID: 8300000, guid: b2e8cb20f4435a044b9ce2e64390093a, type: 3}
+  lazerchargeeffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
+  Attack6ms: 5
+  y: 60
+  lazerpointy: 7
+  maxLength: -50
+  maxLengthx: 50
+  extendSpeed: 100
+--- !u!82 &-6565724742502022513
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94001505024127875}
+  m_GameObject: {fileID: 788469581091682507}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -202,53 +349,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &788469581091682507
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7484231396979750424}
-  - component: {fileID: -8461596928464388786}
-  m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7484231396979750424
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788469581091682507}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.46, z: 25.66}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4512031061145126539}
-  - {fileID: 5193961018637650117}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8461596928464388786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788469581091682507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4de9387eedad5c04e8c9f8bcbba8a5ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyPosi: 0
 --- !u!1001 &3507483374986432653
 PrefabInstance:
   m_ObjectHideFlags: 0
