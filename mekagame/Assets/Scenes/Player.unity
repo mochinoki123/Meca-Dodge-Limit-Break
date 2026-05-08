@@ -1393,6 +1393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 300181914}
   - component: {fileID: 300181913}
+  - component: {fileID: 300181915}
   m_Layer: 0
   m_Name: TimelineManager
   m_TagString: Untagged
@@ -1409,7 +1410,7 @@ PlayableDirector:
   m_GameObject: {fileID: 300181912}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
   m_InitialState: 1
   m_WrapMode: 1
   m_DirectorUpdateMode: 1
@@ -1418,6 +1419,14 @@ PlayableDirector:
   - key: {fileID: 5350937397943508327, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
     value: {fileID: 124600755}
   - key: {fileID: -7598005347310057175, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
+    value: {fileID: 124600755}
+  - key: {fileID: -7713625930311333063, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
+    value: {fileID: 124600755}
+  - key: {fileID: 7595035081168427037, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
+    value: {fileID: 124600755}
+  - key: {fileID: -8692683322608450057, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
+    value: {fileID: 124600755}
+  - key: {fileID: -3559235501510908811, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
     value: {fileID: 124600755}
   m_ExposedReferences:
     m_References: []
@@ -1436,6 +1445,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &300181915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300181912}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d467df3cab5fb4a88f84020e90b33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimelineManager
+  director: {fileID: 300181913}
+  LV1: {fileID: 11400000, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
+  LV2: {fileID: 11400000, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
+  enemy: {fileID: 1432635861}
 --- !u!1 &308127010
 GameObject:
   m_ObjectHideFlags: 0
@@ -5153,6 +5178,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7484231396979750424, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
   m_PrefabInstance: {fileID: 1755174194}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1432635861 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+  m_PrefabInstance: {fileID: 1755174194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ba6d8931aaf974f9849c825a46cd54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
 --- !u!1 &1456681972
 GameObject:
   m_ObjectHideFlags: 0
