@@ -51,9 +51,10 @@ public class enemyattack1 : MonoBehaviour
             objm1.transform.position = new Vector3((attackf * groundx) - groundx, 0f, (attackf * groundz) - groundz);
             //objm1.transform.rotation = Quaternion.Euler(180, 0, 0);
             objm1.transform.rotation = Quaternion.identity;
-            objm1.SetActive(true);
+            
 
         }
+        //objm1.SetActive(true);
         //Debug.Log("çUåÇáT");
     }
 }
