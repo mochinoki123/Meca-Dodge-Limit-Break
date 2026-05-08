@@ -44,6 +44,7 @@ public class Lazer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("“–‚½‚Á‚½");
         if (other.CompareTag("Wall"))
         {
             isWall = true;

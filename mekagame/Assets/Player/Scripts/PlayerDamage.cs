@@ -63,8 +63,6 @@ public class PlayerDamage : MonoBehaviour
         // ƒŒ[ƒU[ˆ—
         else if (other.CompareTag("Lazer"))
         {
-            var lazer = other.GetComponentInParent<enemylazer>();
-            lazer?.Kill();
             ApplyDamage();
         }
     }
