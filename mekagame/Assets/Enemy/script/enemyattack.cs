@@ -50,7 +50,7 @@ public class enemyattack : MonoBehaviour
     [SerializeField] GameObject missile4;//ミサイル攻撃のオブジェクト
     [SerializeField] GameObject lazer;//レーザーオブジェクト
     [SerializeField] GameObject lazerz;//レーザーオブジェクト
-    [SerializeField] GameObject point;//爆発ポイント
+    //[SerializeField] GameObject point;//爆発ポイント
     /*
     [Header("レーザー効果音")]
     [SerializeField] private AudioClip lazerclip;
@@ -179,7 +179,7 @@ public class enemyattack : MonoBehaviour
             objm2.SetActive(false);
             missile2pool.Enqueue(objm2);
         }
-        
+        /*
         for (int i = 0; i < sizep; i++)
         {
             GameObject objp = Instantiate(point);
@@ -237,7 +237,7 @@ public class enemyattack : MonoBehaviour
         }
         return Instantiate(missile4);
     }
-    
+    /*
     public GameObject Getp()
     {
         if (pointpool.Count > 0)
@@ -283,7 +283,7 @@ public class enemyattack : MonoBehaviour
         objm2.SetActive(false);
         missile2pool.Enqueue(objm2);
     }
-    
+    /*
     public void Returnp(GameObject objp)
     {
         objp.SetActive(false);
