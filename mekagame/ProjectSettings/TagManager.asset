@@ -10,6 +10,7 @@ TagManager:
   - PlayerParry
   - Lazer
   - FirePoint
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,8 @@ public class Lazer : MonoBehaviour
 
     AudioSource audioSource;
 
+    public bool isWall;
+
 
     private void Awake()
     {
@@ -26,8 +28,9 @@ public class Lazer : MonoBehaviour
 
     private IEnumerator Grow()
     {
+        yield return new WaitForSeconds(0.5f);
         audioSource.PlayOneShot(grow);
-        while (transform.localScale.x < maxScale)
+        while (!isWall)
         {
             float newX = transform.localScale.x + (speed * Time.deltaTime);
 
@@ -37,20 +40,19 @@ public class Lazer : MonoBehaviour
         }
 
         transform.localScale = new Vector3(maxScale, transform.localScale.y, transform.localScale.z);
-
-        ObjectPool_Lazer.instance.ReleaseLaser(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Wall"))
         {
-            ObjectPool_Lazer.instance.ReleaseLaser(gameObject);
+            isWall = true;
         }
     }
 
     private void OnDisable()
     {
         transform.localScale = new Vector3(0.01f, 2f, 2f);
+        isWall = false;
     }
 }
