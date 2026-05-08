@@ -28,10 +28,10 @@ public class MissileRelease : MonoBehaviour
     {
         if (other.CompareTag("AttackPoint"))
         {
+            enemyAttack.Return(gameObject);
             b = Instantiate(attack1missileeffectPrefab, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
             audioSource.PlayOneShot(bakuhatuclip);
             Destroy(b, 1.2f);
-            enemyAttack.Return(gameObject);
         }
         if (other.CompareTag("Player"))
         {

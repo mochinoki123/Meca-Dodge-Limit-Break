@@ -264,6 +264,7 @@ public class enemyattack : MonoBehaviour
     {
         objm.SetActive(false);
         missilepool.Enqueue(objm);
+        Debug.Log(objm.name);
     }
     public void Returnl(GameObject objl)
     {

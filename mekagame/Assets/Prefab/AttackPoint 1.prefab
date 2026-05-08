@@ -155,6 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1620e82007d6a50489e67ae18fea93c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MissileRelease
+  bakuhatuclip: {fileID: 8300000, guid: 22f04cff809fd724694402b34c40aa89, type: 3}
+  attack1missileeffectPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
 --- !u!82 &1965705256946824415
 AudioSource:
   m_ObjectHideFlags: 0
@@ -353,8 +355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d63280b0cb01544b251875574576ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemymissile
-  bakuhatuclip: {fileID: 0}
-  attack1missileeffectPrefab: {fileID: 0}
   missilespeed: 45
 --- !u!4 &2933028143916383264 stripped
 Transform:
