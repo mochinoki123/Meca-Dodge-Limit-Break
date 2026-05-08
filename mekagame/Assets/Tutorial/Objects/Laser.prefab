@@ -83,6 +83,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 344085158948577905}
     m_Modifications:
     - target: {fileID: 1004429928346378699, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
+      propertyPath: speed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004429928346378699, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       propertyPath: laserEffect
       value: 
       objectReference: {fileID: 198856239026640498, guid: 9bba9cf244c53c5439505dfc96fdd11c, type: 3}
@@ -167,11 +171,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5217875636901992632, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
       propertyPath: m_LocalScale.z
-      value: 80
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5217875636901992632, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5217875636901992632, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
       propertyPath: m_LocalPosition.y

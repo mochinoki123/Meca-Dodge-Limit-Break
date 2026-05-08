@@ -9,7 +9,7 @@ public class LaserAttack : MonoBehaviour
     [SerializeField] Transform[] eastPositions;
     [SerializeField] Transform[] westPositions;
 
-    public enum LaserState { North = 180, South = 0, East = 270, West = 90 }
+    public enum LaserState { North = 90, South = 270, East = 180, West = 0 }
 
     /// <summary>
     /// 基本の発射メソッド
