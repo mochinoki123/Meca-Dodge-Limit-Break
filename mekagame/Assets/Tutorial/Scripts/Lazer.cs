@@ -30,7 +30,7 @@ public class Lazer : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         audioSource.PlayOneShot(grow);
-        while (!isWall)
+        while (transform.localScale.z < maxScale)
         {
             float newX = transform.localScale.x + (speed * Time.deltaTime);
 

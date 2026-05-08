@@ -2208,8 +2208,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
   m_Events:
-    m_Signals: []
-    m_Events: []
+    m_Signals:
+    - {fileID: 0}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1765958338
 GameObject:
   m_ObjectHideFlags: 0
