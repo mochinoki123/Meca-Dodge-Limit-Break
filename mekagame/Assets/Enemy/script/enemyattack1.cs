@@ -48,9 +48,9 @@ public class enemyattack1 : MonoBehaviour
             missileRigidbody.linearVelocity = Vector3.down * missilespeed;
             */
             //Instantiate(attackpoint, new Vector3((attackf * x) - x, 0, (attackf * z) - z), Quaternion.identity);//çUåÇîÕàÕ
-            objm1.transform.position = new Vector3((attackf * groundx) - groundx, attackpointy, (attackf * groundz) - groundz);
-            objm1.transform.rotation = Quaternion.Euler(180, 0, 0);
-
+            objm1.transform.position = new Vector3((attackf * groundx) - groundx, 0f, (attackf * groundz) - groundz);
+            //objm1.transform.rotation = Quaternion.Euler(180, 0, 0);
+            objm1.transform.rotation = Quaternion.identity;
             objm1.SetActive(true);
 
         }
