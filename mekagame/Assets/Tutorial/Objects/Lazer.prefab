@@ -125,6 +125,8 @@ GameObject:
   - component: {fileID: 1158389583553977543}
   - component: {fileID: 1004429928346378699}
   - component: {fileID: 8169874916587988444}
+  - component: {fileID: 8510525154921190974}
+  - component: {fileID: 6582287476674695428}
   m_Layer: 0
   m_Name: Lazer
   m_TagString: Untagged
@@ -160,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa86d3b252a48541ac867333616f24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lazer
-  speed: 30
+  speed: 50
   maxScale: 50
   charge: {fileID: 8300000, guid: b2e8cb20f4435a044b9ce2e64390093a, type: 3}
   grow: {fileID: 8300000, guid: 143ec0291adf7674090e4b17ff8f8311, type: 3}
@@ -263,3 +265,42 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &8510525154921190974
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9193148807585783114}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &6582287476674695428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9193148807585783114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 830a683d56a54c14fa090ffeb08ed426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReleaseLaser

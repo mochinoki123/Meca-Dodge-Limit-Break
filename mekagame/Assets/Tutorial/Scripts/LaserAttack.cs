@@ -1,74 +1,94 @@
-using System.Runtime.ConstrainedExecution;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 using System.Collections;
 
 public class LaserAttack : MonoBehaviour
 {
-    [SerializeField] Transform [] verPosition;
-    [SerializeField] Transform [] horPosition;
+    [Header("生成位置（Inspectorで各方向にTransformをセット）")]
+    [SerializeField] Transform[] northPositions;
+    [SerializeField] Transform[] southPositions;
+    [SerializeField] Transform[] eastPositions;
+    [SerializeField] Transform[] westPositions;
 
-    Vector3 spawnPos;
+    public enum LaserState { North = 180, South = 0, East = 270, West = 90 }
 
-    public enum LaserState { ver = 0, hor = 270 }
-
+    /// <summary>
+    /// 基本の発射メソッド
+    /// </summary>
     public void FireLaser(LaserState state, int positionIndex)
     {
-        Vector3 spawnPos = state == LaserState.ver ? verPosition[positionIndex].position : horPosition[positionIndex].position;
+        Transform[] targetArray = GetArrayByState(state);
+
+        if (targetArray == null || positionIndex < 0 || positionIndex >= targetArray.Length)
+        {
+            Debug.LogWarning($"{state} 方向の Index:{positionIndex} が見つかりません。");
+            return;
+        }
+
+        Vector3 spawnPos = targetArray[positionIndex].position;
+
         Quaternion spawnRot = Quaternion.Euler(0, (int)state, 0);
-        ObjectPool_Lazer.instance.Spawn(spawnPos, spawnRot);
-    }
 
-    IEnumerator SeriesFireVer()
-    {
-        for (int i = 0; i < verPosition.Length; i++)
+        if (ObjectPool_Lazer.instance != null)
         {
-            FireLaser(LaserState.ver, i);
-
-            yield return new WaitForSeconds(2f);
+            ObjectPool_Lazer.instance.Spawn(spawnPos, spawnRot);
         }
     }
 
-    IEnumerator SeriesFireHor()
-    {
-        for (int i = 0; i < horPosition.Length; i++)
-        {
-            FireLaser(LaserState.hor, i);
 
-            yield return new WaitForSeconds(2f);
+    /// <summary>
+    /// 指定した方向から順番に発射する
+    /// </summary>
+    public void StartSeriesFire(LaserState state, float interval = 0.5f)
+    {
+        StartCoroutine(SeriesFireRoutine(state, interval));
+    }
+
+    private IEnumerator SeriesFireRoutine(LaserState state, float interval)
+    {
+        Transform[] targetArray = GetArrayByState(state);
+        if (targetArray == null) yield break;
+
+        for (int i = 0; i < targetArray.Length; i++)
+        {
+            FireLaser(state, i);
+            yield return new WaitForSeconds(interval);
         }
     }
 
-    //  Timeline用
-    public void FireVer(int pos)
+    // --- ランダム発射（全方向対応版） ---
+
+    public void FireRandom(LaserState state)
     {
-        FireLaser(LaserState.ver, pos);
+        Transform[] targetArray = GetArrayByState(state);
+        if (targetArray == null || targetArray.Length == 0) return;
+
+        int rnd = Random.Range(0, targetArray.Length);
+        FireLaser(state, rnd);
     }
 
-    public void FireHor(int pos)
+    // --- ヘルパーメソッド（内部処理用） ---
+
+    private Transform[] GetArrayByState(LaserState state)
     {
-        FireLaser(LaserState.hor, pos);
+        return state switch
+        {
+            LaserState.North => northPositions,
+            LaserState.South => southPositions,
+            LaserState.East => eastPositions,
+            LaserState.West => westPositions,
+            _ => null
+        };
     }
 
-    public void RandomFireVer()
-    {
-        int rnd = Random.Range(0, verPosition.Length);
-        FireLaser(LaserState.ver, rnd);
-    }
+    // --- Timeline / Inspector 呼び出し用のショートカット ---
 
-    public void RandomFireHor()
-    {
-        int rnd = Random.Range(0, horPosition.Length);
-        FireLaser(LaserState.hor, rnd);
-    }
+    public void FireNorthRandom() => FireRandom(LaserState.North);
+    public void FireSouthRandom() => FireRandom(LaserState.South);
+    public void FireEastRandom() => FireRandom(LaserState.East);
+    public void FireWestRandom() => FireRandom(LaserState.West);
 
-    public void CoroutineLaserVer()
-    {
-        StartCoroutine(SeriesFireVer());
-    }
-
-    public void CoroutineLaserHor()
-    {
-        StartCoroutine(SeriesFireHor());
-    }
+    public void StartNorthSeries() => StartSeriesFire(LaserState.North);
+    public void StartSouthSeries() => StartSeriesFire(LaserState.South);
+    public void StartEastSeries() => StartSeriesFire(LaserState.East);
+    public void StartWestSeries() => StartSeriesFire(LaserState.West);
 }

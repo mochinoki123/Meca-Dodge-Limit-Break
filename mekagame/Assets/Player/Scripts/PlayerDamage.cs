@@ -57,12 +57,12 @@ public class PlayerDamage : MonoBehaviour
         if (other.CompareTag("Missile"))
         {
             var missile = other.GetComponentInParent<enemymissile>();
-            missile?.Kill();
             ApplyDamage();
         }
         // ƒŒ[ƒU[ˆ—
         else if (other.CompareTag("Lazer"))
         {
+            var lazer = other.GetComponentInParent<enemylazer>();
             ApplyDamage();
         }
     }

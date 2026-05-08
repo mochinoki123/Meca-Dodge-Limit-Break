@@ -21,7 +21,6 @@ public class ObjectParry : MonoBehaviour
 
                 if (!parriedMissiles.Contains(targetObj))
                 {
-                    missileScript.Kill();
                     isHitEnemy = true; 
                 }
             }
@@ -36,7 +35,6 @@ public class ObjectParry : MonoBehaviour
 
                 if (!parriedMissiles.Contains(targetObj))
                 {
-                    lazerScript.Kill();
                     isHitEnemy = true; 
                 }
             }

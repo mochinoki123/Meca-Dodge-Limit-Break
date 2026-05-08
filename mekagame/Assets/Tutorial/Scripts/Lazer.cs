@@ -8,7 +8,6 @@ public class Lazer : MonoBehaviour
     [SerializeField] private float maxScale;
     [SerializeField] private AudioClip charge;
     [SerializeField] private AudioClip grow;
-    [SerializeField] private GameObject effect;
 
     AudioSource audioSource;
 
@@ -42,18 +41,9 @@ public class Lazer : MonoBehaviour
         transform.localScale = new Vector3(maxScale, transform.localScale.y, transform.localScale.z);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("“–‚½‚Á‚½");
-        if (other.CompareTag("Wall"))
-        {
-            isWall = true;
-        }
-    }
-
     private void OnDisable()
     {
-        transform.localScale = new Vector3(0.01f, 2f, 2f);
+        transform.localScale = new Vector3(0.01f, 4f, 4f);
         isWall = false;
     }
 }
