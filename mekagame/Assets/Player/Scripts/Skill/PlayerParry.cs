@@ -16,8 +16,6 @@ public class PlayerParry : MonoBehaviour
     [SerializeField] private GameObject lBEffect;
     [SerializeField] private Transform enemyPos;
 
-    [SerializeField] private Material originalColor;
-
     public bool isParry = false;
     private bool isParryCoolTime = false;
     public bool notMove = false;
@@ -39,13 +37,7 @@ public class PlayerParry : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         rend = GetComponentInChildren<Renderer>();
         textScript = GetComponentInChildren<TextScript>();
-    }
-
-    private void Update()
-    {
-        // 明滅計算
-        alpha_Sin = Mathf.Sin(Time.time) / 2 + 0.5f;
-    }
+    }   
 
     private void OnParry(InputValue value)
     {
@@ -70,17 +62,10 @@ public class PlayerParry : MonoBehaviour
         ObjectParry.parrySuccess = false;
 
         float currentDuration = isLBMode ? lb.lBTime : parryTime;
-        float timer = 0f;
 
         // 受付時間ループ
-        while (timer < currentDuration)
-        {
-            // 成功時は即ループ抜け
-            if (ObjectParry.parrySuccess) break;
-
-            timer += Time.deltaTime;
-            yield return null;
-        }
+        float endTime = Time.time + currentDuration;
+        yield return new WaitUntil(() => ObjectParry.parrySuccess || Time.time >= endTime);
 
         // パリィ判定終了
         playerParry.SetActive(false);
@@ -90,13 +75,13 @@ public class PlayerParry : MonoBehaviour
         if (ObjectParry.parrySuccess)
         {
             // --- 成功時処理 ---
+            textScript?.Set(TextScript.EffectType.Parry);
             if (audioSource != null && parrySound != null)
             {
-                textScript.Set(TextScript.EffectType.Parry);
                 audioSource.PlayOneShot(parrySound);
-                yield return new WaitForSeconds(1.0f);
-                textScript.Removed(TextScript.EffectType.Parry);
             }
+            yield return new WaitForSeconds(1.0f);
+            textScript?.Removed(TextScript.EffectType.Parry);
 
             // LBモードなら追撃
             if (isLBMode)
@@ -153,10 +138,9 @@ public class PlayerParry : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
 
         // エフェクト生成
-        if (lBEffect != null)
+        if (lBEffect != null && enemyPos != null)
         {
-            GameObject effect = Instantiate(lBEffect, enemyPos.position, Quaternion.identity);
-            Destroy(effect, 2.0f);
+            Destroy(Instantiate(lBEffect, enemyPos.position, Quaternion.identity), 2.0f);
         }
 
         // ダメージ適用

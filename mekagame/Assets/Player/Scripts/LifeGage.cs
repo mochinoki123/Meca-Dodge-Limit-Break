@@ -18,13 +18,13 @@ public class LifeGage : MonoBehaviour
     }
     public void Damage()
     {
-        if(transform.childCount == 1)
+        if (transform.childCount <= 0) return; 
+
+        Destroy(transform.GetChild(0).gameObject);
+
+        if (transform.childCount == 0)
         {
             GameManager.Instance.Die();
-        }
-        for (int i = 0; i < 1; i++)
-        {
-            Destroy(transform.GetChild(i).gameObject);
         }
     }
 }

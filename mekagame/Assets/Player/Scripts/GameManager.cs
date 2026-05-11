@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
         if (Instance == null)
         {
             Instance = this;
@@ -39,10 +41,6 @@ public class GameManager : MonoBehaviour
         }
 
         FindUIElements();
-    }
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
@@ -62,23 +60,24 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
         FindUIElements();
+        IsPlayerDead = false; 
     }
 
     private void FindUIElements()
     {
-        lifeGage = GameObject.Find("HP")?.GetComponent<LifeGage>();
-        grazeGage = GameObject.Find("GrazeGage")?.GetComponent<GrazeGage>();
+        lifeGage = FindAnyObjectByType<LifeGage>();
+        grazeGage = FindAnyObjectByType<GrazeGage>();
         comboText = GameObject.Find("Combo")?.GetComponent<TextMeshProUGUI>();
-        skillIcon = GameObject.Find("SkillIcon")?.GetComponent<SkillIcon>();
+        skillIcon = FindAnyObjectByType<SkillIcon>();
     }
 
 
     public void AddGage(float amount)
     {
-        UpdateCombo();
-
-        nowGage += amount * GetComboMultiple();
+        float multiple = GetComboMultiple();
+        nowGage += amount * multiple;
         nowGage = Mathf.Clamp(nowGage, 0, maxGage);
+        UpdateCombo();
 
         grazeGage?.SetValue(nowGage);
         UpdateText();
@@ -142,11 +141,6 @@ public class GameManager : MonoBehaviour
     {
         if (IsPlayerDead) return;
         IsPlayerDead = true;
-        skillIcon.ResetSkill();
-
-        GameObject p = GameObject.FindGameObjectWithTag("Player");
-        if (p != null) Destroy(p);
-
         SceneManager.LoadScene("Result");
     }
 

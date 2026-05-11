@@ -48,12 +48,4 @@ public class SkillIcon : MonoBehaviour
     {
         UpdateSkill();
     }
-
-    public void ResetSkill()
-    {
-        for(int i = 0; i < useSkill.Length; i++)
-        {
-            Destroy(s[i]);
-        }
-    }
 }

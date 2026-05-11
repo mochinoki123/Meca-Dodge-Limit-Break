@@ -69,8 +69,16 @@ public class PlayerDamage : MonoBehaviour
 
     private void ApplyDamage()
     {
-        // ダメージ適用と無敵開始
         GameManager.Instance.Damage();
+
+        if (GameManager.Instance.IsPlayerDead)
+        {
+            StopAllCoroutines();
+            rend.enabled = true;
+            isMuteki = false;
+            return;
+        }
+
         StartCoroutine(MutekiRoutine());
     }
 

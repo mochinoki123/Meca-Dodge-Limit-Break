@@ -9,12 +9,13 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float runTime;
     [SerializeField] private float runCoolTime;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private AudioClip dash;
 
     Rigidbody rb;
     Vector2 inputVec;
     Vector3 movVec;
-    private float notSpeed = 0;
+    private const float notSpeed = 0;
     PlayerParry parry;
     OverClock oc;
     Animator animator;
@@ -27,7 +28,6 @@ public class PlayerMove : MonoBehaviour
     void Awake()
     {
         // 初期化
-        isRun = false;
         rb = GetComponent<Rigidbody>();
         parry = GetComponent<PlayerParry>();
         oc = GetComponent<OverClock>();
@@ -41,8 +41,8 @@ public class PlayerMove : MonoBehaviour
     private void OnSprint(InputValue value)
     {
         // ダッシュ実行判定
-        if (isRun) return;
-        if (isRunCoolTime) return;
+        if (!value.isPressed) return; 
+        if (isRun || isRunCoolTime) return;
         StartCoroutine(Run());
     }
 
@@ -58,7 +58,7 @@ public class PlayerMove : MonoBehaviour
     {
         // 物理挙動の適用
         Jump();
-        rb.linearVelocity = movVec;
+        rb.linearVelocity = new Vector3(movVec.x, rb.linearVelocity.y, movVec.z);
     }
 
     private void Move()
@@ -75,9 +75,9 @@ public class PlayerMove : MonoBehaviour
         // ベクトル計算
         float speed = baseSpeed * inputVec.magnitude;
         movVec = new Vector3(
-            inputVec.x * speed,
-            rb.linearVelocity.y,
-            inputVec.y * speed
+        inputVec.x * speed,
+        0,           
+        inputVec.y * speed
         );
 
         // アニメーション速度更新
@@ -110,7 +110,7 @@ public class PlayerMove : MonoBehaviour
         if (lookDir.sqrMagnitude > 0.001f)
         {
             Quaternion targetRot = Quaternion.LookRotation(lookDir);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * 10f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * rotateSpeed);
         }
     }
 
