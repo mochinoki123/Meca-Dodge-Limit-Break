@@ -28,28 +28,26 @@ public class MissileRelease : MonoBehaviour
     {
         if (other.CompareTag("AttackPoint"))
         {
-            enemyAttack.Return(gameObject);
-            b = Instantiate(attack1missileeffectPrefab, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
-            audioSource.PlayOneShot(bakuhatuclip);
-            Destroy(b, 1.2f);
+            ObjectPool_Missile.Instance.MissileRelease(gameObject);
+            Kill();
         }
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")|| other.CompareTag("PlayerParry"))
         {
-            enemyAttack.Return(gameObject);
+            ObjectPool_Missile.Instance.MissileRelease(gameObject);
         }
+        /*
         if (other.CompareTag("PlayerParry"))
         {
-            enemyAttack.Return(gameObject);
+            ObjectPool_Missile.Instance.MissileRelease(gameObject);
         }
+        */
     }
-
 
 
     public void Kill()
     {
+        b = Instantiate(attack1missileeffectPrefab, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
+        audioSource.PlayOneShot(bakuhatuclip);
         Destroy(b, 1.2f);
-        //Destroy(p);
-        //enemyAttack.Returnp(p);
-        enemyAttack.Return(gameObject);
     }
 }
