@@ -25,7 +25,7 @@ public class ObjectParry : MonoBehaviour
                 }
             }
         }
-        else if (other.CompareTag("Lazer"))
+        if (other.CompareTag("Lazer"))
         {
             var lazerScript = other.GetComponentInParent<enemylazer>();
 

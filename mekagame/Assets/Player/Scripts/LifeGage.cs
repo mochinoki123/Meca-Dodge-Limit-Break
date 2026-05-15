@@ -1,30 +1,46 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LifeGage : MonoBehaviour
 {
-    [SerializeField] private GameObject lifeObj;
-    [SerializeField] private int HP;
+    [SerializeField] private GameObject[] life;
+    private int damageCount = 0;
 
-    private void Start()
+    private void Awake()
     {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            Destroy(transform.GetChild(i).gameObject);
-        }
-        for (int i = 0; i < HP; i++)
-        {
-            Instantiate<GameObject>(lifeObj, transform);
-        }
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    {
+        damageCount = 0;
+        UIReset();
     }
     public void Damage()
     {
-        if (transform.childCount <= 0) return; 
+        if (damageCount >= life.Length)
+        {
+            return;
+        }
 
-        Destroy(transform.GetChild(0).gameObject);
+        life[life.Length - 1 - damageCount].gameObject.SetActive(false);
 
-        if (transform.childCount == 0)
+        damageCount++;
+
+        if (damageCount == life.Length)
         {
             GameManager.Instance.Die();
+        }
+    }
+    private void UIReset()
+    {
+        for(int i = 0; i < life.Length; i++)
+        {
+            life[i].gameObject.SetActive(true);
         }
     }
 }
