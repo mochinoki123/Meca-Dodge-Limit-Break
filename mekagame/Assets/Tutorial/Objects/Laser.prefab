@@ -84,7 +84,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1004429928346378699, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       propertyPath: speed
-      value: 80
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1004429928346378699, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       propertyPath: laserEffect

@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Splines.ExtrusionShapes;
 
 public class GameManager : MonoBehaviour
 {
@@ -60,7 +61,11 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
         FindUIElements();
-        IsPlayerDead = false; 
+
+        if (scene.name == "Player")
+        {
+            IsPlayerDead = false;
+        }
     }
 
     private void FindUIElements()
@@ -146,6 +151,6 @@ public class GameManager : MonoBehaviour
 
     public void Damage()
     {
-        lifeGage?.Damage();
+        lifeGage.Damage();
     }
 }
