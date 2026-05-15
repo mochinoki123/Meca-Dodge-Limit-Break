@@ -2,20 +2,21 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 
-
 public class LimitBreak : MonoBehaviour
 {
-    // 消費ゲージ量
+    // ゲージ消費量
     [SerializeField] private int lBUseGage;
-    // 攻撃ダメージ
-    [SerializeField] public int lBDamage;
-    // LB時のパリィ受付時間
-    [SerializeField] public float lBTime;
-    // LB失敗時の硬直時間
-    [SerializeField] public float lBCoolTime;
+    // 攻撃ダメージ（PlayerParryから参照）
+    [field: SerializeField] public int lBDamage { get; private set; }
+    // LB時のパリィ受付時間（PlayerParryから参照）
+    [field: SerializeField] public float lBTime { get; private set; }
+    // LB失敗時の硬直時間（PlayerParryから参照）
+    [field: SerializeField] public float lBCoolTime { get; private set; }
 
-    public bool isLB = false;
-    PlayerParry parry;
+    // LB発動中フラグ（外部読み取り専用）
+    public bool isLB { get; private set; } = false;
+
+    private PlayerParry parry;
 
     private void Awake()
     {
@@ -25,24 +26,27 @@ public class LimitBreak : MonoBehaviour
 
     private void OnLimitBreak(InputValue value)
     {
-        // 既に使用中なら中断
+        // 既にLB発動中なら中断
         if (isLB) return;
+        // パリィ中・硬直中・parryが未取得なら中断
+        if (parry == null || parry.isParry || parry.notMove) return;
+        // ゲージ不足なら中断
+        if (GameManager.Instance.NowGage < lBUseGage) return;
+
         StartCoroutine(AttackLimitBreak());
     }
 
     private IEnumerator AttackLimitBreak()
     {
-        // ゲージ残量チェック
-        if (GameManager.Instance.NowGage >= lBUseGage)
-        {
-            isLB = true;
-            // ゲージ消費
-            GameManager.Instance.UseGage(lBUseGage);
+        // LB発動フラグを立ててゲージを消費
+        isLB = true;
+        GameManager.Instance.UseGage(lBUseGage);
 
-            // パリィ処理を実行し完了を待機
-            yield return StartCoroutine(parry.Parry());
+        // パリィ処理を実行し完了まで待機
+        // （成功時はLBAttackが内部で呼ばれ、isLBフラグをもとに挙動が変わる）
+        yield return StartCoroutine(parry.ExecuteParry());
 
-            isLB = false;
-        }
+        // パリィ処理完了後にフラグを解除
+        isLB = false;
     }
 }
