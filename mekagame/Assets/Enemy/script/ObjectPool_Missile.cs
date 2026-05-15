@@ -1,10 +1,27 @@
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Pool;
 
 public class ObjectPool_Missile : MonoBehaviour
 {
+    public static ObjectPool_Missile Instance;
+
+    private void Awake()
+    {
+       if (Instance == null)
+       {
+            Instance = this;
+       }
+
+       else
+       {
+            Destroy(gameObject);
+       }
+    }
+
     ObjectPool<GameObject> pool;
     public GameObject MissilePrefab;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,7 +51,7 @@ public class ObjectPool_Missile : MonoBehaviour
     void OnTakeFromPool(GameObject objm)
     {
         objm.SetActive(true);    // オブジェクトをアクティブにする処理
-        objm.transform.position = new Vector2(Random.Range(-8f, 8f), Random.Range(-4.5f, 4.5f));  // オブジェクトの座標を指定する処理
+        //objm.transform.position = new Vector2(Random.Range(-8f, 8f), Random.Range(-4.5f, 4.5f));  // オブジェクトの座標を指定する処理
     }
 
     // オブジェクトを返却する際の処理
@@ -47,5 +64,15 @@ public class ObjectPool_Missile : MonoBehaviour
     void OnDestroyPoolMissile(GameObject objm)
     {
         Destroy(objm);    // オブジェクトを破壊する処理
+    }
+
+    public GameObject GetMissile()
+    {
+        return pool.Get();
+    }
+
+    public void MissileRelease(GameObject objm)
+    {
+        pool.Release(objm);
     }
 }
