@@ -1015,7 +1015,8 @@ PrefabInstance:
       propertyPath: EnemyHp
       value: 
       objectReference: {fileID: 739756166}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 359795321045862813, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

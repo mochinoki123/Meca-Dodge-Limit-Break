@@ -26,15 +26,17 @@ public class MissileRelease : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.tag);
         if (other.CompareTag("AttackPoint"))
         {
             ObjectPool_Missile.Instance.MissileRelease(gameObject);
             Kill();
         }
-        if (other.CompareTag("Player")|| other.CompareTag("PlayerParry"))
+        else if (other.CompareTag("Player") || other.CompareTag("PlayerParry"))
         {
             ObjectPool_Missile.Instance.MissileRelease(gameObject);
         }
+
         /*
         if (other.CompareTag("PlayerParry"))
         {
@@ -42,7 +44,6 @@ public class MissileRelease : MonoBehaviour
         }
         */
     }
-
 
     public void Kill()
     {

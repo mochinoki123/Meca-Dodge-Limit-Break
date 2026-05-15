@@ -102,6 +102,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 576ac2305eb760f4385b5e93c2dc4bba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6625627173170433003}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 576ac2305eb760f4385b5e93c2dc4bba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6131893249322928212}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 576ac2305eb760f4385b5e93c2dc4bba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3009486552756600666}
   m_SourcePrefab: {fileID: 100100000, guid: 576ac2305eb760f4385b5e93c2dc4bba, type: 3}
 --- !u!1 &4324720777855780103 stripped
 GameObject:
@@ -158,3 +164,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &-6131893249322928212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4324720777855780103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d63280b0cb01544b251875574576ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemymissile
+  missilespeed: 45
+  point: {fileID: 6062530079735253497, guid: 0812d9eaf916c4746a12fc0a7dc0dae9, type: 3}
+--- !u!114 &3009486552756600666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4324720777855780103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1620e82007d6a50489e67ae18fea93c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MissileRelease
+  bakuhatuclip: {fileID: 8300000, guid: 22f04cff809fd724694402b34c40aa89, type: 3}
+  attack1missileeffectPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
