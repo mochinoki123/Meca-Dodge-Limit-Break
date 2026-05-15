@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300181912}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34d467df3cab5fb4a88f84020e90b33a, type: 3}
   m_Name: 
@@ -5326,6 +5326,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7484231396979750424, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
   m_PrefabInstance: {fileID: 1755174194}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1432635861 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+  m_PrefabInstance: {fileID: 1755174194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ba6d8931aaf974f9849c825a46cd54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
 --- !u!1 &1456681972
 GameObject:
   m_ObjectHideFlags: 0
@@ -7608,6 +7619,18 @@ PrefabInstance:
       propertyPath: lBCoolTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6555405555771608055, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: <lBTime>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555405555771608055, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: <lBDamage>k__BackingField
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555405555771608055, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: <lBCoolTime>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7261820190855510206, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7619,7 +7642,7 @@ PrefabInstance:
     - target: {fileID: 8288794723561334125, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1432635861}
     - target: {fileID: 8288794723561334125, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: enemyPos
       value: 

@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
 
     public void Damage(int damage)
     {
+        Debug.Log("enemydamage");
         CurrentHP -= damage;
         CurrentHP = Mathf.Max(CurrentHP, 0);
 
