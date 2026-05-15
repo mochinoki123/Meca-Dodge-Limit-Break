@@ -33,12 +33,13 @@ public class enemyattack4 : MonoBehaviour
     {
         ap = Random.Range(rndm, rndp);//’n–Ê‚ÌL‚³‚É‚æ‚Á‚Ä•ÏX
         
-        GameObject objm4 = enemymanager.Getm();
+        GameObject objm4 = ObjectPool_Missile.Instance.GetMissile();
         objm4.transform.position = new Vector3(ap, attackpointy, ap);
-        objm4.transform.rotation = Quaternion.Euler(180, 0, 0);
-        objm4.SetActive(true);
+        //objm4.transform.rotation = Quaternion.Euler(180, 0, 0);
+        objm4.transform.rotation = Quaternion.identity;
+        //objm4.SetActive(true);
 
-      //Instantiate(missile4, new Vector3(ap, attackpointy, ap), Quaternion.Euler(180, 0, 0));//‰’e
+        //Instantiate(missile4, new Vector3(ap, attackpointy, ap), Quaternion.Euler(180, 0, 0));//‰’e
         Invoke("Attack4b", 1f);
     }
 
