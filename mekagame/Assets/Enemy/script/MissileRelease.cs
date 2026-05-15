@@ -27,7 +27,7 @@ public class MissileRelease : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.tag);
-        if (other.CompareTag("AttackPoint"))
+        if (other.CompareTag("Missile"))
         {
             ObjectPool_Missile.Instance.MissileRelease(gameObject);
             Kill();
