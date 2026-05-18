@@ -103,7 +103,7 @@ public class enemyattack6 : MonoBehaviour
     //攻撃Ⅵ追尾ミサイル
     void Attack6missile()
     {
-        GameObject objm6 = enemymanager.Get();
+        GameObject objm6 = ObjectPool_Missile.Instance.GetMissile();
         // transform.position で現在のワールド座標を取得
         Vector3 currentPosition = transform.position;
         //Debug.Log("プレイヤーの座標: " + currentPosition);
@@ -115,7 +115,8 @@ public class enemyattack6 : MonoBehaviour
 
         Vector3 play = GameObject.Find("Player").transform.position;//プレイヤーの座標取得
         objm6.transform.position = new Vector3(play.x, y, play.z);
-        objm6.transform.rotation = Quaternion.Euler(180, 0, 0);
+        objm6.transform.rotation = Quaternion.identity;//Quaternion.Euler(180, 0, 0);
+
         /*
         Instantiate(missile, new Vector3(play.x, y, play.z), Quaternion.Euler(180, 0, 0));//プレイヤーのいる座標に向かって発射
         */

@@ -4,6 +4,8 @@ public class enemyattack3 : MonoBehaviour
 {
     private enemyattack enemymanager;
     [Header("UŒ‚‡V")]
+    [SerializeField] Transform x;
+    [SerializeField] Transform cross;
     [SerializeField] int attack3missilex = 6;//UŒ‚‡Vx‚Ì”ÍˆÍİ’è
     [SerializeField] int attack3missiley = 6;//UŒ‚‡V+‚Ì”ÍˆÍİ’è
     [SerializeField] int attackpointx = 10;//UŒ‚”­¶‚Ì‰¡

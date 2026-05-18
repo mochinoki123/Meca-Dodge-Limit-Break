@@ -12,11 +12,17 @@ public class MissileRelease : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField] GameObject attack1missileeffectPrefab;//ミサイル攻撃のエフェクト
     private GameObject b;
+
+    public bool isDead = false;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         enemyAttack = FindAnyObjectByType<enemyattack>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,16 +30,21 @@ public class MissileRelease : MonoBehaviour
     {
         
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
+        if (isDead) return;
+
         if (other.CompareTag("Missile"))
         {
-            ObjectPool_Missile.Instance.MissileRelease(gameObject);
+            isDead = true;
             Kill();
+            ObjectPool_Missile.Instance.MissileRelease(gameObject);
+            
         }
         else if (other.CompareTag("Player") || other.CompareTag("PlayerParry"))
         {
+            isDead = true;
             ObjectPool_Missile.Instance.MissileRelease(gameObject);
         }
 
@@ -44,11 +55,12 @@ public class MissileRelease : MonoBehaviour
         }
         */
     }
-
+    
     public void Kill()
     {
         b = Instantiate(attack1missileeffectPrefab, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
-        audioSource.PlayOneShot(bakuhatuclip);
+        AudioSource.PlayClipAtPoint(bakuhatuclip, transform.position);
         Destroy(b, 1.2f);
     }
+    
 }

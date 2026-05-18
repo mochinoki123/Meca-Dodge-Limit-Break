@@ -156,9 +156,9 @@ public class enemyattack : MonoBehaviour
     {
         for (int i = 0; i < sizem; i++)
         {
-            GameObject objm = Instantiate(missile);
-            objm.SetActive(false);
-            missilepool.Enqueue(objm);
+            GameObject objm1 = Instantiate(missile);
+            objm1.SetActive(false);
+            missilepool.Enqueue(objm1);
         }
         for (int i = 0; i < sizel; i++)
         {
@@ -197,13 +197,13 @@ public class enemyattack : MonoBehaviour
         EnemyAttackController1();//UŒ‚ƒpƒ^[ƒ“‡T
     }
 
-    public GameObject Get()
+    public GameObject Getm()
     {
         if (missilepool.Count > 0)
         {
-            GameObject objm = missilepool.Dequeue();
-            objm.SetActive(true);
-            return objm;
+            GameObject objm1 = missilepool.Dequeue();
+            objm1.SetActive(true);
+            return objm1;
         }
         return Instantiate(missile);
     }
@@ -227,7 +227,7 @@ public class enemyattack : MonoBehaviour
         }
         return Instantiate(lazerz);
     }
-    public GameObject Getm()
+    public GameObject Getm1()
     {
         if (missile2pool.Count > 0)
         {
@@ -260,11 +260,11 @@ public class enemyattack : MonoBehaviour
         }
         return Instantiate(ClustereffectPrefab);
     }*/
-    public void Return(GameObject objm)
+    public void Return(GameObject objm1)
     {
-        objm.SetActive(false);
-        missilepool.Enqueue(objm);
-        Debug.Log(objm.name);
+        objm1.SetActive(false);
+        missilepool.Enqueue(objm1);
+        Debug.Log(objm1.name);
     }
     public void Returnl(GameObject objl)
     {
