@@ -4,14 +4,14 @@ public class enemyattack3 : MonoBehaviour
 {
     private enemyattack enemymanager;
     [Header("UŒ‚‡V")]
-    [SerializeField] Transform x;
-    [SerializeField] Transform cross;
+    [SerializeField] Transform[] xposition;
+    [SerializeField] Transform[] jposition;
     [SerializeField] int attack3missilex = 6;//UŒ‚‡Vx‚Ì”ÍˆÍİ’è
     [SerializeField] int attack3missiley = 6;//UŒ‚‡V+‚Ì”ÍˆÍİ’è
     [SerializeField] int attackpointx = 10;//UŒ‚”­¶‚Ì‰¡
     [SerializeField] int attackpointy = 60;//UŒ‚”­¶‚Ì‚‚³
     [SerializeField] int attackpointz = 10;//UŒ‚”­¶‚Ì‰œs
-    float attackbunki;//random’lŠm”F—pŠî–{g‚í‚È‚¢
+    float attackbunki = 1f;//random’lŠm”F—pŠî–{g‚í‚È‚¢
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,15 +28,24 @@ public class enemyattack3 : MonoBehaviour
     //-----UŒ‚‡V-----
     public void Attack3()
     {
-        attackbunki = Random.Range(0f, 1f);//UŒ‚•ªŠò
+        //attackbunki = Random.Range(0f, 1f);//UŒ‚•ªŠò
 
         if (attackbunki < 0.5f)//ƒNƒƒXŒ^
         {
+            
+            for (int i = 1; i <= attack3missilex; i++)
+            {
+                GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
+                objm3.transform.position = xposition[i].position;
+                objm3.transform.rotation = Quaternion.identity;
+            }
+            /*
             GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
             objm3.transform.position = new Vector3(0, 0.1f, 0);
             //objm3.transform.rotation = Quaternion.Euler(180, 0, 0);
             objm3.transform.rotation = Quaternion.identity;
             //Instantiate(missile, new Vector3(0, attackpointy, 0), Quaternion.Euler(180, 0, 0));//’†S’n“_”­Ë
+            /*
             for (int i = 1; i <= attack3missilex; i++)//ƒNƒƒX‚É‚È‚é‚æ‚¤‚ÉŒJ‚è•Ô‚·
             {
                 /*
@@ -55,7 +64,7 @@ public class enemyattack3 : MonoBehaviour
                 Instantiate(missile, new Vector3(-attackpointx * i, attackpointy, attackpointz * i), Quaternion.Euler(180, 0, 0));
                 Instantiate(missile, new Vector3(attackpointx * i, attackpointy, attackpointz * i), Quaternion.Euler(180, 0, 0));
                 Instantiate(missile, new Vector3(-attackpointx * i, attackpointy, -attackpointz * i), Quaternion.Euler(180, 0, 0));
-                */
+
                 GameObject m3ldx = ObjectPool_Missile.Instance.GetMissile();
                 m3ldx.transform.position = new Vector3(attackpointx * i, 0.1f, -attackpointz * i);//@¶‰º
                 //m3ldx.transform.rotation = Quaternion.Euler(180, 0, 0);
@@ -76,8 +85,8 @@ public class enemyattack3 : MonoBehaviour
                 //m3rux.transform.rotation = Quaternion.Euler(180, 0, 0);
                 m3ldx.transform.rotation = Quaternion.identity;
                 //m3rux.SetActive(true);
-            }
-            //Debug.Log("UŒ‚‡Vx");
+            }*/
+                //Debug.Log("UŒ‚‡Vx");
         }
         else//\šŒ^
         {

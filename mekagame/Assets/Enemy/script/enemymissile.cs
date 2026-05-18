@@ -35,6 +35,7 @@ public class enemymissile : MonoBehaviour
         //rb.linearVelocity = transform.up * missilespeed;
         missile();
     }
+    
     void missile()
     {
         Vector3 mPos = new Vector3(transform.position.x, 0.1f, transform.position.z);
@@ -43,5 +44,8 @@ public class enemymissile : MonoBehaviour
         //p.transform.rotation = Quaternion.identity;
         //p.SetActive(true);
     }
-
+    private void OnDisable()
+    {
+        transform.localPosition = Vector3.zero;
+    }
 }
