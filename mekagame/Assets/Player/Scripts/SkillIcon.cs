@@ -40,7 +40,7 @@ public class SkillIcon : MonoBehaviour
 
             Vector3 spawnPos = iconTransform[i].position + new Vector3(0, -75, 0);
 
-            s[i] = Instantiate(useSkill[i], spawnPos, Quaternion.identity, transform);
+            //s[i] = Instantiate(useSkill[i], spawnPos, Quaternion.identity, transform);
         }
     }
 

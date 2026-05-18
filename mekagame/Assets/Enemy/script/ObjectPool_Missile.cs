@@ -32,7 +32,7 @@ public class ObjectPool_Missile : MonoBehaviour
             OnDestroyPoolMissile,    // プールが上限を超えた場合の処理
             true,                   // すでにプール内にいるオブジェクトを返却した際にエラー表示するか
             2,                      // 初期のプールの容量
-            50);                    // プール内オブジェクトの上限数
+            20);                    // プール内オブジェクトの上限数
     }
 
     // Update is called once per frame
