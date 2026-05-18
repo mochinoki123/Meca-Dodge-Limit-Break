@@ -66,6 +66,13 @@ public class LaserAttack : MonoBehaviour
         FireLaser(state, rnd);
     }
 
+    // --- チュートリアル ---
+
+    public void FireTutorial(LaserState state)
+    {
+        FireLaser(state, 11);
+    }
+
     // --- ヘルパーメソッド（内部処理用） ---
 
     private Transform[] GetArrayByState(LaserState state)
@@ -91,4 +98,7 @@ public class LaserAttack : MonoBehaviour
     public void StartSouthSeries() => StartSeriesFire(LaserState.South);
     public void StartEastSeries() => StartSeriesFire(LaserState.East);
     public void StartWestSeries() => StartSeriesFire(LaserState.West);
+
+
+    public void FireTutorialEast() => FireTutorial(LaserState.East);
 }

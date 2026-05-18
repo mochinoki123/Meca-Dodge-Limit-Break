@@ -11,6 +11,13 @@ public class TimelineManager : MonoBehaviour
     [SerializeField] private PlayableAsset phase2Timeline; // HP 30〜60%
     [SerializeField] private PlayableAsset phase3Timeline; // HP 30%以下
 
+    [Header("カウントダウン")]
+    [SerializeField] private PlayableAsset phaseTransition_2;
+    [SerializeField] private PlayableAsset phaseTransition_3;
+
+    [Header("フェーズ移行時のタイムライン")]
+    [SerializeField] private PlayableAsset countdown;
+
     [Header("フェーズ閾値")]
     [SerializeField] private float phase2Threshold = 0.6f;
     [SerializeField] private float phase3Threshold = 0.3f;
