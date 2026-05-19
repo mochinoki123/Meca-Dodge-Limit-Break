@@ -31,8 +31,8 @@ public class enemymissile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * missilespeed * Time.deltaTime);
-        //rb.linearVelocity = transform.up * missilespeed;
+        //transform.Translate(Vector3.down * missilespeed * Time.deltaTime);
+        rb.linearVelocity = transform.up * missilespeed;
         missile();
     }
     
@@ -44,8 +44,5 @@ public class enemymissile : MonoBehaviour
         //p.transform.rotation = Quaternion.identity;
         //p.SetActive(true);
     }
-    private void OnDisable()
-    {
-        transform.localPosition = Vector3.zero;
-    }
+    
 }

@@ -32,15 +32,11 @@ public class enemyattack1 : MonoBehaviour
         for (int i = 0; i < attack1missile; i++)
         {
             GameObject objm1 = ObjectPool_Missile.Instance.GetMissile();
+
             //GameObject objm1 = enemymanager.Get();
 
             groundx = Random.Range(rndm, rndp);//’n–Ê‚ÌL‚³‚É‚æ‚Á‚Ä•ÏX
             groundz = Random.Range(rndm, rndp);//’n–Ê‚ÌL‚³‚É‚æ‚Á‚Ä•ÏX
-
-            /*
-            Instantiate(missile, new Vector3(x, attackpointy, attackpointz - i * attackf), Quaternion.identity);//”­ŽË
-            Instantiate(attackpoint, new Vector3(x, 0, attackpointz - i * attackf), Quaternion.identity);//UŒ‚”ÍˆÍ
-            */
 
             //Instantiate(missile, new Vector3((attackf * groundx) - groundx, attackpointy, (attackf * groundz) - groundz),  Quaternion.Euler(180, 0, 0));//”­ŽË
             /*
@@ -48,13 +44,12 @@ public class enemyattack1 : MonoBehaviour
             missileRigidbody.useGravity = false;
             missileRigidbody.linearVelocity = Vector3.down * missilespeed;
             */
-            //Instantiate(attackpoint, new Vector3((attackf * x) - x, 0, (attackf * z) - z), Quaternion.identity);//UŒ‚”ÍˆÍ
             objm1.transform.position = new Vector3((attackf * groundx) - groundx, 0.1f, (attackf * groundz) - groundz);
             //objm1.transform.rotation = Quaternion.Euler(180, 0, 0);
             objm1.transform.rotation = Quaternion.identity;
             //objm1.SetActive(true);
         }
         //objm1.SetActive(true);
-        //Debug.Log("UŒ‚‡T");
+        Debug.Log("UŒ‚‡T");
     }
 }

@@ -30,6 +30,10 @@ public class MissileRelease : MonoBehaviour
     {
         
     }
+    void OnEnable()
+    {
+        isDead = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -39,12 +43,14 @@ public class MissileRelease : MonoBehaviour
         {
             isDead = true;
             Kill();
+            ResetMissile();
             ObjectPool_Missile.Instance.MissileRelease(gameObject);
             
         }
         else if (other.CompareTag("Player") || other.CompareTag("PlayerParry"))
         {
             isDead = true;
+            ResetMissile();
             ObjectPool_Missile.Instance.MissileRelease(gameObject);
         }
 
@@ -62,5 +68,27 @@ public class MissileRelease : MonoBehaviour
         AudioSource.PlayClipAtPoint(bakuhatuclip, transform.position);
         Destroy(b, 1.2f);
     }
-    
+    private void OnDisable()
+    {
+        isDead = false;
+    }
+
+    private void ResetMissile()
+    {
+        if (transform.childCount > 0)
+        {
+            Transform missileChild = transform.GetChild(0);
+
+            missileChild.localPosition = Vector3.zero;
+            missileChild.localRotation = Quaternion.identity;
+
+            Rigidbody rb = missileChild.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
+        }
+    }
 }

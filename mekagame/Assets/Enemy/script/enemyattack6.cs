@@ -104,6 +104,15 @@ public class enemyattack6 : MonoBehaviour
     void Attack6missile()
     {
         GameObject objm6 = ObjectPool_Missile.Instance.GetMissile();
+        Transform missile = objm6.transform.GetChild(0);
+
+        missile.localPosition = Vector3.zero;
+        missile.localRotation = Quaternion.identity;
+
+        Rigidbody rb = missile.GetComponent<Rigidbody>();
+
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
         // transform.position で現在のワールド座標を取得
         Vector3 currentPosition = transform.position;
         //Debug.Log("プレイヤーの座標: " + currentPosition);

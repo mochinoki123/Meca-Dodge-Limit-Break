@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MissileRelease
   bakuhatuclip: {fileID: 8300000, guid: 22f04cff809fd724694402b34c40aa89, type: 3}
   attack1missileeffectPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+  isDead: 0
 --- !u!1001 &2304606609800946589
 PrefabInstance:
   m_ObjectHideFlags: 0
