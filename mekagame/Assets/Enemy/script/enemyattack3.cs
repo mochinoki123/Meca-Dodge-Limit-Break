@@ -11,7 +11,7 @@ public class enemyattack3 : MonoBehaviour
     [SerializeField] int attackpointx = 10;//UŒ‚”­¶‚Ì‰¡
     [SerializeField] int attackpointy = 60;//UŒ‚”­¶‚Ì‚‚³
     [SerializeField] int attackpointz = 10;//UŒ‚”­¶‚Ì‰œs
-    float attackbunki = 1f;//random’lŠm”F—pŠî–{g‚í‚È‚¢
+    float attackbunki;//random’lŠm”F—pŠî–{g‚í‚È‚¢
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,7 +28,7 @@ public class enemyattack3 : MonoBehaviour
     //-----UŒ‚‡V-----
     public void Attack3()
     {
-        //attackbunki = Random.Range(0f, 1f);//UŒ‚•ªŠò
+        attackbunki = Random.Range(0f, 1f);//UŒ‚•ªŠò
 
         if (attackbunki < 0.5f)//ƒNƒƒXŒ^
         {
@@ -83,6 +83,22 @@ public class enemyattack3 : MonoBehaviour
         }
         else//\šŒ^
         {
+            for(int i = 1;i <= attack3missiley; i++)
+            {
+                GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
+                Transform missile = objm3.transform.GetChild(0);
+
+                missile.localPosition = Vector3.zero;
+                missile.localRotation = Quaternion.identity;
+
+                Rigidbody rb = missile.GetComponent<Rigidbody>();
+
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                objm3.transform.position = jposition[i].position;
+                objm3.transform.rotation = Quaternion.identity;
+            }
+            /*
             GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
             objm3.transform.position = new Vector3(0, 0.1f, 0);
             //objm3.transform.rotation = Quaternion.Euler(180, 0, 0);
@@ -114,6 +130,7 @@ public class enemyattack3 : MonoBehaviour
 
             }
             Debug.Log("UŒ‚‡V+");
+            */
         }
         //Debug.Log("UŒ‚‡V");
     }

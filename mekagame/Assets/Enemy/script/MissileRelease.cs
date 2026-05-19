@@ -30,7 +30,8 @@ public class MissileRelease : MonoBehaviour
     {
         
     }
-    void OnEnable()
+
+    private void OnEnable()
     {
         isDead = false;
     }
@@ -71,6 +72,21 @@ public class MissileRelease : MonoBehaviour
     private void OnDisable()
     {
         isDead = false;
+        if (transform.childCount > 0)
+        {
+            Transform missileChild = transform.GetChild(0);
+
+            missileChild.localPosition = Vector3.zero;
+            missileChild.localRotation = Quaternion.identity;
+
+            Rigidbody rb = missileChild.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
+        }
     }
 
     private void ResetMissile()
