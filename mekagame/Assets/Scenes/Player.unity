@@ -8263,7 +8263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5541819859851561438, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: attack3missiley
-      value: 24
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5541819859851561438, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: jposition.Array.size
