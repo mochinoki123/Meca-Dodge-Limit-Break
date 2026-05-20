@@ -43,13 +43,13 @@ GameObject:
   - component: {fileID: 7484231396979750424}
   - component: {fileID: -8461596928464388786}
   - component: {fileID: -6960323230353872841}
-  - component: {fileID: 359795321045862813}
   - component: {fileID: 3954432314290607981}
   - component: {fileID: -5911997119328644906}
   - component: {fileID: 5541819859851561438}
   - component: {fileID: -191212177364559174}
   - component: {fileID: -7606214123860960135}
   - component: {fileID: 4734707873542018438}
+  - component: {fileID: -2766656512036199743}
   - component: {fileID: -6565724742502022513}
   m_Layer: 0
   m_Name: Enemy
@@ -102,27 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   maxHP: 1000
   timelineManager: {fileID: 0}
---- !u!114 &359795321045862813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788469581091682507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bf0c0b7d06ec7c45969475ff0939424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::enemyattack
-  sizem: 50
-  sizel: 20
-  sizelx: 20
-  sizem2: 5
-  sizep: 50
-  missile: {fileID: 4324720777855780103, guid: b040ceedd39cb3144b575af3f8f5d77f, type: 3}
-  missile4: {fileID: 4324720777855780103, guid: cf4f91f70024de14cb6b5534948c1c88, type: 3}
-  lazer: {fileID: 8187081989845006493, guid: d2202b903d7a73747a2f2ff8f57c51b3, type: 3}
-  lazerz: {fileID: 9078672028450228241, guid: 7054ebf7e29c702479a397e52a86cec6, type: 3}
 --- !u!114 &3954432314290607981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,9 +181,27 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  jposition: []
+  jposition:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  attack3missile: 6
   attack3missilex: 24
-  attack3missiley: 6
+  attack3missiley: 16
   attackpointx: 10
   attackpointy: 60
   attackpointz: 10
@@ -278,6 +275,18 @@ MonoBehaviour:
   maxLength: -50
   maxLengthx: 50
   extendSpeed: 100
+--- !u!114 &-2766656512036199743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788469581091682507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8070296ff2f5341904560a1f0e6431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyManager
 --- !u!82 &-6565724742502022513
 AudioSource:
   m_ObjectHideFlags: 0

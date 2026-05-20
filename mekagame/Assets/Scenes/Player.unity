@@ -6811,7 +6811,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
   m_PrefabInstance: {fileID: 1755174194}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2064008118}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49ba6d8931aaf974f9849c825a46cd54, type: 3}
@@ -8208,7 +8208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5541819859851561438, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: attack3missiley
-      value: 24
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5541819859851561438, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: jposition.Array.size
@@ -8450,7 +8450,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4426586580742010911, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 788469581091682507, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2064008128}
   m_SourcePrefab: {fileID: 100100000, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
 --- !u!1 &1770044011
 GameObject:
@@ -9332,6 +9335,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 84840794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2064008118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 788469581091682507, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+  m_PrefabInstance: {fileID: 1755174194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2064008128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064008118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8070296ff2f5341904560a1f0e6431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyManager
 --- !u!1 &2126959706
 GameObject:
   m_ObjectHideFlags: 0

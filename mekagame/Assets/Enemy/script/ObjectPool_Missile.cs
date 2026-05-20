@@ -57,6 +57,13 @@ public class ObjectPool_Missile : MonoBehaviour
     // オブジェクトを返却する際の処理
     void OnReturnedToPool(GameObject objm)
     {
+        Rigidbody rb = objm.GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
         objm.SetActive(false);   // オブジェクトを非アクティブにする処理
     }
 
