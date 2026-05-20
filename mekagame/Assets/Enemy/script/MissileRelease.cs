@@ -40,28 +40,25 @@ public class MissileRelease : MonoBehaviour
     {
         if (isDead) return;
 
-        if (other.CompareTag("Missile"))
+        if (
+         other.CompareTag("Missile") ||
+         other.CompareTag("Player") ||
+         other.CompareTag("PlayerParry")
+        )
         {
             isDead = true;
-            Kill();
-            ResetMissile();
-            ObjectPool_Missile.Instance.MissileRelease(gameObject);
-            
-        }
-        else if (other.CompareTag("Player") || other.CompareTag("PlayerParry"))
-        {
-            isDead = true;
-            ResetMissile();
-            ObjectPool_Missile.Instance.MissileRelease(gameObject);
-        }
 
-        /*
-        if (other.CompareTag("PlayerParry"))
-        {
+            if (other.CompareTag("Missile"))
+            {
+                Kill();
+            }
+
+            ResetMissile();
+
             ObjectPool_Missile.Instance.MissileRelease(gameObject);
         }
-        */
     }
+
     
     public void Kill()
     {
@@ -69,28 +66,11 @@ public class MissileRelease : MonoBehaviour
         AudioSource.PlayClipAtPoint(bakuhatuclip, transform.position);
         Destroy(b, 1.2f);
     }
-    private void OnDisable()
-    {
-        isDead = false;
-        if (transform.childCount > 0)
-        {
-            Transform missileChild = transform.GetChild(0);
-
-            missileChild.localPosition = Vector3.zero;
-            missileChild.localRotation = Quaternion.identity;
-
-            Rigidbody rb = missileChild.GetComponent<Rigidbody>();
-
-            if (rb != null)
-            {
-                rb.linearVelocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-            }
-        }
-    }
 
     private void ResetMissile()
     {
+        transform.position = Vector3.zero;
+        transform.rotation = Quaternion.identity;
         if (transform.childCount > 0)
         {
             Transform missileChild = transform.GetChild(0);
@@ -104,6 +84,9 @@ public class MissileRelease : MonoBehaviour
             {
                 rb.linearVelocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
+
+                rb.position = transform.position;
+                rb.rotation = transform.rotation;
             }
         }
     }
