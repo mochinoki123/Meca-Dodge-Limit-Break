@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2067676064094343936}
   - component: {fileID: 4518817132665269430}
-  - component: {fileID: 2285176350811959533}
+  - component: {fileID: 3204875281026333185}
   m_Layer: 5
   m_Name: Parry
   m_TagString: Untagged
@@ -45,7 +45,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7697018472826511445}
   m_CullTransparentMesh: 1
---- !u!114 &2285176350811959533
+--- !u!114 &3204875281026333185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,14 +58,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 851089177, guid: be67882b4602917409f19a778df7260d, type: 3}
+  m_Sprite: {fileID: 839010084, guid: be67882b4602917409f19a778df7260d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

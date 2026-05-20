@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
     {
         if (comboText != null)
         {
-            comboText.text = combo > 0 ? $"Combo : {combo}" : "";
+            comboText.text = combo > 0 ? $"{combo}" : "";
         }
     }
 
