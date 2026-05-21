@@ -8,15 +8,18 @@ public class DashTutorialTask : InputTutorialTask
     private bool dashed;
     private InputAction dashAction;
 
+    public DashTutorialTask(PlayerInput playerInput) : base(playerInput) { }
+
     public override void OnTaskSet()
     {
         base.OnTaskSet();
         dashed = false;
-
-        dashAction = GetAction("Dash");
+        dashAction = GetAction("Sprint");
         if (dashAction != null)
             dashAction.performed += OnDash;
     }
+
+    public override void Tick() { }
 
     private void OnDash(InputAction.CallbackContext ctx) => dashed = true;
 
@@ -27,4 +30,6 @@ public class DashTutorialTask : InputTutorialTask
     }
 
     public override bool IsCompleted() => dashed;
+
+    public string GetProgress() => "";
 }

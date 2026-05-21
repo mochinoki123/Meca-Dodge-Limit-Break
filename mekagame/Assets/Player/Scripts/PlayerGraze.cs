@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,9 +13,14 @@ public class PlayerGraze : MonoBehaviour
     [SerializeField] private int addGage;
     [SerializeField] private float reGrazeTime = 1.0f;
 
+    private const float CooldownCleanupMargin = 1.0f;
+
     [Header("Audio & Visuals")]
     [SerializeField] private AudioClip grazeSound;
     [SerializeField] private GameObject grazeEffectPrefab;
+
+    public int GrazeCount { get; private set; } = 0;
+    public void ResetGrazeCount() => GrazeCount = 0;
 
     private PlayerMove playerMove;
     private OverClock oc;
@@ -38,19 +42,14 @@ public class PlayerGraze : MonoBehaviour
     private void Update()
     {
         if (Time.frameCount % 60 == 0)
-        {
             CleanUpCooldowns();
-        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (playerMove != null && !playerMove.isRun) return;
-
         if (targetTags.Contains(other.tag))
-        {
             TryGraze(other.gameObject);
-        }
     }
 
     private void TryGraze(GameObject target)
@@ -69,23 +68,19 @@ public class PlayerGraze : MonoBehaviour
 
     private void ExecuteGraze()
     {
-        if (audioSource != null && grazeSound != null)
-        {
-            audioSource.PlayOneShot(grazeSound);
-        }
+        audioSource?.PlayOneShot(grazeSound);
 
         if (grazeEffectPrefab != null)
         {
-            GameObject effect = Instantiate(grazeEffectPrefab, transform.position, Quaternion.identity);
+            var effect = Instantiate(grazeEffectPrefab, transform.position, Quaternion.identity);
             effect.transform.SetParent(transform);
             Destroy(effect, 1.0f);
         }
 
         int gageAmount = (oc != null && oc.isOC) ? ocAddGage : addGage;
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.AddGage(gageAmount);
-        }
+        GameManager.Instance?.AddGage(gageAmount);
+
+        GrazeCount++;
 
         if (textScript != null)
         {
@@ -101,16 +96,12 @@ public class PlayerGraze : MonoBehaviour
 
         foreach (var kvp in grazeCooldowns)
         {
-            if (currentTime > kvp.Value + 1.0f)
-            {
+            if (currentTime > kvp.Value + CooldownCleanupMargin)
                 removeCache.Add(kvp.Key);
-            }
         }
 
-        for (int i = 0; i < removeCache.Count; i++)
-        {
-            grazeCooldowns.Remove(removeCache[i]);
-        }
+        foreach (var id in removeCache)
+            grazeCooldowns.Remove(id);
     }
 
     public void SetOCRange(float range)
@@ -123,7 +114,7 @@ public class PlayerGraze : MonoBehaviour
         if (myCollider != null) myCollider.radius = grazeRange;
     }
 
-    private IEnumerator ShowGrazeText()
+    private System.Collections.IEnumerator ShowGrazeText()
     {
         textScript.Set(TextScript.EffectType.Graze);
         yield return new WaitForSeconds(1.0f);

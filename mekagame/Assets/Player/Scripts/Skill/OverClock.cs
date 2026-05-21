@@ -17,7 +17,7 @@ public class OverClock : MonoBehaviour
     // ”­“®ŽžSE
     [SerializeField] private AudioClip overClock;
 
-    public bool isOC { get; private set; }
+    public bool isOC { get; private set; } = false;
     PlayerGraze pg;
     AudioSource audioSource;
     MaterialScript materialScript;
