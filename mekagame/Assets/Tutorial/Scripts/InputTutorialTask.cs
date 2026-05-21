@@ -18,6 +18,8 @@ public abstract class InputTutorialTask : ITutorialTask
 
     public virtual void OnTaskEnd() { }
 
+    public virtual void Tick() { }
+
     public abstract bool IsCompleted();
 
     protected InputAction GetAction(string actionName)

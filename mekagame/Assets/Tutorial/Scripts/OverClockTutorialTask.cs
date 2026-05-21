@@ -1,16 +1,10 @@
-using UnityEngine;
-
-public class OverClockTutorialTask : MonoBehaviour
+public class OveerClockTutorialTask : InputTutorialTask
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public override string Title => "オーバークロック";
+    public override string Description => "自強化";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public OveerClockTutorialTask(PlayerInput playerInput) : base(playerInput) { }
+
+    public override void Tick() { /* オーバークロック判定 */ }
+    public override bool IsCompleted() => /* 達成判定 */;
 }

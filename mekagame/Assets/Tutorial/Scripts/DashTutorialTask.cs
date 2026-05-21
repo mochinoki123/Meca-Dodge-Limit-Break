@@ -20,7 +20,7 @@ public class DashTutorialTask : InputTutorialTask
 
     private void OnDash(InputAction.CallbackContext ctx) => dashed = true;
 
-    public void OnTaskEnd()
+    public override void OnTaskEnd()
     {
         if (dashAction != null)
             dashAction.performed -= OnDash;

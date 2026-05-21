@@ -1,16 +1,10 @@
-using UnityEngine;
-
-public class GrazeTutorialTask : MonoBehaviour
+﻿public class GrazeTutorialTask : InputTutorialTask
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public override string Title => "グレイズ";
+    public override string Description => "弾をギリギリかすめよう";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GrazeTutorialTask(PlayerInput playerInput) : base(playerInput) { }
+
+    public override void Tick() { /* グレイズ判定 */ }
+    public override bool IsCompleted() => totalMoveDistance >= RequiredDistance;
 }

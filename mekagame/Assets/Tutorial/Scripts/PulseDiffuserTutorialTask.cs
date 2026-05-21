@@ -1,16 +1,10 @@
-using UnityEngine;
-
-public class PulseDiffuserTutorialTask : MonoBehaviour
+public class PulseDiffuserTutorialTask : InputTutorialTask
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public override string Title => "パルスディフューザー";
+    public override string Description => "無敵";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public PulseDiffuserTutorialTask(PlayerInput playerInput) : base(playerInput) { }
+
+    public override void Tick() { /*パルスディフューザー判定 */ }
+    public override bool IsCompleted() => /* 達成判定 */;
 }

@@ -10,14 +10,14 @@ EditorBuildSettings:
     guid: ad78d549f220832448a1914943b708f3
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
-    guid: c02804fdfc446f54ea680c1d1e02afe1
+    guid: e10406682c3eaaa4a9f41feaab8c2f5c
   - enabled: 1
     path: Assets/Scenes/Player.unity
     guid: f881118175dc3e44487702413d319bd6
   - enabled: 1
     path: Assets/Scenes/Result.unity
     guid: 351c72d01958b2649af0f4e7a723c35e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SkillCustom.unity
     guid: b9b87f25300e48d4580ea1b2d84628fa
   m_configObjects:

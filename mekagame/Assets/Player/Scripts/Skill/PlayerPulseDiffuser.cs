@@ -8,8 +8,8 @@ public class PlayerPulseDiffuser : MonoBehaviour
     [SerializeField] private int pDUseGage;
     // Œø‰ÊŽžŠÔ
     [SerializeField] private float pDTime;
-
-    public bool isPD = false;
+    
+    public bool isPD { get; private set; }
     private MaterialScript materialScript;
 
     private void Awake()

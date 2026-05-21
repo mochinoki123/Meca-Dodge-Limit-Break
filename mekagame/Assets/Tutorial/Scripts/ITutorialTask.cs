@@ -4,6 +4,7 @@ public interface ITutorialTask
     string Description { get; }
     float TransitionTime { get; }
     void OnTaskSet();
-    void OnTaskEnd();  
+    void OnTaskEnd();
+    void Tick();
     bool IsCompleted();
 }

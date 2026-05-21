@@ -15,12 +15,12 @@ public class MoveTutorialTask : InputTutorialTask
         totalMoveDistance = 0f;
     }
 
-    public override bool IsCompleted()
+    public override void Tick()
     {
         var move = GetAction("Move");
-        if (move == null) return false;
-
+        if (move == null) return;
         totalMoveDistance += move.ReadValue<Vector2>().magnitude * Time.deltaTime;
-        return totalMoveDistance >= RequiredDistance;
     }
+
+    public override bool IsCompleted() => totalMoveDistance >= RequiredDistance;
 }

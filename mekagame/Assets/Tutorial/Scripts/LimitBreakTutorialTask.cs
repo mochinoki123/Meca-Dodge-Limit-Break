@@ -1,16 +1,10 @@
-using UnityEngine;
-
-public class LimitBreakTutorialTask : MonoBehaviour
+public class LimitBreakTutorialTask : InputTutorialTask
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public override string Title => "リミットブレイク";
+    public override string Description => "カウンター攻撃";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public LimitBreakTutorialTask(PlayerInput playerInput) : base(playerInput) { }
+
+    public override void Tick() { /*リミットブレイク判定 */ }
+    public override bool IsCompleted() => /* 達成判定 */;
 }

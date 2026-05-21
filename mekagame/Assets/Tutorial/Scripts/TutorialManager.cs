@@ -1,39 +1,45 @@
-using UnityEngine;
-using TMPro;
 using System.Collections.Generic;
 
 public class TutorialManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class TutorialStep
-    {
-        public string id;
-        public GameObject ui;
-        public TextMeshProUGUI text;
-        public int requiredCount = 1;
-    }
-
     [SerializeField] private List<TutorialStep> steps;
 
-    private Dictionary<string, int> achieveMap = new();
+    private List<ITutorialTask> tasks;
+    private int currentIndex = 0;
 
-    public void UpdateText(string stepId, int achieve)
+    private void Start()
     {
-        var step = steps.Find(s => s.id == stepId);
-        if (step?.text == null) return;
+        // タスクリストを構築（PlayerInputは外部から渡す）
+        var playerInput = FindFirstObjectByType<PlayerInput>();
+        tasks = new List<ITutorialTask>
+        {
+            new MoveTutorialTask(playerInput),
+            new DashTutorialTask(playerInput),
+            new ParryTutorialTask(playerInput),
+            // ...
+        };
 
-        achieveMap[stepId] = achieve;
-        step.text.text = $"{achieve}/{step.requiredCount}";
+        tasks[currentIndex].OnTaskSet();
     }
 
-    public void RefreshAllUI()
+    private void Update()
     {
-        foreach (var step in steps)
-        {
-            if (step.text == null) continue;
+        if (currentIndex >= tasks.Count) return;
 
-            achieveMap.TryGetValue(step.id, out int count);
-            step.text.text = $"{count}/{step.requiredCount}";
-        }
+        var current = tasks[currentIndex];
+        current.Tick();
+
+        if (current.IsCompleted())
+            StartCoroutine(AdvanceTask(current));
+    }
+
+    private IEnumerator AdvanceTask(ITutorialTask task)
+    {
+        task.OnTaskEnd();
+        yield return new WaitForSeconds(task.TransitionTime);
+
+        currentIndex++;
+        if (currentIndex < tasks.Count)
+            tasks[currentIndex].OnTaskSet();
     }
 }

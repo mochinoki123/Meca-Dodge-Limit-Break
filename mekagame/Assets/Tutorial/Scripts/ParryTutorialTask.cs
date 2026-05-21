@@ -1,11 +1,12 @@
-public class ParryTutorialTask : InputTutorialTask
+ï»¿public class ParryTutorialTask : InputTutorialTask
 {
-    public override string Title => "ƒpƒŠƒB";
-    public override string Description => "ƒpƒŠƒB‚ð3‰ñ¬Œ÷‚³‚¹‚æ‚¤";
-    public override float TransitionTime => 2.0f;
+    public override string Title => "ãƒ‘ãƒªã‚£";
+    public override string Description => "ãƒ‘ãƒªã‚£ã‚’3å›žæˆåŠŸã•ã›ã‚ˆã†";
 
     private int parryCount;
     private const int RequiredCount = 3;
+
+    public ParryTutorialTask(PlayerInput playerInput) : base(playerInput) { }
 
     public override void OnTaskSet()
     {
@@ -13,19 +14,14 @@ public class ParryTutorialTask : InputTutorialTask
         parryCount = 0;
     }
 
-    public override void OnTaskEnd() { /* w“Ç‚È‚µ */ }
+    public override void OnTaskEnd() { }
 
-    public override bool IsCompleted()
+    public override void Tick()
     {
-        if (ParrySystem.Instance == null) return false;
-
-        // ƒtƒ‰ƒO‚ª—§‚Á‚Ä‚¢‚½‚çÁ”ï‚µ‚ÄƒJƒEƒ“ƒg
-        if (ParrySystem.Instance.ParrySuccess)
-        {
-            ParrySystem.Instance.ConsumeParrySuccess();
-            parryCount++;
-        }
-
-        return parryCount >= RequiredCount;
+        if (!ObjectParry.ParrySuccess) return;
+        ObjectParry.ResetParry();
+        parryCount++;
     }
+
+    public override bool IsCompleted() => parryCount >= RequiredCount;
 }
