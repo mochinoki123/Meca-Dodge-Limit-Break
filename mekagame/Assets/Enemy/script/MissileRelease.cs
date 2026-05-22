@@ -87,6 +87,8 @@ public class MissileRelease : MonoBehaviour
 
                 rb.position = transform.position;
                 rb.rotation = transform.rotation;
+                rb.Sleep();
+                rb.WakeUp();
             }
         }
     }

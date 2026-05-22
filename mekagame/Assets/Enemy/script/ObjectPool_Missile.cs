@@ -52,6 +52,15 @@ public class ObjectPool_Missile : MonoBehaviour
     {
         objm.SetActive(true);    // オブジェクトをアクティブにする処理
         //objm.transform.position = new Vector2(Random.Range(-8f, 8f), Random.Range(-4.5f, 4.5f));  // オブジェクトの座標を指定する処理
+        /*
+        Rigidbody rb = objm.GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+        */
     }
 
     // オブジェクトを返却する際の処理
@@ -64,6 +73,8 @@ public class ObjectPool_Missile : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
+        objm.transform.position = Vector3.zero;
+        objm.transform.rotation = Quaternion.identity;
         objm.SetActive(false);   // オブジェクトを非アクティブにする処理
     }
 

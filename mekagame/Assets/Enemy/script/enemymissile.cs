@@ -31,10 +31,15 @@ public class enemymissile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        /*
+        transform.position += transform.up * missilespeed * Time.deltaTime;
+        missile();
+        */
     }
     private void FixedUpdate()
     {
+        //transform.position += transform.up * missilespeed * Time.deltaTime;
+        //transform.Translate(Vector3.up * missilespeed * Time.deltaTime);
         //transform.Translate(Vector3.down * missilespeed * Time.deltaTime);
         rb.linearVelocity = transform.up * missilespeed;
         missile();
