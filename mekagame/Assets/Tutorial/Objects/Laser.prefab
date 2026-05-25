@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Lazer
       objectReference: {fileID: 0}
+    - target: {fileID: 8169874916587988444, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
+      propertyPath: m_Volume
+      value: 0.131
+      objectReference: {fileID: 0}
     - target: {fileID: 9193148807585783114, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       propertyPath: m_Name
       value: Lazer
