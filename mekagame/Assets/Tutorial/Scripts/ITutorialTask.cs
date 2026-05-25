@@ -7,4 +7,5 @@ public interface ITutorialTask
     void OnTaskEnd();
     void Tick();
     bool IsCompleted();
+    string GetProgress();
 }

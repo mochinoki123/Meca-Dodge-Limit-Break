@@ -8036,7 +8036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1752185983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8077,14 +8077,30 @@ PrefabInstance:
       propertyPath: EnemyPosi
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8461596928464388786, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7606214123860960135, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: timelineManager
       value: 
       objectReference: {fileID: 300181915}
+    - target: {fileID: -2766656512036199743, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -191212177364559174, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 359795321045862813, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: missile
       value: 
@@ -8092,6 +8108,10 @@ PrefabInstance:
     - target: {fileID: 788469581091682507, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954432314290607981, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4734707873542018438, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: m_Enabled
@@ -8141,6 +8161,10 @@ PrefabInstance:
       propertyPath: ClustereffectPrefab
       value: 
       objectReference: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
+    - target: {fileID: 5541819859851561438, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5541819859851561438, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: attack3missilex
       value: 24
@@ -9058,7 +9082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1927644850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9416,7 +9440,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064008118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d8070296ff2f5341904560a1f0e6431, type: 3}
   m_Name: 
@@ -9708,7 +9732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6555405555771608055, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: <lBDamage>k__BackingField
-      value: 300
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6555405555771608055, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: <lBCoolTime>k__BackingField

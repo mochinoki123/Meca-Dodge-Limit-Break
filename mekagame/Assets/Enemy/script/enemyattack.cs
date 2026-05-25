@@ -6,8 +6,6 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Pool;
 using UnityEngine.Rendering;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 using static UnityEngine.Rendering.ObjectPool<T>;
 
 public class enemyattack : MonoBehaviour

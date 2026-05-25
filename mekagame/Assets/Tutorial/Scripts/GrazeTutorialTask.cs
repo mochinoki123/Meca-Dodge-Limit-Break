@@ -1,10 +1,38 @@
-﻿public class GrazeTutorialTask : InputTutorialTask
+﻿using UnityEngine.InputSystem; 
+
+public class GrazeTutorialTask : InputTutorialTask
 {
     public override string Title => "グレイズ";
     public override string Description => "弾をギリギリかすめよう";
 
-    public GrazeTutorialTask(PlayerInput playerInput) : base(playerInput) { }
+    private int grazeCount;
+    private const int RequiredCount = 1;
 
-    public override void Tick() { /* グレイズ判定 */ }
-    public override bool IsCompleted() => totalMoveDistance >= RequiredDistance;
+    private PlayerGraze playerGraze;
+
+    public GrazeTutorialTask(PlayerInput playerInput, PlayerGraze playerGraze)
+        : base(playerInput)
+    {
+        this.playerGraze = playerGraze;
+    }
+
+    public override void OnTaskSet()
+    {
+        base.OnTaskSet();
+        grazeCount = 0;
+        playerGraze?.ResetGrazeCount();
+    }
+
+    public override void OnTaskEnd() { }
+
+    public override void Tick()
+    {
+        if (playerGraze == null) return;
+
+        grazeCount = playerGraze.GrazeCount;
+    }
+
+    public override bool IsCompleted() => grazeCount >= RequiredCount;
+
+    public string GetProgress() => "";
 }

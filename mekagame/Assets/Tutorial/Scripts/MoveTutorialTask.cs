@@ -1,5 +1,5 @@
-// 移動タスク：WASDを一定量入力したら達成
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MoveTutorialTask : InputTutorialTask
 {
@@ -9,11 +9,15 @@ public class MoveTutorialTask : InputTutorialTask
     private float totalMoveDistance;
     private const float RequiredDistance = 5f;
 
+    public MoveTutorialTask(PlayerInput playerInput) : base(playerInput) { }
+
     public override void OnTaskSet()
     {
         base.OnTaskSet();
         totalMoveDistance = 0f;
     }
+
+    public override void OnTaskEnd() { }
 
     public override void Tick()
     {

@@ -1,10 +1,42 @@
-public class OveerClockTutorialTask : InputTutorialTask
+ï»¿using UnityEngine.InputSystem;
+
+public class OverClockTutorialTask : InputTutorialTask 
 {
-    public override string Title => "ƒI[ƒo[ƒNƒƒbƒN";
-    public override string Description => "Ž©‹­‰»";
+    public override string Title => "ã‚ªãƒ¼ãƒãƒ¼ã‚¯ãƒ­ãƒƒã‚¯";
+    public override string Description => "ã‚ªãƒ¼ãƒãƒ¼ã‚¯ãƒ­ãƒƒã‚¯ã‚’1å›žç™ºå‹•ã—ã‚ˆã†";
 
-    public OveerClockTutorialTask(PlayerInput playerInput) : base(playerInput) { }
+    private bool wasActive;
+    private bool hasActivated;
 
-    public override void Tick() { /* ƒI[ƒo[ƒNƒƒbƒN”»’è */ }
-    public override bool IsCompleted() => /* ’B¬”»’è */;
+    private OverClock overClock;
+
+    public OverClockTutorialTask(PlayerInput playerInput, OverClock overClock)
+        : base(playerInput)
+    {
+        this.overClock = overClock;
+    }
+
+    public override void OnTaskSet()
+    {
+        base.OnTaskSet();
+        wasActive = false;
+        hasActivated = false;
+    }
+
+    public override void OnTaskEnd() { }
+
+    public override void Tick()
+    {
+        if (overClock == null) return;
+
+        bool isActive = overClock.isOC;
+        if (!wasActive && isActive)
+            hasActivated = true;
+
+        wasActive = isActive;
+    }
+
+    public override bool IsCompleted() => hasActivated;
+
+    public string GetProgress() => "";
 }
