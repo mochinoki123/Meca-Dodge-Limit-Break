@@ -436,6 +436,130 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &187839895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 788469581091682507, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+  m_PrefabInstance: {fileID: 7399984068963074270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &187839898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4734707873542018438, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+  m_PrefabInstance: {fileID: 7399984068963074270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187839895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 262a51890886776498bd50ccd9a9e09f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack6
+--- !u!114 &187839900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -191212177364559174, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+  m_PrefabInstance: {fileID: 7399984068963074270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187839895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfecd00fc8ffe3e46828941d2802df20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack4
+--- !u!114 &187839901 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5541819859851561438, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+  m_PrefabInstance: {fileID: 7399984068963074270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187839895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8f7126801a00d418d5f67d41cbef13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack3
+--- !u!114 &187839903 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3954432314290607981, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+  m_PrefabInstance: {fileID: 7399984068963074270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187839895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1db8e5359395b442a13de805b0cb07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack1
+--- !u!114 &187839907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187839895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 32e8c621909853947b5ab50fa3d3299d, type: 2}
+    - {fileID: 11400000, guid: 2354b30ad3a0ecb4ab62b4c324d02db8, type: 2}
+    - {fileID: 11400000, guid: 88a905602da3b9a45952ad00320d734c, type: 2}
+    - {fileID: 11400000, guid: 25228faeae7d64240a267c821d0225c0, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 187839903}
+          m_TargetAssemblyTypeName: enemyattack1, Assembly-CSharp
+          m_MethodName: Attack1
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 187839901}
+          m_TargetAssemblyTypeName: enemyattack3, Assembly-CSharp
+          m_MethodName: Attack3
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 187839900}
+          m_TargetAssemblyTypeName: enemyattack4, Assembly-CSharp
+          m_MethodName: Attack4
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 187839898}
+          m_TargetAssemblyTypeName: enemyattack6, Assembly-CSharp
+          m_MethodName: Attack6
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &739756164
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,6 +1071,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool_Missile
   MissilePrefab: {fileID: 5591188689027106799, guid: fb76bb2785c8ed24e9370a7c0964ac93, type: 3}
+--- !u!1 &1167854753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1167854754}
+  - component: {fileID: 1167854755}
+  m_Layer: 0
+  m_Name: TimelineManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1167854754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167854753}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &1167854755
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167854753}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -3712178330647255744, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5734057284147124768, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
+    value: {fileID: 187839907}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1001 &7399984068963074270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -966,6 +1143,10 @@ PrefabInstance:
     - target: {fileID: 3954432314290607981, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: attack1missile
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734707873542018438, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5303099277553830569, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: lazerchargeeffect
@@ -1024,10 +1205,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 739756166}
     m_RemovedComponents:
-    - {fileID: 359795321045862813, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 788469581091682507, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 187839907}
   m_SourcePrefab: {fileID: 100100000, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1042,3 +1226,4 @@ SceneRoots:
   - {fileID: 30271912}
   - {fileID: 145035588}
   - {fileID: 1022956287}
+  - {fileID: 1167854754}

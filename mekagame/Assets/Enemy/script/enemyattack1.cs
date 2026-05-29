@@ -11,7 +11,6 @@ public class enemyattack1 : MonoBehaviour
     [SerializeField] float rndp = 9;//フィールドごとの範囲指定プラス
     [SerializeField] int attackf = 5;//攻撃の間隔 5
     [SerializeField] int attackpointx = 10;//攻撃発生の横 10
-    [SerializeField] int attackpointy = 60;//攻撃発生の高さ 25
     [SerializeField] int attackpointz = 10;//攻撃発生の奥行 10
     
     float groundx;//random値確認用基本使わない
@@ -19,8 +18,7 @@ public class enemyattack1 : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        enemymanager = GetComponent<enemyattack>();
-        Invoke("Attack1", 3f);
+        
     }
 
     // Update is called once per frame

@@ -5,7 +5,6 @@ public class enemyattack4 : MonoBehaviour
     private enemyattack enemymanager;
     [Header("攻撃Ⅳ")]
     [SerializeField] int attack4missile = 10;//攻撃４のミサイル範囲指定
-    [SerializeField] GameObject missile4;//ミサイル攻撃のオブジェクト
     [Header("爆発ポイントプレハブ")]
     [SerializeField] GameObject bpoint;//爆発ポイント
     [SerializeField] GameObject ClustereffectPrefab;//爆発のエフェクト
@@ -17,8 +16,7 @@ public class enemyattack4 : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        enemymanager = GetComponent<enemyattack>();
-        Invoke("Attack4", 11f);
+        
     }
 
     // Update is called once per frame
