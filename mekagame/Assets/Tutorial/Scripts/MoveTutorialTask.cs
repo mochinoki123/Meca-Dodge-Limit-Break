@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class MoveTutorialTask : InputTutorialTask
 {
     public override string Title => "移動";
-    public override string Description => "WASDキーで移動しよう";
+    public override string Description => "左スティックで移動しよう";
 
     private float totalMoveDistance;
     private const float RequiredDistance = 5f;

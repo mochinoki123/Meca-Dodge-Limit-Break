@@ -2266,15 +2266,17 @@ PlayableDirector:
   m_GameObject: {fileID: 1861827223}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 3125df9ad9705f24ab22a55447b4a5aa, type: 2}
   m_InitialState: 1
-  m_WrapMode: 2
+  m_WrapMode: 1
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 5350937397943508327, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
     value: {fileID: 2146312956}
   - key: {fileID: -7598005347310057175, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
+    value: {fileID: 2146312956}
+  - key: {fileID: -4857465267417283548, guid: 3125df9ad9705f24ab22a55447b4a5aa, type: 2}
     value: {fileID: 2146312956}
   m_ExposedReferences:
     m_References: []
@@ -2500,54 +2502,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f744c242ecbcbb4986cdbba25d10767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaserAttack
-  verPosition:
-  - {fileID: 84385687}
-  - {fileID: 455633829}
-  - {fileID: 1309920787}
-  - {fileID: 1799185215}
-  - {fileID: 818273922}
-  - {fileID: 713028151}
-  - {fileID: 542161777}
-  - {fileID: 1210212416}
-  - {fileID: 1118503282}
-  - {fileID: 677660709}
-  - {fileID: 1050329108}
-  - {fileID: 1956400232}
-  - {fileID: 1630072522}
-  - {fileID: 1286037218}
-  - {fileID: 658910047}
-  - {fileID: 2019409813}
-  - {fileID: 1346352056}
-  - {fileID: 1943214893}
-  - {fileID: 507002767}
-  - {fileID: 1688837241}
-  - {fileID: 503818505}
-  horPosition:
-  - {fileID: 696811973}
-  - {fileID: 688553000}
-  - {fileID: 1765958339}
-  - {fileID: 228021737}
-  - {fileID: 1029159609}
-  - {fileID: 1431485255}
-  - {fileID: 198049696}
-  - {fileID: 682825843}
-  - {fileID: 727217843}
-  - {fileID: 2078586037}
-  - {fileID: 992157637}
-  - {fileID: 233947945}
-  - {fileID: 1193470412}
-  - {fileID: 849232688}
-  - {fileID: 1232073084}
-  - {fileID: 1824836525}
-  - {fileID: 1323787715}
-  - {fileID: 1552216521}
-  - {fileID: 767625719}
-  - {fileID: 707855893}
-  - {fileID: 537288421}
-  - {fileID: 540684752}
-  - {fileID: 1314465226}
-  - {fileID: 32602498}
-  - {fileID: 415436796}
+  northPositions: []
+  southPositions: []
+  eastPositions: []
+  westPositions: []
 --- !u!4 &2146312955
 Transform:
   m_ObjectHideFlags: 0
@@ -2577,7 +2535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
   m_Events:
     m_Signals:
-    - {fileID: 11400000, guid: 1a7fe1299399c704d88dd8742c3709bd, type: 2}
+    - {fileID: 11400000, guid: 2a27dbd0e9007b44b9c231d3d233d2b8, type: 2}
     - {fileID: 11400000, guid: bf7031ca6f3e29648926cedc27ad174e, type: 2}
     - {fileID: 11400000, guid: d53676421f3f5ee4488fb827a863b20d, type: 2}
     - {fileID: 11400000, guid: fe1c830872a592a4b9c40e0f886c8ec9, type: 2}
@@ -2586,7 +2544,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2146312954}
           m_TargetAssemblyTypeName: LaserAttack, Assembly-CSharp
-          m_MethodName: CoroutineLaserHor
+          m_MethodName: FireTutorialEast
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2597,104 +2555,11 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2146312954}
-          m_TargetAssemblyTypeName: LaserAttack, Assembly-CSharp
-          m_MethodName: CoroutineLaserVer
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2146312954}
-          m_TargetAssemblyTypeName: LaserAttack, Assembly-CSharp
-          m_MethodName: RandomFireVer
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2146312954}
-          m_TargetAssemblyTypeName: LaserAttack, Assembly-CSharp
-          m_MethodName: RandomFireHor
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!1001 &1911857654216977869
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 344085158948577905, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 344085158948577905, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 344085158948577905, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 344085158948577905, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 344085158948577905, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 344085158948577905, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 344085158948577905, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 344085158948577905, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 344085158948577905, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 344085158948577905, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6935679640439994187, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
-      propertyPath: m_Name
-      value: Laser
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
+        m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2712,4 +2577,3 @@ SceneRoots:
   - {fileID: 291393499}
   - {fileID: 952531577}
   - {fileID: 765120439}
-  - {fileID: 1911857654216977869}

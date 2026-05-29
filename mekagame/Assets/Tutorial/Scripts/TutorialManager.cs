@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement; 
@@ -12,9 +12,9 @@ public class TutorialManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject tutorialPanel;
-    [SerializeField] private Text titleText;
-    [SerializeField] private Text descriptionText;
-    [SerializeField] private Text progressText;
+    [SerializeField] private TextMeshProUGUI titleText;
+    [SerializeField] private TextMeshProUGUI descriptionText;
+    [SerializeField] private TextMeshProUGUI progressText;
 
     [Header("Scene")]
     [SerializeField] private string nextSceneName;

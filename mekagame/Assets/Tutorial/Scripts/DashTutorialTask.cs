@@ -3,7 +3,7 @@
 public class DashTutorialTask : InputTutorialTask
 {
     public override string Title => "ダッシュ";
-    public override string Description => "Shiftキーでダッシュしよう";
+    public override string Description => "□でダッシュしよう";
 
     private bool dashed;
     private InputAction dashAction;
