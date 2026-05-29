@@ -104,10 +104,12 @@ public class enemyattack6 : MonoBehaviour
     void Attack6missile()
     {
         GameObject objm6 = ObjectPool_Missile.Instance.GetMissile();
+        
         Transform missile = objm6.transform.GetChild(0);
 
         missile.localPosition = Vector3.zero;
         missile.localRotation = Quaternion.identity;
+        
 
         Rigidbody rb = missile.GetComponent<Rigidbody>();
 
@@ -123,7 +125,7 @@ public class enemyattack6 : MonoBehaviour
         //Debug.Log("X座標: " + x + ", Z座標: " + z);
 
         Vector3 play = GameObject.Find("Player").transform.position;//プレイヤーの座標取得
-        objm6.transform.position = new Vector3(play.x, y, play.z);
+        objm6.transform.position = new Vector3(play.x, 0.1f, play.z);
         objm6.transform.rotation = Quaternion.identity;//Quaternion.Euler(180, 0, 0);
 
         /*

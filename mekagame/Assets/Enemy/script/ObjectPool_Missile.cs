@@ -32,7 +32,7 @@ public class ObjectPool_Missile : MonoBehaviour
             OnDestroyPoolMissile,    // プールが上限を超えた場合の処理
             true,                   // すでにプール内にいるオブジェクトを返却した際にエラー表示するか
             2,                      // 初期のプールの容量
-            20);                    // プール内オブジェクトの上限数
+            50);                    // プール内オブジェクトの上限数
     }
 
     // Update is called once per frame
@@ -53,7 +53,6 @@ public class ObjectPool_Missile : MonoBehaviour
         objm.SetActive(true);    // オブジェクトをアクティブにする処理
         //objm.transform.position = new Vector2(Random.Range(-8f, 8f), Random.Range(-4.5f, 4.5f));  // オブジェクトの座標を指定する処理
         /*
-        Rigidbody rb = objm.GetComponent<Rigidbody>();
 
         if (rb != null)
         {
@@ -61,6 +60,8 @@ public class ObjectPool_Missile : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
         }
         */
+        Rigidbody rb = objm.GetComponent<Rigidbody>();
+        rb.useGravity = true;
     }
 
     // オブジェクトを返却する際の処理

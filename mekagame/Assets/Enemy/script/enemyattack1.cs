@@ -34,6 +34,7 @@ public class enemyattack1 : MonoBehaviour
         for (int i = 0; i < attack1missile; i++)
         {
             GameObject objm1 = ObjectPool_Missile.Instance.GetMissile();
+
             /*
             objm1.transform.position = spawnPos;
             objm1.transform.rotation = Quaternion.identity;

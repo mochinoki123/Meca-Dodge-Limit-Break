@@ -14,6 +14,7 @@ public class MissileRelease : MonoBehaviour
     private GameObject b;
 
     public bool isDead = false;
+    
 
     private void Awake()
     {
@@ -75,7 +76,7 @@ public class MissileRelease : MonoBehaviour
         {
             Transform missileChild = transform.GetChild(0);
 
-            missileChild.localPosition = Vector3.zero;
+            missileChild.localPosition = new Vector3(0,600,0);
             missileChild.localRotation = Quaternion.identity;
 
             Rigidbody rb = missileChild.GetComponent<Rigidbody>();
@@ -85,6 +86,7 @@ public class MissileRelease : MonoBehaviour
                 rb.linearVelocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
 
+                rb.useGravity = false;
                 rb.position = transform.position;
                 rb.rotation = transform.rotation;
                 rb.Sleep();

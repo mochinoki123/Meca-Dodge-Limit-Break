@@ -946,7 +946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd3021b7de69bc49ac8bfe156b10e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool_Missile
-  MissilePrefab: {fileID: 4919403175396908973, guid: 714cad53fb992114cb2dd479f9de67a0, type: 3}
+  MissilePrefab: {fileID: 5591188689027106799, guid: fb76bb2785c8ed24e9370a7c0964ac93, type: 3}
 --- !u!1001 &7399984068963074270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -963,6 +963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3954432314290607981, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: attack1missile
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5303099277553830569, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: lazerchargeeffect
       value: 
@@ -971,6 +975,10 @@ PrefabInstance:
       propertyPath: ClustereffectPrefab
       value: 
       objectReference: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
+    - target: {fileID: 5541819859851561438, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: attack3missile
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7484231396979750424, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

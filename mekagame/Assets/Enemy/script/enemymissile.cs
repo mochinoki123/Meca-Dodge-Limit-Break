@@ -9,6 +9,7 @@ public class enemymissile : MonoBehaviour
     //enemyattack enemyAttack;
     private GameObject p;
     public GameObject point;
+    public bool useGravity = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,7 +18,7 @@ public class enemymissile : MonoBehaviour
         //audioSource = GetComponent<AudioSource>();
         //enemyAttack = FindAnyObjectByType<enemyattack>();
         rb = GetComponent<Rigidbody>();
-
+        rb.useGravity = false;
         Vector3 mPos = new Vector3(transform.position.x, 0.01f, transform.position.z);
         /*
         p.transform.position = mPos;
@@ -41,7 +42,7 @@ public class enemymissile : MonoBehaviour
         //transform.position += transform.up * missilespeed * Time.deltaTime;
         //transform.Translate(Vector3.up * missilespeed * Time.deltaTime);
         //transform.Translate(Vector3.down * missilespeed * Time.deltaTime);
-        rb.linearVelocity = transform.up * missilespeed;
+        rb.linearVelocity = Vector3.down * missilespeed;
         missile();
     }
     void missile()
