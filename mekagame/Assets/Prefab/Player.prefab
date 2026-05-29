@@ -830,6 +830,7 @@ MonoBehaviour:
   runTime: 0.5
   runCoolTime: 1.5
   jumpForce: 800
+  rotateSpeed: 10
   dash: {fileID: 8300000, guid: f3d563a11239279428e4637e4d93c387, type: 3}
   isRun: 0
 --- !u!114 &6701285199196659666
@@ -860,14 +861,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerParry: {fileID: 7261820190855510206}
   enemy: {fileID: 0}
-  parryTime: 0.3
+  parryTime: 0.1
   parryCoolTime: 0.5
+  parrySuccessDisplayTime: 1
+  lbAttackDelay: 2
+  blinkInterval: 0.1
   parrySound: {fileID: 8300000, guid: cc8dd4d866faf2a4198c8398cec66be1, type: 3}
   lBEffect: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
   enemyPos: {fileID: 7484231396979750424, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
-  originalColor: {fileID: 2100000, guid: 4e7181958b0a7d6429d89feddd2829fe, type: 2}
-  isParry: 0
-  notMove: 0
 --- !u!114 &2239482457582927747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,7 +883,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pDUseGage: 100
   pDTime: 5
-  isPD: 0
 --- !u!114 &7366772813212430370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -901,7 +901,6 @@ MonoBehaviour:
   oCCoolTime: 0.5
   oCGrazeRange: 5
   overClock: {fileID: 8300000, guid: 8c571b21ae4d8ca4d993898e75628077, type: 3}
-  isOC: 0
 --- !u!114 &6555405555771608055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,10 +914,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lBUseGage: 300
-  lBDamage: 200
-  lBTime: 2
-  lBCoolTime: 3
-  isLB: 0
+  <lBDamage>k__BackingField: 0
+  <lBTime>k__BackingField: 0
+  <lBCoolTime>k__BackingField: 0
 --- !u!95 &2230653814415199337
 Animator:
   serializedVersion: 7
