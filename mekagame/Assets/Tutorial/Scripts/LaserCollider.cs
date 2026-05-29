@@ -12,7 +12,7 @@ public class LaserCollider : MonoBehaviour
     private void Update()
     {
         float grow = laser.localScale.x * 2f;
-        transform.localPosition = new Vector3(-grow, 0f, 0f);
+        transform.localPosition = new Vector3(grow, 2f, 0f);
     }
     private void OnDisable()
     {
