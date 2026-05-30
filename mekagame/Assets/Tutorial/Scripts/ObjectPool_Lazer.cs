@@ -33,8 +33,14 @@ public class ObjectPool_Lazer : MonoBehaviour
             OnReturnLaser,
             OnDestroyLaser,
             false,
-            2,
+            1,
             20);
+
+        var prewarmed = new GameObject[10];
+        for (int i = 0; i < 10; i++)
+            prewarmed[i] = pool.Get();
+        for (int i = 0; i < 10; i++)
+            pool.Release(prewarmed[i]);
     }
 
     public GameObject Spawn(Vector3 position, Quaternion rotation)

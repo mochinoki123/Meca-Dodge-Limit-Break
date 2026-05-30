@@ -218,10 +218,7 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Lazer
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6582287476674695428, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
-    - {fileID: 8510525154921190974, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
-    - {fileID: 6246236221411098474, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1158389583553977543, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
@@ -294,9 +291,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3553292469845381588, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
-    - {fileID: 5929835288406205554, guid: c26d7be674c5a7141830592ab1286b49, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
