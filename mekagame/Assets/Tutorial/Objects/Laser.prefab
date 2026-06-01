@@ -77,7 +77,7 @@ GameObject:
   m_Component:
   - component: {fileID: 344085158948577905}
   - component: {fileID: 7269326618793855539}
-  - component: {fileID: 2482332607628649679}
+  - component: {fileID: 2335265230436906621}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Lazer
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 830a683d56a54c14fa090ffeb08ed426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReleaseLaser
---- !u!54 &2482332607628649679
+--- !u!54 &2335265230436906621
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,7 +125,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -137,7 +137,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -202,13 +202,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1873238919815034277, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3687006693563980491, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       propertyPath: m_TagString
-      value: Lazer
+      value: LaserDamage
       objectReference: {fileID: 0}
     - target: {fileID: 8169874916587988444, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       propertyPath: m_Volume
       value: 0.131
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619573232494201770, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619573232494201770, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9193148807585783114, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       propertyPath: m_Name
@@ -225,13 +237,48 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1158389583553977543, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6452876853736309854}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3687006693563980491, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6981835039481949259}
   m_SourcePrefab: {fileID: 100100000, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
 --- !u!4 &2139850838662136439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1158389583553977543, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
   m_PrefabInstance: {fileID: 982112580497055408}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4506919318719972475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3687006693563980491, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
+  m_PrefabInstance: {fileID: 982112580497055408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6981835039481949259
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4506919318719972475}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1001 &6180606344516083880
 PrefabInstance:
   m_ObjectHideFlags: 0

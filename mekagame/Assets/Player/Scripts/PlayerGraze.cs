@@ -5,7 +5,7 @@ public class PlayerGraze : MonoBehaviour
 {
     private Dictionary<int, float> grazeCooldowns = new Dictionary<int, float>();
     private List<int> removeCache = new List<int>();
-    private readonly HashSet<string> targetTags = new HashSet<string> { "Missile", "Lazer", "FirePoint" };
+    private readonly HashSet<string> targetTags = new HashSet<string> { "Missile", "LaserDamage", "FirePoint" };
 
     [Header("Settings")]
     [SerializeField] private float grazeRange;

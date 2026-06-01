@@ -21,6 +21,7 @@ public class OverClock : MonoBehaviour
     PlayerGraze pg;
     AudioSource audioSource;
     MaterialScript materialScript;
+    Animator animator;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class OverClock : MonoBehaviour
         pg = GetComponentInChildren<PlayerGraze>();
         audioSource = GetComponent<AudioSource>();
         materialScript = GetComponent<MaterialScript>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnOverClock(InputValue value)
@@ -47,6 +49,8 @@ public class OverClock : MonoBehaviour
             // ゲージ消費とフラグ設定
             GameManager.Instance.UseGage(oCUseGage);
             isOC = true;
+
+            animator?.SetTrigger("IsOC");
 
             materialScript.ChangeMaterial(MaterialScript.EffectType.OverClock, oCTime);
 

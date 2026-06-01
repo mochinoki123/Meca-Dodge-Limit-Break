@@ -64,6 +64,8 @@ public class PlayerParry : MonoBehaviour
 
     private IEnumerator Parry()
     {
+        animator?.SetTrigger("IsParry");
+
         // LBモードかどうかを開始時点で確定
         bool isLBMode = lb != null && lb.isLB;
 

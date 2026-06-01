@@ -12,9 +12,12 @@ public class PlayerPulseDiffuser : MonoBehaviour
     public bool isPD { get; private set; }
     private MaterialScript materialScript;
 
+    private Animator animator;
+
     private void Awake()
     {
         materialScript = GetComponent<MaterialScript>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnPulseDiffuser(InputValue value)
@@ -32,6 +35,8 @@ public class PlayerPulseDiffuser : MonoBehaviour
             // ÉQÅ[ÉWè¡îÔÇµÇƒî≠ìÆ
             GameManager.Instance.UseGage(pDUseGage);
             isPD = true;
+
+            animator?.SetTrigger("IsPD");
 
             materialScript.ChangeMaterial(MaterialScript.EffectType.Pulse, pDTime);
 
