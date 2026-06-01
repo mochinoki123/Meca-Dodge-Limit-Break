@@ -11,7 +11,6 @@ public class enemyattack6 : MonoBehaviour
     //攻撃６
     [Header("攻撃Ⅵ")]
     [SerializeField] int Attack6ms = 5;//攻撃６のミサイル数
-    public float y = 60;//攻撃発生高
     Vector3 play;
     //プレイヤー座標取得
     float x;
@@ -55,18 +54,6 @@ public class enemyattack6 : MonoBehaviour
     {
         GameObject objm6 = ObjectPool_Missile.Instance.GetMissile();
         
-        /*
-        Transform missile = objm6.transform.GetChild(0);
-
-        missile.localPosition = Vector3.zero;
-        missile.localRotation = Quaternion.identity;
-        
-
-        Rigidbody rb = missile.GetComponent<Rigidbody>();
-
-        rb.linearVelocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-        */
         // transform.position で現在のワールド座標を取得
         Vector3 currentPosition = transform.position;
         //Debug.Log("プレイヤーの座標: " + currentPosition);
@@ -80,11 +67,6 @@ public class enemyattack6 : MonoBehaviour
         objm6.transform.position = new Vector3(play.x, 0.1f, play.z);
         objm6.transform.rotation = Quaternion.identity;//Quaternion.Euler(180, 0, 0);
 
-        /*
-        Instantiate(missile, new Vector3(play.x, y, play.z), Quaternion.Euler(180, 0, 0));//プレイヤーのいる座標に向かって発射
-        */
-
-        //Instantiate(missile, new Vector3(x,y,z), Quaternion.identity);
     }
 
 }

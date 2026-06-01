@@ -8,7 +8,6 @@ public class enemyattack4 : MonoBehaviour
     [Header("爆発ポイントプレハブ")]
     [SerializeField] GameObject bpoint;//爆発ポイント
     [SerializeField] GameObject ClustereffectPrefab;//爆発のエフェクト
-    [SerializeField] int attackpointy = 60;//攻撃発生の高さ
     [Header("攻撃範囲指定")]
     [SerializeField] float rndm = -9;//フィールドごとの範囲指定マイナス
     [SerializeField] float rndp = 9;//フィールドごとの範囲指定プラス
@@ -47,23 +46,6 @@ public class enemyattack4 : MonoBehaviour
     {
         for (int i = 1; i < attack4missile; i++)
         {
-            /*
-            GameObject objm4bu = Getb();
-            objm4bu.transform.position = new Vector3(ap, 0, ap + 10 * i);//北
-            objm4bu.transform.rotation = Quaternion.Euler(180, 0, 0);
-            objm4bu.SetActive(true);
-            GameObject objm4br = Getb();
-            objm4br.transform.position = new Vector3(ap + 10 * i, 0, ap);//東
-            objm4br.transform.rotation = Quaternion.Euler(180, 0, 0);
-            objm4br.SetActive(true);
-            GameObject objm4bd = Getb();
-            objm4bd.transform.position = new Vector3(ap, 0, ap - 10 * i);//南
-            objm4bd.transform.rotation = Quaternion.Euler(180, 0, 0);
-            objm4bd.SetActive(true);
-            GameObject objm4bl = Getb();
-            objm4bl.transform.position = new Vector3(ap - 10 * i, 0, ap);//西
-            objm4bl.transform.rotation = Quaternion.Euler(180, 0, 0);
-            objm4bl.SetActive(true);*/
 
             GameObject Attack4bpoint1 = Instantiate(bpoint, new Vector3(ap, 0, ap + 10 * i), Quaternion.Euler(180, 0, 0));
             GameObject Attack4bpoint2 = Instantiate(bpoint, new Vector3(ap + 10 * i, 0, ap), Quaternion.Euler(180, 0, 0));//東
@@ -80,25 +62,6 @@ public class enemyattack4 : MonoBehaviour
     {
         for (int i = 1; i < attack4missile; i++)
         {
-            /*
-            GameObject objm4beu = Getbe();
-            objm4beu.transform.position = new Vector3(ap, 0, ap + 10 * i);//北
-            objm4beu.transform.rotation = Quaternion.Euler(180, 0, 0);
-            objm4beu.SetActive(true);
-            GameObject objm4ber = Getbe();
-            objm4ber.transform.position = new Vector3(ap + 10 * i, 0, ap);//東
-            objm4ber.transform.rotation = Quaternion.Euler(180, 0, 0);
-            objm4ber.SetActive(true);
-            GameObject objm4bed = Getbe();
-            objm4bed.transform.position = new Vector3(ap, 0, ap - 10 * i);//南
-            objm4bed.transform.rotation = Quaternion.Euler(180, 0, 0);
-            objm4bed.SetActive(true);
-            GameObject objm4bel = Getbe();
-            objm4bel.transform.position = new Vector3(ap - 10 * i, 0, ap);//西
-            objm4bel.transform.rotation = Quaternion.Euler(180, 0, 0);
-            objm4bel.SetActive(true);
-            */
-
             GameObject Attack4effectbpoint1 = Instantiate(ClustereffectPrefab, new Vector3(ap, 0, ap + 10 * i), Quaternion.identity);//北
             GameObject Attack4effectbpoint2 = Instantiate(ClustereffectPrefab, new Vector3(ap + 10 * i, 0, ap), Quaternion.identity);//東
             GameObject Attack4effectbpoint3 = Instantiate(ClustereffectPrefab, new Vector3(ap, 0, ap - 10 * i), Quaternion.identity);//南
