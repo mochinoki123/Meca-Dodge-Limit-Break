@@ -6957,7 +6957,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemyattack6
   Attack6ms: 5
-  y: 60
 --- !u!114 &1455872205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6973,7 +6972,6 @@ MonoBehaviour:
   attack4missile: 10
   bpoint: {fileID: 6062530079735253497, guid: 000049e108e3c32489d2d889d5975210, type: 3}
   ClustereffectPrefab: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
-  attackpointy: 60
   rndm: -9
   rndp: 9
 --- !u!114 &1455872206

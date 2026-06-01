@@ -113,8 +113,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6413061, y: 0.5411312, z: 0.67793983}
-  m_Center: {x: -0.02177372, y: -2.867806, z: -0.018227125}
+  m_Size: {x: 0.6413061, y: 2.714214, z: 0.67793983}
+  m_Center: {x: -0.02177372, y: -3.2726746, z: -0.018227125}
 --- !u!114 &8617448891999272578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 1931610484153013458}
   - component: {fileID: 216498093660682789}
   - component: {fileID: 1601770973054541543}
-  - component: {fileID: 3334742215096599839}
+  - component: {fileID: 1487366346784188801}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Missile
@@ -234,8 +234,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!136 &3334742215096599839
-CapsuleCollider:
+--- !u!65 &1487366346784188801
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -252,11 +252,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.10591562
-  m_Height: 44.736977
-  m_Direction: 1
-  m_Center: {x: -0.1609834, y: -9.405003, z: 0.14190233}
+  serializedVersion: 3
+  m_Size: {x: 0.40323296, y: 9.31385, z: 0.42086878}
+  m_Center: {x: -0.1489306, y: -26.76115, z: 0.14825784}
 --- !u!1001 &8932507706427897688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -267,11 +265,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2780027451922905884, guid: b040ceedd39cb3144b575af3f8f5d77f, type: 3}
       propertyPath: m_Height
-      value: 0.0071165906
+      value: 0.004736483
+      objectReference: {fileID: 0}
+    - target: {fileID: -2780027451922905884, guid: b040ceedd39cb3144b575af3f8f5d77f, type: 3}
+      propertyPath: m_Radius
+      value: 0.009472966
+      objectReference: {fileID: 0}
+    - target: {fileID: -2780027451922905884, guid: b040ceedd39cb3144b575af3f8f5d77f, type: 3}
+      propertyPath: m_Center.x
+      value: -0.013740752
       objectReference: {fileID: 0}
     - target: {fileID: -2780027451922905884, guid: b040ceedd39cb3144b575af3f8f5d77f, type: 3}
       propertyPath: m_Center.y
-      value: 0.0038968245
+      value: 0.0055181966
       objectReference: {fileID: 0}
     - target: {fileID: 3985595573861883837, guid: b040ceedd39cb3144b575af3f8f5d77f, type: 3}
       propertyPath: m_LocalScale.x
