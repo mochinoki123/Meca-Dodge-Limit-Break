@@ -7032,7 +7032,7 @@ MonoBehaviour:
   - {fileID: 1081188300}
   - {fileID: 2126959707}
   - {fileID: 357555486}
-  attack3missile: 0
+  attack3missile: 6
   attack3missilex: 0
   attack3missiley: 0
   attackpointx: 10

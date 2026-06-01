@@ -32,7 +32,7 @@ public class enemyattack3 : MonoBehaviour
 
         if (attackbunki < 0.5f)//ƒNƒƒXŒ^
         {
-            
+            /*
             for (int i = 1; i <= attack3missilex; i++)
             {
                 GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
@@ -41,8 +41,8 @@ public class enemyattack3 : MonoBehaviour
                 objm3.transform.position = xposition[i].position;
                 objm3.transform.rotation = Quaternion.identity;
             }
-
-            /*
+            */
+            
             GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
             objm3.transform.position = new Vector3(0, 0.1f, 0);
             //objm3.transform.rotation = Quaternion.Euler(180, 0, 0);
@@ -73,11 +73,11 @@ public class enemyattack3 : MonoBehaviour
                 m3ldx.transform.rotation = Quaternion.identity;
                 //m3rux.SetActive(true);
             }
-                Debug.Log("UŒ‚‡Vx");*/
+                Debug.Log("UŒ‚‡Vx");
         }
         else//\ŽšŒ^
         {
-            
+            /*
             for(int i = 1;i <= attack3missiley; i++)
             {
                 GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
@@ -86,8 +86,8 @@ public class enemyattack3 : MonoBehaviour
                 objm3.transform.position = jposition[i].position;
                 objm3.transform.rotation = Quaternion.identity;
             }
-
-            /*
+            */
+            
             GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
             objm3.transform.position = new Vector3(0, 0.1f, 0);
             //objm3.transform.rotation = Quaternion.Euler(180, 0, 0);
@@ -118,7 +118,7 @@ public class enemyattack3 : MonoBehaviour
                 //m3r.SetActive(true);
 
             }
-            Debug.Log("UŒ‚‡V+");*/
+            Debug.Log("UŒ‚‡V+");
             
         }
         //Debug.Log("UŒ‚‡V");
