@@ -11,6 +11,7 @@ TagManager:
   - Lazer
   - FirePoint
   - Wall
+  - LaserDamage
   layers:
   - Default
   - TransparentFX

@@ -100,22 +100,23 @@ public class PlayerParry : MonoBehaviour
     // パリィ成功時の処理
     private IEnumerator HandleParrySuccess(bool isLBMode)
     {
-        // 成功テキスト表示 & SE再生
-        textScript?.Set(TextScript.EffectType.Parry);
-        audioSource?.PlayOneShot(parrySound);
-
-        yield return new WaitForSeconds(parrySuccessDisplayTime);
-
-        // テキスト非表示
-        textScript?.Removed(TextScript.EffectType.Parry);
-
-        // LBモード時は追撃コルーチンを起動
         if (isLBMode)
         {
-            StartCoroutine(LBAttack());
-        }
-    }
+            textScript?.Set(TextScript.EffectType.LimitBreak);
+            StartCoroutine(LBAttack()); 
 
+            yield return new WaitForSeconds(parrySuccessDisplayTime); 
+        }
+        else
+        {
+            textScript?.Set(TextScript.EffectType.Parry);
+            audioSource?.PlayOneShot(parrySound);
+
+            yield return new WaitForSeconds(parrySuccessDisplayTime);
+        }
+
+        textScript?.Removed(TextScript.EffectType.All);
+    }
     // パリィ失敗時の処理（硬直 + 点滅）
     private IEnumerator HandleParryFailure(bool isLBMode)
     {

@@ -216,10 +216,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9193148807585783114, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       propertyPath: m_TagString
-      value: Lazer
+      value: LaserDamage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5220803773775751088, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1158389583553977543, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       insertIndex: -1
