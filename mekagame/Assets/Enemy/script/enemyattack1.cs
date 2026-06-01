@@ -33,25 +33,9 @@ public class enemyattack1 : MonoBehaviour
         {
             GameObject objm1 = ObjectPool_Missile.Instance.GetMissile();
 
-            /*
-            objm1.transform.position = spawnPos;
-            objm1.transform.rotation = Quaternion.identity;
-
-            Rigidbody rb = objm1.GetComponent<Rigidbody>();
-            rb.linearVelocity = objm1.transform.up * missilespeed;
-            */
-
-            //GameObject objm1 = enemymanager.Get();
-
             groundx = Random.Range(rndm, rndp);//地面の広さによって変更
             groundz = Random.Range(rndm, rndp);//地面の広さによって変更
 
-            //Instantiate(missile, new Vector3((attackf * groundx) - groundx, attackpointy, (attackf * groundz) - groundz),  Quaternion.Euler(180, 0, 0));//発射
-            /*
-            Rigidbody missileRigidbody = missile.GetComponent<Rigidbody>();//リジッドボディ
-            missileRigidbody.useGravity = false;
-            missileRigidbody.linearVelocity = Vector3.down * missilespeed;
-            */
             objm1.transform.position = new Vector3((attackf * groundx) - groundx, 0.1f, (attackf * groundz) - groundz);
             //objm1.transform.rotation = Quaternion.Euler(180, 0, 0);
             objm1.transform.rotation = Quaternion.identity;

@@ -7,10 +7,7 @@ public class enemyattack3 : MonoBehaviour
     [SerializeField] Transform[] xposition;
     [SerializeField] Transform[] jposition;
     [SerializeField] int attack3missile;//UŒ‚‡V‚Ì”ÍˆÍİ’è
-    [SerializeField] int attack3missilex;//UŒ‚‡Vx‚Ì”ÍˆÍİ’è
-    [SerializeField] int attack3missiley;//UŒ‚‡V+‚Ì”ÍˆÍİ’è
     [SerializeField] int attackpointx = 10;//UŒ‚”­¶‚Ì‰¡
-    [SerializeField] int attackpointy = 60;//UŒ‚”­¶‚Ì‚‚³
     [SerializeField] int attackpointz = 10;//UŒ‚”­¶‚Ì‰œs
     float attackbunki;//random’lŠm”F—pŠî–{g‚í‚È‚¢
     // Start is called once before the first execution of Update after the MonoBehaviour is created

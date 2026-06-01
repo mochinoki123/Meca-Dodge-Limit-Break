@@ -7033,10 +7033,7 @@ MonoBehaviour:
   - {fileID: 2126959707}
   - {fileID: 357555486}
   attack3missile: 6
-  attack3missilex: 0
-  attack3missiley: 0
   attackpointx: 10
-  attackpointy: 60
   attackpointz: 10
 --- !u!114 &1455872207
 MonoBehaviour:
