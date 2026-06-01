@@ -441,50 +441,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 788469581091682507, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
   m_PrefabInstance: {fileID: 7399984068963074270}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &187839898 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4734707873542018438, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
-  m_PrefabInstance: {fileID: 7399984068963074270}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187839895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 262a51890886776498bd50ccd9a9e09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::enemyattack6
---- !u!114 &187839900 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -191212177364559174, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
-  m_PrefabInstance: {fileID: 7399984068963074270}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187839895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfecd00fc8ffe3e46828941d2802df20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::enemyattack4
---- !u!114 &187839901 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5541819859851561438, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
-  m_PrefabInstance: {fileID: 7399984068963074270}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187839895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce8f7126801a00d418d5f67d41cbef13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::enemyattack3
---- !u!114 &187839903 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3954432314290607981, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
-  m_PrefabInstance: {fileID: 7399984068963074270}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187839895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1db8e5359395b442a13de805b0cb07e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::enemyattack1
 --- !u!114 &187839907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,7 +462,7 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 187839903}
+        - m_Target: {fileID: 187839911}
           m_TargetAssemblyTypeName: enemyattack1, Assembly-CSharp
           m_MethodName: Attack1
           m_Mode: 1
@@ -520,7 +476,7 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 187839901}
+        - m_Target: {fileID: 187839910}
           m_TargetAssemblyTypeName: enemyattack3, Assembly-CSharp
           m_MethodName: Attack3
           m_Mode: 1
@@ -534,7 +490,7 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 187839900}
+        - m_Target: {fileID: 187839909}
           m_TargetAssemblyTypeName: enemyattack4, Assembly-CSharp
           m_MethodName: Attack4
           m_Mode: 1
@@ -548,7 +504,7 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 187839898}
+        - m_Target: {fileID: 187839908}
           m_TargetAssemblyTypeName: enemyattack6, Assembly-CSharp
           m_MethodName: Attack6
           m_Mode: 1
@@ -560,6 +516,77 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &187839908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187839895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 262a51890886776498bd50ccd9a9e09f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack6
+  Attack6ms: 5
+  y: 60
+--- !u!114 &187839909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187839895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfecd00fc8ffe3e46828941d2802df20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack4
+  attack4missile: 10
+  bpoint: {fileID: 6062530079735253497, guid: 000049e108e3c32489d2d889d5975210, type: 3}
+  ClustereffectPrefab: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
+  attackpointy: 60
+  rndm: -9
+  rndp: 9
+--- !u!114 &187839910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187839895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8f7126801a00d418d5f67d41cbef13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack3
+  xposition: []
+  jposition: []
+  attack3missile: 6
+  attack3missilex: 0
+  attack3missiley: 0
+  attackpointx: 10
+  attackpointy: 60
+  attackpointz: 10
+--- !u!114 &187839911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187839895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1db8e5359395b442a13de805b0cb07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyattack1
+  missilespeed: 45
+  attack1missile: 10
+  rndm: -9
+  rndp: 9
+  attackf: 5
+  attackpointx: 10
+  attackpointz: 10
 --- !u!1 &739756164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,7 +1141,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
   m_InitialState: 1
-  m_WrapMode: 2
+  m_WrapMode: 1
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -1209,6 +1236,18 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 788469581091682507, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 187839911}
+    - targetCorrespondingSourceObject: {fileID: 788469581091682507, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 187839910}
+    - targetCorrespondingSourceObject: {fileID: 788469581091682507, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 187839909}
+    - targetCorrespondingSourceObject: {fileID: 788469581091682507, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 187839908}
     - targetCorrespondingSourceObject: {fileID: 788469581091682507, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       insertIndex: -1
       addedObject: {fileID: 187839907}
