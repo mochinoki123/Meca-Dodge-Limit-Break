@@ -64,11 +64,12 @@ public class PlayerMove : MonoBehaviour
     private void Move()
     {
         // 状態に応じた速度決定
-        float baseSpeed = (parry.notMove, isRun, oc.isOC) switch
+        float baseSpeed = (parry.notMove, parry.isParry, isRun, oc.isOC) switch
         {
-            (true, _, _) => notSpeed,    // 硬直中
-            (_, true, true) => oc.oCSpeed,  // OC中のダッシュ
-            (_, true, _) => runSpeed,    // 通常ダッシュ
+            (true, _, _, _) => notSpeed,    // 硬直中
+            (_, true, _, _) => notSpeed, // パリィ中硬直
+            (_, _, true, true) => oc.oCSpeed,  // OC中のダッシュ
+            (_, _, true, _) => runSpeed,    // 通常ダッシュ
             _ => walkSpeed    // 歩き
         };
 

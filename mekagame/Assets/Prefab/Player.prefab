@@ -861,8 +861,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerParry: {fileID: 7261820190855510206}
   enemy: {fileID: 0}
-  parryTime: 0.1
-  parryCoolTime: 0.5
+  parryTime: 0.05
+  parryCoolTime: 0.3
   parrySuccessDisplayTime: 1
   lbAttackDelay: 2
   blinkInterval: 0.1
@@ -1888,7 +1888,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &6577211219774412732
 MonoBehaviour:
   m_ObjectHideFlags: 0
