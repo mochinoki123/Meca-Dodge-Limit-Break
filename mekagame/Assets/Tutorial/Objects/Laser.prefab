@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 6231613738658932539}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 0.01, y: 4, z: 4}
+  m_LocalPosition: {x: -2, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 344085158948577905}
@@ -65,7 +65,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 4, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6935679640439994187
 GameObject:
@@ -141,7 +141,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!1001 &982112580497055408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1004429928346378699, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       propertyPath: speed
-      value: 30
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1004429928346378699, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       propertyPath: laserEffect
@@ -216,10 +216,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9193148807585783114, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       propertyPath: m_TagString
-      value: Lazer
+      value: LaserDamage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5220803773775751088, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1158389583553977543, guid: 37047f68e9bea6f4e8143b362a2d5b6b, type: 3}
       insertIndex: -1

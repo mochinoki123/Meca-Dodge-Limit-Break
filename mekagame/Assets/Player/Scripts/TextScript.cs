@@ -1,39 +1,61 @@
-using UnityEngine;
+using System.Collections.Generic;
 using TMPro;
-using UnityEngine.InputSystem;
-
+using UnityEngine;
 
 public class TextScript : MonoBehaviour
 {
     [SerializeField] private GameObject camera;
     [SerializeField] private TextMeshProUGUI graze;
     [SerializeField] private TextMeshProUGUI parry;
+    [SerializeField] private TextMeshProUGUI limitBreak;
 
-    public enum EffectType
+    public enum EffectType { Graze, Parry, LimitBreak, All }
+
+    // EnumをキーにしたDictionaryでテキストを管理
+    private Dictionary<EffectType, TextMeshProUGUI> textMap;
+
+    private void Awake()
     {
-        Graze,
-        Parry,
-        All
+        textMap = new Dictionary<EffectType, TextMeshProUGUI>
+        {
+            { EffectType.Graze,      graze      },
+            { EffectType.Parry,      parry      },
+            { EffectType.LimitBreak, limitBreak },
+        };
     }
+
     private void Start()
     {
         Removed(EffectType.All);
     }
+
     private void Update()
     {
-        graze.transform.LookAt(camera.transform);
-        parry.transform.LookAt(camera.transform);
-        parry.transform.Rotate(0, 180, 0);
-        graze.transform.Rotate(0, 180, 0);
+        // 全テキストをまとめてビルボード処理
+        foreach (var text in textMap.Values)
+            BillboardToCamera(text.transform);
     }
-    public void Set(EffectType type)
+
+    public void Set(EffectType type) => SetAlpha(type, 0.8f);
+    public void Removed(EffectType type) => SetAlpha(type, 0f);
+
+    // AlphaをセットするロジックをSetとRemovedで共通化
+    private void SetAlpha(EffectType type, float alpha)
     {
-        if (type == EffectType.Graze || type == EffectType.All) graze.alpha = 1f;
-        if (type == EffectType.Parry || type == EffectType.All) parry.alpha = 1f;
+        if (type == EffectType.All)
+        {
+            foreach (var text in textMap.Values)
+                text.alpha = alpha;
+        }
+        else if (textMap.TryGetValue(type, out var text))
+        {
+            text.alpha = alpha;
+        }
     }
-    public void Removed(EffectType type)
+
+    private void BillboardToCamera(Transform t)
     {
-        if(type == EffectType.Graze || type == EffectType.All) graze.alpha = 0f;
-        if(type == EffectType.Parry || type == EffectType.All) parry.alpha = 0f;
+        t.LookAt(camera.transform);
+        t.Rotate(0, 180, 0);
     }
 }
