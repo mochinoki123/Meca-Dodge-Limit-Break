@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.Cinemachine;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerDamage : MonoBehaviour
     private PlayerPulseDiffuser playerPulseDiffuser;
     private Renderer rend;
     private MaterialScript materialScript;
+    private CinemachineImpulseSource playerImpulseSource;
 
     private bool isMuteki = false;
 
@@ -25,6 +27,7 @@ public class PlayerDamage : MonoBehaviour
         playerPulseDiffuser = GetComponent<PlayerPulseDiffuser>();
         rend = GetComponentInChildren<Renderer>();
         materialScript = GetComponent<MaterialScript>();
+        playerImpulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     // ”í’e‰Â”Û”»’è
@@ -70,6 +73,7 @@ public class PlayerDamage : MonoBehaviour
     private void ApplyDamage()
     {
         GameManager.Instance.Damage();
+        playerImpulseSource.GenerateImpulse();
 
         if (GameManager.Instance.IsPlayerDead)
         {
