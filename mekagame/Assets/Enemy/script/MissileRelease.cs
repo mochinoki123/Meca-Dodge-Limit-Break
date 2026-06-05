@@ -80,7 +80,7 @@ public class MissileRelease : MonoBehaviour
             missileChild.localRotation = Quaternion.identity;
 
             Rigidbody rb = missileChild.GetComponent<Rigidbody>();
-
+            
             if (rb != null)
             {
                 rb.linearVelocity = Vector3.zero;
