@@ -24,10 +24,20 @@ public class TimelineManager : MonoBehaviour
 
     private PlayableAsset currentTimeline;
 
+    private void OnEnable()
+    {
+        director.stopped += TimelineStopped;
+    }
+
+    private void OnDisable()
+    {
+        director.stopped -= TimelineStopped;
+    }
+
     private void Start()
     {
         // 初期タイムライン再生
-        SwitchTimeline(phase1Timeline);
+        SwitchTimeline(countdown);
     }
 
     // Enemyのダメージ処理から呼ばれる
@@ -45,9 +55,20 @@ public class TimelineManager : MonoBehaviour
 
     private PlayableAsset GetTimelineByRatio(float ratio)
     {
-        if (ratio > phase2Threshold) return phase1Timeline;
-        if (ratio > phase3Threshold) return phase2Timeline;
-        return phase3Timeline;
+        if (ratio > phase2Threshold)
+        {
+            return phase1Timeline;
+        }
+        if (ratio > phase3Threshold)
+        {
+            SetWrapModeNone();
+            return phaseTransition_2;
+        }
+        else
+        {
+            SetWrapModeNone();
+            return phaseTransition_3;
+        }
     }
 
     private void SwitchTimeline(PlayableAsset asset)
@@ -59,5 +80,34 @@ public class TimelineManager : MonoBehaviour
         director.Play();
 
         currentTimeline = asset;
+    }
+
+    private void TimelineStopped(PlayableDirector director)
+    {
+        if(currentTimeline == countdown)
+        {
+            SetWrapModeLoop();
+            SwitchTimeline(phase1Timeline);
+        }
+        if(currentTimeline == phaseTransition_2)
+        {
+            SetWrapModeLoop();
+            SwitchTimeline(phase2Timeline);
+        }
+        if (currentTimeline == phaseTransition_3)
+        {
+            SetWrapModeLoop();
+            SwitchTimeline(phase3Timeline);
+        }
+    }
+
+    private void SetWrapModeLoop()
+    {
+        director.extrapolationMode = DirectorWrapMode.Loop;
+    }
+
+    private void SetWrapModeNone()
+    {
+        director.extrapolationMode = DirectorWrapMode.None;
     }
 }

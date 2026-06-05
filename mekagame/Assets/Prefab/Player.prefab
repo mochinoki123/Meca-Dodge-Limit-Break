@@ -916,9 +916,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lBUseGage: 300
-  <lBDamage>k__BackingField: 0
-  <lBTime>k__BackingField: 0
-  <lBCoolTime>k__BackingField: 0
+  <lBDamage>k__BackingField: 100
+  <lBTime>k__BackingField: 2
+  <lBCoolTime>k__BackingField: 1
 --- !u!95 &2230653814415199337
 Animator:
   serializedVersion: 7
