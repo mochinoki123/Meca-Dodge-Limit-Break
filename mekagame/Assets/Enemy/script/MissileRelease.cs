@@ -76,11 +76,11 @@ public class MissileRelease : MonoBehaviour
         {
             Transform missileChild = transform.GetChild(0);
 
-            missileChild.localPosition = new Vector3(0,600,0);
+            missileChild.localPosition = new Vector3(0,60,0);
             missileChild.localRotation = Quaternion.identity;
 
             Rigidbody rb = missileChild.GetComponent<Rigidbody>();
-
+            
             if (rb != null)
             {
                 rb.linearVelocity = Vector3.zero;
