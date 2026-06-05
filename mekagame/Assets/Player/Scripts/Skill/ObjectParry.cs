@@ -40,6 +40,8 @@ public class ObjectParry : MonoBehaviour
         if (other.CompareTag("Lazer"))
         {
             var script = other.GetComponentInParent<LaserCollider>();
+            var laser = other.GetComponentInParent<ReleaseLaser>();
+            laser.Release();
             return script != null ? script.gameObject : null;
         }
 

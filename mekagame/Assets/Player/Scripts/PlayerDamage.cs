@@ -65,8 +65,9 @@ public class PlayerDamage : MonoBehaviour
         // ƒŒ[ƒU[ˆ—
         else if (other.CompareTag("LaserDamage"))
         {
-            var lazer = other.GetComponentInParent<enemylazer>();
+            var laser = other.GetComponentInParent<ReleaseLaser>();
             ApplyDamage();
+            laser.Release();
         }
     }
 
