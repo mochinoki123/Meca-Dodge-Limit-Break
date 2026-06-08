@@ -8452,7 +8452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd3021b7de69bc49ac8bfe156b10e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool_Missile
-  MissilePrefab: {fileID: 5591188689027106799, guid: fb76bb2785c8ed24e9370a7c0964ac93, type: 3}
+  MissilePrefab: {fileID: 2971007170582083771, guid: 26c5b5fe1a5c72046978db7a36546da0, type: 3}
 --- !u!4 &1752185984
 Transform:
   m_ObjectHideFlags: 0
