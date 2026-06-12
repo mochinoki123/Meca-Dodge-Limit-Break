@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("敵ステータス")]
     [SerializeField] public int maxHP = 1000;
-    private Animator animator;
+    public Animator animator;
     public int CurrentHP { get; private set; }
 
     // タイムライン制御の参照を追加
@@ -14,15 +14,15 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         CurrentHP = maxHP;
     }
 
     public void Damage(int damage)
     {
-        animator.SetTrigger("isDmage");
         CurrentHP -= damage;
         CurrentHP = Mathf.Max(CurrentHP, 0);
+        animator.SetTrigger("isDamage");
 
         // HP変化をタイムラインに通知
         timelineManager?.OnHpChanged(CurrentHP, maxHP);

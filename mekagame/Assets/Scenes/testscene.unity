@@ -582,6 +582,33 @@ MonoBehaviour:
   attackf: 5
   attackpointx: 10
   attackpointz: 10
+--- !u!1 &703923464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5189009169290803061, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+  m_PrefabInstance: {fileID: 7399984068963074270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &703923466
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703923464}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0c88032d2c8f824697f7ddcc33e19ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &739756164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,6 +1273,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 788469581091682507, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       insertIndex: -1
       addedObject: {fileID: 187839907}
+    - targetCorrespondingSourceObject: {fileID: 5189009169290803061, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 703923466}
   m_SourcePrefab: {fileID: 100100000, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

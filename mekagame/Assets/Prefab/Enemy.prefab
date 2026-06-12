@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   maxHP: 1000
+  animator: {fileID: 4128327239761448658}
   timelineManager: {fileID: 0}
 --- !u!82 &-6565724742502022513
 AudioSource:
@@ -295,8 +296,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1698826287806632, guid: 522e33b522a29734ca28d884054cd462, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4128327239761448658}
   m_SourcePrefab: {fileID: 100100000, guid: 522e33b522a29734ca28d884054cd462, type: 3}
+--- !u!1 &5189009169290803061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1698826287806632, guid: 522e33b522a29734ca28d884054cd462, type: 3}
+  m_PrefabInstance: {fileID: 5189581951748132829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4128327239761448658
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5189009169290803061}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0c88032d2c8f824697f7ddcc33e19ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &5193961018637650117 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4980019070125848, guid: 522e33b522a29734ca28d884054cd462, type: 3}
