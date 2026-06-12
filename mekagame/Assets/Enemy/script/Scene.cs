@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,24 +15,29 @@ public class Scene : MonoBehaviour
         miss.SetActive(GameManager.Instance.IsPlayerDead);
         complete.SetActive(!GameManager.Instance.IsPlayerDead);
     }
-    public void OnStartButton()
+    async public void OnStartButton()
     {
+        await Task.Delay(500);
         SceneManager.LoadScene("Player");
     }
-    public void OnTitleButton()
+    async public void OnTitleButton()
     {
+        await Task.Delay(500);
         SceneManager.LoadScene("Title");
     }
-    public void OnEndButton()
+    async public void OnEndButton()
     {
+        await Task.Delay(500);
         Application.Quit();
     }
-    public void OnTutorialButton()
+    async public void OnTutorialButton()
     {
+        await Task.Delay(500);
         SceneManager.LoadScene("Tutorial");
     }
-    public void OnSkillCustomButton()
+    async public void OnSkillCustomButton()
     {
+        await Task.Delay(500);
         SceneManager.LoadScene("SkillCustom");
     }
 }

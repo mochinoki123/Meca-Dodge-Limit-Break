@@ -830,7 +830,7 @@ MonoBehaviour:
   walkSpeed: 20
   runSpeed: 40
   runTime: 0.5
-  runCoolTime: 1.5
+  runCoolTime: 1
   jumpForce: 800
   rotateSpeed: 10
   dash: {fileID: 8300000, guid: f3d563a11239279428e4637e4d93c387, type: 3}
