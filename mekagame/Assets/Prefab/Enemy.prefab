@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   maxHP: 1000
+  animator: {fileID: 4128327239761448658}
   timelineManager: {fileID: 0}
 --- !u!82 &-6565724742502022513
 AudioSource:
