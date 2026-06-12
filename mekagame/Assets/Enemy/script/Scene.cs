@@ -16,7 +16,7 @@ public class Scene : MonoBehaviour
     }
     public void OnStartButton()
     {
-        FadeManager.Instance.LoadScene("Player",1f);
+        SceneManager.LoadScene("Player");
     }
     public void OnTitleButton()
     {
