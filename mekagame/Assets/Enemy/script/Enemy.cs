@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
 
     public void Damage(int damage)
     {
-        animator.SetTrigger("isDmage");
+        animator.Play("Take 001 0");
         CurrentHP -= damage;
         CurrentHP = Mathf.Max(CurrentHP, 0);
 
