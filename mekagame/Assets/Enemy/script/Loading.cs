@@ -8,15 +8,15 @@ public class Loading : MonoBehaviour
 
     IEnumerator Start()
     {
-
+        float waitTime = Random.Range(3.0f, 7.0f);
         slider.value = 0f;
 
-        while (slider.value < 1f)
+        while (slider.value < 100f)
         {
             // 徐々にスライダーを増やす（演出）
-            slider.value += Time.deltaTime * 0.5f; // 速度調整OK
+            slider.value += Time.deltaTime * waitTime; // 速度調整OK
             yield return null;
         }
-        FadeManager.Instance.LoadScene("MissileDebugScene", 1f);
+        FadeManager.Instance.LoadScene("", 1f);
     }
 }
