@@ -8556,6 +8556,10 @@ PrefabInstance:
       propertyPath: ClustereffectPrefab
       value: 
       objectReference: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
+    - target: {fileID: 6963667869358238596, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7484231396979750424, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: m_LocalScale.x
       value: 66.5334
