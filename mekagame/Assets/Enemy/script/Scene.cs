@@ -18,7 +18,7 @@ public class Scene : MonoBehaviour
     async public void OnStartButton()
     {
         await Task.Delay(500);
-        FadeManager.Instance.LoadScene("Player",1f);
+        FadeManager.Instance.LoadScene("Loading",1f);
     }
     async public void OnTitleButton()
     {

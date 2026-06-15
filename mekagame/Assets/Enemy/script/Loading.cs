@@ -4,11 +4,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Loading : MonoBehaviour
 {
-    [SerializeField] private Slider slider;
 
+    [SerializeField] private string scenename;
+    [SerializeField] private Slider slider;
     IEnumerator Start()
     {
-        float waitTime = Random.Range(3.0f, 7.0f);
+        float waitTime = Random.Range(5.0f, 10.0f);
         slider.value = 0f;
 
         while (slider.value < 100f)
@@ -17,6 +18,6 @@ public class Loading : MonoBehaviour
             slider.value += Time.deltaTime * waitTime; // ‘¬“x’²®OK
             yield return null;
         }
-        FadeManager.Instance.LoadScene("", 1f);
+        FadeManager.Instance.LoadScene(scenename, 1f);
     }
 }
