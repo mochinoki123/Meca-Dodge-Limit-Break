@@ -12,6 +12,9 @@ public class Loading : MonoBehaviour
         float waitTime = Random.Range(20.0f, 30.0f);
         slider.value = 0f;
 
+        // フェードアウト終わるぐらいまで待つ
+        yield return new WaitForSeconds(0.5f);
+
         while (slider.value < 100f)
         {
             // 徐々にスライダーを増やす（演出）
