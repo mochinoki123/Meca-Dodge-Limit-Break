@@ -23,8 +23,7 @@ public class Scene : MonoBehaviour
     async public void OnTitleButton()
     {
         await Task.Delay(500);
-        SceneManager.LoadScene("Title");
-        //FadeManager.Instance.LoadScene("Title",1f);
+        FadeManager.Instance.LoadScene("Title",1f);
     }
     async public void OnEndButton()
     {

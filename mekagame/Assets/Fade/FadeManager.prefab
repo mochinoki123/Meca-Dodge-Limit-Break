@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08a2303ab6e66941a3532f307fd4c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FadeManager
-  DebugMode: 1
+  DebugMode: 0
   fadeColor: {r: 0, g: 0, b: 0, a: 1}

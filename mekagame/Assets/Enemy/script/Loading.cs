@@ -9,7 +9,7 @@ public class Loading : MonoBehaviour
     [SerializeField] private Slider slider;
     IEnumerator Start()
     {
-        float waitTime = Random.Range(5.0f, 10.0f);
+        float waitTime = Random.Range(5.0f, 20.0f);
         slider.value = 0f;
 
         while (slider.value < 100f)
@@ -18,6 +18,6 @@ public class Loading : MonoBehaviour
             slider.value += Time.deltaTime * waitTime; // ‘¬“x’²®OK
             yield return null;
         }
-        FadeManager.Instance.LoadScene(scenename, 1f);
+        FadeManager.Instance.LoadScene(scenename, 2f);
     }
 }
