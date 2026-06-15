@@ -18,12 +18,12 @@ public class Scene : MonoBehaviour
     async public void OnStartButton()
     {
         await Task.Delay(500);
-        SceneManager.LoadScene("Player");
+        FadeManager.Instance.LoadScene("Loading",1f);
     }
     async public void OnTitleButton()
     {
         await Task.Delay(500);
-        SceneManager.LoadScene("Title");
+        FadeManager.Instance.LoadScene("Title",1f);
     }
     async public void OnEndButton()
     {
@@ -33,7 +33,7 @@ public class Scene : MonoBehaviour
     async public void OnTutorialButton()
     {
         await Task.Delay(500);
-        SceneManager.LoadScene("Tutorial");
+        FadeManager.Instance.LoadScene("Tutorial", 1f);
     }
     async public void OnSkillCustomButton()
     {

@@ -4,12 +4,16 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Loading : MonoBehaviour
 {
+    [Header("SceneNameSet")]
+    [SerializeField] private string scenename;
     [SerializeField] private Slider slider;
-
     IEnumerator Start()
     {
-        float waitTime = Random.Range(3.0f, 7.0f);
+        float waitTime = Random.Range(20.0f, 30.0f);
         slider.value = 0f;
+
+        // フェードアウト終わるぐらいまで待つ
+        yield return new WaitForSeconds(0.5f);
 
         while (slider.value < 100f)
         {
@@ -17,6 +21,6 @@ public class Loading : MonoBehaviour
             slider.value += Time.deltaTime * waitTime; // 速度調整OK
             yield return null;
         }
-        FadeManager.Instance.LoadScene("", 1f);
+        FadeManager.Instance.LoadScene(scenename, 1.5f);
     }
 }
