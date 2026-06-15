@@ -4,6 +4,8 @@ using UnityEngine.Splines;
 
 public class enemymissile : MonoBehaviour
 {
+    [SerializeField] private AudioClip missilepointerclip;
+    private AudioSource audioSource;
     private Rigidbody rb;
     public float missilespeed = 45f;
     //enemyattack enemyAttack;
@@ -11,6 +13,10 @@ public class enemymissile : MonoBehaviour
     public GameObject point;
     public bool useGravity = false;
 
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,6 +48,7 @@ public class enemymissile : MonoBehaviour
         //transform.position += transform.up * missilespeed * Time.deltaTime;
         //transform.Translate(Vector3.up * missilespeed * Time.deltaTime);
         //transform.Translate(Vector3.down * missilespeed * Time.deltaTime);
+        AudioSource.PlayClipAtPoint(missilepointerclip, transform.position);
         rb.linearVelocity = Vector3.down * missilespeed;
         missile();
     }
