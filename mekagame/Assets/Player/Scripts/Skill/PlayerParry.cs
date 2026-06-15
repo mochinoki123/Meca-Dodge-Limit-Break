@@ -22,9 +22,6 @@ public class PlayerParry : MonoBehaviour
     [SerializeField] private AudioClip parrySound;
     // LB追撃エフェクト
     [SerializeField] private GameObject lBEffect;
-    // 追撃対象の位置
-    [SerializeField] private Transform enemyPos;
-
     // パリィ受付中フラグ（外部読み取り専用）
     public bool isParry { get; private set; } = false;
     // 硬直中フラグ（外部読み取り専用）
@@ -168,9 +165,16 @@ public class PlayerParry : MonoBehaviour
         yield return new WaitForSeconds(lbAttackDelay);
 
         // エフェクト生成（一定時間後に自動破棄）
-        if (lBEffect != null && enemyPos != null)
+        if (lBEffect != null)
         {
-            Destroy(Instantiate(lBEffect, enemyPos.position, Quaternion.identity), lbAttackDelay);
+            StartCoroutine(ShowEffect());
+
+            IEnumerator ShowEffect()
+            {
+                lBEffect.SetActive(true);
+                yield return new WaitForSeconds(1f); // 1秒待つ
+                lBEffect.SetActive(false);
+            }
         }
 
         // ダメージ適用
