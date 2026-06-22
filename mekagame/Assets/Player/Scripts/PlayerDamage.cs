@@ -16,6 +16,7 @@ public class PlayerDamage : MonoBehaviour
     private Renderer rend;
     private MaterialScript materialScript;
     private CinemachineImpulseSource playerImpulseSource;
+    private LimitBreak limitBreak;
 
     private bool isMuteki = false;
 
@@ -28,6 +29,7 @@ public class PlayerDamage : MonoBehaviour
         rend = GetComponentInChildren<Renderer>();
         materialScript = GetComponent<MaterialScript>();
         playerImpulseSource = GetComponent<CinemachineImpulseSource>();
+        limitBreak = GetComponent<LimitBreak>();
     }
 
     // ”í’e‰Â”Û”»’è
@@ -37,6 +39,7 @@ public class PlayerDamage : MonoBehaviour
         if (playerMove.isRun) return false;
         if (playerParry.isParry) return false;
         if (playerPulseDiffuser.isPD) return false;
+        if (limitBreak.isLB) return false;
         return true;
     }
 
