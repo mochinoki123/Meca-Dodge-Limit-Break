@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Scene : MonoBehaviour
 {
+    [SerializeField] private float FadeTimeLoad;
+    [SerializeField] private float FadeTimeTitle;
+    [SerializeField] private float FadeTimeTutorial;
     [SerializeField] private GameObject complete;
     [SerializeField] private GameObject miss;
     [SerializeField] private GameObject skillCustomCanvas;
@@ -18,12 +21,12 @@ public class Scene : MonoBehaviour
     async public void OnStartButton()
     {
         await Task.Delay(500);
-        FadeManager.Instance.LoadScene("Loading",1f);
+        FadeManager.Instance.LoadScene("Loading", FadeTimeLoad);
     }
     async public void OnTitleButton()
     {
         await Task.Delay(500);
-        FadeManager.Instance.LoadScene("Title",1f);
+        FadeManager.Instance.LoadScene("Title", FadeTimeTitle);
     }
     async public void OnEndButton()
     {
@@ -33,7 +36,7 @@ public class Scene : MonoBehaviour
     async public void OnTutorialButton()
     {
         await Task.Delay(500);
-        FadeManager.Instance.LoadScene("Tutorial", 1f);
+        FadeManager.Instance.LoadScene("Tutorial", FadeTimeTutorial);
     }
     async public void OnSkillCustomButton()
     {

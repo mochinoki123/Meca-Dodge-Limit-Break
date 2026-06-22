@@ -10,7 +10,6 @@ using System.Collections.Generic;
 /// </summary>
 public class FadeManager : MonoBehaviour
 {
-
 	#region Singleton
 
 	private static FadeManager instance;
@@ -29,12 +28,14 @@ public class FadeManager : MonoBehaviour
 		}
 	}
 
-	#endregion Singleton
+    #endregion Singleton
 
-	/// <summary>
-	/// デバッグモード .
-	/// </summary>
-	public bool DebugMode = true;
+    public float FadeTime;
+
+    /// <summary>
+    /// デバッグモード .
+    /// </summary>
+    public bool DebugMode = true;
 	/// <summary>フェード中の透明度</summary>
 	private float fadeAlpha = 0;
 	/// <summary>フェード中かどうか</summary>
@@ -88,7 +89,7 @@ public class FadeManager : MonoBehaviour
 				int i = 0;
 				foreach (string sceneName in scenes) {
 					if (GUI.Button (new Rect (20, 55 + i * 25, 100, 20), "Load Level")) {
-						LoadScene (sceneName, 1.0f);
+						LoadScene (sceneName, FadeTime);
 					}
 					GUI.Label (new Rect (125, 55 + i * 25, 1000, 20), sceneName);
 					i++;
