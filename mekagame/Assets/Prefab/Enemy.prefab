@@ -81,7 +81,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   maxHP: 1000
+  EnemyFinish: {fileID: 8300000, guid: 176f04128b971e44483364ea4e787097, type: 3}
   animator: {fileID: 4128327239761448658}
+  finishfade: 5
   timelineManager: {fileID: 0}
 --- !u!82 &-6565724742502022513
 AudioSource:

@@ -6,7 +6,10 @@ public class Enemy : MonoBehaviour
 {
     [Header("敵ステータス")]
     [SerializeField] public int maxHP = 1000;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip EnemyFinish;
     public Animator animator;
+    public float finishfade;
     public int CurrentHP { get; private set; }
 
     // タイムライン制御の参照を追加
@@ -14,6 +17,7 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponentInChildren<Animator>();
         CurrentHP = maxHP;
     }
@@ -34,7 +38,11 @@ public class Enemy : MonoBehaviour
     {
         if (CurrentHP <= 0)
         {
-            SceneManager.LoadScene("Result");
+            Time.timeScale = 0f;
+
+            animator.SetTrigger("IsFinish");
+            AudioSource.PlayClipAtPoint(EnemyFinish, transform.position);
+            FadeManager.Instance.LoadScene("Result", finishfade);
         }
     }
 }
