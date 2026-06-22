@@ -4,8 +4,6 @@ using System.Collections;
 
 public class PlayerPulseDiffuser : MonoBehaviour
 {
-    // 消費ゲージ量
-    [SerializeField] private int pDUseGage;
     // 効果時間
     [SerializeField] private float pDTime;
     
@@ -30,10 +28,10 @@ public class PlayerPulseDiffuser : MonoBehaviour
     private IEnumerator PulseDiffuser()
     {
         // ゲージ残量チェック
-        if (GameManager.Instance.NowGage >= pDUseGage)
+        if (GameManager.Instance.NowGage >= GameManager.Instance.GetterUseGauge(GameManager.UseGaugeState.PulseDiffuser))
         {
             // ゲージ消費して発動
-            GameManager.Instance.UseGage(pDUseGage);
+            GameManager.Instance.UseGaugeStateBranch(GameManager.UseGaugeState.PulseDiffuser);
             isPD = true;
 
             animator?.SetTrigger("IsPD");
