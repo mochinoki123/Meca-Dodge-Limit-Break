@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.Splines.ExtrusionShapes;
+using System;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -13,10 +15,32 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LifeGage lifeGage;
     [SerializeField] private GrazeGage grazeGage;
 
+    [Header("ゲージ増加量")]
+    [SerializeField] private int grazeGauge;
+    [SerializeField] private int parryGauge;
+
+    [Header("ゲージ使用量")]
+    [SerializeField] private int useLB;
+    [SerializeField] private int useOC;
+    [SerializeField] private int usePD;
+
     [Header("Combo Settings")]
     [SerializeField] private TextMeshProUGUI comboText;
     [SerializeField] private float comboTime = 2.0f;
     [SerializeField] private float[] comboMultiple = { 1.0f, 1.2f, 1.5f, 2.0f };
+
+    public enum AddGaugeState
+    {
+        Graze,
+        Parry
+    }
+
+    public enum UseGaugeState
+    {
+        LimitBreak,
+        OverClock,
+        PulseDiffuser
+    }
 
     public bool IsPlayerDead { get; private set; } = false;
     public float NowGage => nowGage;
@@ -77,8 +101,12 @@ public class GameManager : MonoBehaviour
         skillIcon = FindAnyObjectByType<SkillIcon>();
     }
 
-
-    public void AddGage(float amount)
+    public void AddGaugeStateBranch(AddGaugeState state)
+    {
+        if (state == AddGaugeState.Graze) AddGage(grazeGauge);
+        if (state == AddGaugeState.Parry) AddGage(parryGauge);
+    }
+    private void AddGage(float amount)
     {
         float multiple = GetComboMultiple();
         nowGage += amount * multiple;
@@ -88,8 +116,13 @@ public class GameManager : MonoBehaviour
         grazeGage?.SetValue(nowGage);
         UpdateText();
     }
-
-    public void UseGage(float amount)
+    public void UseGaugeStateBranch(UseGaugeState state)
+    {
+        if (state == UseGaugeState.LimitBreak) UseGage(useLB);
+        if (state == UseGaugeState.OverClock) UseGage(useOC);
+        if (state == UseGaugeState.PulseDiffuser) UseGage(usePD);
+    }
+    private void UseGage(float amount)
     {
         nowGage = Mathf.Max(nowGage - amount, 0f);
         grazeGage?.SetValue(nowGage);
@@ -153,5 +186,13 @@ public class GameManager : MonoBehaviour
     public void Damage()
     {
         lifeGage.Damage();
+    }
+
+    public int GetterUseGauge(UseGaugeState state)
+    {
+        if (state == UseGaugeState.LimitBreak) return useLB;
+        if (state == UseGaugeState.OverClock) return useOC;
+        if (state == UseGaugeState.PulseDiffuser) return usePD;
+        return 0;
     }
 }

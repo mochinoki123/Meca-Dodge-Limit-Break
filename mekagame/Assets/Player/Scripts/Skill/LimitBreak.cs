@@ -4,8 +4,6 @@ using System.Collections;
 
 public class LimitBreak : MonoBehaviour
 {
-    // ゲージ消費量
-    [SerializeField] private int lBUseGage;
     // 攻撃ダメージ（PlayerParryから参照）
     [field: SerializeField] public int lBDamage { get; private set; }
     // LB時のパリィ受付時間（PlayerParryから参照）
@@ -31,7 +29,7 @@ public class LimitBreak : MonoBehaviour
         // パリィ中・硬直中・parryが未取得なら中断
         if (parry == null || parry.isParry || parry.notMove) return;
         // ゲージ不足なら中断
-        if (GameManager.Instance.NowGage < lBUseGage) return;
+        if (GameManager.Instance.NowGage < GameManager.Instance.GetterUseGauge(GameManager.UseGaugeState.LimitBreak)) return;
 
         StartCoroutine(AttackLimitBreak());
     }
@@ -40,7 +38,7 @@ public class LimitBreak : MonoBehaviour
     {
         // LB発動フラグを立ててゲージを消費
         isLB = true;
-        GameManager.Instance.UseGage(lBUseGage);
+        GameManager.Instance.UseGaugeStateBranch(GameManager.UseGaugeState.LimitBreak);
 
         // パリィ処理を実行し完了まで待機
         // （成功時はLBAttackが内部で呼ばれ、isLBフラグをもとに挙動が変わる）

@@ -78,7 +78,7 @@ public class PlayerGraze : MonoBehaviour
         }
 
         int gageAmount = (oc != null && oc.isOC) ? ocAddGage : addGage;
-        GameManager.Instance?.AddGage(gageAmount);
+        GameManager.Instance?.AddGaugeStateBranch(GameManager.AddGaugeState.Graze);
 
         GrazeCount++;
 

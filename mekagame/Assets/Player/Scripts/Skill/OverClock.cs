@@ -4,8 +4,6 @@ using System.Collections;
 
 public class OverClock : MonoBehaviour
 {
-    // 消費ゲージ量
-    [SerializeField] private int oCUseGage;
     // 効果時間
     [SerializeField] private float oCTime;
     // 効果中の速度
@@ -42,12 +40,12 @@ public class OverClock : MonoBehaviour
     private IEnumerator PlayOverClock()
     {
         // ゲージ残量チェック
-        if (GameManager.Instance.NowGage >= oCUseGage)
+        if (GameManager.Instance.NowGage >= GameManager.Instance.GetterUseGauge(GameManager.UseGaugeState.OverClock))
         {
             // SE再生
             audioSource.PlayOneShot(overClock);
             // ゲージ消費とフラグ設定
-            GameManager.Instance.UseGage(oCUseGage);
+            GameManager.Instance.UseGaugeStateBranch(GameManager.UseGaugeState.OverClock);
             isOC = true;
 
             animator?.SetTrigger("IsOC");

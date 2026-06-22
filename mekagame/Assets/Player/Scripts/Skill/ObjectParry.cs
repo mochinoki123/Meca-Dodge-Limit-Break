@@ -58,7 +58,7 @@ public class ObjectParry : MonoBehaviour
 
         // 成功フラグを立ててゲージを加算
         ParrySuccess = true;
-        GameManager.Instance.AddGage(50);
+        GameManager.Instance.AddGaugeStateBranch(GameManager.AddGaugeState.Parry);
     }
 
     private void OnDisable()
