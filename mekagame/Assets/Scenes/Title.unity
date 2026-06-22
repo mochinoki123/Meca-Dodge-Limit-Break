@@ -526,7 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec39c74b39ead043a5d60a8866b7fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeTimeLoad: 2
+  FadeTimeLoad: 1
   FadeTimeTitle: 0
   FadeTimeTutorial: 1
   complete: {fileID: 0}
