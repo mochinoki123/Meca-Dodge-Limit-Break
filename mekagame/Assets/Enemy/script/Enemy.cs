@@ -38,8 +38,6 @@ public class Enemy : MonoBehaviour
     {
         if (CurrentHP <= 0)
         {
-            Time.timeScale = 0f;
-
             animator.SetTrigger("IsFinish");
             AudioSource.PlayClipAtPoint(EnemyFinish, transform.position);
             FadeManager.Instance.LoadScene("Result", finishfade);
