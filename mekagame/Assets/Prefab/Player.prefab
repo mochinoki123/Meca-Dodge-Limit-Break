@@ -848,6 +848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mutekiTime: 2
+  parryInterval: 1
   blinkInterval: 0.1
 --- !u!114 &8288794723561334125
 MonoBehaviour:
@@ -912,7 +913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aabb834cd81fd04c97f95b65ff988e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <lBDamage>k__BackingField: 100
+  <lBDamage>k__BackingField: 200
   <lBTime>k__BackingField: 2
   <lBCoolTime>k__BackingField: 1
 --- !u!95 &2230653814415199337

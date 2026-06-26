@@ -1375,6 +1375,11 @@ MonoBehaviour:
   nowGage: 0
   lifeGage: {fileID: 0}
   grazeGage: {fileID: 0}
+  grazeGauge: 20
+  parryGauge: 100
+  useLB: 300
+  useOC: 200
+  usePD: 100
   comboText: {fileID: 0}
   comboTime: 4
   comboMultiple:
