@@ -34,6 +34,7 @@ public class LifeGage : MonoBehaviour
     {
         if (nowLife == 1)
         {
+            nowLife--;
             GameManager.Instance.Die();
             return;
         }

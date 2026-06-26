@@ -870,7 +870,6 @@ MonoBehaviour:
   blinkInterval: 0.1
   parrySound: {fileID: 8300000, guid: cc8dd4d866faf2a4198c8398cec66be1, type: 3}
   lBEffect: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
-  enemyPos: {fileID: 7484231396979750424, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
 --- !u!114 &2239482457582927747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,7 +882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd63cb9d3281424fbcc24775853d146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pDUseGage: 100
   pDTime: 5
 --- !u!114 &7366772813212430370
 MonoBehaviour:
@@ -897,7 +895,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523da60904470774ca413d0aff9f7567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oCUseGage: 200
   oCTime: 20
   oCSpeed: 60
   oCCoolTime: 0.5
@@ -915,7 +912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aabb834cd81fd04c97f95b65ff988e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lBUseGage: 300
   <lBDamage>k__BackingField: 100
   <lBTime>k__BackingField: 2
   <lBCoolTime>k__BackingField: 1

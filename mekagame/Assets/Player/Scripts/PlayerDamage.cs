@@ -7,6 +7,7 @@ public class PlayerDamage : MonoBehaviour
     [Header("Settings")]
     // 無敵時間
     [SerializeField] private float mutekiTime = 2.0f;
+    [SerializeField] private float parryInterval = 1.0f;
     // 点滅間隔
     [SerializeField] private float blinkInterval = 0.1f;
 
@@ -16,6 +17,7 @@ public class PlayerDamage : MonoBehaviour
     private Renderer rend;
     private MaterialScript materialScript;
     private CinemachineImpulseSource playerImpulseSource;
+    private LimitBreak lb;
 
     private bool isMuteki = false;
 
@@ -28,6 +30,7 @@ public class PlayerDamage : MonoBehaviour
         rend = GetComponentInChildren<Renderer>();
         materialScript = GetComponent<MaterialScript>();
         playerImpulseSource = GetComponent<CinemachineImpulseSource>();
+        lb = GetComponent<LimitBreak>();
     }
 
     // 被弾可否判定
@@ -37,6 +40,7 @@ public class PlayerDamage : MonoBehaviour
         if (playerMove.isRun) return false;
         if (playerParry.isParry) return false;
         if (playerPulseDiffuser.isPD) return false;
+        if (lb.isLB) return false;
         return true;
     }
 
@@ -61,6 +65,7 @@ public class PlayerDamage : MonoBehaviour
         {
             var missile = other.GetComponentInParent<enemymissile>();
             ApplyDamage();
+            
         }
         // レーザー処理
         else if (other.CompareTag("LaserDamage"))
@@ -89,8 +94,20 @@ public class PlayerDamage : MonoBehaviour
 
     private IEnumerator MutekiRoutine()
     {
-        // 無敵設定とマテリアル変更
         isMuteki = true;
+        if (playerParry.isParry)
+        {
+            yield return new WaitForSeconds(parryInterval);
+        }
+        else
+        {
+            yield return StartCoroutine(MutekiMaterial()); // ← 修正
+        }
+        isMuteki = false;
+    }
+
+    private IEnumerator MutekiMaterial()
+    {
         materialScript.ChangeMaterial(MaterialScript.EffectType.Damage, 2f);
 
         // 点滅ループ
@@ -104,6 +121,5 @@ public class PlayerDamage : MonoBehaviour
 
         // 復帰処理
         rend.enabled = true;
-        isMuteki = false;
     }
 }
