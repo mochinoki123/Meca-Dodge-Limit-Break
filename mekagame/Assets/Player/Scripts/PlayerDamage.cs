@@ -18,6 +18,7 @@ public class PlayerDamage : MonoBehaviour
     private MaterialScript materialScript;
     private CinemachineImpulseSource playerImpulseSource;
     private LimitBreak lb;
+    private Animator animator;
 
     private bool isMuteki = false;
 
@@ -31,6 +32,7 @@ public class PlayerDamage : MonoBehaviour
         materialScript = GetComponent<MaterialScript>();
         playerImpulseSource = GetComponent<CinemachineImpulseSource>();
         lb = GetComponent<LimitBreak>();
+        animator = GetComponent<Animator>();
     }
 
     // ”í’e‰Â”Û”»’è
@@ -86,6 +88,7 @@ public class PlayerDamage : MonoBehaviour
             StopAllCoroutines();
             rend.enabled = true;
             isMuteki = false;
+            animator.Play("Take 001");
             return;
         }
 

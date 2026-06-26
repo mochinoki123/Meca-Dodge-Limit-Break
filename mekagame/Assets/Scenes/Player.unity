@@ -10883,7 +10883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2599826759952941649, guid: de28eec1764d8174dbcf2cb1f476e2a5, type: 3}
       propertyPath: FadeTime
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12159,6 +12159,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2230653814415199337, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'Hips'\n\tTransform 'LeftArm'\n\tTransform
+        'Head'\n\tTransform 'LeftForeArm'\n\tTransform 'LeftLeg'\n\tTransform 'RightForeArm'\n\tTransform
+        'Spine01'\n\tTransform 'RightArm'\n\tTransform 'RightLeg'\n\tTransform 'LeftUpLeg'\n\tand
+        more ...\n\tFrom animation clip 'Take 001'"
+      objectReference: {fileID: 0}
     - target: {fileID: 2239482457582927747, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: pDUseGage
       value: 100

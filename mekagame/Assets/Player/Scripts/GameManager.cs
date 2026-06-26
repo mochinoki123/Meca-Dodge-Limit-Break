@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
     {
         if (IsPlayerDead) return;
         IsPlayerDead = true;
-        FadeManager.Instance.LoadScene("Result",2f);
+        FadeManager.Instance.LoadScene("Result",3f);
     }
 
     public void Damage()
