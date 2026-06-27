@@ -10168,12 +10168,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: maxHP
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 1755174198}
     - target: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: finishfade
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: timelineManager
@@ -11402,6 +11410,8 @@ MonoBehaviour:
   grazeGage: {fileID: 0}
   grazeGauge: 30
   parryGauge: 50
+  tGrazeGauge: 0
+  tParryGauge: 0
   useLB: 300
   useOC: 200
   usePD: 100
@@ -12285,7 +12295,7 @@ PrefabInstance:
       objectReference: {fileID: 2124310602}
     - target: {fileID: 8288794723561334125, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: parryTime
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2811005598475274188, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}

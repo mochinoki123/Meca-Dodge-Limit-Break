@@ -24,6 +24,10 @@ public class TimelineManager : MonoBehaviour
 
     private PlayableAsset currentTimeline;
 
+    private bool threshold = false;
+    private bool threshold2 = false;
+    private bool threshold3 = false;
+
     private void OnEnable()
     {
         director.stopped += TimelineStopped;
@@ -55,20 +59,24 @@ public class TimelineManager : MonoBehaviour
 
     private PlayableAsset GetTimelineByRatio(float ratio)
     {
-        if (ratio > phase2Threshold)
+        if (ratio > phase2Threshold && !threshold)
         {
+            threshold = true;
             return phase1Timeline;
         }
-        if (ratio > phase3Threshold)
+        if (ratio > phase3Threshold && !threshold2)
         {
+            threshold2 = true;
             SetWrapModeNone();
             return phaseTransition_2;
         }
-        else
+        if(!threshold3)
         {
+            threshold3 = true;
             SetWrapModeNone();
             return phaseTransition_3;
         }
+        return currentTimeline;
     }
 
     private void SwitchTimeline(PlayableAsset asset)

@@ -109,8 +109,6 @@ public class PlayerParry : MonoBehaviour
         }
         else
         {
-            Debug.Log("text");
-
             yield return StartCoroutine(HandleParryFailure(isLBMode));
         }
 
