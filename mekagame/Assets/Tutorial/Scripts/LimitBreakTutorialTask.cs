@@ -40,5 +40,5 @@ public class LimitBreakTutorialTask : InputTutorialTask
 
     public override bool IsCompleted() => limitBreakCount >= RequiredCount;
 
-    public string GetProgress() => $"{limitBreakCount}/{RequiredCount}";
+    public override string GetProgress() => $"{limitBreakCount}/{RequiredCount}";
 }

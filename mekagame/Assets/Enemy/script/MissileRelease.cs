@@ -42,9 +42,7 @@ public class MissileRelease : MonoBehaviour
         if (isDead) return;
 
         if (
-         other.CompareTag("Missile") ||
-         other.CompareTag("Player") ||
-         other.CompareTag("PlayerParry")
+         other.CompareTag("Missile")
         )
         {
             isDead = true;
@@ -54,9 +52,7 @@ public class MissileRelease : MonoBehaviour
                 Kill();
             }
 
-            ResetMissile();
-
-            ObjectPool_Missile.Instance.MissileRelease(gameObject);
+            Release();
         }
     }
 
@@ -66,6 +62,12 @@ public class MissileRelease : MonoBehaviour
         b = Instantiate(attack1missileeffectPrefab, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
         AudioSource.PlayClipAtPoint(bakuhatuclip, transform.position);
         Destroy(b, 1.2f);
+    }
+
+    public void Release()
+    {
+        ResetMissile();
+        ObjectPool_Missile.Instance.MissileRelease(gameObject);
     }
 
     private void ResetMissile()

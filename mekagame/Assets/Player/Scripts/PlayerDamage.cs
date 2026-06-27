@@ -19,9 +19,21 @@ public class PlayerDamage : MonoBehaviour
     private CinemachineImpulseSource playerImpulseSource;
     private LimitBreak lb;
     private Animator animator;
+    private InputController inputController;
 
     private bool isMuteki = false;
+    private bool isParry = false;
 
+
+    private void OnEnable()
+    {
+        ObjectParry.OnParrySuccesState += OnParrySuccesState;
+    }
+
+    private void OnDisable()
+    {
+        ObjectParry.OnParrySuccesState -= OnParrySuccesState;
+    }
     private void Awake()
     {
         // コンポーネント取得
@@ -33,6 +45,17 @@ public class PlayerDamage : MonoBehaviour
         playerImpulseSource = GetComponent<CinemachineImpulseSource>();
         lb = GetComponent<LimitBreak>();
         animator = GetComponent<Animator>();
+        inputController = GetComponent<InputController>();
+    }
+
+    private async void OnParrySuccesState(bool parrySuccess)
+    {
+        if (parrySuccess)
+        {
+            isParry = true;
+            await Awaitable.WaitForSecondsAsync(parryInterval);
+            isParry = false;
+        }
     }
 
     // 被弾可否判定
@@ -40,7 +63,7 @@ public class PlayerDamage : MonoBehaviour
     {
         if (isMuteki) return false;
         if (playerMove.isRun) return false;
-        if (playerParry.isParry) return false;
+        if (isParry) return false;
         if (playerPulseDiffuser.isPD) return false;
         if (lb.isLB) return false;
         return true;
@@ -65,8 +88,9 @@ public class PlayerDamage : MonoBehaviour
         // ミサイル処理
         if (other.CompareTag("Missile"))
         {
-            var missile = other.GetComponentInParent<enemymissile>();
+            var missile = other.GetComponentInParent<MissileRelease>();
             ApplyDamage();
+            missile.Release();
             
         }
         // レーザー処理
@@ -78,6 +102,7 @@ public class PlayerDamage : MonoBehaviour
         }
     }
 
+
     private void ApplyDamage()
     {
         GameManager.Instance.Damage();
@@ -88,6 +113,7 @@ public class PlayerDamage : MonoBehaviour
             StopAllCoroutines();
             rend.enabled = true;
             isMuteki = false;
+            inputController.DisableControls();
             animator.Play("Take 001");
             return;
         }
@@ -98,14 +124,7 @@ public class PlayerDamage : MonoBehaviour
     private IEnumerator MutekiRoutine()
     {
         isMuteki = true;
-        if (playerParry.isParry)
-        {
-            yield return new WaitForSeconds(parryInterval);
-        }
-        else
-        {
-            yield return StartCoroutine(MutekiMaterial()); // ← 修正
-        }
+        yield return StartCoroutine(MutekiMaterial()); // ← 修正
         isMuteki = false;
     }
 

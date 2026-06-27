@@ -39,6 +39,6 @@ public class PulseDiffuserTutorialTask : InputTutorialTask
 
     public override bool IsCompleted() => hasActivated;
 
-    public string GetProgress() => "";
+    public override string GetProgress() => "";
 
 }

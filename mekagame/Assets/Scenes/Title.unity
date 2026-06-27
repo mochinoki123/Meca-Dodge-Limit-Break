@@ -1377,6 +1377,8 @@ MonoBehaviour:
   grazeGage: {fileID: 0}
   grazeGauge: 20
   parryGauge: 100
+  tGrazeGauge: 100
+  tParryGauge: 300
   useLB: 300
   useOC: 200
   usePD: 100

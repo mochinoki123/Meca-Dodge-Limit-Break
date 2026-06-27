@@ -12161,12 +12161,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2230653814415199337, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Hips'\n\tTransform 'LeftArm'\n\tTransform
-        'Head'\n\tTransform 'LeftForeArm'\n\tTransform 'LeftLeg'\n\tTransform 'RightForeArm'\n\tTransform
-        'Spine01'\n\tTransform 'RightArm'\n\tTransform 'RightLeg'\n\tTransform 'LeftUpLeg'\n\tand
-        more ...\n\tFrom animation clip 'Take 001'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2239482457582927747, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: pDUseGage
@@ -12264,6 +12259,10 @@ PrefabInstance:
       propertyPath: <lBCoolTime>k__BackingField
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6701285199196659666, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: parryInterval
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7261820190855510206, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -12284,6 +12283,10 @@ PrefabInstance:
       propertyPath: lBEffect
       value: 
       objectReference: {fileID: 2124310602}
+    - target: {fileID: 8288794723561334125, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: parryTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2811005598475274188, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
     - {fileID: 6066278133410602759, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
