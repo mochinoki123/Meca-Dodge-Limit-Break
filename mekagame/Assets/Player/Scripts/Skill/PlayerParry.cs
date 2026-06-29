@@ -20,8 +20,9 @@ public class PlayerParry : MonoBehaviour
     [SerializeField] private float blinkInterval = 0.1f;
     // 成功時SE
     [SerializeField] private AudioClip parrySound;
-    // LB追撃エフェクト
+    // LB追撃エフェクト (※プレハブを想定)
     [SerializeField] private GameObject lBEffect;
+
     // パリィ受付中フラグ（外部読み取り専用）
     public bool isParry { get; private set; } = false;
     // 硬直中フラグ（外部読み取り専用）
@@ -30,12 +31,13 @@ public class PlayerParry : MonoBehaviour
     // クールタイム中フラグ（内部管理）
     private bool isParryCoolTime = false;
 
-    LimitBreak lb;
-    PlayerPulseDiffuser pd;
-    TextScript textScript;
-    Animator animator;
-    AudioSource audioSource;
+    private LimitBreak lb;
+    private PlayerPulseDiffuser pd;
+    private TextScript textScript;
+    private Animator animator;
+    private AudioSource audioSource;
     private Renderer rend;
+    private ObjectParry objectParryComponent; // 追加: インスタンス保持用
 
     private void Awake()
     {
@@ -46,44 +48,62 @@ public class PlayerParry : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         rend = GetComponentInChildren<Renderer>();
         textScript = GetComponentInChildren<TextScript>();
+
+        // パリィ判定オブジェクトからコンポーネントを取得
+        if (playerParry != null)
+        {
+            objectParryComponent = playerParry.GetComponent<ObjectParry>();
+        }
+    }
+
+    // パリィが実行可能か一括チェックするヘルパーメソッド
+    private bool CanParry()
+    {
+        if (pd != null && pd.isPD) return false;
+        if (isParry) return false;
+        if (isParryCoolTime) return false;
+        if (notMove) return false;
+        return true;
     }
 
     private void OnParry(InputValue value)
     {
-        // 各種状態チェック（実行不可なら中断）
-        if (pd != null && pd.isPD) return;
-        if (isParry) return;
-        if (isParryCoolTime) return;
-        if (notMove) return;
-
-        StartCoroutine(Parry());
+        if (value.isPressed && CanParry())
+        {
+            StartCoroutine(Parry());
+        }
     }
 
     private IEnumerator Parry()
     {
+        // 割り込み防止のため、開始直後に即座にフラグを立てる
+        isParry = true;
+
         animator?.SetTrigger("IsParry");
 
         // LBモードかどうかを開始時点で確定
         bool isLBMode = lb != null && lb.isLB;
 
         // パリィ受付開始
-        isParry = true;
         playerParry.SetActive(true);
-        ObjectParry.ResetParry();
+        objectParryComponent?.ResetParry(); // インスタンス経由に変更
 
         // LBモードかどうかで受付時間を切り替え
         float currentDuration = isLBMode ? lb.lBTime : parryTime;
         float endTime = Time.time + currentDuration;
 
         // 成功 or タイムアップまで待機
-        yield return new WaitUntil(() => ObjectParry.ParrySuccess || Time.time >= endTime);
+        yield return new WaitUntil(() => (objectParryComponent != null && objectParryComponent.ParrySuccess) || Time.time >= endTime);
 
         // パリィ受付終了
         playerParry.SetActive(false);
         isParry = false;
 
+        // 成否をローカル変数にキャッシュ（リセット前に確定させるため）
+        bool isSuccess = objectParryComponent != null && objectParryComponent.ParrySuccess;
+
         // 成否で処理を分岐
-        if (ObjectParry.ParrySuccess)
+        if (isSuccess)
         {
             yield return StartCoroutine(HandleParrySuccess(isLBMode));
         }
@@ -93,7 +113,7 @@ public class PlayerParry : MonoBehaviour
         }
 
         // フラグをリセット
-        ObjectParry.ResetParry();
+        objectParryComponent?.ResetParry();
     }
 
     // パリィ成功時の処理
@@ -102,9 +122,9 @@ public class PlayerParry : MonoBehaviour
         if (isLBMode)
         {
             textScript?.Set(TextScript.EffectType.LimitBreak);
-            StartCoroutine(LBAttack()); 
+            StartCoroutine(LBAttack());
 
-            yield return new WaitForSeconds(parrySuccessDisplayTime); 
+            yield return new WaitForSeconds(parrySuccessDisplayTime);
         }
         else
         {
@@ -116,6 +136,7 @@ public class PlayerParry : MonoBehaviour
 
         textScript?.Removed(TextScript.EffectType.All);
     }
+
     // パリィ失敗時の処理（硬直 + 点滅）
     private IEnumerator HandleParryFailure(bool isLBMode)
     {
@@ -164,17 +185,11 @@ public class PlayerParry : MonoBehaviour
 
         yield return new WaitForSeconds(lbAttackDelay);
 
-        // エフェクト生成（一定時間後に自動破棄）
+        // エフェクト生成（バグ防止のため、生成して自動破棄する安全な方式に変更）
         if (lBEffect != null)
         {
-            StartCoroutine(ShowEffect());
-
-            IEnumerator ShowEffect()
-            {
-                lBEffect.SetActive(true);
-                yield return new WaitForSeconds(1f); // 1秒待つ
-                lBEffect.SetActive(false);
-            }
+            GameObject spawnedEffect = Instantiate(lBEffect, transform.position, Quaternion.identity);
+            Destroy(spawnedEffect, 1.0f); // 1秒後に自動破棄
         }
 
         // ダメージ適用
@@ -184,10 +199,7 @@ public class PlayerParry : MonoBehaviour
     /// <summary>外部から状態チェック込みでパリィを起動する（戻り値で成否確認可能）</summary>
     public bool TryParry()
     {
-        if (pd != null && pd.isPD) return false;
-        if (isParry) return false;
-        if (isParryCoolTime) return false;
-        if (notMove) return false;
+        if (!CanParry()) return false;
 
         StartCoroutine(Parry());
         return true;
@@ -196,10 +208,7 @@ public class PlayerParry : MonoBehaviour
     /// <summary>外部コルーチンからパリィ完了まで待機する場合に使用（LimitBreakから呼ばれる）</summary>
     public IEnumerator ExecuteParry()
     {
-        if (pd != null && pd.isPD) yield break;
-        if (isParry) yield break;
-        if (isParryCoolTime) yield break;
-        if (notMove) yield break;
+        if (!CanParry()) yield break;
 
         yield return StartCoroutine(Parry());
     }

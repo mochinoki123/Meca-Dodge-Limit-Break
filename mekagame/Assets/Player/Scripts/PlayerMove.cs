@@ -20,7 +20,6 @@ public class PlayerMove : MonoBehaviour
     OverClock oc;
     Animator animator;
     AudioSource audioSource;
-
     bool goJump = false;
     public bool isRun = false;
     bool isRunCoolTime = false;

@@ -34,5 +34,5 @@ public class GrazeTutorialTask : InputTutorialTask
 
     public override bool IsCompleted() => grazeCount >= RequiredCount;
 
-    public string GetProgress() => "";
+    public override string GetProgress() => "";
 }

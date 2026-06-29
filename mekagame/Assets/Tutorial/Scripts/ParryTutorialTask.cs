@@ -1,7 +1,9 @@
-﻿using UnityEngine.InputSystem;
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ParryTutorialTask : InputTutorialTask
 {
+    
     public override string Title => "パリィ";
     public override string Description => "パリィを1回成功させよう";
 
@@ -12,20 +14,25 @@ public class ParryTutorialTask : InputTutorialTask
 
     public override void OnTaskSet()
     {
+        ObjectParry.OnParrySuccesState += OnParrySuccesState;
         base.OnTaskSet();
         parryCount = 0;
     }
 
-    public override void OnTaskEnd() { }
-
-    public override void Tick()
+    public override void OnTaskEnd() 
     {
-        if (!ObjectParry.ParrySuccess) return;
-        ObjectParry.ResetParry();
-        parryCount++;
+        ObjectParry.OnParrySuccesState -= OnParrySuccesState;
+    }
+
+    private void OnParrySuccesState(bool parrySuccess)
+    {
+        if (parrySuccess)
+        {
+            parryCount++;
+        }
     }
 
     public override bool IsCompleted() => parryCount >= RequiredCount;
 
-    public string GetProgress() => $"{parryCount}/{RequiredCount}";
+    public override string GetProgress() => $"{parryCount}/{RequiredCount}";
 }

@@ -1,16 +1,33 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ObjectParry : MonoBehaviour
 {
     // パリィ成功時のエフェクト
     [SerializeField] private GameObject parryEffect;
 
-    // パリィ成功フラグ（外部読み取り専用・PlayerParryが参照）
-    public static bool ParrySuccess { get; private set; }
+    // パリィ成功フラグ
+    private bool parrySuccess;
 
     // 同一オブジェクトへの重複判定を防ぐためInstanceIDで管理
     private HashSet<int> parriedInstanceIDs = new HashSet<int>();
+
+    //外部が参照するためのイベント
+    public static event Action<bool> OnParrySuccesState;
+
+    public bool ParrySuccess
+    {
+        get => parrySuccess;
+        set
+        {
+            if (parrySuccess != value) 
+            {
+                parrySuccess = value;
+                OnParrySuccesState?.Invoke(parrySuccess);
+            }
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,15 +50,16 @@ public class ObjectParry : MonoBehaviour
     {
         if (other.CompareTag("Missile"))
         {
-            var script = other.GetComponentInParent<enemymissile>();
-            return script != null ? script.gameObject : null;
+            var missile = other.GetComponentInParent<MissileRelease>();
+            missile?.Release();
+            return missile != null ? missile.gameObject : null;
         }
 
         if (other.CompareTag("Lazer"))
         {
             var script = other.GetComponentInParent<LaserCollider>();
             var laser = other.GetComponentInParent<ReleaseLaser>();
-            laser.Release();
+            laser?.Release();
             return script != null ? script.gameObject : null;
         }
 
@@ -69,7 +87,7 @@ public class ObjectParry : MonoBehaviour
     }
 
     // PlayerParryから呼ばれるパリィフラグのリセット
-    public static void ResetParry()
+    public void ResetParry()
     {
         ParrySuccess = false;
     }

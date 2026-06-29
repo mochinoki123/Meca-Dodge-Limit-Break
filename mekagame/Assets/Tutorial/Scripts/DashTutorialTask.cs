@@ -31,5 +31,5 @@ public class DashTutorialTask : InputTutorialTask
 
     public override bool IsCompleted() => dashed;
 
-    public string GetProgress() => "";
+    public override string GetProgress() => "";
 }

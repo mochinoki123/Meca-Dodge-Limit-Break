@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int grazeGauge;
     [SerializeField] private int parryGauge;
 
+    [Header("チュートリアルゲージ増加量")]
+    [SerializeField] private int tGrazeGauge;
+    [SerializeField] private int tParryGauge;
+
     [Header("ゲージ使用量")]
     [SerializeField] private int useLB;
     [SerializeField] private int useOC;
@@ -48,7 +52,8 @@ public class GameManager : MonoBehaviour
     private int combo;
     private int maxCombo;
     private float lastComboTime = 0;
-    SkillIcon skillIcon;
+
+    private bool isTutorial;
 
     private void Awake()
     {
@@ -87,10 +92,10 @@ public class GameManager : MonoBehaviour
         ResetGage();
         FindUIElements();
 
-        if (scene.name == "Player")
-        {
-            IsPlayerDead = false;
-        }
+        isTutorial = false;
+
+        if (scene.name == "Player") IsPlayerDead = false;
+        if (scene.name == "Tutorial") isTutorial = true;
     }
 
     private void FindUIElements()
@@ -98,11 +103,15 @@ public class GameManager : MonoBehaviour
         lifeGage = FindAnyObjectByType<LifeGage>();
         grazeGage = FindAnyObjectByType<GrazeGage>();
         comboText = GameObject.Find("Combo")?.GetComponent<TextMeshProUGUI>();
-        skillIcon = FindAnyObjectByType<SkillIcon>();
     }
 
     public void AddGaugeStateBranch(AddGaugeState state)
     {
+        if (isTutorial)
+        {
+            if (state == AddGaugeState.Graze) AddGage(tGrazeGauge);
+            if (state == AddGaugeState.Parry) AddGage(tParryGauge);
+        }
         if (state == AddGaugeState.Graze) AddGage(grazeGauge);
         if (state == AddGaugeState.Parry) AddGage(parryGauge);
     }
@@ -180,7 +189,7 @@ public class GameManager : MonoBehaviour
     {
         if (IsPlayerDead) return;
         IsPlayerDead = true;
-        SceneManager.LoadScene("Result");
+        FadeManager.Instance.LoadScene("Result",3f);
     }
 
     public void Damage()

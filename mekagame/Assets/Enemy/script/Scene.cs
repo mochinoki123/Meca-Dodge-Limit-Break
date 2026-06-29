@@ -11,12 +11,14 @@ public class Scene : MonoBehaviour
     [SerializeField] private float FadeTimeTutorial;
     [SerializeField] private GameObject complete;
     [SerializeField] private GameObject miss;
-    [SerializeField] private GameObject skillCustomCanvas;
 
-    private void Start()
+    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
-        miss.SetActive(GameManager.Instance.IsPlayerDead);
-        complete.SetActive(!GameManager.Instance.IsPlayerDead);
+        if (scene.name == "Result")
+        {
+            miss?.SetActive(GameManager.Instance.IsPlayerDead);
+            complete?.SetActive(!GameManager.Instance.IsPlayerDead);
+        }
     }
     async public void OnStartButton()
     {
