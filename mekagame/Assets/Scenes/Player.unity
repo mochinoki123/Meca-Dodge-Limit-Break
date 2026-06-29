@@ -1998,6 +1998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimelineManager
   director: {fileID: 300181913}
+  animator: {fileID: 1755174198}
   phase1Timeline: {fileID: 11400000, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
   phase2Timeline: {fileID: 11400000, guid: 5a60c532da9772b49851375250dcc4d5, type: 2}
   phase3Timeline: {fileID: 11400000, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
@@ -6842,7 +6843,7 @@ MonoBehaviour:
     FieldOfView: 60.000004
     OrthographicSize: 5
     NearClipPlane: 0.3
-    FarClipPlane: 1000
+    FarClipPlane: 3200
     Dutch: 0
     ModeOverride: 0
     PhysicalProperties:
@@ -7948,7 +7949,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 3200
   field of view: 60.000004
   orthographic: 0
   orthographic size: 5
