@@ -5,6 +5,7 @@ using UnityEngine.Timeline;
 public class TimelineManager : MonoBehaviour
 {
     [SerializeField] private PlayableDirector director;
+    [SerializeField] private Animator animator;
 
     [Header("HPフェーズ別タイムライン")]
     [SerializeField] private PlayableAsset phase1Timeline; // HP 60%以上
@@ -70,12 +71,14 @@ public class TimelineManager : MonoBehaviour
         }
         else if (ratio <= phase2Threshold && ratio > phase3Threshold && currentPhase < 2)
         {
+            animator.SetTrigger("IsPhaseChange");
             currentPhase = 2;
             SetWrapModeNone();
             return phaseTransition_2;
         }
         else if (ratio <= phase3Threshold && currentPhase < 3)
         {
+            animator.SetTrigger("IsPhaseChange");
             currentPhase = 3;
             SetWrapModeNone();
             return phaseTransition_3;
