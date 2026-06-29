@@ -11417,7 +11417,7 @@ MonoBehaviour:
   parryGauge: 50
   tGrazeGauge: 0
   tParryGauge: 0
-  useLB: 300
+  useLB: 0
   useOC: 200
   usePD: 100
   comboText: {fileID: 0}

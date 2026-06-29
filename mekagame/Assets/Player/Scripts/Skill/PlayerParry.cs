@@ -185,17 +185,16 @@ public class PlayerParry : MonoBehaviour
 
         yield return new WaitForSeconds(lbAttackDelay);
 
+        // ダメージ適用
+        if (enemy != null && lb != null) enemy.Damage(lb.lBDamage);
+        
         // エフェクト生成（バグ防止のため、生成して自動破棄する安全な方式に変更）
         if (lBEffect != null)
         {
-            yield return new WaitForSeconds(1.0f);
             lBEffect.SetActive(true);
             yield return new WaitForSeconds(1.0f);
             lBEffect.SetActive(false);
         }
-
-        // ダメージ適用
-        if (enemy != null && lb != null) enemy.Damage(lb.lBDamage);
     }
 
     /// <summary>外部から状態チェック込みでパリィを起動する（戻り値で成否確認可能）</summary>
