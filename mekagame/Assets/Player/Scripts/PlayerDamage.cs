@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Unity.Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
@@ -27,14 +28,20 @@ public class PlayerDamage : MonoBehaviour
 
     private bool isLB = false;
 
+    private bool isTutorial = false;
+    private int damageCount = 0;
+
     private void OnEnable()
     {
+        damageCount = 0;
         ObjectParry.OnParrySuccesState += OnParrySuccesState;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
     {
         ObjectParry.OnParrySuccesState -= OnParrySuccesState;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     private void Awake()
     {
@@ -48,6 +55,12 @@ public class PlayerDamage : MonoBehaviour
         lb = GetComponent<LimitBreak>();
         animator = GetComponent<Animator>();
         inputController = GetComponent<InputController>();
+    }
+
+    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Tutorial") isTutorial = true;
+        else isTutorial = false;
     }
 
     private async void OnParrySuccesState(bool parrySuccess)
@@ -94,9 +107,10 @@ public class PlayerDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (damageCount >= 4 && isTutorial) return;
         // ê⁄êGîªíË
         if (!CanTakeDamage()) return;
-
+        
         // É~ÉTÉCÉãèàóù
         if (other.CompareTag("Missile"))
         {
@@ -117,6 +131,7 @@ public class PlayerDamage : MonoBehaviour
 
     private void ApplyDamage()
     {
+        damageCount++;
         GameManager.Instance.Damage();
         playerImpulseSource.GenerateImpulse();
 
