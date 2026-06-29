@@ -8,6 +8,7 @@ public class PlayerDamage : MonoBehaviour
     // –³“GŽžŠÔ
     [SerializeField] private float mutekiTime = 2.0f;
     [SerializeField] private float parryInterval = 1.0f;
+    [SerializeField] private float lbInterval = 4.0f;
     // “_–ÅŠÔŠu
     [SerializeField] private float blinkInterval = 0.1f;
 
@@ -24,6 +25,7 @@ public class PlayerDamage : MonoBehaviour
     private bool isMuteki = false;
     private bool isParry = false;
 
+    private bool isLB = false;
 
     private void OnEnable()
     {
@@ -58,6 +60,16 @@ public class PlayerDamage : MonoBehaviour
         }
     }
 
+    private async void Update()
+    {
+        if(lb.isLB)
+        {
+            isLB = true;
+            await Awaitable.WaitForSecondsAsync(lbInterval);
+            isLB = false;
+        }
+    }
+
     // ”í’e‰Â”Û”»’è
     private bool CanTakeDamage()
     {
@@ -65,7 +77,7 @@ public class PlayerDamage : MonoBehaviour
         if (playerMove.isRun) return false;
         if (isParry) return false;
         if (playerPulseDiffuser.isPD) return false;
-        if (lb.isLB) return false;
+        if (isLB)return false;
         return true;
     }
 

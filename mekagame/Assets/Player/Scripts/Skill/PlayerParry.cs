@@ -188,6 +188,7 @@ public class PlayerParry : MonoBehaviour
         // エフェクト生成（バグ防止のため、生成して自動破棄する安全な方式に変更）
         if (lBEffect != null)
         {
+            yield return new WaitForSeconds(1.0f);
             lBEffect.SetActive(true);
             yield return new WaitForSeconds(1.0f);
             lBEffect.SetActive(false);
