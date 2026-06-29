@@ -24,9 +24,7 @@ public class TimelineManager : MonoBehaviour
 
     private PlayableAsset currentTimeline;
 
-    private bool threshold = false;
-    private bool threshold2 = false;
-    private bool threshold3 = false;
+    private int currentPhase = 0;
 
     private void OnEnable()
     {
@@ -59,20 +57,20 @@ public class TimelineManager : MonoBehaviour
 
     private PlayableAsset GetTimelineByRatio(float ratio)
     {
-        if (ratio > phase2Threshold && !threshold)
+        if (ratio > phase2Threshold && currentPhase < 1)
         {
-            threshold = true;
+            currentPhase = 1;
             return phase1Timeline;
         }
-        if (ratio > phase3Threshold && !threshold2)
+        else if (ratio <= phase2Threshold && ratio > phase3Threshold && currentPhase < 2)
         {
-            threshold2 = true;
+            currentPhase = 2;
             SetWrapModeNone();
             return phaseTransition_2;
         }
-        if(!threshold3)
+        else if (ratio <= phase3Threshold && currentPhase < 3)
         {
-            threshold3 = true;
+            currentPhase = 3;
             SetWrapModeNone();
             return phaseTransition_3;
         }
