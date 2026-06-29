@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using R3;
 
 public class OverClock : MonoBehaviour
 {
@@ -15,11 +16,15 @@ public class OverClock : MonoBehaviour
     // 発動時SE
     [SerializeField] private AudioClip overClock;
 
-    public bool isOC { get; private set; } = false;
+    private readonly ReactiveProperty<bool> isOC = new ReactiveProperty<bool>(false);
+
+    public ReadOnlyReactiveProperty<bool> IsOC => isOC;
     PlayerGraze pg;
     AudioSource audioSource;
     MaterialScript materialScript;
     Animator animator;
+
+    private PlayerPulseDiffuser pulsediffuser;
 
     private void Awake()
     {
@@ -28,12 +33,22 @@ public class OverClock : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         materialScript = GetComponent<MaterialScript>();
         animator = GetComponent<Animator>();
+        pulsediffuser = GetComponent<PlayerPulseDiffuser>();
+
+        pulsediffuser.IsPD
+            .Where (isPD => isPD == true)
+            .Subscribe(isPD =>
+            {
+                StopAllCoroutines();
+                ResetOverClock();
+            })
+            .AddTo(this);
     }
 
     private void OnOverClock(InputValue value)
     {
         // 既に使用中なら中断
-        if (isOC) return;
+        if (isOC.Value) return;
         StartCoroutine(PlayOverClock());
     }
 
@@ -46,7 +61,7 @@ public class OverClock : MonoBehaviour
             audioSource.PlayOneShot(overClock);
             // ゲージ消費とフラグ設定
             GameManager.Instance.UseGaugeStateBranch(GameManager.UseGaugeState.OverClock);
-            isOC = true;
+            isOC.Value = true;
 
             animator?.SetTrigger("IsOC");
 
@@ -58,9 +73,14 @@ public class OverClock : MonoBehaviour
             // 効果時間待機
             yield return new WaitForSeconds(oCTime);
 
-            // 終了処理・範囲リセット
-            isOC = false;
-            pg.ResetRange();
+            ResetOverClock();
         }
+    }
+
+    private void ResetOverClock()
+    {
+        // 終了処理・範囲リセット
+        isOC.Value = false;
+        pg.ResetRange();
     }
 }

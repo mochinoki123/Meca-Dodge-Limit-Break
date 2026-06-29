@@ -12,6 +12,8 @@ public class Scene : MonoBehaviour
     [SerializeField] private GameObject complete;
     [SerializeField] private GameObject miss;
 
+    [SerializeField] private ClearFlag clearFlag;
+
     private bool isTransitioning = false;
 
     private void OnEnable()
@@ -37,8 +39,8 @@ public class Scene : MonoBehaviour
     {
         if (scene.name == "Result")
         {
-            miss?.SetActive(GameManager.Instance.IsPlayerDead);
-            complete?.SetActive(!GameManager.Instance.IsPlayerDead);
+            if (clearFlag.IsCleared) complete?.SetActive(true);
+            else miss?.SetActive(true);      
         }
     }
     async public void OnStartButton()

@@ -65,7 +65,7 @@ public class PlayerMove : MonoBehaviour
     private void Move()
     {
         // 状態に応じた速度決定
-        float baseSpeed = (lb.isLB, parry.notMove, parry.isParry, isRun, oc.isOC) switch
+        float baseSpeed = (lb.isLB, parry.notMove, parry.isParry, isRun, oc.IsOC.CurrentValue) switch
         {
             (_, true, _, _, _) => notSpeed,    // 硬直中
             (false, _, true, _, _) => notSpeed, // パリィ中硬直
@@ -100,7 +100,7 @@ public class PlayerMove : MonoBehaviour
         isRunCoolTime = true;
 
         // OC中か通常かでクールタイム変化
-        float coolTime = oc.isOC ? oc.oCCoolTime : runCoolTime;
+        float coolTime = oc.IsOC.CurrentValue ? oc.oCCoolTime : runCoolTime;
         yield return new WaitForSeconds(coolTime);
         isRunCoolTime = false;
     }

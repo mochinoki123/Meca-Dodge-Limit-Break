@@ -30,7 +30,7 @@ public class PulseDiffuserTutorialTask : InputTutorialTask
         if (pulseDiffuser == null) return;
 
         // isPD‚ªfalse¨true‚É•Ï‚í‚Á‚½uŠÔ‚ğ”­“®‚Æ‚µ‚ÄŒŸ’m
-        bool isActive = pulseDiffuser.isPD;
+        bool isActive = pulseDiffuser.IsPD.CurrentValue;
         if (!wasActive && isActive)
             hasActivated = true;
 

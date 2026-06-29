@@ -82,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   maxHP: 1000
   EnemyFinish: {fileID: 8300000, guid: 176f04128b971e44483364ea4e787097, type: 3}
+  clearFlag: {fileID: 11400000, guid: b20a79a8b5672a24ba715bb6d2bb63d7, type: 2}
   animator: {fileID: 4128327239761448658}
   finishfade: 5
   timelineManager: {fileID: 0}

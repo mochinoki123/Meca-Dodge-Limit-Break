@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using DG.Tweening;
 
 public class PlayerParry : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class PlayerParry : MonoBehaviour
     [SerializeField] private float parrySuccessDisplayTime = 1.0f;
     // LB追撃エフェクトまでのディレイ
     [SerializeField] private float lbAttackDelay = 2.0f;
+    // LB攻撃アニメーションジャンプの時間
+    [SerializeField] private float lbAnimationDuration;
+    // LB攻撃アニメーションジャンプの高さ
+    [SerializeField] private float jumpPosition;
     // 失敗時の点滅間隔
     [SerializeField] private float blinkInterval = 0.1f;
     // 成功時SE
@@ -37,8 +42,8 @@ public class PlayerParry : MonoBehaviour
     private Animator animator;
     private AudioSource audioSource;
     private Renderer rend;
-    private ObjectParry objectParryComponent; // 追加: インスタンス保持用
-
+    private ObjectParry objectParryComponent;
+    
     private void Awake()
     {
         // 各コンポーネント取得
@@ -59,7 +64,7 @@ public class PlayerParry : MonoBehaviour
     // パリィが実行可能か一括チェックするヘルパーメソッド
     private bool CanParry()
     {
-        if (pd != null && pd.isPD) return false;
+        //if (pd != null && pd.isPD) return false;
         if (isParry) return false;
         if (isParryCoolTime) return false;
         if (notMove) return false;
@@ -182,6 +187,7 @@ public class PlayerParry : MonoBehaviour
     {
         // 追撃アニメーション再生
         animator?.SetTrigger("LimitBreak");
+        transform.DOMoveY(jumpPosition, lbAnimationDuration);
 
         yield return new WaitForSeconds(lbAttackDelay);
 

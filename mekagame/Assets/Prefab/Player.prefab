@@ -849,7 +849,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mutekiTime: 2
   parryInterval: 1
+  lbInterval: 4
   blinkInterval: 0.1
+  clearFlag: {fileID: 11400000, guid: b20a79a8b5672a24ba715bb6d2bb63d7, type: 2}
 --- !u!114 &8288794723561334125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,6 +870,8 @@ MonoBehaviour:
   parryCoolTime: 0.3
   parrySuccessDisplayTime: 1
   lbAttackDelay: 2
+  lbAnimationDuration: 2
+  jumpPosition: 7
   blinkInterval: 0.1
   parrySound: {fileID: 8300000, guid: cc8dd4d866faf2a4198c8398cec66be1, type: 3}
   lBEffect: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}

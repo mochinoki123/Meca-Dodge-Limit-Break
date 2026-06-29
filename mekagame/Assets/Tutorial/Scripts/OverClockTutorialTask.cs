@@ -29,7 +29,7 @@ public class OverClockTutorialTask : InputTutorialTask
     {
         if (overClock == null) return;
 
-        bool isActive = overClock.isOC;
+        bool isActive = overClock.IsOC.CurrentValue;
         if (!wasActive && isActive)
             hasActivated = true;
 

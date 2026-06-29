@@ -1924,7 +1924,7 @@ PlayableDirector:
   m_GameObject: {fileID: 300181912}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 5a60c532da9772b49851375250dcc4d5, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 0284288b15eacee48b2f9ed3a024e888, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -11418,8 +11418,8 @@ MonoBehaviour:
   tGrazeGauge: 0
   tParryGauge: 0
   useLB: 0
-  useOC: 200
-  usePD: 100
+  useOC: 0
+  usePD: 0
   comboText: {fileID: 0}
   comboTime: 4
   comboMultiple:
@@ -12301,6 +12301,14 @@ PrefabInstance:
     - target: {fileID: 8288794723561334125, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: parryTime
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288794723561334125, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: jumpPosition
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288794723561334125, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: lbAnimationDuration
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2811005598475274188, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}

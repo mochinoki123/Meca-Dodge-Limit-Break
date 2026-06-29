@@ -13,6 +13,8 @@ public class PlayerDamage : MonoBehaviour
     // “_–ÅŠÔŠu
     [SerializeField] private float blinkInterval = 0.1f;
 
+    [SerializeField] private ClearFlag clearFlag;
+
     private PlayerMove playerMove;
     private PlayerParry playerParry;
     private PlayerPulseDiffuser playerPulseDiffuser;
@@ -86,10 +88,11 @@ public class PlayerDamage : MonoBehaviour
     // ”í’e‰Â”Û”»’è
     private bool CanTakeDamage()
     {
+        if (clearFlag.IsCleared) return false;
         if (isMuteki) return false;
         if (playerMove.isRun) return false;
         if (isParry) return false;
-        if (playerPulseDiffuser.isPD) return false;
+        if (playerPulseDiffuser.IsPD.CurrentValue) return false;
         if (isLB)return false;
         return true;
     }

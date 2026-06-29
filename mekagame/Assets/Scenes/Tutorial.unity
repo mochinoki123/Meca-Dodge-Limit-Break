@@ -4978,9 +4978,9 @@ MonoBehaviour:
   parryGauge: 200
   tGrazeGauge: 0
   tParryGauge: 0
-  useLB: 300
-  useOC: 200
-  usePD: 100
+  useLB: 0
+  useOC: 0
+  usePD: 0
   comboText: {fileID: 0}
   comboTime: 4
   comboMultiple:

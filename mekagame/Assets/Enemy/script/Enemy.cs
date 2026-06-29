@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int maxHP = 1000;
     private AudioSource audioSource;
     [SerializeField] private AudioClip EnemyFinish;
+    [SerializeField] private ClearFlag clearFlag;
     public Animator animator;
     public float finishfade;
     public int CurrentHP { get; private set; }
@@ -21,6 +22,11 @@ public class Enemy : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         animator = GetComponentInChildren<Animator>();
         CurrentHP = maxHP;
+    }
+
+    private void OnEnable()
+    {
+        clearFlag.ResetFlag();
     }
 
     public void Damage(int damage)
@@ -39,6 +45,8 @@ public class Enemy : MonoBehaviour
     {
         if (CurrentHP <= 0)
         {
+            if (clearFlag != null) clearFlag.IsCleared = true;
+
             animator.SetTrigger("IsFinish");
             AudioSource.PlayClipAtPoint(EnemyFinish, transform.position);
             await Task.Delay(4000);
