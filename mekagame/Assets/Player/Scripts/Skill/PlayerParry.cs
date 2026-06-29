@@ -188,8 +188,9 @@ public class PlayerParry : MonoBehaviour
         // エフェクト生成（バグ防止のため、生成して自動破棄する安全な方式に変更）
         if (lBEffect != null)
         {
-            GameObject spawnedEffect = Instantiate(lBEffect, transform.position, Quaternion.identity);
-            Destroy(spawnedEffect, 1.0f); // 1秒後に自動破棄
+            lBEffect.SetActive(true);
+            yield return new WaitForSeconds(1.0f);
+            lBEffect.SetActive(false);
         }
 
         // ダメージ適用
