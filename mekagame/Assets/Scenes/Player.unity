@@ -1924,7 +1924,7 @@ PlayableDirector:
   m_GameObject: {fileID: 300181912}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 0284288b15eacee48b2f9ed3a024e888, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 5a60c532da9772b49851375250dcc4d5, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -1964,6 +1964,10 @@ PlayableDirector:
     value: {fileID: 1455872203}
   - key: {fileID: 1058287081569100965, guid: 0284288b15eacee48b2f9ed3a024e888, type: 2}
     value: {fileID: 482236779}
+  - key: {fileID: 6894632655154764220, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
+    value: {fileID: 1455872203}
+  - key: {fileID: -4783289453862428082, guid: 5a60c532da9772b49851375250dcc4d5, type: 2}
+    value: {fileID: 1455872203}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &300181914
@@ -10375,7 +10379,7 @@ Animator:
   m_GameObject: {fileID: 1755174196}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c0c88032d2c8f824697f7ddcc33e19ce, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3ce6b20bc2b726643ac65e26ee48486b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
