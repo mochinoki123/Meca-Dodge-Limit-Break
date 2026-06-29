@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -34,12 +35,13 @@ public class Enemy : MonoBehaviour
         CheckIfDead();
     }
 
-    private void CheckIfDead()
+    private async void CheckIfDead()
     {
         if (CurrentHP <= 0)
         {
             animator.SetTrigger("IsFinish");
             AudioSource.PlayClipAtPoint(EnemyFinish, transform.position);
+            await Task.Delay(4000);
             FadeManager.Instance.LoadScene("Result", finishfade);
         }
     }

@@ -12,6 +12,16 @@ public class Scene : MonoBehaviour
     [SerializeField] private GameObject complete;
     [SerializeField] private GameObject miss;
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "Result")

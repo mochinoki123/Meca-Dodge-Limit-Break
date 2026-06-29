@@ -45,6 +45,12 @@ public class TimelineManager : MonoBehaviour
     // Enemyのダメージ処理から呼ばれる
     public void OnHpChanged(int currentHP, int maxHP)
     {
+        if (currentHP <= 0)
+        {
+            director.Stop();
+            return;
+        }
+
         float ratio = (float)currentHP / maxHP;
         PlayableAsset targetTimeline = GetTimelineByRatio(ratio);
 

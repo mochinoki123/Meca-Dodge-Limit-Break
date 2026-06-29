@@ -1474,7 +1474,6 @@ MonoBehaviour:
   FadeTimeTutorial: 0
   complete: {fileID: 1379922483}
   miss: {fileID: 1648879439}
-  skillCustomCanvas: {fileID: 0}
 --- !u!4 &2054342092
 Transform:
   m_ObjectHideFlags: 0

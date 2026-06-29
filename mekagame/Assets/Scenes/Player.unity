@@ -10181,7 +10181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: finishfade
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: timelineManager
