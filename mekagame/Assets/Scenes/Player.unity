@@ -1999,8 +1999,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TimelineManager
   director: {fileID: 300181913}
   phase1Timeline: {fileID: 11400000, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
-  phase2Timeline: {fileID: 11400000, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
-  phase3Timeline: {fileID: 11400000, guid: 5a60c532da9772b49851375250dcc4d5, type: 2}
+  phase2Timeline: {fileID: 11400000, guid: 5a60c532da9772b49851375250dcc4d5, type: 2}
+  phase3Timeline: {fileID: 11400000, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
   phaseTransition_2: {fileID: 11400000, guid: 88b1458dd478c8a45b2b715075ecedcf, type: 2}
   phaseTransition_3: {fileID: 11400000, guid: da0fcca7b68d7b944aeed8e19cca899f, type: 2}
   countdown: {fileID: 11400000, guid: 0284288b15eacee48b2f9ed3a024e888, type: 2}

@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     OverClock oc;
     Animator animator;
     AudioSource audioSource;
+    LimitBreak lb;
     bool goJump = false;
     public bool isRun = false;
     bool isRunCoolTime = false;
@@ -32,6 +33,7 @@ public class PlayerMove : MonoBehaviour
         oc = GetComponent<OverClock>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        lb = GetComponent<LimitBreak>();
     }
 
     // Input System コールバック
@@ -63,12 +65,12 @@ public class PlayerMove : MonoBehaviour
     private void Move()
     {
         // 状態に応じた速度決定
-        float baseSpeed = (parry.notMove, parry.isParry, isRun, oc.isOC) switch
+        float baseSpeed = (lb.isLB, parry.notMove, parry.isParry, isRun, oc.isOC) switch
         {
-            (true, _, _, _) => notSpeed,    // 硬直中
-            (_, true, _, _) => notSpeed, // パリィ中硬直
-            (_, _, true, true) => oc.oCSpeed,  // OC中のダッシュ
-            (_, _, true, _) => runSpeed,    // 通常ダッシュ
+            (_, true, _, _, _) => notSpeed,    // 硬直中
+            (false, _, true, _, _) => notSpeed, // パリィ中硬直
+            (_, _, _, true, true) => oc.oCSpeed,  // OC中のダッシュ
+            (_, _, _, true, _) => runSpeed,    // 通常ダッシュ
             _ => walkSpeed    // 歩き
         };
 
