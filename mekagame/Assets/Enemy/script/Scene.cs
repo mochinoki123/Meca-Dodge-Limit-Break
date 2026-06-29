@@ -12,6 +12,8 @@ public class Scene : MonoBehaviour
     [SerializeField] private GameObject complete;
     [SerializeField] private GameObject miss;
 
+    private bool isTransitioning = false;
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -21,6 +23,15 @@ public class Scene : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
+    private bool CanTransition()
+    {
+        if (isTransitioning) return false;
+
+        isTransitioning = true;
+        return true;
+    }
+
 
     void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
@@ -32,21 +43,25 @@ public class Scene : MonoBehaviour
     }
     async public void OnStartButton()
     {
+        if (!CanTransition()) return;
         await Task.Delay(500);
         FadeManager.Instance.LoadScene("Loading", FadeTimeLoad);
     }
     async public void OnTitleButton()
     {
+        if (!CanTransition()) return;
         await Task.Delay(500);
         FadeManager.Instance.LoadScene("Title", FadeTimeTitle);
     }
     async public void OnEndButton()
     {
+        if (!CanTransition()) return;
         await Task.Delay(500);
         Application.Quit();
     }
     async public void OnTutorialButton()
     {
+        if (!CanTransition()) return;
         await Task.Delay(500);
         FadeManager.Instance.LoadScene("Tutorial", FadeTimeTutorial);
     }
