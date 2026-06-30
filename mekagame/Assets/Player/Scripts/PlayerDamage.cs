@@ -119,7 +119,7 @@ public class PlayerDamage : MonoBehaviour
         {
             var missile = other.GetComponentInParent<MissileRelease>();
             ApplyDamage();
-            missile.Release();
+            missile?.Release();
             
         }
         // ƒŒ[ƒU[ˆ—
@@ -127,7 +127,7 @@ public class PlayerDamage : MonoBehaviour
         {
             var laser = other.GetComponentInParent<ReleaseLaser>();
             ApplyDamage();
-            laser.Release();
+            laser?.Release();
         }
     }
 
