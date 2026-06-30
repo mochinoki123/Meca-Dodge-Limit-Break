@@ -6,11 +6,9 @@ using UnityEngine.SceneManagement;
 public class PlayerDamage : MonoBehaviour
 {
     [Header("Settings")]
-    // 無敵時間
     [SerializeField] private float mutekiTime = 2.0f;
     [SerializeField] private float parryInterval = 1.0f;
     [SerializeField] private float lbInterval = 4.0f;
-    // 点滅間隔
     [SerializeField] private float blinkInterval = 0.1f;
 
     [SerializeField] private ClearFlag clearFlag;
@@ -27,11 +25,12 @@ public class PlayerDamage : MonoBehaviour
 
     private bool isMuteki = false;
     private bool isParry = false;
-
     private bool isLB = false;
-
     private bool isTutorial = false;
     private int damageCount = 0;
+
+    // Awaitableのキャンセル用
+    private System.Threading.CancellationTokenSource destroyCts;
 
     private void OnEnable()
     {
@@ -45,9 +44,11 @@ public class PlayerDamage : MonoBehaviour
         ObjectParry.OnParrySuccesState -= OnParrySuccesState;
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
     private void Awake()
     {
-        // コンポーネント取得
+        destroyCts = new System.Threading.CancellationTokenSource();
+
         playerMove = GetComponent<PlayerMove>();
         playerParry = GetComponent<PlayerParry>();
         playerPulseDiffuser = GetComponent<PlayerPulseDiffuser>();
@@ -59,33 +60,62 @@ public class PlayerDamage : MonoBehaviour
         inputController = GetComponent<InputController>();
     }
 
-    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    private void OnDestroy()
     {
-        if (scene.name == "Tutorial") isTutorial = true;
-        else isTutorial = false;
+        // オブジェクト破棄時に非同期処理を安全にキャンセル
+        destroyCts?.Cancel();
+        destroyCts?.Dispose();
+    }
+
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    {
+        isTutorial = (scene.name == "Tutorial");
     }
 
     private async void OnParrySuccesState(bool parrySuccess)
     {
-        if (parrySuccess)
+        if (parrySuccess && !isParry)
         {
-            isParry = true;
-            await Awaitable.WaitForSecondsAsync(parryInterval);
-            isParry = false;
+            try
+            {
+                isParry = true;
+                // CancellationTokenを渡して、オブジェクト破棄時のエラーを防ぐ
+                await Awaitable.WaitForSecondsAsync(parryInterval, destroyCts.Token);
+                isParry = false;
+            }
+            catch (System.OperationCanceledException)
+            {
+                // キャンセル時は何もしない
+            }
         }
     }
 
-    private async void Update()
+    private void Update()
     {
-        if(lb.isLB)
+        // 修正：毎フレーム await が走らないよう、フラグの変化の瞬間だけ非同期処理を呼ぶ
+        if (lb.isLB && !isLB)
+        {
+            StartLimitBreakTimer();
+        }
+    }
+
+    private async void StartLimitBreakTimer()
+    {
+        try
         {
             isLB = true;
-            await Awaitable.WaitForSecondsAsync(lbInterval);
+            await Awaitable.WaitForSecondsAsync(lbInterval, destroyCts.Token);
+        }
+        catch (System.OperationCanceledException)
+        {
+            // キャンセルハンドリング
+        }
+        finally
+        {
             isLB = false;
         }
     }
 
-    // 被弾可否判定
     private bool CanTakeDamage()
     {
         if (clearFlag.IsCleared) return false;
@@ -93,13 +123,12 @@ public class PlayerDamage : MonoBehaviour
         if (playerMove.isRun) return false;
         if (isParry) return false;
         if (playerPulseDiffuser.IsPD.CurrentValue) return false;
-        if (isLB)return false;
+        if (isLB) return false;
         return true;
     }
 
     private void OnParticleCollision(GameObject other)
     {
-        // パーティクル被弾処理
         if (!CanTakeDamage()) return;
 
         if (other.CompareTag("FirePoint"))
@@ -110,27 +139,27 @@ public class PlayerDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (damageCount >= 4 && isTutorial) return;
-        // 接触判定
+        // チュートリアルかつ被弾上限なら処理しない
+        if (isTutorial && damageCount >= 4) return;
         if (!CanTakeDamage()) return;
-        
-        // ミサイル処理
+
         if (other.CompareTag("Missile"))
         {
-            var missile = other.GetComponentInParent<MissileRelease>();
             ApplyDamage();
-            missile?.Release();
-            
+            if (other.TryGetComponentInParent<MissileRelease>(out var missile))
+            {
+                missile.Release();
+            }
         }
-        // レーザー処理
         else if (other.CompareTag("LaserDamage"))
         {
-            var laser = other.GetComponentInParent<ReleaseLaser>();
             ApplyDamage();
-            laser?.Release();
+            if (other.TryGetComponentInParent<ReleaseLaser>(out var laser))
+            {
+                laser.Release();
+            }
         }
     }
-
 
     private void ApplyDamage()
     {
@@ -154,7 +183,7 @@ public class PlayerDamage : MonoBehaviour
     private IEnumerator MutekiRoutine()
     {
         isMuteki = true;
-        yield return StartCoroutine(MutekiMaterial()); // ← 修正
+        yield return StartCoroutine(MutekiMaterial());
         isMuteki = false;
     }
 
@@ -162,7 +191,6 @@ public class PlayerDamage : MonoBehaviour
     {
         materialScript.ChangeMaterial(MaterialScript.EffectType.Damage, 2f);
 
-        // 点滅ループ
         float elapsed = 0;
         while (elapsed < mutekiTime)
         {
@@ -171,7 +199,16 @@ public class PlayerDamage : MonoBehaviour
             elapsed += blinkInterval;
         }
 
-        // 復帰処理
         rend.enabled = true;
+    }
+}
+
+// 拡張メソッド用（GetComponentInParentのNullable対策をスッキリさせる場合）
+public static class ComponentExtensions
+{
+    public static bool TryGetComponentInParent<T>(this Collider collider, out T component) where T : Component
+    {
+        component = collider.GetComponentInParent<T>();
+        return component != null;
     }
 }

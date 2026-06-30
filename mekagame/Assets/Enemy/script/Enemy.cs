@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     // タイムライン制御の参照を追加
     [SerializeField] private TimelineManager timelineManager;
 
+    private bool isTutorial = false;
+
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -27,6 +29,17 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         clearFlag.ResetFlag();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+    {
+        isTutorial = (scene.name == "Tutorial");
     }
 
     public void Damage(int damage)
@@ -43,6 +56,7 @@ public class Enemy : MonoBehaviour
 
     private async void CheckIfDead()
     {
+        if (isTutorial) return;
         if (CurrentHP <= 0)
         {
             if (clearFlag != null) clearFlag.IsCleared = true;
