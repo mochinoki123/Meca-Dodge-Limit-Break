@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -5,6 +6,7 @@ using UnityEngine.Pool;
 public class ObjectPool_Missile : MonoBehaviour
 {
     public static ObjectPool_Missile Instance;
+    [SerializeField] private Enemy enemy;
 
     private void Awake()
     {
@@ -19,8 +21,20 @@ public class ObjectPool_Missile : MonoBehaviour
        }
     }
 
+    private void OnEnable()
+    {
+        Enemy.OnGameClear += ClearActiveMissile;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnGameClear -= ClearActiveMissile;
+    }
+
     ObjectPool<GameObject> pool;
     public GameObject MissilePrefab;
+
+    private List<GameObject> activeMissiles = new List<GameObject> ();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,12 +49,6 @@ public class ObjectPool_Missile : MonoBehaviour
             50);                    // プール内オブジェクトの上限数
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // オブジェクト生成の際の処理
     GameObject CreatePooledMissile()
     {
@@ -51,6 +59,7 @@ public class ObjectPool_Missile : MonoBehaviour
     void OnTakeFromPool(GameObject objm)
     {
         objm.SetActive(true);    // オブジェクトをアクティブにする処理
+        activeMissiles.Add(objm);
         //objm.transform.position = new Vector2(Random.Range(-8f, 8f), Random.Range(-4.5f, 4.5f));  // オブジェクトの座標を指定する処理
         /*
 
@@ -77,6 +86,10 @@ public class ObjectPool_Missile : MonoBehaviour
         objm.transform.position = Vector3.zero;
         objm.transform.rotation = Quaternion.identity;
         objm.SetActive(false);   // オブジェクトを非アクティブにする処理
+        if (activeMissiles.Contains(objm))
+        {
+            activeMissiles.Remove(objm);
+        }
     }
 
     // プールが上限を超えた場合の処理
@@ -94,4 +107,15 @@ public class ObjectPool_Missile : MonoBehaviour
     {
         pool.Release(objm);
     } 
+
+    private void ClearActiveMissile()
+    {
+        for (int i = activeMissiles.Count - 1; i >= 0; i--)
+        {
+            if (activeMissiles[i] != null)
+            {
+                pool.Release(activeMissiles[i]);
+            }
+        }
+    }
 }

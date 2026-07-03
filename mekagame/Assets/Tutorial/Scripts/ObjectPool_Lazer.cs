@@ -1,8 +1,11 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
 public class ObjectPool_Lazer : MonoBehaviour
 {
+    [SerializeField] private Enemy enemy;
     //シングルトンの作成
     public static ObjectPool_Lazer instance;    //ObjectPool_Laszer型の変数を宣言
 
@@ -20,9 +23,21 @@ public class ObjectPool_Lazer : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        Enemy.OnGameClear += ClearActiveLasers;
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnGameClear -= ClearActiveLasers;
+    }
+
     //オブジェクトプールの作成
     ObjectPool<GameObject> pool;    //ObjectPoolがたの変数を宣言
     public GameObject laserPrefab;  //オブジェクトプールで管理するオブジェクトを指定
+
+    private List<GameObject> activelasers = new List<GameObject>(); //使用中レーザーをリスト管理
 
     private void Start()
     {
@@ -34,7 +49,7 @@ public class ObjectPool_Lazer : MonoBehaviour
             OnDestroyLaser,
             false,
             1,
-            20);
+            10);
 
         var prewarmed = new GameObject[10];
         for (int i = 0; i < 10; i++)
@@ -60,11 +75,16 @@ public class ObjectPool_Lazer : MonoBehaviour
     void OnGetLaser(GameObject obj)
     {
         obj.SetActive(true);    //オブジェクトをアクティブにする処理
+        activelasers.Add(obj);
     }
 
     void OnReturnLaser(GameObject obj)
     {
         obj.SetActive(false);   //オブジェクトを非アクティブにする処理
+        if(activelasers.Contains(obj))
+        {
+            activelasers.Remove(obj);
+        }
     }
 
     void OnDestroyLaser(GameObject obj)
@@ -80,5 +100,16 @@ public class ObjectPool_Lazer : MonoBehaviour
     public void ReleaseLaser(GameObject obj)
     {
         pool.Release(obj);
+    }
+
+    private void ClearActiveLasers()
+    {
+        for (int i = activelasers.Count - 1; i >= 0; i--)
+        {
+            if (activelasers[i] != null)
+            {
+                pool.Release(activelasers [i]);
+            }
+        }
     }
 }

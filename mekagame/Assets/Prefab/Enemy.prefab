@@ -86,6 +86,8 @@ MonoBehaviour:
   animator: {fileID: 4128327239761448658}
   finishfade: 5
   timelineManager: {fileID: 0}
+  laserAttack: {fileID: 0}
+  missileAttack: {fileID: 0}
 --- !u!82 &-6565724742502022513
 AudioSource:
   m_ObjectHideFlags: 0
