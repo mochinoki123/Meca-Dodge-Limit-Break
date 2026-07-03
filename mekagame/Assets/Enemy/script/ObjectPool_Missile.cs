@@ -7,6 +7,7 @@ public class ObjectPool_Missile : MonoBehaviour
 {
     public static ObjectPool_Missile Instance;
     [SerializeField] private Enemy enemy;
+    [SerializeField] private TimelineManager timelineManager;
 
     private void Awake()
     {
@@ -24,11 +25,13 @@ public class ObjectPool_Missile : MonoBehaviour
     private void OnEnable()
     {
         Enemy.OnGameClear += ClearActiveMissile;
+        TimelineManager.OnPhaseClear += ClearActiveMissile;
     }
 
     private void OnDisable()
     {
         Enemy.OnGameClear -= ClearActiveMissile;
+        TimelineManager.OnPhaseClear -= ClearActiveMissile;
     }
 
     ObjectPool<GameObject> pool;

@@ -3830,6 +3830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56e9a1769eca7e479116bdf407fb95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool_Lazer
+  enemy: {fileID: 1432635861}
+  timelineManager: {fileID: 300181915}
   laserPrefab: {fileID: 6935679640439994187, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
 --- !u!4 &601285812
 Transform:
@@ -10140,6 +10142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd3021b7de69bc49ac8bfe156b10e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool_Missile
+  enemy: {fileID: 1432635861}
+  timelineManager: {fileID: 300181915}
   MissilePrefab: {fileID: 2971007170582083771, guid: 26c5b5fe1a5c72046978db7a36546da0, type: 3}
 --- !u!4 &1752185984
 Transform:
@@ -10192,6 +10196,14 @@ PrefabInstance:
       propertyPath: finishfade
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: laserAttack
+      value: 
+      objectReference: {fileID: 124600754}
+    - target: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: missileAttack
+      value: 
+      objectReference: {fileID: 1455872202}
     - target: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: timelineManager
       value: 

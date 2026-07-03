@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -31,6 +32,8 @@ public class TimelineManager : MonoBehaviour
     private PlayableAsset currentTimeline;
 
     private int currentPhase = 0;
+
+    public static event Action OnPhaseClear;
 
     private void OnEnable()
     {
@@ -77,6 +80,7 @@ public class TimelineManager : MonoBehaviour
         }
         else if (ratio <= phase2Threshold && ratio > phase3Threshold && currentPhase < 2)
         {
+            OnPhaseClear.Invoke();
             animator.SetTrigger("IsPhaseChange");
             currentPhase = 2;
             SetWrapModeNone();
@@ -84,6 +88,7 @@ public class TimelineManager : MonoBehaviour
         }
         else if (ratio <= phase3Threshold && currentPhase < 3)
         {
+            OnPhaseClear.Invoke();
             animator.SetTrigger("IsPhaseChange");
             currentPhase = 3;
             SetWrapModeNone();
