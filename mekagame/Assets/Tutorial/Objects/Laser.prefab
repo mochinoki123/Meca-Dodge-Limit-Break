@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 830a683d56a54c14fa090ffeb08ed426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReleaseLaser
+  enemy: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
 --- !u!54 &2335265230436906621
 Rigidbody:
   m_ObjectHideFlags: 0
