@@ -55,10 +55,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 1
+    m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 365912134361138113}
-    m_Duration: 1.0000000000000018
+    m_Duration: 1
     m_TimeScale: 1
     m_ParentTrack: {fileID: 4613439030153623826}
     m_EaseInDuration: 0
@@ -124,5 +124,22 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Active
   m_Markers:
-    m_Objects: []
+    m_Objects:
+    - {fileID: 4687471656648716866}
   m_PostPlaybackState: 3
+--- !u!114 &4687471656648716866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
+  m_Time: 1.5
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 0}

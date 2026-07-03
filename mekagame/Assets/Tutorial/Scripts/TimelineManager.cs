@@ -25,6 +25,7 @@ public class TimelineManager : MonoBehaviour
     [SerializeField] private float phase2Threshold = 0.6f;
     [SerializeField] private float phase3Threshold = 0.3f;
 
+    [Header("敵撃破タイムライン")]
     [SerializeField] private PlayableAsset FinishTimeline;
 
     private PlayableAsset currentTimeline;
