@@ -12175,6 +12175,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2230653814415199337, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230653814415199337, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: m_WarningMessage
       value: 
       objectReference: {fileID: 0}
