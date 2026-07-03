@@ -173,7 +173,7 @@ public class PlayerDamage : MonoBehaviour
             rend.enabled = true;
             isMuteki = false;
             inputController.DisableControls();
-            animator.Play("Take 001");
+            animator.Play("Down");
             return;
         }
 
