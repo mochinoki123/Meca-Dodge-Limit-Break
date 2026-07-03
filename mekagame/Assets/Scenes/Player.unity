@@ -1924,7 +1924,7 @@ PlayableDirector:
   m_GameObject: {fileID: 300181912}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 0284288b15eacee48b2f9ed3a024e888, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 2f45bbd898c798e4c94e0bae45e356e2, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -1968,6 +1968,8 @@ PlayableDirector:
     value: {fileID: 1455872203}
   - key: {fileID: -4783289453862428082, guid: 5a60c532da9772b49851375250dcc4d5, type: 2}
     value: {fileID: 1455872203}
+  - key: {fileID: 4613439030153623826, guid: 2f45bbd898c798e4c94e0bae45e356e2, type: 2}
+    value: {fileID: 2124310602}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &300181914
@@ -1999,6 +2001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TimelineManager
   director: {fileID: 300181913}
   animator: {fileID: 1755174198}
+  clearFlag: {fileID: 11400000, guid: b20a79a8b5672a24ba715bb6d2bb63d7, type: 2}
   phase1Timeline: {fileID: 11400000, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
   phase2Timeline: {fileID: 11400000, guid: 5a60c532da9772b49851375250dcc4d5, type: 2}
   phase3Timeline: {fileID: 11400000, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
@@ -2007,6 +2010,7 @@ MonoBehaviour:
   countdown: {fileID: 11400000, guid: 0284288b15eacee48b2f9ed3a024e888, type: 2}
   phase2Threshold: 0.6
   phase3Threshold: 0.3
+  FinishTimeline: {fileID: 11400000, guid: 2f45bbd898c798e4c94e0bae45e356e2, type: 2}
 --- !u!1 &302314040
 GameObject:
   m_ObjectHideFlags: 0

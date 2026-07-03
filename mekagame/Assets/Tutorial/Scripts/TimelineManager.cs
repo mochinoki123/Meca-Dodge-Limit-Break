@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
@@ -6,6 +7,7 @@ public class TimelineManager : MonoBehaviour
 {
     [SerializeField] private PlayableDirector director;
     [SerializeField] private Animator animator;
+    [SerializeField] private ClearFlag clearFlag;
 
     [Header("HPフェーズ別タイムライン")]
     [SerializeField] private PlayableAsset phase1Timeline; // HP 60%以上
@@ -22,6 +24,8 @@ public class TimelineManager : MonoBehaviour
     [Header("フェーズ閾値")]
     [SerializeField] private float phase2Threshold = 0.6f;
     [SerializeField] private float phase3Threshold = 0.3f;
+
+    [SerializeField] private PlayableAsset FinishTimeline;
 
     private PlayableAsset currentTimeline;
 
@@ -49,6 +53,7 @@ public class TimelineManager : MonoBehaviour
         if (currentHP <= 0)
         {
             director.Stop();
+            SwitchTimeline(FinishTimeline);
             return;
         }
 
@@ -83,7 +88,7 @@ public class TimelineManager : MonoBehaviour
             SetWrapModeNone();
             return phaseTransition_3;
         }
-        return currentTimeline;
+            return currentTimeline;
     }
 
     private void SwitchTimeline(PlayableAsset asset)
