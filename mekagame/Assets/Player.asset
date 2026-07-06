@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: Assembly-CSharp::ClearFlag
   flagName: 
-  isCreared: 0
+  isGameCleared: 0
+  isPhaseCleared: 0

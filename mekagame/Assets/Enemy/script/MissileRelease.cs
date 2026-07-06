@@ -60,7 +60,6 @@ public class MissileRelease : MonoBehaviour
     {
         b = Instantiate(attack1missileeffectPrefab, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
         AudioSource.PlayClipAtPoint(bakuhatuclip, transform.position);
-        Destroy(b, 1.2f);
     }
 
     public void Release()

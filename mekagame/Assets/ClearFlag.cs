@@ -4,16 +4,28 @@ using UnityEngine;
 public class ClearFlag : ScriptableObject
 {
     [SerializeField] private string flagName;
-    [SerializeField] private bool isCleared = false;
+    [SerializeField] private bool isGameCleared = false;
+    [SerializeField] private bool isPhaseCleared = false;
 
-    public bool IsCleared
+    public bool IsGameCleared
     {
-        get => isCleared;
-        set => isCleared = value;
+        get => isGameCleared;
+        set => isGameCleared = value;
     }
 
-    public void ResetFlag()
+    public bool IsPhaseCleared
     {
-        isCleared = false;
+        get => isPhaseCleared;
+        set => isPhaseCleared = value;
+    }
+
+    public void ResetGameFlag()
+    {
+        isGameCleared = false;
+    }
+
+    public void ResetPhaseFlag()
+    {
+        isPhaseCleared = false;                 
     }
 }
