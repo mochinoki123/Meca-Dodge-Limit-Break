@@ -5,8 +5,6 @@ using UnityEngine.Pool;
 
 public class ObjectPool_Lazer : MonoBehaviour
 {
-    [SerializeField] private Enemy enemy;
-    [SerializeField] private TimelineManager timelineManager;
     //シングルトンの作成
     public static ObjectPool_Lazer instance;    //ObjectPool_Laszer型の変数を宣言
 
@@ -26,14 +24,12 @@ public class ObjectPool_Lazer : MonoBehaviour
 
     private void OnEnable()
     {
-        Enemy.OnGameClear += ClearActiveLasers;
-        TimelineManager.OnPhaseClear += ClearActiveLasers;
+        StopAttack.OnPhaseClear += ClearActiveLasers;
     }
 
     private void OnDisable()
     {
-        Enemy.OnGameClear -= ClearActiveLasers;
-        TimelineManager.OnPhaseClear -= ClearActiveLasers;
+        StopAttack.OnPhaseClear -= ClearActiveLasers;
     }
 
     //オブジェクトプールの作成

@@ -39,7 +39,7 @@ public class Scene : MonoBehaviour
     {
         if (scene.name == "Result")
         {
-            if (clearFlag.IsCleared) complete?.SetActive(true);
+            if (clearFlag.IsGameCleared) complete?.SetActive(true);
             else miss?.SetActive(true);      
         }
     }

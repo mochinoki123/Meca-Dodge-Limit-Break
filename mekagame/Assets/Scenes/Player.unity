@@ -3834,8 +3834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56e9a1769eca7e479116bdf407fb95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool_Lazer
-  enemy: {fileID: 1432635861}
-  timelineManager: {fileID: 300181915}
   laserPrefab: {fileID: 6935679640439994187, guid: 630e835b3240def4390b64bb1e856a43, type: 3}
 --- !u!4 &601285812
 Transform:
@@ -3847,6 +3845,53 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &620765130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 620765132}
+  - component: {fileID: 620765131}
+  m_Layer: 0
+  m_Name: AttackManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &620765131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620765130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda58e01b0de3ec45a578f182b7b3b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StopAttack
+  laserAttack: {fileID: 124600754}
+  missileAttack: {fileID: 1455872202}
+  clearFlag: {fileID: 11400000, guid: b20a79a8b5672a24ba715bb6d2bb63d7, type: 2}
+--- !u!4 &620765132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620765130}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10146,8 +10191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd3021b7de69bc49ac8bfe156b10e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool_Missile
-  enemy: {fileID: 1432635861}
-  timelineManager: {fileID: 300181915}
   MissilePrefab: {fileID: 2971007170582083771, guid: 26c5b5fe1a5c72046978db7a36546da0, type: 3}
 --- !u!4 &1752185984
 Transform:
@@ -12368,3 +12411,4 @@ SceneRoots:
   - {fileID: 106882357}
   - {fileID: 1245892066}
   - {fileID: 1845491155}
+  - {fileID: 620765132}

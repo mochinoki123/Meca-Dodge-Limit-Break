@@ -118,7 +118,7 @@ public class PlayerDamage : MonoBehaviour
 
     private bool CanTakeDamage()
     {
-        if (clearFlag.IsCleared) return false;
+        if (clearFlag.IsGameCleared) return false;
         if (isMuteki) return false;
         if (playerMove.isRun) return false;
         if (isParry) return false;

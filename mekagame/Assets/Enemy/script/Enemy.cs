@@ -14,13 +14,10 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public float finishfade;
     public int CurrentHP { get; private set; }
-    public static event Action OnGameClear;
 
     // タイムライン制御の参照を追加
     [SerializeField] private TimelineManager timelineManager;
 
-    [SerializeField] private GameObject laserAttack;
-    [SerializeField] private GameObject missileAttack;
 
     private bool isTutorial = false;
 
@@ -33,8 +30,7 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
-        OnStopAttack(true);
-        clearFlag.ResetFlag();
+        clearFlag.ResetGameFlag();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -65,19 +61,11 @@ public class Enemy : MonoBehaviour
         if (isTutorial) return;
         if (CurrentHP <= 0)
         {
-            if (clearFlag != null) clearFlag.IsCleared = true;
-            OnStopAttack(false);
-            OnGameClear?.Invoke();
+            if (clearFlag != null) clearFlag.IsGameCleared = true;
             animator.SetTrigger("IsFinish");
             AudioSource.PlayClipAtPoint(EnemyFinish, transform.position);
             await Task.Delay(4000);
             FadeManager.Instance.LoadScene("Result", finishfade);
         }
-    }
-
-    private void OnStopAttack(bool i)
-    {
-        missileAttack.SetActive(i);
-        laserAttack.SetActive(i);
     }
 }

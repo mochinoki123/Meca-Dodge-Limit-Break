@@ -29,11 +29,10 @@ public class TimelineManager : MonoBehaviour
     [Header("敵撃破タイムライン")]
     [SerializeField] private PlayableAsset FinishTimeline;
 
-    private PlayableAsset currentTimeline;
+    public PlayableAsset currentTimeline { get; private set; }
 
     private int currentPhase = 0;
 
-    public static event Action OnPhaseClear;
 
     private void OnEnable()
     {
@@ -80,7 +79,7 @@ public class TimelineManager : MonoBehaviour
         }
         else if (ratio <= phase2Threshold && ratio > phase3Threshold && currentPhase < 2)
         {
-            OnPhaseClear.Invoke();
+            clearFlag.IsPhaseCleared = true;
             animator.SetTrigger("IsPhaseChange");
             currentPhase = 2;
             SetWrapModeNone();
@@ -88,7 +87,7 @@ public class TimelineManager : MonoBehaviour
         }
         else if (ratio <= phase3Threshold && currentPhase < 3)
         {
-            OnPhaseClear.Invoke();
+            clearFlag.IsPhaseCleared = true;
             animator.SetTrigger("IsPhaseChange");
             currentPhase = 3;
             SetWrapModeNone();
