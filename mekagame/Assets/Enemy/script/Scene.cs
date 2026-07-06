@@ -14,7 +14,15 @@ public class Scene : MonoBehaviour
 
     [SerializeField] private ClearFlag clearFlag;
 
+    [SerializeField] private AudioClip titlebuttonclip;
+    private AudioSource audioSource;
+
     private bool isTransitioning = false;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnEnable()
     {
@@ -45,6 +53,7 @@ public class Scene : MonoBehaviour
     }
     async public void OnStartButton()
     {
+        audioSource.PlayOneShot(titlebuttonclip);
         if (!CanTransition()) return;
         await Task.Delay(500);
         FadeManager.Instance.LoadScene("Loading", FadeTimeLoad);
