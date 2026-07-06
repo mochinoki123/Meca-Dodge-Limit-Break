@@ -37,7 +37,7 @@ public class enemyattack4 : MonoBehaviour
         //objm4.SetActive(true);
 
         //Instantiate(missile4, new Vector3(ap, attackpointy, ap), Quaternion.Euler(180, 0, 0));//‰’e
-        Invoke("Attack4b", 1f);
+        Invoke("Attack4b", 1.5f);
     }
 
     //UŒ‚‡WƒNƒ‰ƒXƒ^[
