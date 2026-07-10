@@ -2,7 +2,6 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,10 +14,7 @@ public class Enemy : MonoBehaviour
     public float finishfade;
     public int CurrentHP { get; private set; }
 
-    // タイムライン制御の参照を追加
     [SerializeField] private TimelineManager timelineManager;
-
-
     private bool isTutorial = false;
 
     void Awake()
@@ -49,10 +45,7 @@ public class Enemy : MonoBehaviour
         CurrentHP -= damage;
         CurrentHP = Mathf.Max(CurrentHP, 0);
         animator.SetTrigger("isDamage");
-
-        // HP変化をタイムラインに通知
         timelineManager?.OnHpChanged(CurrentHP, maxHP);
-
         CheckIfDead();
     }
 
@@ -61,7 +54,7 @@ public class Enemy : MonoBehaviour
         if (isTutorial) return;
         if (CurrentHP <= 0)
         {
-            if (clearFlag != null) clearFlag.IsGameCleared = true;
+            if (clearFlag != null) clearFlag.IsGameCleared.Value = true;
             animator.SetTrigger("IsFinish");
             AudioSource.PlayClipAtPoint(EnemyFinish, transform.position);
             await Task.Delay(4000);

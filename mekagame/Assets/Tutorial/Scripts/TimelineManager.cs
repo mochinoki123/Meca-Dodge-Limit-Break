@@ -1,5 +1,4 @@
 ﻿using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -30,9 +29,7 @@ public class TimelineManager : MonoBehaviour
     [SerializeField] private PlayableAsset FinishTimeline;
 
     public PlayableAsset currentTimeline { get; private set; }
-
     private int currentPhase = 0;
-
 
     private void OnEnable()
     {
@@ -79,7 +76,7 @@ public class TimelineManager : MonoBehaviour
         }
         else if (ratio <= phase2Threshold && ratio > phase3Threshold && currentPhase < 2)
         {
-            clearFlag.IsPhaseCleared = true;
+            NotifyPhaseCleared();
             animator.SetTrigger("IsPhaseChange");
             currentPhase = 2;
             SetWrapModeNone();
@@ -87,34 +84,41 @@ public class TimelineManager : MonoBehaviour
         }
         else if (ratio <= phase3Threshold && currentPhase < 3)
         {
-            clearFlag.IsPhaseCleared = true;
+            NotifyPhaseCleared();
             animator.SetTrigger("IsPhaseChange");
             currentPhase = 3;
             SetWrapModeNone();
             return phaseTransition_3;
         }
-            return currentTimeline;
+        return currentTimeline;
+    }
+
+    private void NotifyPhaseCleared()
+    {
+        // 既にtrueの場合、そのままtrueを代入しても
+        // ReactivePropertyは変化なしと判断し通知が発生しない。
+        // 一度falseに戻してから再度trueにすることで確実に通知させる。
+        clearFlag.ResetPhaseFlag();
+        clearFlag.IsPhaseCleared.Value = true;
     }
 
     private void SwitchTimeline(PlayableAsset asset)
     {
         if (asset == null) return;
-
         director.Stop();
         director.playableAsset = asset;
         director.Play();
-
         currentTimeline = asset;
     }
 
     private void TimelineStopped(PlayableDirector director)
     {
-        if(currentTimeline == countdown)
+        if (currentTimeline == countdown)
         {
             SetWrapModeLoop();
             SwitchTimeline(phase1Timeline);
         }
-        if(currentTimeline == phaseTransition_2)
+        if (currentTimeline == phaseTransition_2)
         {
             SetWrapModeLoop();
             SwitchTimeline(phase2Timeline);

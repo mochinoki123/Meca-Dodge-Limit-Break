@@ -1,6 +1,7 @@
 using System;
-using UnityEngine;
 using System.Threading.Tasks;
+using UnityEngine;
+using R3;
 
 public class StopAttack : MonoBehaviour
 {
@@ -10,22 +11,25 @@ public class StopAttack : MonoBehaviour
 
     public static event Action OnPhaseClear;
 
-    private void Update()
+    private void OnEnable()
     {
-        if (clearFlag.IsPhaseCleared)
-        {
-            ReleaseAttack();
-            OnStopAttack();
-        }
+        clearFlag.IsPhaseCleared
+            .Where(cleared => cleared)
+            .Subscribe(_ =>
+            {
+                ReleaseAttack();
+                OnStopAttack();
+            })
+            .AddTo(this);
     }
 
     private async void OnStopAttack()
     {
         OnStopAttack(false);
-        if (!clearFlag.IsGameCleared)
+        if (!clearFlag.IsGameCleared.Value)
         {
             await Task.Delay(3000);
-            clearFlag.IsPhaseCleared = false;
+            clearFlag.IsPhaseCleared.Value = false;
             OnStopAttack(true);
         }
     }
@@ -38,6 +42,6 @@ public class StopAttack : MonoBehaviour
 
     private void ReleaseAttack()
     {
-        OnPhaseClear.Invoke();
+        OnPhaseClear?.Invoke();
     }
 }

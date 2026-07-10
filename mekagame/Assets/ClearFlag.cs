@@ -1,31 +1,24 @@
 using UnityEngine;
+using R3;
 
 [CreateAssetMenu(fileName = "ClearFlag", menuName = "Scriptable Objects/ClearFlag")]
 public class ClearFlag : ScriptableObject
 {
     [SerializeField] private string flagName;
-    [SerializeField] private bool isGameCleared = false;
-    [SerializeField] private bool isPhaseCleared = false;
 
-    public bool IsGameCleared
-    {
-        get => isGameCleared;
-        set => isGameCleared = value;
-    }
+    [SerializeField] private SerializableReactiveProperty<bool> isGameCleared = new(false);
+    [SerializeField] private SerializableReactiveProperty<bool> isPhaseCleared = new(false);
 
-    public bool IsPhaseCleared
-    {
-        get => isPhaseCleared;
-        set => isPhaseCleared = value;
-    }
+    public ReactiveProperty<bool> IsGameCleared => isGameCleared;
+    public ReactiveProperty<bool> IsPhaseCleared => isPhaseCleared;
 
     public void ResetGameFlag()
     {
-        isGameCleared = false;
+        isGameCleared.Value = false;
     }
 
     public void ResetPhaseFlag()
     {
-        isPhaseCleared = false;                 
+        isPhaseCleared.Value = false;
     }
 }
