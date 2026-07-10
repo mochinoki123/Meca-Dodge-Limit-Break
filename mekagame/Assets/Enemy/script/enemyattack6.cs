@@ -27,6 +27,11 @@ public class enemyattack6 : MonoBehaviour
     {
         
     }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
     //-----UŒ‚‡Y-----
     public void Attack6()
     {
