@@ -1,25 +1,21 @@
-using System.IO;
 using UnityEngine;
+using R3;
 
 public class EffectDestroy : MonoBehaviour
 {
-    void Start()
+    [SerializeField] private ClearFlag clearFlag;
+    [SerializeField] private float lifeTime = 1.2f;
+
+    private void Start()
     {
-        Destroy(gameObject,1.2f);
+        Destroy(gameObject, lifeTime);
     }
 
     private void OnEnable()
     {
-        StopAttack.OnPhaseClear += StopEffect;
-    }
-
-    private void OnDisable()
-    {
-        StopAttack.OnPhaseClear -= StopEffect;
-    }
-
-    private void StopEffect()
-    {
-        Destroy(gameObject);
+        clearFlag.IsPhaseCleared
+            .Where(cleared => cleared)
+            .Subscribe(_ => Destroy(gameObject))
+            .AddTo(this);
     }
 }

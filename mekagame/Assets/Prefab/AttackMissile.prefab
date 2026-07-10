@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 4786680176247498644}
   - component: {fileID: 1452333724003665246}
   - component: {fileID: 7921681013137252999}
+  - component: {fileID: 2409192903707879935}
   m_Layer: 0
   m_Name: AttackMissile
   m_TagString: AttackPoint
@@ -185,7 +186,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MissileRelease
   bakuhatuclip: {fileID: 8300000, guid: 22f04cff809fd724694402b34c40aa89, type: 3}
   attack1missileeffectPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
-  enemy: {fileID: -6960323230353872841, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
   isDead: 0
 --- !u!54 &7921681013137252999
 Rigidbody:
@@ -214,6 +214,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 2
+--- !u!114 &2409192903707879935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971007170582083771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 101ac7a1951d3d448abfa5126e213884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EffectDestroy
+  clearFlag: {fileID: 11400000, guid: b20a79a8b5672a24ba715bb6d2bb63d7, type: 2}
+  lifeTime: 1.2
 --- !u!1 &3837183383765463030
 GameObject:
   m_ObjectHideFlags: 0

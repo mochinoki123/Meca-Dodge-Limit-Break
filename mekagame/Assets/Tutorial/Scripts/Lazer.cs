@@ -27,7 +27,7 @@ public class Lazer : MonoBehaviour
 
     private IEnumerator Grow()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         audioSource.PlayOneShot(grow);
         while (transform.localScale.z < maxScale)
         {
