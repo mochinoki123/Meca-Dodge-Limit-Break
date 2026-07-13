@@ -59,7 +59,6 @@ public class PlayerDamage : MonoBehaviour
         lb = GetComponent<LimitBreak>();
         animator = GetComponent<Animator>();
         inputController = GetComponent<InputController>();
-        attack4 = FindAnyObjectByType<enemyattack4>();
     }
 
     private void OnDestroy()
@@ -150,10 +149,6 @@ public class PlayerDamage : MonoBehaviour
             ApplyDamage();
             if (other.TryGetComponentInParent<MissileRelease>(out var missile))
             {
-                if (attack4 != null)
-                {
-                    attack4.CancelAttack4();
-                }
                 missile.Release();
             }
         }
