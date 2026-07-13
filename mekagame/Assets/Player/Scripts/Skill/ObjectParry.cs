@@ -16,6 +16,8 @@ public class ObjectParry : MonoBehaviour
     //外部が参照するためのイベント
     public static event Action<bool> OnParrySuccesState;
 
+    private enemyattack4 attack4;
+
     public bool ParrySuccess
     {
         get => parrySuccess;
@@ -29,6 +31,10 @@ public class ObjectParry : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        attack4 = FindAnyObjectByType<enemyattack4>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         // パリィ対象でなければ無視
@@ -51,6 +57,10 @@ public class ObjectParry : MonoBehaviour
         if (other.CompareTag("Missile"))
         {
             var missile = other.GetComponentInParent<MissileRelease>();
+            if (attack4 != null)
+            {
+                attack4.CancelAttack4();
+            }
             missile?.Release();
             return missile != null ? missile.gameObject : null;
         }

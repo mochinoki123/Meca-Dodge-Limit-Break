@@ -22,6 +22,7 @@ public class PlayerDamage : MonoBehaviour
     private LimitBreak lb;
     private Animator animator;
     private InputController inputController;
+    private enemyattack4 attack4;
 
     private bool isMuteki = false;
     private bool isParry = false;
@@ -58,6 +59,7 @@ public class PlayerDamage : MonoBehaviour
         lb = GetComponent<LimitBreak>();
         animator = GetComponent<Animator>();
         inputController = GetComponent<InputController>();
+        attack4 = FindAnyObjectByType<enemyattack4>();
     }
 
     private void OnDestroy()
@@ -148,7 +150,6 @@ public class PlayerDamage : MonoBehaviour
             ApplyDamage();
             if (other.TryGetComponentInParent<MissileRelease>(out var missile))
             {
-                enemyattack4 attack4 = FindAnyObjectByType<enemyattack4>();
                 if (attack4 != null)
                 {
                     attack4.CancelAttack4();
