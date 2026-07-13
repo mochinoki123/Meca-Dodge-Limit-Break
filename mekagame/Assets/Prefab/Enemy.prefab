@@ -86,8 +86,6 @@ MonoBehaviour:
   animator: {fileID: 4128327239761448658}
   finishfade: 5
   timelineManager: {fileID: 0}
-  laserAttack: {fileID: 0}
-  missileAttack: {fileID: 0}
 --- !u!82 &-6565724742502022513
 AudioSource:
   m_ObjectHideFlags: 0
@@ -359,6 +357,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7484231396979750424}
     m_Modifications:
+    - target: {fileID: -2429691003808222032, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
       propertyPath: m_Name
       value: BigExplosion

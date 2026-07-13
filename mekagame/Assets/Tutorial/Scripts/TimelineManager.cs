@@ -53,6 +53,7 @@ public class TimelineManager : MonoBehaviour
         if (currentHP <= 0)
         {
             director.Stop();
+            NotifyPhaseCleared();
             SwitchTimeline(FinishTimeline);
             return;
         }

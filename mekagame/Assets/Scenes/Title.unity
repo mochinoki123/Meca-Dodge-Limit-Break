@@ -1490,6 +1490,7 @@ MonoBehaviour:
   grazeGage: {fileID: 0}
   grazeGauge: 20
   parryGauge: 100
+  LBfailedGauge: 200
   tGrazeGauge: 100
   tParryGauge: 300
   useLB: 300
