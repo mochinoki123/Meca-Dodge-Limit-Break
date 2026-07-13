@@ -9,8 +9,10 @@ public class PlayerAnimation : MonoBehaviour
     private void OnEnable()
     {
         isClear.IsGameCleared
-            .Where(cleared => cleared)
-            .Subscribe(_ => animator.SetTrigger("IsClear"))
+            .Subscribe(cleared =>
+            {
+                animator.SetBool("IsClear", cleared);
+            })
             .AddTo(this);
     }
 }

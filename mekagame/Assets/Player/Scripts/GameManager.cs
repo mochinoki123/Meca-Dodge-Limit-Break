@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [Header("ゲージ増加量")]
     [SerializeField] private int grazeGauge;
     [SerializeField] private int parryGauge;
+    [SerializeField] private int LBfailedGauge;
 
     [Header("チュートリアルゲージ増加量")]
     [SerializeField] private int tGrazeGauge;
@@ -36,7 +37,8 @@ public class GameManager : MonoBehaviour
     public enum AddGaugeState
     {
         Graze,
-        Parry
+        Parry,
+        LBfailed
     }
 
     public enum UseGaugeState
@@ -114,6 +116,7 @@ public class GameManager : MonoBehaviour
         }
         if (state == AddGaugeState.Graze) AddGage(grazeGauge);
         if (state == AddGaugeState.Parry) AddGage(parryGauge);
+        if (state == AddGaugeState.LBfailed) AddGage(LBfailedGauge);
     }
     private void AddGage(float amount)
     {

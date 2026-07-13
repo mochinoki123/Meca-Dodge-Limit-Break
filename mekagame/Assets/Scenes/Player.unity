@@ -10415,6 +10415,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7770225577793736394, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8562474437230650541, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: maxHP
       value: 1000
@@ -11482,6 +11486,7 @@ MonoBehaviour:
   grazeGage: {fileID: 0}
   grazeGauge: 30
   parryGauge: 50
+  LBfailedGauge: 200
   tGrazeGauge: 0
   tParryGauge: 0
   useLB: 0

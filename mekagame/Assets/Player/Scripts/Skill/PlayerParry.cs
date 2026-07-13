@@ -151,6 +151,11 @@ public class PlayerParry : MonoBehaviour
         // LBƒ‚[ƒh‚©‚Ç‚¤‚©‚Åd’¼ŠÔ‚ğØ‚è‘Ö‚¦
         float currentCoolTime = isLBMode ? lb.lBCoolTime : parryCoolTime;
 
+        if (isLBMode)
+        {
+            GameManager.Instance.AddGaugeStateBranch(GameManager.AddGaugeState.LBfailed);
+        }
+
         // d’¼ŠÔ‚Ô‚ñ“_–Å
         yield return StartCoroutine(BlinkForDuration(currentCoolTime));
 
