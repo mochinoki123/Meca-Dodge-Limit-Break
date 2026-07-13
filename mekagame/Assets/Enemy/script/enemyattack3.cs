@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class enemyattack3 : MonoBehaviour
 {
@@ -10,22 +12,16 @@ public class enemyattack3 : MonoBehaviour
     [SerializeField] int attackpointx = 10;//攻撃発生の横
     [SerializeField] int attackpointz = 10;//攻撃発生の奥行
     float attackbunki;//random値確認用基本使わない
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     //-----攻撃Ⅲ-----
     public void Attack3()
     {
-        attackbunki = Random.Range(0f, 1f);//攻撃分岐
+        attackbunki = Random.Range(0f, 3f);//攻撃分岐
+        GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
+        objm3.transform.position = new Vector3(0, 0.1f, 0);
+        //objm3.transform.rotation = Quaternion.Euler(180, 0, 0);
+        objm3.transform.rotation = Quaternion.identity;
+        //Instantiate(missile, new Vector3(0, attackpointy, 0), Quaternion.Euler(180, 0, 0));//中心地点発射
 
         if (attackbunki < 0.5f)//クロス型
         {
@@ -39,13 +35,7 @@ public class enemyattack3 : MonoBehaviour
                 objm3.transform.rotation = Quaternion.identity;
             }
             */
-            
-            GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
-            objm3.transform.position = new Vector3(0, 0.1f, 0);
-            //objm3.transform.rotation = Quaternion.Euler(180, 0, 0);
-            objm3.transform.rotation = Quaternion.identity;
-            //Instantiate(missile, new Vector3(0, attackpointy, 0), Quaternion.Euler(180, 0, 0));//中心地点発射
-            
+
             for (int i = 1; i <= attack3missile; i++)//クロスになるように繰り返す
             {
 
@@ -64,15 +54,14 @@ public class enemyattack3 : MonoBehaviour
                 //m3lux.transform.rotation = Quaternion.Euler(180, 0, 0);
                 m3ldx.transform.rotation = Quaternion.identity;
                 //m3lux.SetActive(true);
-                GameObject m3rux =  ObjectPool_Missile.Instance.GetMissile();
+                GameObject m3rux = ObjectPool_Missile.Instance.GetMissile();
                 m3rux.transform.position = new Vector3(-attackpointx * i, 0.1f, -attackpointz * i);//　右下
                 //m3rux.transform.rotation = Quaternion.Euler(180, 0, 0);
                 m3ldx.transform.rotation = Quaternion.identity;
                 //m3rux.SetActive(true);
             }
-                Debug.Log("攻撃Ⅲx");
         }
-        else//十字型
+        else if (attackbunki < 1f)//十字型
         {
             /*
             for(int i = 1;i <= attack3missiley; i++)
@@ -84,40 +73,193 @@ public class enemyattack3 : MonoBehaviour
                 objm3.transform.rotation = Quaternion.identity;
             }
             */
-            
-            GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
-            objm3.transform.position = new Vector3(0, 0.1f, 0);
-            //objm3.transform.rotation = Quaternion.Euler(180, 0, 0);
-            objm3.transform.rotation = Quaternion.identity;
-            //Instantiate(missile, new Vector3(0, attackpointy, 0), Quaternion.Euler(180, 0, 0));//中心地点発射
             for (int i = 1; i < attack3missile; i++)//十字になるように繰り返す
             {
-                
-                GameObject m3d =    ObjectPool_Missile.Instance.GetMissile();
+
+                GameObject m3d = ObjectPool_Missile.Instance.GetMissile();
                 m3d.transform.position = new Vector3(0, 0.1f, -attackpointz * i);//南
                 //m3d.transform.rotation = Quaternion.Euler(180, 0, 0);
                 transform.rotation = Quaternion.identity;
                 //m3d.SetActive(true);
-                GameObject m3l =        ObjectPool_Missile.Instance.GetMissile();
+                GameObject m3l = ObjectPool_Missile.Instance.GetMissile();
                 m3l.transform.position = new Vector3(-attackpointx * i, 0.1f, 0);//西
                 //m3l.transform.rotation = Quaternion.Euler(180, 0, 0);
                 transform.rotation = Quaternion.identity;
                 //m3l.SetActive(true);
-                GameObject m3u =    ObjectPool_Missile.Instance.GetMissile();
+                GameObject m3u = ObjectPool_Missile.Instance.GetMissile();
                 m3u.transform.position = new Vector3(0, 0.1f, attackpointz * i);//北
                 //m3u.transform.rotation = Quaternion.Euler(180, 0, 0);
                 transform.rotation = Quaternion.identity;
                 //m3u.SetActive(true);
-                GameObject m3r = ObjectPool_Missile.Instance.GetMissile();  
+                GameObject m3r = ObjectPool_Missile.Instance.GetMissile();
                 m3r.transform.position = new Vector3(attackpointx * i, 0.1f, 0);//東
                 //m3r.transform.rotation = Quaternion.Euler(180, 0, 0);
                 transform.rotation = Quaternion.identity;
                 //m3r.SetActive(true);
 
             }
-            Debug.Log("攻撃Ⅲ+");
-            
         }
-        //Debug.Log("攻撃Ⅲ");
+        else if (attackbunki < 1.5f)
+        {
+            for (int i = 1; i < attack3missile; i++)//十字になるように繰り返す
+            {
+                GameObject m3ldx = ObjectPool_Missile.Instance.GetMissile();
+                m3ldx.transform.position = new Vector3(attackpointx * i, 0.1f, -attackpointz * i);//　左下
+                                                                                                  //m3ldx.transform.rotation = Quaternion.Euler(180, 0, 0);
+                m3ldx.transform.rotation = Quaternion.identity;
+                //m3ldx.SetActive(true);
+                GameObject m3rdx = ObjectPool_Missile.Instance.GetMissile();
+                m3rdx.transform.position = new Vector3(-attackpointx * i, 0.1f, attackpointz * i);//　右上
+                                                                                                  //m3rdx.transform.rotation = Quaternion.Euler(180, 0, 0);
+                m3ldx.transform.rotation = Quaternion.identity;
+                //m3rdx.SetActive(true);
+                GameObject m3lux = ObjectPool_Missile.Instance.GetMissile();
+                m3lux.transform.position = new Vector3(attackpointx * i, 0.1f, attackpointz * i);//　左上
+                                                                                                 //m3lux.transform.rotation = Quaternion.Euler(180, 0, 0);
+                m3ldx.transform.rotation = Quaternion.identity;
+                //m3lux.SetActive(true);
+                GameObject m3rux = ObjectPool_Missile.Instance.GetMissile();
+                m3rux.transform.position = new Vector3(-attackpointx * i, 0.1f, -attackpointz * i);//　右下
+                                                                                                   //m3rux.transform.rotation = Quaternion.Euler(180, 0, 0);
+                m3ldx.transform.rotation = Quaternion.identity;
+                //m3rux.SetActive(true);
+                GameObject m3d = ObjectPool_Missile.Instance.GetMissile();
+                m3d.transform.position = new Vector3(0, 0.1f, -attackpointz * i);//南
+                                                                                 //m3d.transform.rotation = Quaternion.Euler(180, 0, 0);
+                transform.rotation = Quaternion.identity;
+                //m3d.SetActive(true);
+                GameObject m3l = ObjectPool_Missile.Instance.GetMissile();
+                m3l.transform.position = new Vector3(-attackpointx * i, 0.1f, 0);//西
+                                                                                 //m3l.transform.rotation = Quaternion.Euler(180, 0, 0);
+                transform.rotation = Quaternion.identity;
+                //m3l.SetActive(true);
+                GameObject m3u = ObjectPool_Missile.Instance.GetMissile();
+                m3u.transform.position = new Vector3(0, 0.1f, attackpointz * i);//北
+                                                                                //m3u.transform.rotation = Quaternion.Euler(180, 0, 0);
+                transform.rotation = Quaternion.identity;
+                //m3u.SetActive(true);
+                GameObject m3r = ObjectPool_Missile.Instance.GetMissile();
+                m3r.transform.position = new Vector3(attackpointx * i, 0.1f, 0);//東
+                                                                                //m3r.transform.rotation = Quaternion.Euler(180, 0, 0);
+                transform.rotation = Quaternion.identity;
+                //m3r.SetActive(true);
+            }
+
+        }
+        else if (attackbunki < 2f)
+        {
+            StartCoroutine(Attack3wmissileCoroutine());
+        }
+        else if (attackbunki < 2.5f)
+        {
+            StartCoroutine(Attack3xmissileCoroutine());
+        }
+        else
+        {
+            StartCoroutine(Attack3missileCoroutine());
+        }
+
+    }
+    IEnumerator Attack3xmissileCoroutine()
+    {
+        for (int i = 1; i <= attack3missile; i++)//クロスになるように繰り返す
+        {
+            GameObject m3ldx = ObjectPool_Missile.Instance.GetMissile();
+            m3ldx.transform.position = new Vector3(attackpointx * i, 0.1f, -attackpointz * i);//　左下
+                                                                                              //m3ldx.transform.rotation = Quaternion.Euler(180, 0, 0);
+            m3ldx.transform.rotation = Quaternion.identity;
+            //m3ldx.SetActive(true);
+            GameObject m3rdx = ObjectPool_Missile.Instance.GetMissile();
+            m3rdx.transform.position = new Vector3(-attackpointx * i, 0.1f, attackpointz * i);//　右上
+                                                                                              //m3rdx.transform.rotation = Quaternion.Euler(180, 0, 0);
+            m3ldx.transform.rotation = Quaternion.identity;
+            //m3rdx.SetActive(true);
+            GameObject m3lux = ObjectPool_Missile.Instance.GetMissile();
+            m3lux.transform.position = new Vector3(attackpointx * i, 0.1f, attackpointz * i);//　左上
+                                                                                             //m3lux.transform.rotation = Quaternion.Euler(180, 0, 0);
+            m3ldx.transform.rotation = Quaternion.identity;
+            //m3lux.SetActive(true);
+            GameObject m3rux = ObjectPool_Missile.Instance.GetMissile();
+            m3rux.transform.position = new Vector3(-attackpointx * i, 0.1f, -attackpointz * i);//　右下
+                                                                                               //m3rux.transform.rotation = Quaternion.Euler(180, 0, 0);
+            m3ldx.transform.rotation = Quaternion.identity;
+            //m3rux.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+    IEnumerator Attack3missileCoroutine()
+    {
+        for (int i = 1; i < attack3missile; i++)//十字になるように繰り返す
+        {
+
+            GameObject m3d = ObjectPool_Missile.Instance.GetMissile();
+            m3d.transform.position = new Vector3(0, 0.1f, -attackpointz * i);//南
+                                                                             //m3d.transform.rotation = Quaternion.Euler(180, 0, 0);
+            transform.rotation = Quaternion.identity;
+            //m3d.SetActive(true);
+            GameObject m3l = ObjectPool_Missile.Instance.GetMissile();
+            m3l.transform.position = new Vector3(-attackpointx * i, 0.1f, 0);//西
+                                                                             //m3l.transform.rotation = Quaternion.Euler(180, 0, 0);
+            transform.rotation = Quaternion.identity;
+            //m3l.SetActive(true);
+            GameObject m3u = ObjectPool_Missile.Instance.GetMissile();
+            m3u.transform.position = new Vector3(0, 0.1f, attackpointz * i);//北
+                                                                            //m3u.transform.rotation = Quaternion.Euler(180, 0, 0);
+            transform.rotation = Quaternion.identity;
+            //m3u.SetActive(true);
+            GameObject m3r = ObjectPool_Missile.Instance.GetMissile();
+            m3r.transform.position = new Vector3(attackpointx * i, 0.1f, 0);//東
+                                                                            //m3r.transform.rotation = Quaternion.Euler(180, 0, 0);
+            transform.rotation = Quaternion.identity;
+            //m3r.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+    IEnumerator Attack3wmissileCoroutine()
+    {
+        for (int i = 1; i < attack3missile; i++)//十字になるように繰り返す
+        {
+            GameObject m3ldx = ObjectPool_Missile.Instance.GetMissile();
+            m3ldx.transform.position = new Vector3(attackpointx * i, 0.1f, -attackpointz * i);//　左下
+                                                                                              //m3ldx.transform.rotation = Quaternion.Euler(180, 0, 0);
+            m3ldx.transform.rotation = Quaternion.identity;
+            //m3ldx.SetActive(true);
+            GameObject m3rdx = ObjectPool_Missile.Instance.GetMissile();
+            m3rdx.transform.position = new Vector3(-attackpointx * i, 0.1f, attackpointz * i);//　右上
+                                                                                              //m3rdx.transform.rotation = Quaternion.Euler(180, 0, 0);
+            m3ldx.transform.rotation = Quaternion.identity;
+            //m3rdx.SetActive(true);
+            GameObject m3lux = ObjectPool_Missile.Instance.GetMissile();
+            m3lux.transform.position = new Vector3(attackpointx * i, 0.1f, attackpointz * i);//　左上
+                                                                                             //m3lux.transform.rotation = Quaternion.Euler(180, 0, 0);
+            m3ldx.transform.rotation = Quaternion.identity;
+            //m3lux.SetActive(true);
+            GameObject m3rux = ObjectPool_Missile.Instance.GetMissile();
+            m3rux.transform.position = new Vector3(-attackpointx * i, 0.1f, -attackpointz * i);//　右下
+                                                                                               //m3rux.transform.rotation = Quaternion.Euler(180, 0, 0);
+            m3ldx.transform.rotation = Quaternion.identity;
+            //m3rux.SetActive(true);
+            GameObject m3d = ObjectPool_Missile.Instance.GetMissile();
+            m3d.transform.position = new Vector3(0, 0.1f, -attackpointz * i);//南
+                                                                             //m3d.transform.rotation = Quaternion.Euler(180, 0, 0);
+            transform.rotation = Quaternion.identity;
+            //m3d.SetActive(true);
+            GameObject m3l = ObjectPool_Missile.Instance.GetMissile();
+            m3l.transform.position = new Vector3(-attackpointx * i, 0.1f, 0);//西
+                                                                             //m3l.transform.rotation = Quaternion.Euler(180, 0, 0);
+            transform.rotation = Quaternion.identity;
+            //m3l.SetActive(true);
+            GameObject m3u = ObjectPool_Missile.Instance.GetMissile();
+            m3u.transform.position = new Vector3(0, 0.1f, attackpointz * i);//北
+                                                                            //m3u.transform.rotation = Quaternion.Euler(180, 0, 0);
+            transform.rotation = Quaternion.identity;
+            //m3u.SetActive(true);
+            GameObject m3r = ObjectPool_Missile.Instance.GetMissile();
+            m3r.transform.position = new Vector3(attackpointx * i, 0.1f, 0);//東
+                                                                            //m3r.transform.rotation = Quaternion.Euler(180, 0, 0);
+            transform.rotation = Quaternion.identity;
+            //m3r.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

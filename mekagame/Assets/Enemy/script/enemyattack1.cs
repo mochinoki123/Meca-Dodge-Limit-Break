@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class enemyattack1 : MonoBehaviour
 {
@@ -15,33 +17,47 @@ public class enemyattack1 : MonoBehaviour
     
     float groundx;//random値確認用基本使わない
     float groundz;//random値確認用基本使わない
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    float attackbunki;//random値確認用基本使わない
 
     public void Attack1()
     {
-        for (int i = 0; i < attack1missile; i++)
+        attackbunki = Random.Range(0f, 1f);
+        if (attackbunki < 0.5f)
         {
-            GameObject objm1 = ObjectPool_Missile.Instance.GetMissile();
+            for (int i = 0; i < attack1missile; i++)
+            {
+                GameObject objm1 = ObjectPool_Missile.Instance.GetMissile();
 
-            groundx = Random.Range(rndm, rndp);//地面の広さによって変更
-            groundz = Random.Range(rndm, rndp);//地面の広さによって変更
+                groundx = Random.Range(rndm, rndp);//地面の広さによって変更
+                groundz = Random.Range(rndm, rndp);//地面の広さによって変更
 
-            objm1.transform.position = new Vector3((attackf * groundx) - groundx, 0.1f, (attackf * groundz) - groundz);
-            //objm1.transform.rotation = Quaternion.Euler(180, 0, 0);
-            objm1.transform.rotation = Quaternion.identity;
-            //objm1.SetActive(true);
+                objm1.transform.position = new Vector3((attackf * groundx) - groundx, 0.1f, (attackf * groundz) - groundz);
+                //objm1.transform.rotation = Quaternion.Euler(180, 0, 0);
+                objm1.transform.rotation = Quaternion.identity;
+                //objm1.SetActive(true);
+            }
         }
-        //objm1.SetActive(true);
-        Debug.Log("攻撃Ⅰ");
+        else
+        {
+            StartCoroutine(Attack1missileCoroutine());
+            
+        }
+        IEnumerator Attack1missileCoroutine()
+        {
+            for (int i = 0; i < attack1missile; i++)
+            {
+                GameObject objm1 = ObjectPool_Missile.Instance.GetMissile();
+                groundx = Random.Range(rndm, rndp);//地面の広さによって変更
+                groundz = Random.Range(rndm, rndp);//地面の広さによって変更
+
+                objm1.transform.position = new Vector3((attackf * groundx) - groundx, 0.1f, (attackf * groundz) - groundz);
+                //objm1.transform.rotation = Quaternion.Euler(180, 0, 0);
+                objm1.transform.rotation = Quaternion.identity;
+                //objm1.SetActive(true);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+            //objm1.SetActive(true);
+
     }
 }
