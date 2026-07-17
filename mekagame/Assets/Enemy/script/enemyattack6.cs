@@ -8,6 +8,7 @@ public class enemyattack6 : MonoBehaviour
 {
     private enemyattack enemymanager;
     enemylazer enemyLazer;
+    public Animator animator;
     //UŒ‚‚U
     [Header("UŒ‚‡Y")]
     [SerializeField] int Attack6ms = 5;//UŒ‚‚U‚Ìƒ~ƒTƒCƒ‹”
@@ -15,18 +16,6 @@ public class enemyattack6 : MonoBehaviour
     //ƒvƒŒƒCƒ„[À•Wæ“¾
     float x;
     float z;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnDisable()
     {
@@ -36,7 +25,6 @@ public class enemyattack6 : MonoBehaviour
     public void Attack6()
     {
         StartCoroutine(Attack6missileCoroutine());//’Ç”öUŒ‚ƒXƒ^[ƒg
-        
 
         //Debug.Log("UŒ‚‡Y");
     }
@@ -57,6 +45,7 @@ public class enemyattack6 : MonoBehaviour
     //UŒ‚‡Y’Ç”öƒ~ƒTƒCƒ‹
     void Attack6missile()
     {
+        animator.SetTrigger("IsMissile");
         GameObject objm6 = ObjectPool_Missile.Instance.GetMissile();
         
         // transform.position ‚ÅŒ»İ‚Ìƒ[ƒ‹ƒhÀ•W‚ğæ“¾

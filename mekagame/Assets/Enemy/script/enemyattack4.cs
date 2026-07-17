@@ -3,6 +3,7 @@ using UnityEngine;
 public class enemyattack4 : MonoBehaviour
 {
     private enemyattack enemymanager;
+    public Animator animator;
     [Header("攻撃Ⅳ")]
     [SerializeField] int attack4missile = 10;//攻撃４のミサイル範囲指定
     [Header("爆発ポイントプレハブ")]
@@ -13,22 +14,12 @@ public class enemyattack4 : MonoBehaviour
     [SerializeField] float rndp = 9;//フィールドごとの範囲指定プラス
     private bool attack4Cancel = false;
     float ap;//random値確認用基本使わない
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     //-----攻撃Ⅳ-----
 
     public void Attack4()
     {
+        animator.SetTrigger("IsMissile");
         attack4Cancel = false; // 新しい攻撃開始時に解除
         ap = Random.Range(rndm, rndp);//地面の広さによって変更
         

@@ -14,13 +14,15 @@ public class enemyattack1 : MonoBehaviour
     [SerializeField] int attackf = 5;//攻撃の間隔 5
     [SerializeField] int attackpointx = 10;//攻撃発生の横 10
     [SerializeField] int attackpointz = 10;//攻撃発生の奥行 10
-    
+    public Animator animator;
+
     float groundx;//random値確認用基本使わない
     float groundz;//random値確認用基本使わない
     float attackbunki;//random値確認用基本使わない
 
     public void Attack1()
     {
+        animator.SetTrigger("IsMissile");
         attackbunki = Random.Range(0f, 1f);
         if (attackbunki < 0.5f)
         {
