@@ -57,20 +57,25 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // 物理挙動の適用
         Jump();
-        rb.linearVelocity = new Vector3(movVec.x, rb.linearVelocity.y, movVec.z);
+
+        if (!isRun)
+        {
+            rb.linearVelocity = new Vector3(
+                movVec.x,
+                rb.linearVelocity.y,
+                movVec.z
+            );
+        }
     }
 
     private void Move()
     {
         // 状態に応じた速度決定
-        float baseSpeed = (lb.isLB, parry.notMove, parry.isParry, isRun, oc.IsOC.CurrentValue) switch
+        float baseSpeed = (lb.isLB, parry.notMove, parry.isParry) switch
         {
-            (_, true, _, _, _) => notSpeed,    // 硬直中
-            (false, _, true, _, _) => notSpeed, // パリィ中硬直
-            (_, _, _, true, true) => oc.oCSpeed,  // OC中のダッシュ
-            (_, _, _, true, _) => runSpeed,    // 通常ダッシュ
+            (_, true, _) => notSpeed,    // 硬直中
+            (false, _, true) => notSpeed, // パリィ中硬直
             _ => walkSpeed    // 歩き
         };
 
@@ -89,19 +94,32 @@ public class PlayerMove : MonoBehaviour
 
     private IEnumerator Run()
     {
-        // ダッシュ開始
         audioSource.PlayOneShot(dash);
+
         isRun = true;
+        animator.SetBool("IsRun", true);
 
-        yield return new WaitForSeconds(runTime);
+        float dashSpeed = oc.IsOC.CurrentValue ? oc.oCSpeed : runSpeed;
+        float timer = 0f;
 
-        // ダッシュ終了・クールタイム開始
+        while (timer < runTime)
+        {
+            rb.linearVelocity =
+                transform.forward * dashSpeed +
+                Vector3.up * rb.linearVelocity.y;
+
+            timer += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+
         isRun = false;
+        animator.SetBool("IsRun", false);
+
         isRunCoolTime = true;
 
-        // OC中か通常かでクールタイム変化
         float coolTime = oc.IsOC.CurrentValue ? oc.oCCoolTime : runCoolTime;
         yield return new WaitForSeconds(coolTime);
+
         isRunCoolTime = false;
     }
 

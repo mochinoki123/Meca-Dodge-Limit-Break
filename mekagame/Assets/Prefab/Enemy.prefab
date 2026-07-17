@@ -207,6 +207,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2209264571946114241, guid: 0511d4f37fca5f6459463460bb40c97a, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2250200457415847533, guid: 0511d4f37fca5f6459463460bb40c97a, type: 3}
       propertyPath: m_Name
       value: EnemyHP
