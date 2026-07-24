@@ -2297,7 +2297,7 @@ Canvas:
   m_GameObject: {fileID: 333545429}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -9880,7 +9880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.6619373, b: 0.94509804, a: 1}
+  m_Color: {r: 0, g: 0.70124483, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12309,6 +12309,10 @@ PrefabInstance:
     - target: {fileID: 3498904214386823409, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3723515226213197009, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: runSpeed
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3759398697348694051, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: m_Name
