@@ -11,11 +11,13 @@ public class enemyattack3 : MonoBehaviour
     [SerializeField] int attack3missile;//UŒ‚‡V‚Ì”ÍˆÍİ’è
     [SerializeField] int attackpointx = 10;//UŒ‚”­¶‚Ì‰¡
     [SerializeField] int attackpointz = 10;//UŒ‚”­¶‚Ì‰œs
+    public Animator animator;
     float attackbunki;//random’lŠm”F—pŠî–{g‚í‚È‚¢
 
     //-----UŒ‚‡V-----
     public void Attack3()
     {
+        animator.SetTrigger("IsMissile");
         attackbunki = Random.Range(0f, 3f);//UŒ‚•ªŠò
         GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
         objm3.transform.position = new Vector3(0, 0.1f, 0);

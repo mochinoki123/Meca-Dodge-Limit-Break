@@ -8487,6 +8487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262a51890886776498bd50ccd9a9e09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemyattack6
+  animator: {fileID: 1755174198}
   Attack6ms: 5
 --- !u!114 &1455872205
 MonoBehaviour:
@@ -8500,6 +8501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfecd00fc8ffe3e46828941d2802df20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemyattack4
+  animator: {fileID: 1755174198}
   attack4missile: 10
   bpoint: {fileID: 6062530079735253497, guid: 000049e108e3c32489d2d889d5975210, type: 3}
   ClustereffectPrefab: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
@@ -8564,6 +8566,7 @@ MonoBehaviour:
   attack3missile: 6
   attackpointx: 10
   attackpointz: 10
+  animator: {fileID: 1755174198}
 --- !u!114 &1455872207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8583,6 +8586,7 @@ MonoBehaviour:
   attackf: 5
   attackpointx: 10
   attackpointz: 10
+  animator: {fileID: 1755174198}
 --- !u!4 &1455872208
 Transform:
   m_ObjectHideFlags: 0
