@@ -79,6 +79,7 @@ public class TimelineManager : MonoBehaviour
         {
             NotifyPhaseCleared();
             animator.SetTrigger("IsPhaseChange");
+            animator.SetBool("IsPhase2",true);
             currentPhase = 2;
             SetWrapModeNone();
             return phaseTransition_2;
@@ -87,6 +88,8 @@ public class TimelineManager : MonoBehaviour
         {
             NotifyPhaseCleared();
             animator.SetTrigger("IsPhaseChange");
+            animator.SetBool("IsPhase2", false);
+            animator.SetBool("IsPhase3", true);
             currentPhase = 3;
             SetWrapModeNone();
             return phaseTransition_3;

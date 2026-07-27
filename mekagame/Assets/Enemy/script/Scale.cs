@@ -14,7 +14,7 @@ public class Scale : MonoBehaviour
     {
         float t = Mathf.Clamp01(missile.position.y / startHeight);
 
-        float currentScale = Mathf.Lerp(3f, 10f, t);
+        float currentScale = Mathf.Lerp(7f, 1f, t);
 
         transform.localScale = new Vector3(
             currentScale,
