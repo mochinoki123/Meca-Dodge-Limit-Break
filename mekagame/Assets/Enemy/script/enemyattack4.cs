@@ -3,7 +3,7 @@ using UnityEngine;
 public class enemyattack4 : MonoBehaviour
 {
     private enemyattack enemymanager;
-    public Animator animator;
+    Animator animator;
     [Header("攻撃Ⅳ")]
     [SerializeField] int attack4missile = 10;//攻撃４のミサイル範囲指定
     [Header("爆発ポイントプレハブ")]

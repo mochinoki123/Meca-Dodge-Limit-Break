@@ -14,13 +14,6 @@ public class SelectionSound : MonoBehaviour
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        Debug.Log(audioSource);
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
     }
 
     // Update is called once per frame
@@ -35,8 +28,6 @@ public class SelectionSound : MonoBehaviour
             if (current == null)
                 return;
 
-            Debug.Log(current);
-
             // 最初の選択時だけSEを鳴らさない
             if (isFirstSelect)
             {
@@ -46,11 +37,6 @@ public class SelectionSound : MonoBehaviour
 
             audioSource.PlayOneShot(selectSE);
 
-            // マウス操作中は鳴らさない
-            /*
-            if (Mouse.current != null && Mouse.current.wasUpdatedThisFrame)
-                return;
-            */
         }
     }
 }

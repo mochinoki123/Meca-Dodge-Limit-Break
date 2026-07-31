@@ -14,7 +14,7 @@ public class enemyattack1 : MonoBehaviour
     [SerializeField] int attackf = 5;//攻撃の間隔 5
     [SerializeField] int attackpointx = 10;//攻撃発生の横 10
     [SerializeField] int attackpointz = 10;//攻撃発生の奥行 10
-    public Animator animator;
+    Animator animator;
 
     float groundx;//random値確認用基本使わない
     float groundz;//random値確認用基本使わない
@@ -40,8 +40,9 @@ public class enemyattack1 : MonoBehaviour
         else
         {
             StartCoroutine(Attack1missileCoroutine());
-            
         }
+
+        //------ミサイルがタイミングバラバラに降らせる攻撃-------
         IEnumerator Attack1missileCoroutine()
         {
             for (int i = 0; i < attack1missile; i++)

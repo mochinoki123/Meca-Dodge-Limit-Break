@@ -11,7 +11,7 @@ public class enemyattack3 : MonoBehaviour
     [SerializeField] int attack3missile;//UŒ‚‡V‚Ì”ÍˆÍİ’è
     [SerializeField] int attackpointx = 10;//UŒ‚”­¶‚Ì‰¡
     [SerializeField] int attackpointz = 10;//UŒ‚”­¶‚Ì‰œs
-    public Animator animator;
+    Animator animator;
     float attackbunki;//random’lŠm”F—pŠî–{g‚í‚È‚¢
 
     //-----UŒ‚‡V-----
@@ -161,6 +161,8 @@ public class enemyattack3 : MonoBehaviour
         }
 
     }
+
+    //-------‚Ü‚¾‚ç‚Éƒ~ƒTƒCƒ‹‚ª~‚é-------
     IEnumerator Attack3xmissileCoroutine()
     {
         for (int i = 1; i <= attack3missile; i++)//ƒNƒƒX‚É‚È‚é‚æ‚¤‚ÉŒJ‚è•Ô‚·
