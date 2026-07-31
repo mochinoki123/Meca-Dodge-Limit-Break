@@ -26,12 +26,6 @@ public class MissileRelease : MonoBehaviour
         enemyAttack = FindAnyObjectByType<enemyattack>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnEnable()
     {
         isDead = false;
@@ -41,24 +35,22 @@ public class MissileRelease : MonoBehaviour
     {
         if (isDead) return;
 
-        if (
-         other.CompareTag("Missile")
-        )
+        if (other.CompareTag("Missile"))
         {
             isDead = true;
 
-            if (other.CompareTag("Missile"))
+            if (other.CompareTag("Missile"))//ミサイルを戻す処理の別条件
             {
                 Kill();
             }
 
-            Release();
+            Release();//ミサイルを戻す処理
         }
     }
     
     public void Kill()
     {
-        b = Instantiate(attack1missileeffectPrefab, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
+        b = Instantiate(attack1missileeffectPrefab, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);//爆発エフェクト
         AudioSource.PlayClipAtPoint(bakuhatuclip, transform.position);
     }
 
@@ -68,6 +60,7 @@ public class MissileRelease : MonoBehaviour
         ObjectPool_Missile.Instance.MissileRelease(gameObject);
     }
 
+    //-------ミサイルを初期位置に戻すリセット処理
     private void ResetMissile()
     {
         transform.position = Vector3.zero;
@@ -81,6 +74,7 @@ public class MissileRelease : MonoBehaviour
 
             Rigidbody rb = missileChild.GetComponent<Rigidbody>();
             
+            //重力ストップ
             if (rb != null)
             {
                 rb.linearVelocity = Vector3.zero;

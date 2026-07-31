@@ -37,6 +37,7 @@ public class Scene : MonoBehaviour
         return true;
     }
 
+    //リザルト画面
     void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "Result")
@@ -46,6 +47,7 @@ public class Scene : MonoBehaviour
         }
     }
 
+    //スタートボタン
     async public void OnStartButton()
     {
         audioSource.PlayOneShot(titlebuttonclip);
@@ -54,6 +56,7 @@ public class Scene : MonoBehaviour
         FadeManager.Instance.LoadScene("Loading", FadeTimeLoad);
     }
 
+    //タイトルボタン
     async public void OnTitleButton()
     {
         if (!CanTransition()) return;
@@ -61,6 +64,7 @@ public class Scene : MonoBehaviour
         FadeManager.Instance.LoadScene("Title", FadeTimeTitle);
     }
 
+    //終了ボタン
     async public void OnEndButton()
     {
         if (!CanTransition()) return;
@@ -68,6 +72,7 @@ public class Scene : MonoBehaviour
         Application.Quit();
     }
 
+    //チュートリアルボタン
     async public void OnTutorialButton()
     {
         if (!CanTransition()) return;

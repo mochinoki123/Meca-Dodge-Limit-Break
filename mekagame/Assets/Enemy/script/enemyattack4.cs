@@ -25,11 +25,8 @@ public class enemyattack4 : MonoBehaviour
         
         GameObject objm4 = ObjectPool_Missile.Instance.GetMissile();
         objm4.transform.position = new Vector3(ap, 0.1f, ap);
-        //objm4.transform.rotation = Quaternion.Euler(180, 0, 0);
         objm4.transform.rotation = Quaternion.identity;
-        //objm4.SetActive(true);
 
-        //Instantiate(missile4, new Vector3(ap, attackpointy, ap), Quaternion.Euler(180, 0, 0));//‰’e
         Invoke("Attack4b", 1.6f);
     }
 
@@ -67,7 +64,6 @@ public class enemyattack4 : MonoBehaviour
             Destroy(Attack4effectbpoint4, 2f);
 
         }
-        //Debug.Log("UŒ‚‡W");
     }
     // ŠO•”‚©‚çŒÄ‚ÔƒLƒƒƒ“ƒZƒ‹ˆ—
     public void CancelAttack4()

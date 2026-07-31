@@ -21,10 +21,9 @@ public class enemyattack3 : MonoBehaviour
         attackbunki = Random.Range(0f, 3f);//攻撃分岐
         GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
         objm3.transform.position = new Vector3(0, 0.1f, 0);
-        //objm3.transform.rotation = Quaternion.Euler(180, 0, 0);
         objm3.transform.rotation = Quaternion.identity;
-        //Instantiate(missile, new Vector3(0, attackpointy, 0), Quaternion.Euler(180, 0, 0));//中心地点発射
 
+        //攻撃の分岐
         if (attackbunki < 0.5f)//クロス型
         {
             /*

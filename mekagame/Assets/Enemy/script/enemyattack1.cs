@@ -34,9 +34,7 @@ public class enemyattack1 : MonoBehaviour
                 groundz = Random.Range(rndm, rndp);//地面の広さによって変更
 
                 objm1.transform.position = new Vector3((attackf * groundx) - groundx, 0.1f, (attackf * groundz) - groundz);
-                //objm1.transform.rotation = Quaternion.Euler(180, 0, 0);
                 objm1.transform.rotation = Quaternion.identity;
-                //objm1.SetActive(true);
             }
         }
         else
@@ -53,13 +51,9 @@ public class enemyattack1 : MonoBehaviour
                 groundz = Random.Range(rndm, rndp);//地面の広さによって変更
 
                 objm1.transform.position = new Vector3((attackf * groundx) - groundx, 0.1f, (attackf * groundz) - groundz);
-                //objm1.transform.rotation = Quaternion.Euler(180, 0, 0);
                 objm1.transform.rotation = Quaternion.identity;
-                //objm1.SetActive(true);
                 yield return new WaitForSeconds(0.1f);
             }
         }
-            //objm1.SetActive(true);
-
     }
 }

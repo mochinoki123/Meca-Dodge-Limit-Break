@@ -1,4 +1,4 @@
-／／チュートリアル用インターフェイス
+//チュートリアル用インターフェイス
 public interface ITutorialTask
 {
     string Title { get; }  //タスク名

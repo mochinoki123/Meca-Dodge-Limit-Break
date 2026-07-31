@@ -25,8 +25,6 @@ public class enemyattack6 : MonoBehaviour
     public void Attack6()
     {
         StartCoroutine(Attack6missileCoroutine());//追尾攻撃スタート
-
-        //Debug.Log("攻撃Ⅵ");
     }
 
     //攻撃Ⅵ連続追尾ミサイル
@@ -39,7 +37,6 @@ public class enemyattack6 : MonoBehaviour
             i++;
             yield return new WaitForSeconds(1.2f);
         }
-        //Debug.Log("攻撃Ⅵ missile");
     }
 
     //攻撃Ⅵ追尾ミサイル
@@ -50,12 +47,10 @@ public class enemyattack6 : MonoBehaviour
         
         // transform.position で現在のワールド座標を取得
         Vector3 currentPosition = transform.position;
-        //Debug.Log("プレイヤーの座標: " + currentPosition);
 
         // x, y, z 座標を個別に取得
         float x = currentPosition.x;
         float z = currentPosition.z;
-        //Debug.Log("X座標: " + x + ", Z座標: " + z);
 
         Vector3 play = GameObject.Find("Player").transform.position;//プレイヤーの座標取得
         objm6.transform.position = new Vector3(play.x, 0.1f, play.z);

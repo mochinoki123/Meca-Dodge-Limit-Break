@@ -59,15 +59,7 @@ public class ObjectPool_Missile : MonoBehaviour
     {
         objm.SetActive(true);    // オブジェクトをアクティブにする処理
         activeMissiles.Add(objm);
-        //objm.transform.position = new Vector2(Random.Range(-8f, 8f), Random.Range(-4.5f, 4.5f));  // オブジェクトの座標を指定する処理
-        /*
-
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-        }
-        */
+        //ミサイルリセット時用のRigidbody
         Rigidbody rb = objm.GetComponent<Rigidbody>();
         rb.useGravity = true;
     }
@@ -75,6 +67,7 @@ public class ObjectPool_Missile : MonoBehaviour
     // オブジェクトを返却する際の処理
     void OnReturnedToPool(GameObject objm)
     {
+        //ミサイル位置リセット
         Rigidbody rb = objm.GetComponent<Rigidbody>();
 
         if (rb != null)
@@ -97,11 +90,13 @@ public class ObjectPool_Missile : MonoBehaviour
         Destroy(objm);    // オブジェクトを破壊する処理
     }
 
+    //ミサイルオブジェクト取得処理
     public GameObject GetMissile()
     {
         return pool.Get();
     }
 
+    //ミサイルオブジェクト返却処理
     public void MissileRelease(GameObject objm)
     {
         pool.Release(objm);
