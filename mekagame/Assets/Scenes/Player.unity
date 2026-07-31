@@ -10973,6 +10973,26 @@ PrefabInstance:
       propertyPath: FadeTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2599826759952941649, guid: de28eec1764d8174dbcf2cb1f476e2a5, type: 3}
+      propertyPath: sceneFadeColors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599826759952941649, guid: de28eec1764d8174dbcf2cb1f476e2a5, type: 3}
+      propertyPath: sceneFadeColors.Array.data[0].color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599826759952941649, guid: de28eec1764d8174dbcf2cb1f476e2a5, type: 3}
+      propertyPath: sceneFadeColors.Array.data[0].color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599826759952941649, guid: de28eec1764d8174dbcf2cb1f476e2a5, type: 3}
+      propertyPath: sceneFadeColors.Array.data[0].color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599826759952941649, guid: de28eec1764d8174dbcf2cb1f476e2a5, type: 3}
+      propertyPath: sceneFadeColors.Array.data[0].sceneName
+      value: Result
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
