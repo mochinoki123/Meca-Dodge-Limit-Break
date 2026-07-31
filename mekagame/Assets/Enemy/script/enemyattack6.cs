@@ -8,7 +8,7 @@ public class enemyattack6 : MonoBehaviour
 {
     private enemyattack enemymanager;
     enemylazer enemyLazer;
-    Animator animator;
+    public Animator animator;
     //UŒ‚‚U
     [Header("UŒ‚‡Y")]
     [SerializeField] int Attack6ms = 5;//UŒ‚‚U‚Ìƒ~ƒTƒCƒ‹”
