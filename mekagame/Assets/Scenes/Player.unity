@@ -10979,15 +10979,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2599826759952941649, guid: de28eec1764d8174dbcf2cb1f476e2a5, type: 3}
       propertyPath: sceneFadeColors.Array.data[0].color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2599826759952941649, guid: de28eec1764d8174dbcf2cb1f476e2a5, type: 3}
       propertyPath: sceneFadeColors.Array.data[0].color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2599826759952941649, guid: de28eec1764d8174dbcf2cb1f476e2a5, type: 3}
       propertyPath: sceneFadeColors.Array.data[0].color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2599826759952941649, guid: de28eec1764d8174dbcf2cb1f476e2a5, type: 3}
       propertyPath: sceneFadeColors.Array.data[0].sceneName
