@@ -6929,6 +6929,7 @@ GameObject:
   - component: {fileID: 1245892070}
   - component: {fileID: 1245892067}
   - component: {fileID: 1245892068}
+  - component: {fileID: 1245892071}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -6960,7 +6961,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60
+    FieldOfView: 70
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 3200
@@ -6987,13 +6988,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245892064}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08691725, y: 0, z: 0, w: 0.9962156}
-  m_LocalPosition: {x: 0, y: 30, z: -60}
+  m_LocalRotation: {x: 0.13101208, y: 0, z: 0, w: 0.9913808}
+  m_LocalPosition: {x: 0, y: 0.5, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 23.58, y: 0, z: 0}
 --- !u!114 &1245892067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7050,7 +7051,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 30, z: -60}
+  FollowOffset: {x: 0, y: 0, z: -50}
 --- !u!114 &1245892070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7063,7 +7064,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineHardLookAt
-  LookAtOffset: {x: 0, y: 9.5, z: 0}
+  LookAtOffset: {x: 0, y: 7, z: 0}
+--- !u!114 &1245892071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245892064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a232299d8f58f74a9c1747c268c0644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LockAxisCamera
+  x_islocked: 0
+  y_islocked: 1
+  z_islocked: 0
+  lockPosition: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1246779003
 GameObject:
   m_ObjectHideFlags: 0
@@ -8116,7 +8133,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 3200
-  field of view: 60
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -8142,8 +8159,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423183498}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08691725, y: 0, z: 0, w: 0.9962156}
-  m_LocalPosition: {x: 0, y: 20.05, z: -60}
+  m_LocalRotation: {x: 0.13101208, y: 0, z: 0, w: 0.9913808}
+  m_LocalPosition: {x: 0, y: 20.45, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
