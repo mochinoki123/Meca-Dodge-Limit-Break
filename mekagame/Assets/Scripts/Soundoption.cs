@@ -21,11 +21,13 @@ public class Soundoption : MonoBehaviour
 
     public void SetBGM(float volume)
     {
+        Debug.Log("SetBGM : " + volume);
         audioMixer.SetFloat("BGM_Volume", volume);
     }
 
     public void SetSE(float volume)
     {
+        Debug.Log("SetSE : " + volume);
         audioMixer.SetFloat("SE_Volume", volume);
     }
 

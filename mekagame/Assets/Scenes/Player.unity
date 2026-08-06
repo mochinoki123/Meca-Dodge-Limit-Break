@@ -8202,7 +8202,7 @@ AudioSource:
   m_GameObject: {fileID: 1423183498}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5117956384725618451, guid: 87db326fdb02b204b88d9c5b8383ae7c, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 2a727cf2b7637ce45bf3755b2e15726c, type: 3}
   m_PlayOnAwake: 1
@@ -10370,6 +10370,10 @@ PrefabInstance:
       propertyPath: timelineManager
       value: 
       objectReference: {fileID: 300181915}
+    - target: {fileID: -6565724742502022513, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4553205381546068973, guid: 87db326fdb02b204b88d9c5b8383ae7c, type: 2}
     - target: {fileID: -2766656512036199743, guid: 861c8011ae0a39244b16a60d0898e554, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -12497,6 +12501,10 @@ PrefabInstance:
       propertyPath: oCUseGage
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 8066258441487621839, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4553205381546068973, guid: 87db326fdb02b204b88d9c5b8383ae7c, type: 2}
     - target: {fileID: 8288794723561334125, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: enemy
       value: 

@@ -11,6 +11,7 @@ public class Scene : MonoBehaviour
     [SerializeField] private GameObject miss;
     [SerializeField] private ClearFlag clearFlag;
     [SerializeField] private AudioClip titlebuttonclip;
+    [SerializeField] private GameObject OptionCanvas;
 
     private AudioSource audioSource;
     private bool isTransitioning = false;
@@ -53,7 +54,7 @@ public class Scene : MonoBehaviour
         audioSource.PlayOneShot(titlebuttonclip);
         if (!CanTransition()) return;
         await Task.Delay(500);
-        FadeManager.Instance.LoadScene("Loading", FadeTimeLoad);
+        FadeManager.Instance.LoadScene("Loading", 1f);
     }
 
     //タイトルボタン
@@ -61,7 +62,7 @@ public class Scene : MonoBehaviour
     {
         if (!CanTransition()) return;
         await Task.Delay(500);
-        FadeManager.Instance.LoadScene("Title", FadeTimeTitle);
+        FadeManager.Instance.LoadScene("Title", 1f);
     }
 
     //終了ボタン
@@ -85,4 +86,17 @@ public class Scene : MonoBehaviour
         await Task.Delay(500);
         SceneManager.LoadScene("SkillCustom");
     }
+
+    async public void OnOptionButton()
+    {
+        await Task.Delay(500);
+        OptionCanvas.SetActive(true);
+    }
+
+    async public void OnOptionOffButton()
+    {
+        await Task.Delay(500);
+        OptionCanvas.SetActive(false);
+    }
+
 }
