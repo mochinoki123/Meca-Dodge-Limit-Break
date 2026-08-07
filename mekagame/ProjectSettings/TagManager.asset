@@ -12,6 +12,7 @@ TagManager:
   - FirePoint
   - Wall
   - LaserDamage
+  - AoE
   layers:
   - Default
   - TransparentFX
