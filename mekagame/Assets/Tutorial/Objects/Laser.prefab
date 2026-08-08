@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7047776512306979582}
   - component: {fileID: 4317830435395140701}
   - component: {fileID: 590373115532063761}
+  - component: {fileID: 8569760695327117039}
   m_Layer: 0
   m_Name: AoE
   m_TagString: AoE
@@ -140,6 +141,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &8569760695327117039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382902181567731484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4b75e1d0664f04ba24e5bfead9eff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AoE
+  speed: 70
+  maxScale: 50
 --- !u!1 &6231613738658932539
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   laser: {fileID: 2139850838662136439}
+  aoe: {fileID: 4749277318912646222}
 --- !u!65 &7307404609701788318
 BoxCollider:
   m_ObjectHideFlags: 0
