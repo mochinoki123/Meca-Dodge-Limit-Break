@@ -135,6 +135,5 @@ public class LaserAttack : MonoBehaviour
     public void StartEastSeries() => StartSeriesFire(LaserState.East);
     public void StartWestSeries() => StartSeriesFire(LaserState.West);
 
-
     public void FireTutorialEast() => FireTutorial(LaserState.East);
 }

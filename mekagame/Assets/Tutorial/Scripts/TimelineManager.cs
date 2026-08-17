@@ -80,6 +80,7 @@ public class TimelineManager : MonoBehaviour
         else if (ratio <= phase2Threshold && ratio > phase3Threshold && currentPhase < 2)
         {
             NotifyPhaseCleared();
+            animator.SetTrigger("IsPhaseChange");
             currentPhase = 2;
             SetWrapModeNone();
             return phaseTransition_2;
