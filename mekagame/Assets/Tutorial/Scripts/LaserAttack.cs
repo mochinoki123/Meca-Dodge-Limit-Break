@@ -66,42 +66,6 @@ public class LaserAttack : MonoBehaviour
         FireLaser(state, rnd);
     }
 
-    // --- 追尾発射 ---
-
-    public void FireSearch(LaserState state)
-    {
-        Transform[] targetArray = GetArrayByState(state);
-        if (targetArray == null || targetArray.Length == 0) return;
-
-        // プレイヤーの座標を取得（※毎回 GameObject.Find を呼ぶと重くなる原因になるため、可能であればキャッシュ推奨です）
-        GameObject playerObj = GameObject.Find("Player");
-        if (playerObj == null)
-        {
-            return;
-        }
-        Vector3 playerPos = playerObj.transform.position;
-        playerPos.y = 0;
-
-        int nearestIndex = 0;
-        float minDistance = Mathf.Infinity;
-
-        // 指定された配列（state）の中から、プレイヤーに一番近い発射口のインデックスを探す
-        for (int i = 0; i < targetArray.Length; i++)
-        {
-            if (targetArray[i] == null) continue;
-
-            float distance = Vector3.Distance(playerPos, targetArray[i].position);
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                nearestIndex = i; // 一番近いインデックスを記録
-            }
-        }
-
-        // 求めたインデックスを使って発射
-        FireLaser(state, nearestIndex);
-    }
-
     // --- チュートリアル ---
 
     public void FireTutorial(LaserState state)
