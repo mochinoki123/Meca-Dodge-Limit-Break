@@ -212,7 +212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1793265748, guid: 014964e2061fc3d4c91befd949d947f7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1195,7 +1195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1346364871, guid: 4d8bf5d9064ee1e428f1e46966e0510e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ca628bbde0742c478b21c6aa8e400ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1929,7 +1929,7 @@ PlayableDirector:
   m_GameObject: {fileID: 300181912}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 2f45bbd898c798e4c94e0bae45e356e2, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 0284288b15eacee48b2f9ed3a024e888, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -1983,6 +1983,10 @@ PlayableDirector:
     value: {fileID: 2124310602}
   - key: {fileID: 0}
     value: {fileID: 2124310602}
+  - key: {fileID: -5966528566642011748, guid: 74898acbe0ac0c34dbe1208fff73772b, type: 2}
+    value: {fileID: 1455872203}
+  - key: {fileID: 8023297143021769586, guid: 74898acbe0ac0c34dbe1208fff73772b, type: 2}
+    value: {fileID: 1455872203}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &300181914
@@ -2015,14 +2019,16 @@ MonoBehaviour:
   director: {fileID: 300181913}
   animator: {fileID: 1755174198}
   clearFlag: {fileID: 11400000, guid: b20a79a8b5672a24ba715bb6d2bb63d7, type: 2}
-  phase1Timeline: {fileID: 11400000, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
-  phase2Timeline: {fileID: 11400000, guid: 5a60c532da9772b49851375250dcc4d5, type: 2}
-  phase3Timeline: {fileID: 11400000, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
+  phase1Timeline: {fileID: 11400000, guid: 74898acbe0ac0c34dbe1208fff73772b, type: 2}
+  phase2Timeline: {fileID: 11400000, guid: 28e6c617afff47145b833ce2e22d122a, type: 2}
+  phase3Timeline: {fileID: 11400000, guid: 5a60c532da9772b49851375250dcc4d5, type: 2}
+  phase4Timeline: {fileID: 11400000, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
   phaseTransition_2: {fileID: 11400000, guid: 88b1458dd478c8a45b2b715075ecedcf, type: 2}
   phaseTransition_3: {fileID: 11400000, guid: da0fcca7b68d7b944aeed8e19cca899f, type: 2}
   countdown: {fileID: 11400000, guid: 0284288b15eacee48b2f9ed3a024e888, type: 2}
-  phase2Threshold: 0.6
-  phase3Threshold: 0.3
+  phase2Threshold: 0.8
+  phase3Threshold: 0.6
+  phase4Threshold: 0.3
   FinishTimeline: {fileID: 11400000, guid: 2f45bbd898c798e4c94e0bae45e356e2, type: 2}
 --- !u!1 &302314040
 GameObject:
@@ -3045,7 +3051,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1854059095, guid: 15bbb42ef1d2ee241adab4f1fa829e6d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3226,7 +3232,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1979616448, guid: 352200b452ad9a6428b1e0419e90b1ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6469764ec9efd44478c1eafb09b37ad7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5621,7 +5627,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1011764677, guid: 9f3598543ce8d134cb3a6a376202976d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8c2fd213198812843962ca6ee7cbe6ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8814,7 +8820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1620193103, guid: a8f3a8cd0e802804b91382f9dbe8d06c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 66eb6e27fef0eca41934a804e032f808, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

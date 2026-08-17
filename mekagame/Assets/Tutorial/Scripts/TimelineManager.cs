@@ -10,9 +10,10 @@ public class TimelineManager : MonoBehaviour
     [SerializeField] private ClearFlag clearFlag;
 
     [Header("HPフェーズ別タイムライン")]
-    [SerializeField] private PlayableAsset phase1Timeline; // HP 60%以上
-    [SerializeField] private PlayableAsset phase2Timeline; // HP 30〜60%
-    [SerializeField] private PlayableAsset phase3Timeline; // HP 30%以下
+    [SerializeField] private PlayableAsset phase1Timeline; // HP 80%以上
+    [SerializeField] private PlayableAsset phase2Timeline; // HP 60%以上
+    [SerializeField] private PlayableAsset phase3Timeline; // HP 30〜60%
+    [SerializeField] private PlayableAsset phase4Timeline; // HP 30%以下
 
     [Header("カウントダウン")]
     [SerializeField] private PlayableAsset phaseTransition_2;
@@ -22,8 +23,9 @@ public class TimelineManager : MonoBehaviour
     [SerializeField] private PlayableAsset countdown;
 
     [Header("フェーズ閾値")]
-    [SerializeField] private float phase2Threshold = 0.6f;
-    [SerializeField] private float phase3Threshold = 0.3f;
+    [SerializeField] private float phase2Threshold = 0.8f;
+    [SerializeField] private float phase3Threshold = 0.6f;
+    [SerializeField] private float phase4Threshold = 0.3f;
 
     [Header("敵撃破タイムライン")]
     [SerializeField] private PlayableAsset FinishTimeline;
@@ -78,19 +80,26 @@ public class TimelineManager : MonoBehaviour
         else if (ratio <= phase2Threshold && ratio > phase3Threshold && currentPhase < 2)
         {
             NotifyPhaseCleared();
-            animator.SetTrigger("IsPhaseChange");
-            animator.SetBool("IsPhase2",true);
             currentPhase = 2;
             SetWrapModeNone();
             return phaseTransition_2;
         }
-        else if (ratio <= phase3Threshold && currentPhase < 3)
+        else if (ratio <= phase3Threshold && ratio > phase4Threshold && currentPhase < 3)
+        {
+            NotifyPhaseCleared();
+            animator.SetTrigger("IsPhaseChange");
+            animator.SetBool("IsPhase2", true);
+            currentPhase = 3;
+            SetWrapModeNone();
+            return phaseTransition_3;
+        }
+        else if (ratio <= phase4Threshold && currentPhase < 4)
         {
             NotifyPhaseCleared();
             animator.SetTrigger("IsPhaseChange");
             animator.SetBool("IsPhase2", false);
             animator.SetBool("IsPhase3", true);
-            currentPhase = 3;
+            currentPhase = 4;
             SetWrapModeNone();
             return phaseTransition_3;
         }
