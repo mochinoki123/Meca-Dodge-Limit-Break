@@ -26,8 +26,16 @@ public class AoE : MonoBehaviour
         transform.localScale = new Vector3(maxScale, transform.localScale.y, transform.localScale.z);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Wall"))
+        {
+            StopAllCoroutines();
+        }
+    }
+
     private void OnDisable()
     {
-        transform.localScale = new Vector3(0.01f, 4f, 4f);
+        transform.localScale = new Vector3(0f, 0.1f, 3f);
     }
 }
