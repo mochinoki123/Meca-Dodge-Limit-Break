@@ -192,7 +192,7 @@ public class PlayerParry : MonoBehaviour
     {
         // 追撃アニメーション再生
         animator?.SetTrigger("LimitBreak");
-        transform.DOMoveY(jumpPosition, lbAnimationDuration);
+        //transform.DOMoveY(jumpPosition, lbAnimationDuration);
 
         yield return new WaitForSeconds(lbAttackDelay);
 
