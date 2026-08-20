@@ -4,9 +4,11 @@ using UnityEngine.UI;
 public class GrazeGage : MonoBehaviour
 {
     [SerializeField] private Slider[] gageSlider;
-    [SerializeField] private float maxGage = 300f;
+    [SerializeField] private float maxGauge = 300f;
     [Range(0f, 300f)]
     [SerializeField] float nowGage;
+
+    [SerializeField] private GameObject maxGaugeImage;
 
     private void Start()
     {
@@ -22,12 +24,14 @@ public class GrazeGage : MonoBehaviour
     {
         // 常時描画更新
         UpdateGage();
+        // LBが撃てる
+        MaxGauge();
     }
 
     public void UpdateGage()
     {
         // スライダー1つあたりの担当量を計算
-        float valuePerSlider = maxGage / gageSlider.Length;
+        float valuePerSlider = maxGauge / gageSlider.Length;
 
         for (int i = 0; i < gageSlider.Length; i++)
         {
@@ -47,7 +51,20 @@ public class GrazeGage : MonoBehaviour
     public void SetValue(float value)
     {
         // 値を範囲内に制限して更新
-        nowGage = Mathf.Clamp(value, 0f, maxGage);
+        nowGage = Mathf.Clamp(value, 0f, maxGauge);
         UpdateGage();
+    }
+
+    private void MaxGauge()
+    {
+        if (maxGauge == nowGage)
+        {
+            maxGaugeImage.SetActive(true);
+        }
+        else
+        {
+            maxGaugeImage.SetActive(false);
+        }
+            
     }
 }
