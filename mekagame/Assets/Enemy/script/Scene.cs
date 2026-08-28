@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks.Triggers;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,7 @@ public class Scene : MonoBehaviour
     [SerializeField] private GameObject complete;
     [SerializeField] private GameObject miss;
     [SerializeField] private GameObject _continue;
+    [SerializeField] private RectTransform title;
     [SerializeField] private ClearFlag clearFlag;
     [SerializeField] private AudioClip titlebuttonclip;
     [SerializeField] private GameObject OptionCanvas;
@@ -49,6 +51,11 @@ public class Scene : MonoBehaviour
             {
                 complete?.SetActive(true);
                 _continue?.SetActive(false);
+                Vector2 currentPosition = title.anchoredPosition;
+                currentPosition.x = 0f; // 変更したいPosXの値
+
+                // 変更した位置を再代入
+                title.anchoredPosition = currentPosition;
             }
             else miss?.SetActive(true);
         }
