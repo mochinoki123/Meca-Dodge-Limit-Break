@@ -1536,6 +1536,7 @@ MonoBehaviour:
   FadeTimeTutorial: 0
   complete: {fileID: 1379922483}
   miss: {fileID: 1648879439}
+  _continue: {fileID: 2069421426}
   clearFlag: {fileID: 11400000, guid: b20a79a8b5672a24ba715bb6d2bb63d7, type: 2}
   titlebuttonclip: {fileID: 0}
   OptionCanvas: {fileID: 0}
@@ -1639,7 +1640,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2054342091}
         m_TargetAssemblyTypeName: Scene, Assembly-CSharp
-        m_MethodName: OnStartButton
+        m_MethodName: OnContinueButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

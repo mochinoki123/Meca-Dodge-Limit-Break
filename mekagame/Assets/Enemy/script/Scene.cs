@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Scene : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Scene : MonoBehaviour
     [SerializeField] private float FadeTimeTutorial;
     [SerializeField] private GameObject complete;
     [SerializeField] private GameObject miss;
+    [SerializeField] private GameObject _continue;
     [SerializeField] private ClearFlag clearFlag;
     [SerializeField] private AudioClip titlebuttonclip;
     [SerializeField] private GameObject OptionCanvas;
@@ -43,7 +45,11 @@ public class Scene : MonoBehaviour
     {
         if (scene.name == "Result")
         {
-            if (clearFlag.IsGameCleared.Value) complete?.SetActive(true);
+            if (clearFlag.IsGameCleared.Value)
+            {
+                complete?.SetActive(true);
+                _continue?.SetActive(false);
+            }
             else miss?.SetActive(true);
         }
     }
@@ -99,4 +105,11 @@ public class Scene : MonoBehaviour
         OptionCanvas.SetActive(false);
     }
 
+    //コンテニューボタン
+    async public void OnContinueButton()
+    {
+        if (!CanTransition()) return;
+        await Task.Delay(500);
+        FadeManager.Instance.LoadScene("Loading", 1f);
+    }
 }
