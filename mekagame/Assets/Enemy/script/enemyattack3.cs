@@ -17,7 +17,7 @@ public class enemyattack3 : MonoBehaviour
     //-----UŒ‚‡V-----
     public void Attack3()
     {
-        animator.SetTrigger("IsMissile");
+        
         attackbunki = Random.Range(0f, 3f);//UŒ‚•ªŠò
         GameObject objm3 = ObjectPool_Missile.Instance.GetMissile();
         objm3.transform.position = new Vector3(0, 0.1f, 0);

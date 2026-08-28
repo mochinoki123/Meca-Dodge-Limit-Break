@@ -19,7 +19,7 @@ public class enemyattack4 : MonoBehaviour
 
     public void Attack4()
     {
-        animator.SetTrigger("IsMissile");
+        
         attack4Cancel = false; // 新しい攻撃開始時に解除
         ap = Random.Range(rndm, rndp);//地面の広さによって変更
         

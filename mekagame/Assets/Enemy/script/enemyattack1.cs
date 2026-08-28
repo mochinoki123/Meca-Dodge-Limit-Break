@@ -22,7 +22,6 @@ public class enemyattack1 : MonoBehaviour
 
     public void Attack1()
     {
-        animator.SetTrigger("IsMissile");
         attackbunki = Random.Range(0f, 1f);
         if (attackbunki < 0.5f)
         {

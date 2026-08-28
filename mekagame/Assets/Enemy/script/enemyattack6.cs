@@ -42,7 +42,7 @@ public class enemyattack6 : MonoBehaviour
     //攻撃Ⅵ追尾ミサイル
     void Attack6missile()
     {
-        animator.SetTrigger("IsMissile");
+
         GameObject objm6 = ObjectPool_Missile.Instance.GetMissile();
         
         // transform.position で現在のワールド座標を取得
