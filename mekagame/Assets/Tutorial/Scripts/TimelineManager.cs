@@ -16,8 +16,8 @@ public class TimelineManager : MonoBehaviour
     [SerializeField] private PlayableAsset phase4Timeline; // HP 30%以下
 
     [Header("カウントダウン")]
-    [SerializeField] private PlayableAsset phaseTransition_2;
-    [SerializeField] private PlayableAsset phaseTransition_3;
+    [SerializeField] private PlayableAsset phaseTransition_Normal;
+    [SerializeField] private PlayableAsset phaseTransition_Last;
 
     [Header("フェーズ移行時のタイムライン")]
     [SerializeField] private PlayableAsset countdown;
@@ -83,7 +83,7 @@ public class TimelineManager : MonoBehaviour
             animator.SetTrigger("IsPhaseChange");
             currentPhase = 2;
             SetWrapModeNone();
-            return phaseTransition_2;
+            return phaseTransition_Normal;
         }
         else if (ratio <= phase3Threshold && ratio > phase4Threshold && currentPhase < 3)
         {
@@ -92,7 +92,7 @@ public class TimelineManager : MonoBehaviour
             animator.SetBool("IsPhase2", true);
             currentPhase = 3;
             SetWrapModeNone();
-            return phaseTransition_3;
+            return phaseTransition_Normal;
         }
         else if (ratio <= phase4Threshold && currentPhase < 4)
         {
@@ -102,7 +102,7 @@ public class TimelineManager : MonoBehaviour
             animator.SetBool("IsPhase3", true);
             currentPhase = 4;
             SetWrapModeNone();
-            return phaseTransition_3;
+            return phaseTransition_Last;
         }
         return currentTimeline;
     }
@@ -132,12 +132,12 @@ public class TimelineManager : MonoBehaviour
             SetWrapModeLoop();
             SwitchTimeline(phase1Timeline);
         }
-        if (currentTimeline == phaseTransition_2)
+        if (currentTimeline == phaseTransition_Normal)
         {
             SetWrapModeLoop();
             SwitchTimeline(phase2Timeline);
         }
-        if (currentTimeline == phaseTransition_3)
+        if (currentTimeline == phaseTransition_Last)
         {
             SetWrapModeLoop();
             SwitchTimeline(phase3Timeline);
