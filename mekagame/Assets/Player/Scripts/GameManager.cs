@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [SerializeField] private ClearFlag clearFlag;
+
     [Header("Gage Settings")]
     [SerializeField] private int maxGage = 100;
     [SerializeField] private float nowGage;
@@ -93,11 +95,16 @@ public class GameManager : MonoBehaviour
     {
         ResetGage();
         FindUIElements();
+        clearFlag.ResetGameFlag();
 
         isTutorial = false;
 
         if (scene.name == "Player") IsPlayerDead = false;
-        if (scene.name == "Tutorial") isTutorial = true;
+        if (scene.name == "Tutorial")
+        {
+            isTutorial = true;
+            IsPlayerDead = false;
+        }
     }
 
     private void FindUIElements()

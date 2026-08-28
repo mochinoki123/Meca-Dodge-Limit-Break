@@ -1532,6 +1532,7 @@ MonoBehaviour:
   FadeTimeTutorial: 1
   complete: {fileID: 0}
   miss: {fileID: 0}
+  _continue: {fileID: 0}
   clearFlag: {fileID: 0}
   titlebuttonclip: {fileID: 8300000, guid: 62d22321c94752442a72240639074244, type: 3}
   OptionCanvas: {fileID: 1084054280}
@@ -3372,6 +3373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17136225f5ba1ce47a0b8df80d8541bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clearFlag: {fileID: 11400000, guid: b20a79a8b5672a24ba715bb6d2bb63d7, type: 2}
   maxGage: 300
   nowGage: 0
   lifeGage: {fileID: 0}
