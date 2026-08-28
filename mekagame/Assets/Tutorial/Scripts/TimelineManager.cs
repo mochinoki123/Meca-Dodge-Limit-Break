@@ -90,6 +90,7 @@ public class TimelineManager : MonoBehaviour
             NotifyPhaseCleared();
             animator.SetTrigger("IsPhaseChange");
             animator.SetBool("IsPhase2", true);
+            animator.SetBool("IsPhase3", false);
             currentPhase = 3;
             SetWrapModeNone();
             return phaseTransition_3;

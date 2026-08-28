@@ -99,4 +99,11 @@ public class Scene : MonoBehaviour
         OptionCanvas.SetActive(false);
     }
 
+    //コンテニューボタン
+    async public void OnContinueButton()
+    {
+        if (!CanTransition()) return;
+        await Task.Delay(500);
+        FadeManager.Instance.LoadScene("Loading", 1f);
+    }
 }
