@@ -51,11 +51,7 @@ public class Scene : MonoBehaviour
             {
                 complete?.SetActive(true);
                 _continue?.SetActive(false);
-                Vector2 currentPosition = title.anchoredPosition;
-                currentPosition.x = 0; // 変更したいPosXの値
-
-                // 変更した位置を再代入
-                title.anchoredPosition = currentPosition;
+                title.anchoredPosition = new Vector2(0f, -180f);
             }
             else miss?.SetActive(true);
         }
