@@ -97,7 +97,23 @@ MonoBehaviour:
   m_Time: 3.216666666666697
   m_Retroactive: 0
   m_EmitOnce: 0
-  m_Asset: {fileID: 0}
+  m_Asset: {fileID: 11400000, guid: 6f7c173547338ef4fb44d8ebf558cbc7, type: 2}
+--- !u!114 &-6719953139920157054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
+  m_Time: 7.316666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 8652aced79132734cad8d9504c3554c8, type: 2}
 --- !u!114 &-6535670936704945175
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,7 +209,7 @@ MonoBehaviour:
   m_Time: 5
   m_Retroactive: 0
   m_EmitOnce: 0
-  m_Asset: {fileID: 0}
+  m_Asset: {fileID: 11400000, guid: bf22179b0c829cc42be4549b7b2ca432, type: 2}
 --- !u!114 &-152636330966103109
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -312,7 +328,23 @@ MonoBehaviour:
   m_Time: 3.216666666666697
   m_Retroactive: 0
   m_EmitOnce: 0
-  m_Asset: {fileID: 0}
+  m_Asset: {fileID: 11400000, guid: 394f2f7ad274a994885ee4c1816f08a4, type: 2}
+--- !u!114 &1290905526229402354
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalEmitter
+  m_Time: 6.066666666666666
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 25228faeae7d64240a267c821d0225c0, type: 2}
 --- !u!114 &1498601403688400387
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -395,6 +427,8 @@ MonoBehaviour:
     - {fileID: 3809917814143253436}
     - {fileID: 6268088910249339933}
     - {fileID: -7154843349553426360}
+    - {fileID: 1290905526229402354}
+    - {fileID: -6719953139920157054}
 --- !u!114 &3303722594617339868
 MonoBehaviour:
   m_ObjectHideFlags: 1
