@@ -14,7 +14,6 @@ public class MissileRelease : MonoBehaviour
     private GameObject b;
 
     public bool isDead = false;
-    
 
     private void Awake()
     {
