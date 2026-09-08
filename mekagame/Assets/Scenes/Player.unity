@@ -3352,6 +3352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 532331646}
   - component: {fileID: 532331647}
+  - component: {fileID: 532331648}
   m_Layer: 5
   m_Name: GrazeGage
   m_TagString: Untagged
@@ -3402,6 +3403,24 @@ MonoBehaviour:
   maxGauge: 300
   nowGage: 0
   maxGaugeImage: {fileID: 254670646}
+--- !u!114 &532331648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532331645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 062837dddeacddb4eb4f216471ad521a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GaugeColorChange
+  fillColor1: {fileID: 1431242034, guid: f21791f98a9136d49bd12582945aa863, type: 3}
+  fillColor2: {fileID: -791968406, guid: df2ffd68a8cc385428fb3058c93907a7, type: 3}
+  fillColor3: {fileID: 493852420, guid: df906b9525b619d489c7913a5ce33369, type: 3}
+  gauge1: {fileID: 1684576530}
+  gauge2: {fileID: 1532640791}
+  gauge3: {fileID: 1852615410}
 --- !u!1 &547688688
 GameObject:
   m_ObjectHideFlags: 0
@@ -5990,7 +6009,7 @@ RectTransform:
   m_GameObject: {fileID: 1060766355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0118264, y: 8.515547, z: 1.178738}
+  m_LocalScale: {x: 1.0118264, y: 8.515546, z: 1.178738}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1877327017}
@@ -10385,7 +10404,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1431242034, guid: f21791f98a9136d49bd12582945aa863, type: 3}
+  m_Sprite: {fileID: 493852420, guid: df906b9525b619d489c7913a5ce33369, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11584,7 +11603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -791968406, guid: df2ffd68a8cc385428fb3058c93907a7, type: 3}
+  m_Sprite: {fileID: 493852420, guid: df906b9525b619d489c7913a5ce33369, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12002,6 +12021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17136225f5ba1ce47a0b8df80d8541bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clearFlag: {fileID: 0}
   maxGage: 300
   nowGage: 0
   lifeGage: {fileID: 0}

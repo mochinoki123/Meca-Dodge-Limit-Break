@@ -10,8 +10,12 @@ public class GrazeGage : MonoBehaviour
 
     [SerializeField] private GameObject maxGaugeImage;
 
+    private GaugeColorChange gaugeColorChange;
+
     private void Start()
     {
+        gaugeColorChange = GetComponent<GaugeColorChange>();
+
         // スライダーの正規化範囲を設定
         foreach (var slider in gageSlider)
         {
@@ -24,6 +28,8 @@ public class GrazeGage : MonoBehaviour
     {
         // 常時描画更新
         UpdateGage();
+        // ゲージの色を変える
+        ColorChange();
         // LBが撃てる
         MaxGauge();
     }
@@ -64,7 +70,13 @@ public class GrazeGage : MonoBehaviour
         else
         {
             maxGaugeImage.SetActive(false);
-        }
-            
+        }   
+    }
+
+    private void ColorChange()
+    {
+        if (nowGage < 200) gaugeColorChange.ChangeColor1();
+        if (nowGage >= 200 &&  nowGage < 300) gaugeColorChange.ChangeColor2();
+        if (nowGage >= 300) gaugeColorChange.ChangeColor3();
     }
 }
