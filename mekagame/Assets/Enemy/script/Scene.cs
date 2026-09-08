@@ -18,11 +18,13 @@ public class Scene : MonoBehaviour
     [SerializeField] private GameObject OptionCanvas;
 
     private AudioSource audioSource;
+    //private RectTransform titlepos;
     private bool isTransitioning = false;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        //titlepos.anchoredPosition = title.anchoredPosition;
     }
 
     private void OnEnable()
@@ -53,7 +55,14 @@ public class Scene : MonoBehaviour
                 _continue?.SetActive(false);
                 title.anchoredPosition = new Vector2(0f, -180f);
             }
-            else miss?.SetActive(true); 
+            else 
+            { 
+                miss?.SetActive(true);
+                /*
+                title.anchoredPosition = titlepos.anchoredPosition;
+                _continue?.SetActive(true);
+                */
+            }
         }
     }
 
