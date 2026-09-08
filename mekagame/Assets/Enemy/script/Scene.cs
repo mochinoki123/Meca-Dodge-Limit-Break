@@ -53,7 +53,7 @@ public class Scene : MonoBehaviour
                 _continue?.SetActive(false);
                 title.anchoredPosition = new Vector2(0f, -180f);
             }
-            else miss?.SetActive(true);
+            else miss?.SetActive(true); 
         }
     }
 
