@@ -73,6 +73,8 @@ MonoBehaviour:
     m_path: Assets/Scenes/Tutorial.unity
   - m_enabled: 1
     m_path: Assets/Scenes/Result.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/hardmode.unity
   m_HasScriptingDefines: 1
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
