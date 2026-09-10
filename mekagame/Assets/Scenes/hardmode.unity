@@ -12065,14 +12065,14 @@ MonoBehaviour:
   nowGage: 0
   lifeGage: {fileID: 0}
   grazeGage: {fileID: 0}
-  grazeGauge: 30
-  parryGauge: 50
-  LBfailedGauge: 200
+  grazeGauge: 10
+  parryGauge: 100
+  LBfailedGauge: 0
   tGrazeGauge: 0
   tParryGauge: 0
-  useLB: 0
-  useOC: 0
-  usePD: 0
+  useLB: 300
+  useOC: 200
+  usePD: 100
   comboText: {fileID: 0}
   comboTime: 4
   comboMultiple:
@@ -12901,7 +12901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3723515226213197009, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: runTime
-      value: 1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3723515226213197009, guid: d7f2df245d75d6b4c8c01145145c9171, type: 3}
       propertyPath: runSpeed
