@@ -102,10 +102,14 @@ public class Scene : MonoBehaviour
         {
             HardCanvas.SetActive(true);
         }
+        else
+        {
+
+            FadeManager.Instance.LoadScene("Title", 1f);
+
+        }
         if (!CanTransition()) return;
         await Task.Delay(500);
-        FadeManager.Instance.LoadScene("Title", 1f);
-
     }
 
     //I—¹ƒ{ƒ^ƒ“
