@@ -18,6 +18,7 @@ public class Scene : MonoBehaviour
     [SerializeField] private ClearFlag clearFlag;
     [SerializeField] private AudioClip titlebuttonclip;
     [SerializeField] private GameObject OptionCanvas;
+    [SerializeField] private GameObject HardCanvas;
     [SerializeField] private Slider seSlider;
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Button start;
@@ -25,7 +26,7 @@ public class Scene : MonoBehaviour
 
     private AudioSource audioSource;
     private PlayerInput playerInput;
-    //private RectTransform titlepos;
+    private RectTransform titlepos;
     private bool isTransitioning = false;
     private bool isOption = false;
 
@@ -33,7 +34,7 @@ public class Scene : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         playerInput = GetComponent<PlayerInput>();
-        //titlepos.anchoredPosition = title.anchoredPosition;
+        titlepos.anchoredPosition = title.anchoredPosition;
         Interactable(0, true);
         Interactable(1, false);
     }
@@ -89,9 +90,14 @@ public class Scene : MonoBehaviour
     //タイトルボタン
     async public void OnTitleButton()
     {
+        if (clearFlag.IsGameCleared.Value)
+        {
+            HardCanvas.SetActive(true);
+        }
         if (!CanTransition()) return;
         await Task.Delay(500);
         FadeManager.Instance.LoadScene("Title", 1f);
+
     }
 
     //終了ボタン
@@ -136,6 +142,23 @@ public class Scene : MonoBehaviour
         if (!CanTransition()) return;
         await Task.Delay(500);
         FadeManager.Instance.LoadScene("Loading", 1f);
+    }
+
+    //ハードモード
+    async public void OnHardButton()
+    {
+        if (!CanTransition()) return;
+        await Task.Delay(500);
+        //FadeManager.Instance.LoadScene("Loading", 1f);
+        FadeManager.Instance.LoadScene("hardmode", 1f);
+    }
+
+    //ハードモードにいかないボタン
+    async public void OnNoButton()
+    {
+        if (!CanTransition()) return;
+        await Task.Delay(500);
+        FadeManager.Instance.LoadScene("Title", 1f);
     }
 
     private void OnSettings(InputValue value)

@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Player.unity
     guid: f881118175dc3e44487702413d319bd6
+  - enabled: 1
+    path: Assets/Scenes/hardmode.unity
+    guid: a8299c04799449b4b82d61f3cd46a4cd
   - enabled: 0
     path: Assets/Scenes/SkillCustom.unity
     guid: b9b87f25300e48d4580ea1b2d84628fa
