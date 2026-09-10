@@ -2188,7 +2188,7 @@ MonoBehaviour:
   clearFlag: {fileID: 11400000, guid: b20a79a8b5672a24ba715bb6d2bb63d7, type: 2}
   titlebuttonclip: {fileID: 0}
   OptionCanvas: {fileID: 0}
-  HardCanvas: {fileID: 0}
+  HardCanvas: {fileID: 1594994876}
   seSlider: {fileID: 0}
   bgmSlider: {fileID: 0}
   start: {fileID: 0}

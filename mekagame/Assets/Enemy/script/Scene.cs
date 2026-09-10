@@ -25,13 +25,18 @@ public class Scene : MonoBehaviour
     [SerializeField] private Button tutorial;
 
     private AudioSource audioSource;
-    private RectTransform titlepos;
+    //private RectTransform titlepos;
     private bool isTransitioning = false;
+
+    // ★ ハードモード中かどうかを保持するフラグ（シーンをまたいでも保持できるように static にするか、マネージャー管理にします）
+    public static bool IsHardMode { get; private set; } = false;
+
+
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        titlepos.anchoredPosition = title.anchoredPosition;
+        //titlepos.anchoredPosition = title.anchoredPosition;
     }
 
     private void OnEnable()
@@ -50,6 +55,12 @@ public class Scene : MonoBehaviour
         isTransitioning = true;
         return true;
     }
+
+    private void HideAllCanvases()
+    {
+        if (HardCanvas != null) HardCanvas.SetActive(false);
+    }
+
 
     //リザルト画面
     void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
@@ -78,6 +89,7 @@ public class Scene : MonoBehaviour
     {
         audioSource.PlayOneShot(titlebuttonclip);
         if (!CanTransition()) return;
+        IsHardMode = false; // 通常モードとしてフラグをオフ
         await Task.Delay(500);
         FadeManager.Instance.LoadScene("Loading", 1f);
     }
@@ -85,6 +97,7 @@ public class Scene : MonoBehaviour
     //タイトルボタン
     async public void OnTitleButton()
     {
+        // まずハードモード分岐をチェック
         if (clearFlag.IsGameCleared.Value)
         {
             HardCanvas.SetActive(true);
@@ -141,6 +154,8 @@ public class Scene : MonoBehaviour
     async public void OnHardButton()
     {
         if (!CanTransition()) return;
+        HideAllCanvases();
+        IsHardMode = true; // ★ ハードモード中なのでフラグをオン
         await Task.Delay(500);
         //FadeManager.Instance.LoadScene("Loading", 1f);
         FadeManager.Instance.LoadScene("hardmode", 1f);
@@ -150,6 +165,7 @@ public class Scene : MonoBehaviour
     async public void OnNoButton()
     {
         if (!CanTransition()) return;
+        HideAllCanvases();
         await Task.Delay(500);
         FadeManager.Instance.LoadScene("Title", 1f);
     }
