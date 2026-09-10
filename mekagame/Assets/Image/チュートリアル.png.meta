@@ -139,12 +139,12 @@ TextureImporter:
       name: "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2048
-        height: 2048
+        x: 66
+        y: 1370
+        width: 6
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -223,6 +223,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB_2"
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 811
+        width: 1820
+        height: 426
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5112483d9fb35442b5d0f94248d6171
+      internalID: 1797278763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -244,7 +266,6 @@ TextureImporter:
       "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB_2": 1797278763
       "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB_3": 964976872
       "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB_4": 261234188
-      "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB_5": -128796570
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

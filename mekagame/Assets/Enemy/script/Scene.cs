@@ -25,18 +25,13 @@ public class Scene : MonoBehaviour
     [SerializeField] private Button tutorial;
 
     private AudioSource audioSource;
-    private PlayerInput playerInput;
     private RectTransform titlepos;
     private bool isTransitioning = false;
-    private bool isOption = false;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        playerInput = GetComponent<PlayerInput>();
         titlepos.anchoredPosition = title.anchoredPosition;
-        Interactable(0, true);
-        Interactable(1, false);
     }
 
     private void OnEnable()
@@ -124,14 +119,12 @@ public class Scene : MonoBehaviour
 
     async public void OnOptionButton()
     {
-        isOption = true;
         await Task.Delay(500);
         OptionCanvas.SetActive(true);
     }
 
     async public void OnOptionOffButton()
     {
-        isOption = false;
         await Task.Delay(500);
         OptionCanvas.SetActive(false);
     }
@@ -159,38 +152,5 @@ public class Scene : MonoBehaviour
         if (!CanTransition()) return;
         await Task.Delay(500);
         FadeManager.Instance.LoadScene("Title", 1f);
-    }
-
-    private void OnSettings(InputValue value)
-    {
-        if (isOption)
-        {
-            Interactable(0, true);
-            Interactable(1, false);
-            OnOptionOffButton();
-        }
-        else
-        {
-            Interactable(0, false);
-            Interactable(1, true);
-            OnOptionButton();
-        }
-    }
-
-    private void Interactable(int num, bool interactable)
-    {
-        //ボタンの有効無効
-        if(num == 0)
-        {
-            start.interactable = interactable;
-            tutorial.interactable = interactable;
-        }
-        //スライダーの有効無効
-        if (num == 1)
-        {
-            bgmSlider.interactable = interactable;
-            seSlider.interactable = interactable;
-        }
-        else return;
     }
 }
