@@ -18,13 +18,13 @@ public class Scene : MonoBehaviour
     [SerializeField] private GameObject OptionCanvas;
 
     private AudioSource audioSource;
-    //private RectTransform titlepos;
+    private RectTransform titlepos;
     private bool isTransitioning = false;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        //titlepos.anchoredPosition = title.anchoredPosition;
+        titlepos.anchoredPosition = title.anchoredPosition;
     }
 
     private void OnEnable()
