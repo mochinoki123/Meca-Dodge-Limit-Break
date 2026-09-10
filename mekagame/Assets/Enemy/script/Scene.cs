@@ -147,7 +147,16 @@ public class Scene : MonoBehaviour
     {
         if (!CanTransition()) return;
         await Task.Delay(500);
-        FadeManager.Instance.LoadScene("Loading", 1f);
+        // ★ フラグに応じてロード先を切り替える
+        if (IsHardMode)
+        {
+            FadeManager.Instance.LoadScene("hardmode", 1f); // ハードモードで再挑戦
+        }
+        else
+        {
+            FadeManager.Instance.LoadScene("Loading", 1f); // 通常モードで再挑戦
+        }
+
     }
 
     //ハードモード
