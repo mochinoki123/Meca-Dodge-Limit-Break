@@ -183,12 +183,12 @@ TextureImporter:
       name: START.2_2
       rect:
         serializedVersion: 2
-        x: 115
-        y: 811
-        width: 1818
-        height: 426
+        x: 0
+        y: 0
+        width: 2048
+        height: 2048
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
