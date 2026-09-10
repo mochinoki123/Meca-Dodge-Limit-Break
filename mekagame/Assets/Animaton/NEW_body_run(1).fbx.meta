@@ -1,0 +1,717 @@
+fileFormatVersion: 2
+guid: 9f275e5730700ac47bb6f322a23cd457
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 1
+      lastFrame: 22
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.9
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Terr_B_hub1
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_leg1_upper1
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_leg2_upper1
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_leg1_lower1
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_leg2_lower1
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_leg1_foot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_leg2_foot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_upper1
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_upper1
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_lower1
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_lower1
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_hand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_hand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_leg1_foot_toe
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_leg2_foot_toe
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_hand_finger11
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_hand_finger12
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_hand_finger13
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_hand_finger21
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_hand_finger22
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_hand_finger23
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_hand_finger31
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_hand_finger32
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_hand_finger33
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_hand_finger41
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_hand_finger42
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm2_hand_finger43
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_hand_finger11
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_hand_finger12
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_hand_finger13
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_hand_finger21
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_hand_finger22
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_hand_finger23
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_hand_finger31
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_hand_finger32
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_hand_finger33
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_hand_finger41
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_hand_finger42
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Terr_B_hub1_spine1_arm1_hand_finger43
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: NEW_body_run(1)(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Terrorist_beta
+      parentName: NEW_body_run(1)(Clone)
+      position: {x: 0.0000000065817676, y: 0, z: -0.00000002632707}
+      rotation: {x: 0.00000006657903, y: -0, z: -0, w: 1}
+      scale: {x: 0.30985162, y: 0.30985162, z: 0.30985162}
+    - name: Terr_B_root
+      parentName: NEW_body_run(1)(Clone)
+      position: {x: -0, y: 0.03, z: 0}
+      rotation: {x: -0.50000006, y: 0.49999994, z: -0.5, w: 0.5}
+      scale: {x: 0.9999998, y: 0.99999994, z: 0.99999976}
+    - name: Terr_B_hub1
+      parentName: Terr_B_root
+      position: {x: -0.28115404, y: 0, z: 0.000003967612}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: Terr_B_hub1_spine1_T1
+      parentName: Terr_B_hub1
+      position: {x: -0, y: 0, z: 0.000000028883035}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.9999999, y: 1, z: 1.0000001}
+    - name: transform1
+      parentName: Terr_B_hub1_spine1_T1
+      position: {x: 0.040000003, y: -3.9146987e-15, z: -0.000000028446559}
+      rotation: {x: -0.00000006880796, y: 0.00000010784023, z: 7.420265e-15, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: Terr_B_hub1_leg1_upper1
+      parentName: transform1
+      position: {x: -0.02, y: 0, z: -0.049999997}
+      rotation: {x: 0.1404291, y: 0.026513597, z: 0.98973465, w: 0.0014307282}
+      scale: {x: 0.99999964, y: 0.9999996, z: 0.99999964}
+    - name: Terr_B_hub1_leg1_lower1
+      parentName: Terr_B_hub1_leg1_upper1
+      position: {x: -0.089999996, y: -0.00000003814697, z: -0.00000003814697}
+      rotation: {x: -0.010742655, y: 0.27183664, z: 0.022679951, w: 0.9620161}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: Terr_B_hub1_leg1_foot
+      parentName: Terr_B_hub1_leg1_lower1
+      position: {x: -0.17, y: -0.000000095367426, z: -0.00000004140416}
+      rotation: {x: 0.03468087, y: -0.13375176, z: -0.39422846, w: 0.9085657}
+      scale: {x: 1.0000004, y: 1.000001, z: 1.0000001}
+    - name: Terr_B_hub1_leg1_foot_toe
+      parentName: Terr_B_hub1_leg1_foot
+      position: {x: -0.044999998, y: -0.000000019073491, z: 0.00000004768372}
+      rotation: {x: 0.0000004991889, y: -0.0000005508773, z: -0.39874893, w: 0.9170602}
+      scale: {x: 1.0000012, y: 0.99999857, z: 1.0000006}
+    - name: transform2
+      parentName: Terr_B_hub1_spine1_T1
+      position: {x: 0.040000003, y: -3.9146987e-15, z: -0.000000028446559}
+      rotation: {x: -0.00000006880796, y: 0.00000010784023, z: 7.420265e-15, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: Terr_B_hub1_leg2_upper1
+      parentName: transform2
+      position: {x: -0.02, y: 0, z: 0.049999997}
+      rotation: {x: -0.14043957, y: -0.026506597, z: 0.9897334, w: 0.0014045306}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1}
+    - name: Terr_B_hub1_leg2_lower1
+      parentName: Terr_B_hub1_leg2_upper1
+      position: {x: -0.089999996, y: 0.00000007152557, z: 0.00000003814697}
+      rotation: {x: 0.010745179, y: -0.2718524, z: 0.022676185, w: 0.9620118}
+      scale: {x: 1.0000004, y: 1, z: 1}
+    - name: Terr_B_hub1_leg2_foot
+      parentName: Terr_B_hub1_leg2_lower1
+      position: {x: -0.17, y: -0.000000009536743, z: 0.00000007770138}
+      rotation: {x: -0.03469794, y: 0.1337508, z: -0.39424595, w: 0.9085576}
+      scale: {x: 1.0002034, y: 1.0000005, z: 1.0000001}
+    - name: Terr_B_hub1_leg2_foot_toe
+      parentName: Terr_B_hub1_leg2_foot
+      position: {x: -0.044999998, y: 0, z: 0}
+      rotation: {x: -0.00000024959442, y: 0.0000003613531, z: -0.3987492, w: 0.91706}
+      scale: {x: 0.999921, y: 0.999794, z: 1.0000021}
+    - name: Terr_B_hub1_spine1
+      parentName: Terr_B_hub1_spine1_T1
+      position: {x: -0.14999999, y: 0.0000000333786, z: 0.00000005290378}
+      rotation: {x: -0, y: -0, z: -0, w: -1}
+      scale: {x: 0.9999991, y: 1, z: 0.9999999}
+    - name: Terr_B_hub1_spine1_arm2_clavicle
+      parentName: Terr_B_hub1_spine1
+      position: {x: -0.030447572, y: -0.0000000023444182, z: -0.000000040474802}
+      rotation: {x: -0.000000029802322, y: 0.7071068, z: -0.000000036444042, w: -0.7071068}
+      scale: {x: 0.9999999, y: 1.0000001, z: 1.0000001}
+    - name: Terr_B_hub1_spine1_arm2_upper1
+      parentName: Terr_B_hub1_spine1_arm2_clavicle
+      position: {x: -0.089999996, y: -0.000000028732565, z: -0.00000006822376}
+      rotation: {x: -0.000000002348205, y: -0, z: -0.000000002348205, w: 1}
+      scale: {x: 1.0000002, y: 0.999999, z: 1.000001}
+    - name: Terr_B_hub1_spine1_arm2_lower1
+      parentName: Terr_B_hub1_spine1_arm2_upper1
+      position: {x: -0.16, y: 0.0000000046920494, z: -0.00000003428471}
+      rotation: {x: -0.000000085774474, y: 0.0000005661848, z: 0.02527399, w: 0.99968064}
+      scale: {x: 0.9999997, y: 1.000001, z: 1.0000001}
+    - name: Terr_B_hub1_spine1_arm2_hand
+      parentName: Terr_B_hub1_spine1_arm2_lower1
+      position: {x: -0.099999994, y: -0.000000076207776, z: 0.00000010635952}
+      rotation: {x: 0.70349514, y: -0.07137899, z: 0.07137889, w: 0.70349467}
+      scale: {x: 1, y: 0.9999999, z: 1.0000001}
+    - name: Terr_B_hub1_spine1_arm2_hand_finger41
+      parentName: Terr_B_hub1_spine1_arm2_hand
+      position: {x: -0.04, y: 0.010000003, z: -0.049999997}
+      rotation: {x: 0.009955463, y: -0.17786478, z: -0.11018967, w: 0.97781557}
+      scale: {x: 1.0000014, y: 1, z: 1}
+    - name: Terr_B_hub1_spine1_arm2_hand_finger42
+      parentName: Terr_B_hub1_spine1_arm2_hand_finger41
+      position: {x: -0.03, y: 0, z: 0}
+      rotation: {x: -0.00000030780203, y: 0.00000046752382, z: 0.0000009695357, w: 1}
+      scale: {x: 0.9999992, y: 1, z: 1.0000002}
+    - name: Terr_B_hub1_spine1_arm2_hand_finger43
+      parentName: Terr_B_hub1_spine1_arm2_hand_finger42
+      position: {x: -0.035, y: -0.000000019073491, z: 0}
+      rotation: {x: 0.00000012572852, y: -0.0000002179294, z: -0.0000004629545, w: 1}
+      scale: {x: 1.0000014, y: 1.0000002, z: 1.0000004}
+    - name: Terr_B_hub1_spine1_arm2_hand_finger31
+      parentName: Terr_B_hub1_spine1_arm2_hand
+      position: {x: -0.04, y: 0.015, z: -0.02}
+      rotation: {x: 0.0097431205, y: -0.17706552, z: -0.11043423, w: 0.97793514}
+      scale: {x: 1.0000006, y: 1, z: 1.0000002}
+    - name: Terr_B_hub1_spine1_arm2_hand_finger32
+      parentName: Terr_B_hub1_spine1_arm2_hand_finger31
+      position: {x: -0.04, y: 0.0000000072105437, z: 0.000000036859042}
+      rotation: {x: -0.00000022351733, y: -0.00000011548396, z: 0.0000019426363, w: 1}
+      scale: {x: 1.0000004, y: 0.9999999, z: 1.0000004}
+    - name: Terr_B_hub1_spine1_arm2_hand_finger33
+      parentName: Terr_B_hub1_spine1_arm2_hand_finger32
+      position: {x: -0.035, y: 0.000000036222453, z: 0}
+      rotation: {x: -0.0000000088476195, y: 0.000000045635016, z: -0.0000009758401, w: 1}
+      scale: {x: 0.9999997, y: 1.0000002, z: 1.0000002}
+    - name: Terr_B_hub1_spine1_arm2_hand_finger21
+      parentName: Terr_B_hub1_spine1_arm2_hand
+      position: {x: -0.04, y: 0.015, z: 0.01}
+      rotation: {x: 0.01016825, y: -0.17843798, z: -0.10943556, w: 0.9777936}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000004}
+    - name: Terr_B_hub1_spine1_arm2_hand_finger22
+      parentName: Terr_B_hub1_spine1_arm2_hand_finger21
+      position: {x: -0.04, y: 0.000000009614906, z: 0.000000063463375}
+      rotation: {x: -0.00000009126958, y: 0.00000003725289, z: -0.0000015757536, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000002}
+    - name: Terr_B_hub1_spine1_arm2_hand_finger23
+      parentName: Terr_B_hub1_spine1_arm2_hand_finger22
+      position: {x: -0.03, y: -0.000000013063777, z: -0.0000000038622576}
+      rotation: {x: 0.00000006845222, y: -0.000000078231146, z: 0.0000020932996, w: 1}
+      scale: {x: 0.9999995, y: 1.0000001, z: 0.9999998}
+    - name: Terr_B_hub1_spine1_arm2_hand_finger11
+      parentName: Terr_B_hub1_spine1_arm2_hand
+      position: {x: -0.049999997, y: -0.01999999, z: 0.035}
+      rotation: {x: 0.9162323, y: -0.060276464, z: -0.1521135, w: 0.36571416}
+      scale: {x: 1.0000005, y: 1, z: 1.0000005}
+    - name: Terr_B_hub1_spine1_arm2_hand_finger12
+      parentName: Terr_B_hub1_spine1_arm2_hand_finger11
+      position: {x: -0.024999999, y: 0.0000000262371, z: -0.0000000016447523}
+      rotation: {x: -0.00000038743013, y: 0.00000043186623, z: -0.0000013425056, w: 1}
+      scale: {x: 0.9999996, y: 0.99999964, z: 0.9999998}
+    - name: Terr_B_hub1_spine1_arm2_hand_finger13
+      parentName: Terr_B_hub1_spine1_arm2_hand_finger12
+      position: {x: -0.024999999, y: -0.000000030936423, z: 0.000000029780287}
+      rotation: {x: -0.00000035762724, y: -0.0000006084308, z: 0.0000006982509, w: 1}
+      scale: {x: 1.0000015, y: 1, z: 1.0000001}
+    - name: Terr_B_hub1_spine1_spine1_T1
+      parentName: Terr_B_hub1_spine1
+      position: {x: -0.031056289, y: -0.007606153, z: -0.0064085727}
+      rotation: {x: -0, y: 0.000000059604645, z: 0.000000059604645, w: 1}
+      scale: {x: 1.0075833, y: 1.0000001, z: 1.0000001}
+    - name: Head
+      parentName: Terr_B_hub1_spine1_spine1_T1
+      position: {x: -0.028015403, y: 0.000000098879276, z: -0.000000004170442}
+      rotation: {x: -0, y: -0, z: -0, w: -1}
+      scale: {x: 0.99708635, y: 1.0030414, z: 1.0004762}
+    - name: Terr_B_hub1_spine1_arm1_clavicle
+      parentName: Terr_B_hub1_spine1
+      position: {x: -0.0304475, y: 0.000000009269714, z: -0.000000037312503}
+      rotation: {x: -0.00000007663597, y: 0.7071068, z: -0.0000002384186, w: 0.7071068}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: Terr_B_hub1_spine1_arm1_upper1
+      parentName: Terr_B_hub1_spine1_arm1_clavicle
+      position: {x: -0.089999996, y: -0.00000003814697, z: -0.00000003814697}
+      rotation: {x: 0.00000024083818, y: -0.00000008940697, z: -0.0000002227772, w: -1}
+      scale: {x: 1.0000013, y: 0.9999997, z: 1.0000011}
+    - name: Terr_B_hub1_spine1_arm1_lower1
+      parentName: Terr_B_hub1_spine1_arm1_upper1
+      position: {x: -0.16, y: 0, z: 0.000000019073491}
+      rotation: {x: -0.000000006280458, y: -0.000000095465396, z: 0.025274193, w: 0.9996805}
+      scale: {x: 0.999999, y: 1.0000005, z: 1.0000006}
+    - name: Terr_B_hub1_spine1_arm1_hand
+      parentName: Terr_B_hub1_spine1_arm1_lower1
+      position: {x: -0.099999994, y: 0.000000057220458, z: 0}
+      rotation: {x: -0.70349485, y: 0.071378894, z: 0.07137879, w: 0.70349497}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000015}
+    - name: Terr_B_hub1_spine1_arm1_hand_finger41
+      parentName: Terr_B_hub1_spine1_arm1_hand
+      position: {x: -0.04, y: 0.01, z: 0.049999997}
+      rotation: {x: -0.009955914, y: 0.1778652, z: -0.11019006, w: 0.97781545}
+      scale: {x: 1.0000008, y: 1.0000001, z: 1.0000004}
+    - name: Terr_B_hub1_spine1_arm1_hand_finger42
+      parentName: Terr_B_hub1_spine1_arm1_hand_finger41
+      position: {x: -0.03, y: 0, z: 0.00000003814697}
+      rotation: {x: 0.00000024214387, y: 0.00000020861626, z: -0.000001121145, w: 1}
+      scale: {x: 1.0000001, y: 0.999999, z: 0.99999994}
+    - name: Terr_B_hub1_spine1_arm1_hand_finger43
+      parentName: Terr_B_hub1_spine1_arm1_hand_finger42
+      position: {x: -0.035, y: -0.00000003814697, z: -0.000000019073491}
+      rotation: {x: 0.00000003632175, y: -0.00000023096786, z: 0.00000044071209, w: 1}
+      scale: {x: 0.9999997, y: 0.9999999, z: 0.9999997}
+    - name: Terr_B_hub1_spine1_arm1_hand_finger31
+      parentName: Terr_B_hub1_spine1_arm1_hand
+      position: {x: -0.04, y: 0.015, z: 0.02}
+      rotation: {x: -0.009743212, y: 0.17706537, z: -0.110432275, w: 0.9779354}
+      scale: {x: 0.9999999, y: 1.0000002, z: 1.0000002}
+    - name: Terr_B_hub1_spine1_arm1_hand_finger32
+      parentName: Terr_B_hub1_spine1_arm1_hand_finger31
+      position: {x: -0.04, y: -0.000000019073491, z: 0}
+      rotation: {x: 0.00000032270324, y: 0.00000017229466, z: 0.000001495642, w: 1}
+      scale: {x: 0.99999946, y: 1.0000001, z: 1.0000002}
+    - name: Terr_B_hub1_spine1_arm1_hand_finger33
+      parentName: Terr_B_hub1_spine1_arm1_hand_finger32
+      position: {x: -0.035, y: 0.000000019073491, z: 0.000000019073491}
+      rotation: {x: 0.000000025611197, y: -0.00000023562495, z: -0.0000010345974, w: 1}
+      scale: {x: 1.0000013, y: 1.0000002, z: 0.99999994}
+    - name: Terr_B_hub1_spine1_arm1_hand_finger21
+      parentName: Terr_B_hub1_spine1_arm1_hand
+      position: {x: -0.04, y: 0.015, z: -0.01}
+      rotation: {x: -0.010168462, y: 0.17843664, z: -0.10943495, w: 0.977794}
+      scale: {x: 1.0000008, y: 1, z: 1.0000001}
+    - name: Terr_B_hub1_spine1_arm1_hand_finger22
+      parentName: Terr_B_hub1_spine1_arm1_hand_finger21
+      position: {x: -0.04, y: 0, z: 0.00000003814697}
+      rotation: {x: -0.000000047963105, y: -0.000000050291412, z: 0.0000020891819, w: 1}
+      scale: {x: 1.000001, y: 1, z: 0.9999998}
+    - name: Terr_B_hub1_spine1_arm1_hand_finger23
+      parentName: Terr_B_hub1_spine1_arm1_hand_finger22
+      position: {x: -0.03, y: 0, z: 0}
+      rotation: {x: 0.000000022817332, y: -0.0000000055879315, z: -0.0000010952352, w: 1}
+      scale: {x: 0.9999996, y: 1.0000002, z: 1.0000004}
+    - name: Terr_B_hub1_spine1_arm1_hand_finger11
+      parentName: Terr_B_hub1_spine1_arm1_hand
+      position: {x: -0.049999997, y: -0.02, z: -0.035}
+      rotation: {x: -0.9162327, y: 0.06027539, z: -0.15211323, w: 0.36571324}
+      scale: {x: 1.0000008, y: 0.9999997, z: 1.0000006}
+    - name: Terr_B_hub1_spine1_arm1_hand_finger12
+      parentName: Terr_B_hub1_spine1_arm1_hand_finger11
+      position: {x: -0.024999999, y: -0.000000028610229, z: 0}
+      rotation: {x: 0.00000020861623, y: 0.0000035993946, z: 0.00000035336305, w: 1}
+      scale: {x: 0.9999997, y: 1.0000005, z: 1}
+    - name: Terr_B_hub1_spine1_arm1_hand_finger13
+      parentName: Terr_B_hub1_spine1_arm1_hand_finger12
+      position: {x: -0.024999999, y: 0.000000009536743, z: 0}
+      rotation: {x: -0.00000002980201, y: -0.000001772109, z: -0.00000025466855, w: 1}
+      scale: {x: 1.0000008, y: 0.99999994, z: 1.0000002}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

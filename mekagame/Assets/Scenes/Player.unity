@@ -1854,7 +1854,7 @@ PlayableDirector:
   m_GameObject: {fileID: 300181912}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 0284288b15eacee48b2f9ed3a024e888, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 10b6856d87debdc45acaaf4d91e3ee25, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -1916,6 +1916,8 @@ PlayableDirector:
     value: {fileID: 614741174}
   - key: {fileID: 7059275851109349420, guid: da0fcca7b68d7b944aeed8e19cca899f, type: 2}
     value: {fileID: 1512779941}
+  - key: {fileID: -3626453026698635018, guid: 10b6856d87debdc45acaaf4d91e3ee25, type: 2}
+    value: {fileID: 614741174}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &300181914
@@ -1953,6 +1955,7 @@ MonoBehaviour:
   phase3Timeline: {fileID: 11400000, guid: 5a60c532da9772b49851375250dcc4d5, type: 2}
   phase4Timeline: {fileID: 11400000, guid: 956fd45f54c364248994dc303f0f0f81, type: 2}
   phaseTransition_Normal: {fileID: 11400000, guid: 88b1458dd478c8a45b2b715075ecedcf, type: 2}
+  phaseTransition_Normal2: {fileID: 11400000, guid: 10b6856d87debdc45acaaf4d91e3ee25, type: 2}
   phaseTransition_Last: {fileID: 11400000, guid: da0fcca7b68d7b944aeed8e19cca899f, type: 2}
   countdown: {fileID: 11400000, guid: 0284288b15eacee48b2f9ed3a024e888, type: 2}
   phase2Threshold: 0.8

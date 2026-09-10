@@ -17,6 +17,7 @@ public class TimelineManager : MonoBehaviour
 
     [Header("カウントダウン")]
     [SerializeField] private PlayableAsset phaseTransition_Normal;
+    [SerializeField] private PlayableAsset phaseTransition_Normal2;
     [SerializeField] private PlayableAsset phaseTransition_Last;
 
     [Header("フェーズ移行時のタイムライン")]
@@ -81,6 +82,8 @@ public class TimelineManager : MonoBehaviour
         {
             NotifyPhaseCleared();
             animator.SetTrigger("IsPhaseChange");
+            animator.SetBool("IsPhase2", false);
+            animator.SetBool("IsPhase3", false);
             currentPhase = 2;
             SetWrapModeNone();
             return phaseTransition_Normal;
@@ -93,7 +96,7 @@ public class TimelineManager : MonoBehaviour
             animator.SetBool("IsPhase3", false);
             currentPhase = 3;
             SetWrapModeNone();
-            return phaseTransition_Normal;
+            return phaseTransition_Normal2;
         }
         else if (ratio <= phase4Threshold && currentPhase < 4)
         {
@@ -138,10 +141,15 @@ public class TimelineManager : MonoBehaviour
             SetWrapModeLoop();
             SwitchTimeline(phase2Timeline);
         }
-        if (currentTimeline == phaseTransition_Last)
+        if (currentTimeline == phaseTransition_Normal2)
         {
             SetWrapModeLoop();
             SwitchTimeline(phase3Timeline);
+        }
+        if (currentTimeline == phaseTransition_Last)
+        {
+            SetWrapModeLoop();
+            SwitchTimeline(phase4Timeline);
         }
     }
 
