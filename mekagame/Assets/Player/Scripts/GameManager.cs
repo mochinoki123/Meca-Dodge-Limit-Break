@@ -95,11 +95,15 @@ public class GameManager : MonoBehaviour
     {
         ResetGage();
         FindUIElements();
-        clearFlag.ResetGameFlag();
 
         isTutorial = false;
 
-        if (scene.name == "Player") IsPlayerDead = false;
+        if (scene.name == "Player")
+        {
+            clearFlag.ResetGameFlag();
+            IsPlayerDead = false;
+        }
+
         if (scene.name == "Tutorial")
         {
             isTutorial = true;

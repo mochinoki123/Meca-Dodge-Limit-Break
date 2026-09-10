@@ -1,6 +1,8 @@
 using Cysharp.Threading.Tasks.Triggers;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,15 +18,24 @@ public class Scene : MonoBehaviour
     [SerializeField] private ClearFlag clearFlag;
     [SerializeField] private AudioClip titlebuttonclip;
     [SerializeField] private GameObject OptionCanvas;
+    [SerializeField] private Slider seSlider;
+    [SerializeField] private Slider bgmSlider;
+    [SerializeField] private Button start;
+    [SerializeField] private Button tutorial;
 
     private AudioSource audioSource;
-    private RectTransform titlepos;
+    private PlayerInput playerInput;
+    //private RectTransform titlepos;
     private bool isTransitioning = false;
+    private bool isOption = false;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        titlepos.anchoredPosition = title.anchoredPosition;
+        playerInput = GetComponent<PlayerInput>();
+        //titlepos.anchoredPosition = title.anchoredPosition;
+        Interactable(0, true);
+        Interactable(1, false);
     }
 
     private void OnEnable()
@@ -107,12 +118,14 @@ public class Scene : MonoBehaviour
 
     async public void OnOptionButton()
     {
+        isOption = true;
         await Task.Delay(500);
         OptionCanvas.SetActive(true);
     }
 
     async public void OnOptionOffButton()
     {
+        isOption = false;
         await Task.Delay(500);
         OptionCanvas.SetActive(false);
     }
@@ -123,5 +136,38 @@ public class Scene : MonoBehaviour
         if (!CanTransition()) return;
         await Task.Delay(500);
         FadeManager.Instance.LoadScene("Loading", 1f);
+    }
+
+    private void OnSettings(InputValue value)
+    {
+        if (isOption)
+        {
+            Interactable(0, true);
+            Interactable(1, false);
+            OnOptionOffButton();
+        }
+        else
+        {
+            Interactable(0, false);
+            Interactable(1, true);
+            OnOptionButton();
+        }
+    }
+
+    private void Interactable(int num, bool interactable)
+    {
+        //ボタンの有効無効
+        if(num == 0)
+        {
+            start.interactable = interactable;
+            tutorial.interactable = interactable;
+        }
+        //スライダーの有効無効
+        if (num == 1)
+        {
+            bgmSlider.interactable = interactable;
+            seSlider.interactable = interactable;
+        }
+        else return;
     }
 }
