@@ -93,8 +93,9 @@ public class GameManager : MonoBehaviour
    
     void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
-        ResetGage();
         FindUIElements();
+
+        ResetGage();
 
         isTutorial = false;
 

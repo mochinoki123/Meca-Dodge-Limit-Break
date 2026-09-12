@@ -27,6 +27,10 @@ public class PlayerParry : MonoBehaviour
     [SerializeField] private AudioClip parrySound;
     // LB追撃エフェクト (※プレハブを想定)
     [SerializeField] private GameObject lBEffect;
+    // LBの効果音
+    [SerializeField] private AudioClip lbSound;
+    // LBカットイン
+    [SerializeField] private GameObject lbCutIn;
 
     // パリィ受付中フラグ（外部読み取り専用）
     public bool isParry { get; private set; } = false;
@@ -43,6 +47,7 @@ public class PlayerParry : MonoBehaviour
     private AudioSource audioSource;
     private Renderer rend;
     private ObjectParry objectParryComponent;
+    private CutIn cutIn;
     
     private void Awake()
     {
@@ -51,8 +56,11 @@ public class PlayerParry : MonoBehaviour
         pd = GetComponent<PlayerPulseDiffuser>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        cutIn = GetComponent<CutIn>();
         rend = GetComponentInChildren<Renderer>();
         textScript = GetComponentInChildren<TextScript>();
+
+        lbCutIn.SetActive(false);
 
         // パリィ判定オブジェクトからコンポーネントを取得
         if (playerParry != null)
@@ -190,6 +198,12 @@ public class PlayerParry : MonoBehaviour
     // LB追撃処理
     private IEnumerator LBAttack()
     {
+        //LB効果音再生
+        audioSource?.PlayOneShot(lbSound);
+        //LBカットイン
+        lbCutIn.SetActive(true);
+        yield return new WaitForSeconds(1.0f);
+        lbCutIn.SetActive(false);
         // 追撃アニメーション再生
         animator?.SetTrigger("LimitBreak");
         //transform.DOMoveY(jumpPosition, lbAnimationDuration);

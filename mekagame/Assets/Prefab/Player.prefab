@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 6463865697825756968}
   - component: {fileID: 2429437923891571153}
   - component: {fileID: 2588406216136022160}
+  - component: {fileID: 7658857560970150489}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -410,6 +411,7 @@ MonoBehaviour:
   blinkInterval: 0.1
   parrySound: {fileID: 8300000, guid: cc8dd4d866faf2a4198c8398cec66be1, type: 3}
   lBEffect: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  lbSound: {fileID: 8300000, guid: ff03cb51e61b14045b869a5973ebe2e5, type: 3}
 --- !u!114 &2239482457582927747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,6 +711,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Animation
   isClear: {fileID: 11400000, guid: b20a79a8b5672a24ba715bb6d2bb63d7, type: 2}
   animator: {fileID: 2230653814415199337}
+--- !u!114 &7658857560970150489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759398697348694051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794c4e22a5c53b5459deff671f5385d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutIn
 --- !u!1 &4425997469102079863
 GameObject:
   m_ObjectHideFlags: 0

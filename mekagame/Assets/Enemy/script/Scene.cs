@@ -27,6 +27,7 @@ public class Scene : MonoBehaviour
     private AudioSource audioSource;
     //private RectTransform titlepos;
     private bool isTransitioning = false;
+    private bool isSettings = false;
 
     // ★ ハードモード中かどうかを保持するフラグ（シーンをまたいでも保持できるように static にするか、マネージャー管理にします）
     public static bool IsHardMode { get; private set; } = false;
@@ -97,10 +98,13 @@ public class Scene : MonoBehaviour
     //タイトルボタン
     async public void OnTitleButton()
     {
+        if (!CanTransition()) return;
+
         // まずハードモード分岐をチェック
         if (clearFlag.IsGameCleared.Value)
         {
             HardCanvas.SetActive(true);
+            isTransitioning = false;
         }
         else
         {
@@ -108,7 +112,6 @@ public class Scene : MonoBehaviour
             FadeManager.Instance.LoadScene("Title", 1f);
 
         }
-        if (!CanTransition()) return;
         await Task.Delay(500);
     }
 
@@ -181,5 +184,20 @@ public class Scene : MonoBehaviour
         HideAllCanvases();
         await Task.Delay(500);
         FadeManager.Instance.LoadScene("Title", 1f);
+    }
+
+    // 設定ボタン
+    private void OnSettings(InputValue value)
+    {
+        if(!isSettings)
+        {
+            isSettings = true;
+            OnOptionButton();
+        }
+        else
+        {
+            isSettings = false;
+            OnOptionOffButton();
+        }
     }
 }
